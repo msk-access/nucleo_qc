@@ -37,7 +37,49 @@ inputs:
     type: File
     'sbg:x': 0
     'sbg:y': 381.46875
-outputs: []
+outputs:
+  - id: read_counts
+    outputSource:
+      - test_waltz_7/read_counts
+    type: File
+    'sbg:x': 618.6788330078125
+    'sbg:y': -165.26571655273438
+  - id: pileup_without_duplicates
+    outputSource:
+      - test_waltz_7/pileup_without_duplicates
+    type: File
+    'sbg:x': 684.611572265625
+    'sbg:y': 87.16242218017578
+  - id: pileup
+    outputSource:
+      - test_waltz_7/pileup
+    type: File
+    'sbg:x': 724.1712036132812
+    'sbg:y': -10.794766426086426
+  - id: intervals_without_duplicates
+    outputSource:
+      - test_waltz_7/intervals_without_duplicates
+    type: File
+    'sbg:x': 775.0335693359375
+    'sbg:y': 260.4712829589844
+  - id: intervals
+    outputSource:
+      - test_waltz_7/intervals
+    type: File
+    'sbg:x': 763.7308349609375
+    'sbg:y': 418.7098083496094
+  - id: fragment_sizes
+    outputSource:
+      - test_waltz_7/fragment_sizes
+    type: File
+    'sbg:x': 797.6390991210938
+    'sbg:y': 588.2510986328125
+  - id: covered_regions
+    outputSource:
+      - test_waltz_7/covered_regions
+    type: File
+    'sbg:x': 756.1956787109375
+    'sbg:y': 770.9789428710938
 steps:
   - id: test_waltz
     in:
