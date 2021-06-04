@@ -433,7 +433,7 @@ steps:
       - id: gatk_collect_hs_metrics_per_target_coverage_txt_pool_a
       - id: gatk_collect_hs_metrics_per_base_coverage_txt_pool_a
       - id: gatk_collect_alignment_summary_metrics_txt_pool_a
-    run: ../qc_collapsed_bam/qc_collapsed_bam.cwl
+    run: ../cwl_subworkflows/qc_collapsed_bam/qc_collapsed_bam.cwl
     label: qc_collapsed_bam
     scatter:
       - collapsed_bam
@@ -486,7 +486,7 @@ steps:
       - id: gatk_mean_quality_by_cycle_chart_output
       - id: gatk_mean_quality_by_cycle_output_base_recal
       - id: gatk_mean_quality_by_cycle_chart_output_base_recal
-    run: ../qc_uncollapsed_bam/qc_uncollapsed_bam.cwl
+    run: ../cwl_subworkflows/qc_uncollapsed_bam/qc_uncollapsed_bam.cwl
     label: qc_uncollapsed_bam
     scatter:
       - uncollapsed_bam
@@ -582,7 +582,7 @@ steps:
       - id: gatk_collect_insert_size_metrics_histogram_pdf_pool_a
       - id: gatk_collect_insert_size_metrics_txt_pool_a
       - id: sequence_qc_pileup
-    run: ../qc_duplex_bam/qc_duplex_bam.cwl
+    run: ../cwl_subworkflows/qc_duplex_bam/qc_duplex_bam.cwl
     label: qc_duplex_bam
     scatter:
       - duplex_bam
@@ -929,7 +929,7 @@ steps:
       - id: gatk_collect_hs_metrics_txt_pool_a
       - id: gatk_collect_insert_size_metrics_histogram_pdf_pool_a
       - id: gatk_collect_insert_size_metrics_txt_pool_a
-    run: ../qc_simplex_bam/qc_simplex_bam.cwl
+    run: ../cwl_subworkflows/qc_simplex_bam/qc_simplex_bam.cwl
     label: qc_simplex_bam
     scatter:
       - simplex_bam
