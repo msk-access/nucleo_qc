@@ -239,106 +239,106 @@ outputs:
       - uncollapsed_bam_stats_pool_a/directory
     type: Directory
     label: uncollapsed_bam_stats_pool_a_dir
-    'sbg:x': 936.3370971679688
-    'sbg:y': 1276.5693359375
+    'sbg:x': 1349.0845947265625
+    'sbg:y': 1307.4302978515625
   - id: uncollapsed_bam_stats_pool_b_dir
     outputSource:
       - uncollapsed_bam_stats_pool_b/directory
     type: Directory
     label: uncollapsed_bam_stats_pool_b_dir
-    'sbg:x': 938.3370971679688
-    'sbg:y': 1104.712890625
+    'sbg:x': 1252.303466796875
+    'sbg:y': 1104
   - id: gatk_mean_quality_by_cycle_dir
     outputSource:
       - gatk_mean_quality_by_cycle/directory
     type: Directory
     label: gatk_mean_quality_by_cycle_dir
-    'sbg:x': 942.054931640625
-    'sbg:y': 969.8564453125
+    'sbg:x': 1184.462646484375
+    'sbg:y': 928.5895385742188
   - id: gatk_mean_quality_by_cycle_recal_dir
     outputSource:
       - gatk_mean_quality_by_cycle_recal/directory
     type: Directory
     label: gatk_mean_quality_by_cycle_recal_dir
-    'sbg:x': 926.4806518554688
-    'sbg:y': 829.7128295898438
+    'sbg:x': 1137.0323486328125
+    'sbg:y': 743.6890258789062
   - id: collapsed_bam_biometrics_dir
     outputSource:
       - collapsed_bam_biometrics/directory
     type: Directory
     label: collapsed_bam_biometrics_dir
-    'sbg:x': 1134.9063720703125
-    'sbg:y': 399.7128601074219
+    'sbg:x': 1376.462646484375
+    'sbg:y': 399
   - id: collapsed_bam_duplex_metrics_pool_b_dir
     outputSource:
       - collapsed_bam_duplex_metrics_pool_b/directory
     type: Directory
     label: collapsed_bam_duplex_metrics_pool_b_dir
-    'sbg:x': 1145.767822265625
+    'sbg:x': 1782.5870361328125
     'sbg:y': 271
   - id: collapsed_bam_duplex_metrics_pool_a_dir
     outputSource:
       - collapsed_bam_duplex_metrics_pool_a/directory
     type: Directory
     label: collapsed_bam_duplex_metrics_pool_a_dir
-    'sbg:x': 1166.6292724609375
-    'sbg:y': 141.14356994628906
+    'sbg:x': 1745.2164306640625
+    'sbg:y': 141
   - id: collapsed_bam_stats_pool_b_dir
     outputSource:
       - collapsed_bam_stats_pool_b/directory
     type: Directory
     label: collapsed_bam_stats_pool_b_dir
-    'sbg:x': 1170.485595703125
+    'sbg:x': 1744.726318359375
     'sbg:y': 15
   - id: collapsed_bam_stats_pool_a_dir
     outputSource:
       - collapsed_bam_stats_pool_a/directory
     type: Directory
     label: collapsed_bam_stats_pool_a_dir
-    'sbg:x': 1160.911376953125
-    'sbg:y': -114.71286010742188
+    'sbg:x': 1478.7935791015625
+    'sbg:y': -114
   - id: simplex_bam_pool_a_dir
     outputSource:
       - simplex_bam_pool_a/directory
     type: Directory
     label: simplex_bam_pool_a_dir
-    'sbg:x': 683.2476806640625
-    'sbg:y': -1022.0474853515625
+    'sbg:x': 683
+    'sbg:y': -1466.514892578125
   - id: simplex_bam_pool_b_dir
     outputSource:
       - simplex_bam_pool_b/directory
     type: Directory
     label: simplex_bam_pool_b_dir
-    'sbg:x': 684.8497924804688
-    'sbg:y': -855.4249267578125
+    'sbg:x': 800.7412719726562
+    'sbg:y': -1164.8134765625
   - id: duplex_bam_sequence_qc_dir
     outputSource:
       - duplex_bam_sequence_qc/directory
     type: Directory
     label: duplex_bam_sequence_qc_dir
-    'sbg:x': 729.1605224609375
-    'sbg:y': -713.2938842773438
+    'sbg:x': 787.3706665039062
+    'sbg:y': -865.6616821289062
   - id: duplex_bam_stats_pool_a_dir
     outputSource:
       - duplex_bam_stats_pool_a/directory
     type: Directory
     label: duplex_bam_stats_pool_a_dir
-    'sbg:x': 733.3512573242188
-    'sbg:y': -600.1427001953125
+    'sbg:x': 1173.02490234375
+    'sbg:y': -608.9801025390625
   - id: duplex_bam_stats_pool_b_dir
     outputSource:
       - duplex_bam_stats_pool_b/directory
     type: Directory
     label: duplex_bam_stats_pool_b_dir
-    'sbg:x': 738.5897827148438
-    'sbg:y': -483.848388671875
+    'sbg:x': 1357.6268310546875
+    'sbg:y': -460.54974365234375
   - id: duplex_bam_biometrics_dir
     outputSource:
       - duplex_bam_biometrics/directory
     type: Directory
     label: duplex_bam_biometrics_dir
-    'sbg:x': 745.9236450195312
-    'sbg:y': -362.3155822753906
+    'sbg:x': 1517.28857421875
+    'sbg:y': -326.07958984375
 steps:
   - id: qc_collapsed_bam
     in:
@@ -449,9 +449,6 @@ steps:
     in:
       - id: reference
         source: reference
-      - id: uncollapsed_bam
-        source:
-          - uncollapsed_bam
       - id: uncollapsed_bam_base_recal
         source:
           - uncollapsed_bam_base_recal
@@ -469,6 +466,9 @@ steps:
         source: hsmetrics_minimum_base_quality
       - id: hsmetrics_coverage_cap
         source: hsmetrics_coverage_cap
+      - id: uncollapsed_bam
+        source:
+          - uncollapsed_bam
     out:
       - id: gatk_collect_alignment_summary_metrics_txt_pool_b
       - id: gatk_collect_hs_metrics_per_base_coverage_txt_pool_b
@@ -611,8 +611,8 @@ steps:
       - id: directory
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: simplex_bam_pool_a
-    'sbg:x': 439.89935302734375
-    'sbg:y': -1027.125244140625
+    'sbg:x': 439
+    'sbg:y': -1233.542236328125
   - id: simplex_bam_pool_b
     in:
       - id: files
@@ -631,8 +631,8 @@ steps:
       - id: directory
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: simplex_bam_pool_b
-    'sbg:x': 441.774169921875
-    'sbg:y': -861.6499633789062
+    'sbg:x': 427.52984619140625
+    'sbg:y': -1054.0721435546875
   - id: uncollapsed_bam_stats_pool_b
     in:
       - id: files
@@ -835,8 +835,8 @@ steps:
       - id: directory
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_bam_sequence_qc
-    'sbg:x': 530.0716552734375
-    'sbg:y': -710.9133911132812
+    'sbg:x': 453.6691589355469
+    'sbg:y': -790.8209228515625
   - id: duplex_bam_stats_pool_a
     in:
       - id: files
