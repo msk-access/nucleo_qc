@@ -203,6 +203,17 @@ steps:
       - id: duplex_bam_biometrics_dir
     run: qc_generator/qc_generator.cwl
     label: qc_generator
+    scatter:
+      - duplex_bam
+      - collapsed_bam
+      - group_reads_by_umi_bam
+      - uncollapsed_bam
+      - uncollapsed_bam_base_recal
+      - sample_type
+      - sample_sex
+      - sample_name
+      - sample_group
+      - simplex_bam
     'sbg:x': -289.4132385253906
     'sbg:y': -274.12384033203125
   - id: qc_aggregator
@@ -276,3 +287,4 @@ steps:
     'sbg:y': -141.2582550048828
 requirements:
   - class: SubworkflowFeatureRequirement
+  - class: ScatterFeatureRequirement
