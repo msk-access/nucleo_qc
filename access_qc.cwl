@@ -234,8 +234,9 @@ steps:
     'sbg:y': -74.16935729980469
   - id: multiqc_1_10_1
     in:
-      - id: qc_files_dir
-        source: qc_aggregator/outdir
+      - id: qc_list_of_dirs
+        source:
+          - qc_aggregator/outdir
       - id: config
         source: config
     out:
