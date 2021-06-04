@@ -9,9 +9,6 @@ inputs:
     type:
       type: array
       items: File
-      inputBinding:
-        position: 0
-        prefix: '--input'
     label: duplex_extraction_files
     doc: >-
       Can be one of three types: (1) path to a CSV file containing sample
@@ -199,9 +196,6 @@ inputs:
     type:
       type: array
       items: File
-      inputBinding:
-        position: 0
-        prefix: '--input'
     label: collapsed_extraction_files
     doc: >-
       Can be one of three types: (1) path to a CSV file containing sample
