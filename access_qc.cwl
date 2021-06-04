@@ -25,20 +25,20 @@ inputs:
     'sbg:y': -459.99566650390625
   - id: uncollapsed_bam_base_recal
     type: 'File[]'
-    'sbg:x': -514
-    'sbg:y': -561.4248046875
+    'sbg:x': -458.9684143066406
+    'sbg:y': -638.8032836914062
   - id: uncollapsed_bam
     type: 'File[]'
-    'sbg:x': -638.2566528320312
-    'sbg:y': -555.7964477539062
+    'sbg:x': -689.236328125
+    'sbg:y': -659.3702392578125
   - id: simplex_bam
     type: 'File[]'
     'sbg:x': -722.554443359375
     'sbg:y': -483.1758117675781
   - id: duplex_bam
     type: 'File[]'
-    'sbg:x': -698.2182006835938
-    'sbg:y': -359.2820129394531
+    'sbg:x': -642.9684448242188
+    'sbg:y': -324.84246826171875
   - id: reference
     type: File
     'sbg:x': -972.5465087890625
@@ -75,6 +75,10 @@ inputs:
     type: File?
     'sbg:x': 526.150146484375
     'sbg:y': -405.7807922363281
+  - id: collapsed_bam
+    type: 'File[]'
+    'sbg:x': -835.9942016601562
+    'sbg:y': -571.205078125
 outputs:
   - id: collapsed_bam_biometrics_dir
     outputSource:
@@ -126,6 +130,9 @@ steps:
       - id: duplex_bam
         source:
           - duplex_bam
+      - id: collapsed_bam
+        source:
+          - collapsed_bam
       - id: group_reads_by_umi_bam
         source:
           - group_reads_by_umi_bam
@@ -168,8 +175,8 @@ steps:
       - id: duplex_bam_biometrics_dir
     run: qc_generator/qc_generator.cwl
     label: qc_generator
-    'sbg:x': -383
-    'sbg:y': -64
+    'sbg:x': -291.0184631347656
+    'sbg:y': -352.779296875
   - id: qc_aggregator
     in:
       - id: duplex_extraction_files
