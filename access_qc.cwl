@@ -79,6 +79,22 @@ inputs:
     type: 'File[]'
     'sbg:x': -835.9942016601562
     'sbg:y': -571.205078125
+  - id: sample_group
+    type: 'string[]'
+    'sbg:x': -261.67791748046875
+    'sbg:y': -712.6024169921875
+  - id: sample_name
+    type: 'string[]?'
+    'sbg:x': -443.0584411621094
+    'sbg:y': -781.15283203125
+  - id: sample_sex
+    type: 'string[]?'
+    'sbg:x': -615.9489135742188
+    'sbg:y': -871.78125
+  - id: sample_type
+    type: 'string[]?'
+    'sbg:x': -801.7835083007812
+    'sbg:y': -743.8213500976562
 outputs:
   - id: collapsed_bam_biometrics_dir
     outputSource:
@@ -154,6 +170,18 @@ steps:
         source: biometrics_vcf_file
       - id: noise_sites_bed
         source: noise_sites_bed
+      - id: sample_type
+        source:
+          - sample_type
+      - id: sample_sex
+        source:
+          - sample_sex
+      - id: sample_name
+        source:
+          - sample_name
+      - id: sample_group
+        source:
+          - sample_group
       - id: simplex_bam
         source:
           - simplex_bam
@@ -175,8 +203,8 @@ steps:
       - id: duplex_bam_biometrics_dir
     run: qc_generator/qc_generator.cwl
     label: qc_generator
-    'sbg:x': -291.0184631347656
-    'sbg:y': -352.779296875
+    'sbg:x': -289.4132385253906
+    'sbg:y': -274.12384033203125
   - id: qc_aggregator
     in:
       - id: duplex_extraction_files
