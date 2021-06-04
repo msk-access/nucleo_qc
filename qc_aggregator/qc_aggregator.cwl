@@ -284,7 +284,7 @@ steps:
       - id: biometrics_genotype_cluster_input_database
       - id: biometrics_genotype_plot_input
       - id: biometrics_genotype_plot_input_database
-    run: ../command_line_tools/biometrics_genotype/0.2.9/biometrics_genotype.cwl
+    run: ../cwl-commandlinetools/biometrics_genotype/0.2.9/biometrics_genotype.cwl
     'sbg:x': 410.1875
     'sbg:y': 1133.453125
   - id: aggregate
@@ -322,7 +322,7 @@ steps:
           - duplex_bam_sequence_qc_dir
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: aggregate
     scatter:
       - files
@@ -349,7 +349,7 @@ steps:
       - id: biometrics_major_csv
       - id: biometrics_major_json
       - id: biometrics_major_plot
-    run: ../command_line_tools/biometrics_major/0.2.9/biometrics_major.cwl
+    run: ../cwl-commandlinetools/biometrics_major/0.2.9/biometrics_major.cwl
     label: duplex_biometrics_major
     'sbg:x': 410.1875
     'sbg:y': 977.59375
@@ -373,7 +373,7 @@ steps:
       - id: biometrics_minor_json
       - id: biometrics_minor_plot
       - id: biometrics_minor_sites_plot
-    run: ../command_line_tools/biometrics_minor/0.2.9/biometrics_minor.cwl
+    run: ../cwl-commandlinetools/biometrics_minor/0.2.9/biometrics_minor.cwl
     label: duplex_biometrics_minor
     'sbg:x': 410.1875
     'sbg:y': 828.734375
@@ -392,7 +392,7 @@ steps:
       - id: biometrics_sexmismatch_csv
       - id: biometrics_sexmismatch_json
     run: >-
-      ../command_line_tools/biometrics_sexmismatch/0.2.9/biometrics_sexmismatch.cwl
+      ../cwl-commandlinetools/biometrics_sexmismatch/0.2.9/biometrics_sexmismatch.cwl
     label: duplex_biometrics_sexmismatch
     'sbg:x': 410
     'sbg:y': 623.2350463867188
@@ -419,7 +419,7 @@ steps:
         default: duplex_biometrics_output
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_biometrics_agg
     'sbg:x': 887.649169921875
     'sbg:y': 1282.3125
@@ -446,7 +446,7 @@ steps:
       - id: biometrics_genotype_cluster_input_database
       - id: biometrics_genotype_plot_input
       - id: biometrics_genotype_plot_input_database
-    run: ../command_line_tools/biometrics_genotype/0.2.9/biometrics_genotype.cwl
+    run: ../cwl-commandlinetools/biometrics_genotype/0.2.9/biometrics_genotype.cwl
     label: collapsed_biometrics_genotype
     'sbg:x': 410.1875
     'sbg:y': 1728.890625
@@ -470,7 +470,7 @@ steps:
       - id: biometrics_major_csv
       - id: biometrics_major_json
       - id: biometrics_major_plot
-    run: ../command_line_tools/biometrics_major/0.2.9/biometrics_major.cwl
+    run: ../cwl-commandlinetools/biometrics_major/0.2.9/biometrics_major.cwl
     label: collapsed_biometrics_major
     'sbg:x': 410.1875
     'sbg:y': 1573.03125
@@ -497,7 +497,7 @@ steps:
       - id: biometrics_minor_json
       - id: biometrics_minor_plot
       - id: biometrics_minor_sites_plot
-    run: ../command_line_tools/biometrics_minor/0.2.9/biometrics_minor.cwl
+    run: ../cwl-commandlinetools/biometrics_minor/0.2.9/biometrics_minor.cwl
     label: collapsed_biometrics_minor
     'sbg:x': 410.1875
     'sbg:y': 1424.171875
@@ -517,7 +517,7 @@ steps:
       - id: biometrics_sexmismatch_csv
       - id: biometrics_sexmismatch_json
     run: >-
-      ../command_line_tools/biometrics_sexmismatch/0.2.9/biometrics_sexmismatch.cwl
+      ../cwl-commandlinetools/biometrics_sexmismatch/0.2.9/biometrics_sexmismatch.cwl
     label: collapsed_biometrics_sexmismatch
     'sbg:x': 410.1875
     'sbg:y': 1282.3125
@@ -545,7 +545,7 @@ steps:
         default: collapsed_biometrics_output
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: collapsed_biometrics_agg
     'sbg:x': 887.649169921875
     'sbg:y': 1389.171875

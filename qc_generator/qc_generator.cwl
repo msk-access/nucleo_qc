@@ -609,7 +609,7 @@ steps:
         default: simplex_bam_pool_a
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: simplex_bam_pool_a
     'sbg:x': 439.89935302734375
     'sbg:y': -1027.125244140625
@@ -629,7 +629,7 @@ steps:
         default: simplex_bam_pool_b
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: simplex_bam_pool_b
     'sbg:x': 441.774169921875
     'sbg:y': -861.6499633789062
@@ -651,7 +651,7 @@ steps:
         default: uncollapsed_bam_stats_pool_b
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: uncollapsed_bam_stats_pool_b
     'sbg:x': 395.6892395019531
     'sbg:y': 1122.4478759765625
@@ -673,7 +673,7 @@ steps:
         default: uncollapsed_bam_stats_pool_a
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: uncollapsed_bam_stats_pool_a
     'sbg:x': 402.8958740234375
     'sbg:y': 1272.7586669921875
@@ -688,7 +688,7 @@ steps:
         default: gatk_mean_quality_by_cycle
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: gatk_mean_quality_by_cycle
     'sbg:x': 403.6803283691406
     'sbg:y': 975.385986328125
@@ -704,7 +704,7 @@ steps:
         default: gatk_mean_quality_by_cycle_recal
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: gatk_mean_quality_by_cycle_recal
     'sbg:x': 403.2690124511719
     'sbg:y': 829.990234375
@@ -726,7 +726,7 @@ steps:
         default: collapsed_bam_stats_pool_a
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: collapsed_bam_stats_pool_a
     'sbg:x': 693.8934326171875
     'sbg:y': -116.73040008544922
@@ -748,7 +748,7 @@ steps:
         default: collapsed_bam_stats_pool_b
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: collapsed_bam_stats_pool_b
     'sbg:x': 693
     'sbg:y': 13.673991203308105
@@ -769,7 +769,7 @@ steps:
         default: collapsed_bam_duplex_metrics_pool_a
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: collapsed_bam_duplex_metrics_pool_a
     'sbg:x': 690.4910278320312
     'sbg:y': 137.0360565185547
@@ -791,7 +791,7 @@ steps:
         default: collapsed_bam_duplex_metrics_pool_b
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: collapsed_bam_duplex_metrics_pool_b
     'sbg:x': 686.7992553710938
     'sbg:y': 265.29779052734375
@@ -814,7 +814,7 @@ steps:
         default: collapsed_bam_biometrics
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: collapsed_bam_biometrics
     'sbg:x': 682.2883911132812
     'sbg:y': 410.1722412109375
@@ -833,7 +833,7 @@ steps:
         default: duplex_bam_sequence_qc
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_bam_sequence_qc
     'sbg:x': 530.0716552734375
     'sbg:y': -710.9133911132812
@@ -852,7 +852,7 @@ steps:
         default: duplex_bam_stats_pool_a
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_bam_stats_pool_a
     'sbg:x': 530.0328979492188
     'sbg:y': -595.6776123046875
@@ -871,7 +871,7 @@ steps:
         default: duplex_bam_stats_pool_b
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_bam_stats_pool_b
     'sbg:x': 530.8358764648438
     'sbg:y': -479.8985290527344
@@ -892,7 +892,7 @@ steps:
         default: duplex_bam_biometrics
     out:
       - id: directory
-    run: ../command_line_tools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_bam_biometrics
     'sbg:x': 526.955322265625
     'sbg:y': -361.4269104003906
