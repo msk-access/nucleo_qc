@@ -214,6 +214,7 @@ steps:
       - sample_name
       - sample_group
       - simplex_bam
+    scatterMethod: dotproduct
     'sbg:x': -289.4132385253906
     'sbg:y': -274.12384033203125
   - id: qc_aggregator
