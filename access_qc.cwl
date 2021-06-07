@@ -8,114 +8,114 @@ inputs:
   - id: reference
     type: File
     'sbg:x': 0
-    'sbg:y': 640.6875
+    'sbg:y': 641.0625
   - id: pool_b_target_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 747.46875
+    'sbg:y': 747.90625
   - id: pool_b_bait_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 854.25
+    'sbg:y': 854.75
   - id: pool_a_target_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 961.03125
+    'sbg:y': 961.59375
   - id: pool_a_bait_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 1067.8125
+    'sbg:y': 1068.4375
   - id: noise_sites_bed
     type: File
     'sbg:x': 0
-    'sbg:y': 1174.59375
+    'sbg:y': 1175.28125
   - id: biometrics_vcf_file
     type: File
     'sbg:x': 0
-    'sbg:y': 1708.5
+    'sbg:y': 1709.5
   - id: multiqc_config
     type: File?
     'sbg:x': 0
-    'sbg:y': 1281.375
+    'sbg:y': 1282.125
   - id: collapsed_bam
-    type: File
+    type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1601.71875
+    'sbg:y': 1602.65625
   - id: duplex_bam
-    type: File
+    type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1494.9375
+    'sbg:y': 1495.8125
   - id: group_reads_by_umi_bam
-    type: File
+    type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1388.15625
+    'sbg:y': 1388.96875
   - id: simplex_bam
-    type: File
+    type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 213.5625
+    'sbg:y': 213.6875
+  - id: uncollapsed_bam
+    type: 'File[]'
+    'sbg:x': 0
+    'sbg:y': 106.84375
+  - id: sample_sex
+    type: 'string[]?'
+    'sbg:x': 0
+    'sbg:y': 320.53125
+  - id: sample_name
+    type: 'string[]?'
+    'sbg:x': 0
+    'sbg:y': 427.375
+  - id: sample_group
+    type: 'string[]'
+    'sbg:x': 0
+    'sbg:y': 534.21875
   - id: uncollapsed_bam_base_recal
-    type: File
+    type: 'File[]'
     'sbg:x': 0
     'sbg:y': 0
-  - id: uncollapsed_bam
-    type: File
-    'sbg:x': 0
-    'sbg:y': 106.78125
-  - id: sample_sex
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 320.34375
-  - id: sample_name
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 427.125
-  - id: sample_group
-    type: string
-    'sbg:x': 0
-    'sbg:y': 533.90625
 outputs:
-  - id: collapsed_bam_biometrics_dir
-    outputSource:
-      - qc_generator/collapsed_bam_biometrics_dir
-    type: Directory
-    'sbg:x': 920.201171875
-    'sbg:y': 756.25
-  - id: duplex_bam_biometrics_dir
-    outputSource:
-      - qc_generator/duplex_bam_biometrics_dir
-    type: Directory
-    'sbg:x': 920.201171875
-    'sbg:y': 649.46875
   - id: multiqc_zip
     outputSource:
       - multiqc_1_10_1/multiqc_zip
     type: File?
-    'sbg:x': 1800.857177734375
-    'sbg:y': 747.46875
+    'sbg:x': 1800.872802734375
+    'sbg:y': 747.90625
   - id: multiqc_html
     outputSource:
       - multiqc_1_10_1/multiqc_html
     type: File
-    'sbg:x': 1800.857177734375
-    'sbg:y': 854.25
+    'sbg:x': 1800.872802734375
+    'sbg:y': 854.75
   - id: diree
     outputSource:
       - multiqc_1_10_1/diree
     type: Directory
-    'sbg:x': 1800.857177734375
-    'sbg:y': 961.03125
+    'sbg:x': 1800.872802734375
+    'sbg:y': 961.59375
   - id: duplex_biometrics_outdir
     outputSource:
       - access_qc_aggregator/duplex_biometrics_outdir
     type: Directory
-    'sbg:x': 1528.107177734375
-    'sbg:y': 854.25
+    'sbg:x': 1528.122802734375
+    'sbg:y': 854.75
   - id: collapsed_biometrics_outdir
     outputSource:
       - access_qc_aggregator/collapsed_biometrics_outdir
     type: Directory
-    'sbg:x': 1528.107177734375
-    'sbg:y': 961.03125
+    'sbg:x': 1528.122802734375
+    'sbg:y': 961.59375
+  - id: duplex_bam_biometrics_dir
+    outputSource:
+      - qc_generator/duplex_bam_biometrics_dir
+    type: 'Directory[]'
+    'sbg:x': 803.7421875
+    'sbg:y': 616.89697265625
+  - id: collapsed_bam_biometrics_dir
+    outputSource:
+      - qc_generator/collapsed_bam_biometrics_dir
+    type: 'Directory[]'
+    'sbg:x': 966.1768798828125
+    'sbg:y': 701.4005737304688
 steps:
   - id: qc_generator
     in:
@@ -181,8 +181,9 @@ steps:
       - sample_name
       - sample_group
       - simplex_bam
-    'sbg:x': 288.796875
-    'sbg:y': 742.25
+    scatterMethod: dotproduct
+    'sbg:x': 288.8125
+    'sbg:y': 742.75
   - id: multiqc_1_10_1
     in:
       - id: qc_list_of_dirs
@@ -195,8 +196,8 @@ steps:
       - id: multiqc_html
       - id: multiqc_zip
     run: cwl-commandlinetools/multiqc_1.10.1/multiqc_1.10.1.cwl
-    'sbg:x': 1528.107177734375
-    'sbg:y': 733.359375
+    'sbg:x': 1528.122802734375
+    'sbg:y': 733.90625
   - id: access_qc_aggregator
     in:
       - id: duplex_extraction_files
@@ -250,8 +251,8 @@ steps:
       - id: collapsed_biometrics_outdir
     run: ../cwl_subworkflows/access_qc_aggregator/access_qc_aggregator.cwl
     label: access_qc_aggregator
-    'sbg:x': 920.201171875
-    'sbg:y': 373.8220520019531
+    'sbg:x': 920.216796875
+    'sbg:y': 961.59375
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
