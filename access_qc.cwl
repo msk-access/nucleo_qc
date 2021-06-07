@@ -249,7 +249,7 @@ steps:
       - id: outdir
       - id: duplex_biometrics_outdir
       - id: collapsed_biometrics_outdir
-    run: ../cwl_subworkflows/access_qc_aggregator/access_qc_aggregator.cwl
+    run: ./qc_aggregator/qc_aggregator.cwl
     label: access_qc_aggregator
     'sbg:x': 920.216796875
     'sbg:y': 961.59375
