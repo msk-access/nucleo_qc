@@ -5,24 +5,6 @@ label: access_qc
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
 inputs:
-  - id: duplex_extraction_files
-    type:
-      type: array
-      items: File
-      inputBinding:
-        position: 0
-        prefix: '--input'
-    'sbg:x': -39.39886474609375
-    'sbg:y': -501.99566650390625
-  - id: collapsed_extraction_files
-    type:
-      type: array
-      items: File
-      inputBinding:
-        position: 0
-        prefix: '--input'
-    'sbg:x': -192.39886474609375
-    'sbg:y': -459.99566650390625
   - id: reference
     type: File
     'sbg:x': -972.5465087890625
@@ -205,7 +187,7 @@ steps:
     in:
       - id: duplex_extraction_files
         source:
-          - duplex_extraction_files
+          - qc_generator/duplex_bam_biometrics_extract_file
       - id: simplex_bam_pool_a_dir
         source:
           - qc_generator/simplex_bam_pool_a_dir
@@ -247,7 +229,7 @@ steps:
           - qc_generator/uncollapsed_bam_stats_pool_a_dir
       - id: collapsed_extraction_files
         source:
-          - collapsed_extraction_files
+          - qc_generator/duplex_bam_biometrics_dir
     out:
       - id: outdir
       - id: duplex_biometrics_outdir
