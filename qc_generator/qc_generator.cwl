@@ -332,8 +332,22 @@ outputs:
       - duplex_bam_biometrics/directory
     type: Directory
     label: duplex_bam_biometrics_dir
-    'sbg:x': 1517.28857421875
-    'sbg:y': -326.07958984375
+    'sbg:x': 1472.6318359375
+    'sbg:y': -329.2865295410156
+  - id: duplex_bam_biometrics_extract_file
+    outputSource:
+      - qc_duplex_bam/biometrics_extract_pickle
+    type: File
+    label: duplex_bam_biometrics_extract_file
+    'sbg:x': 1507.1881103515625
+    'sbg:y': -217.92979431152344
+  - id: collapsed_bam_biometrics_extract_file
+    outputSource:
+      - qc_collapsed_bam/biometrics_extract_pickle
+    type: File
+    label: collapsed_bam_biometrics_extract_file
+    'sbg:x': 1378.736328125
+    'sbg:y': 559.018310546875
 steps:
   - id: qc_collapsed_bam
     in:
