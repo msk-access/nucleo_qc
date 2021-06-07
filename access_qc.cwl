@@ -73,10 +73,6 @@ inputs:
     type: 'string[]?'
     'sbg:x': -615.9489135742188
     'sbg:y': -871.78125
-  - id: sample_type
-    type: 'string[]?'
-    'sbg:x': -801.7835083007812
-    'sbg:y': -743.8213500976562
 outputs:
   - id: collapsed_bam_biometrics_dir
     outputSource:
