@@ -441,14 +441,6 @@ steps:
       - id: gatk_collect_alignment_summary_metrics_txt_pool_a
     run: ../cwl_subworkflows/qc_collapsed_bam/qc_collapsed_bam.cwl
     label: qc_collapsed_bam
-    scatter:
-      - collapsed_bam
-      - sample_type
-      - sample_sex
-      - sample_name
-      - sample_group
-      - group_reads_by_umi_bam
-    scatterMethod: dotproduct
     'sbg:x': -98.75630187988281
     'sbg:y': 269.2268981933594
   - id: qc_uncollapsed_bam
@@ -494,10 +486,6 @@ steps:
       - id: gatk_mean_quality_by_cycle_chart_output_base_recal
     run: ../cwl_subworkflows/qc_uncollapsed_bam/qc_uncollapsed_bam.cwl
     label: qc_uncollapsed_bam
-    scatter:
-      - uncollapsed_bam
-      - uncollapsed_bam_base_recal
-    scatterMethod: dotproduct
     'sbg:x': -77.46428680419922
     'sbg:y': 1069.7781982421875
   - id: qc_duplex_bam
@@ -587,13 +575,6 @@ steps:
       - id: sequence_qc_pileup
     run: ../cwl_subworkflows/qc_duplex_bam/qc_duplex_bam.cwl
     label: qc_duplex_bam
-    scatter:
-      - duplex_bam
-      - sample_type
-      - sample_sex
-      - sample_name
-      - sample_group
-    scatterMethod: dotproduct
     'sbg:x': -111.68614196777344
     'sbg:y': -453
   - id: simplex_bam_pool_a
@@ -934,9 +915,6 @@ steps:
       - id: gatk_collect_insert_size_metrics_txt_pool_a
     run: ../cwl_subworkflows/qc_simplex_bam/qc_simplex_bam.cwl
     label: qc_simplex_bam
-    scatter:
-      - simplex_bam
-    scatterMethod: dotproduct
     'sbg:x': -129.99029541015625
     'sbg:y': -1110.5147705078125
 requirements:
