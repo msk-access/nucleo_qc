@@ -6,9 +6,7 @@ $namespaces:
   sbg: 'https://www.sevenbridges.com/'
 inputs:
   - id: duplex_extraction_files
-    type:
-      type: array
-      items: File
+    type: 'File[]'
     label: duplex_extraction_files
     doc: >-
       Can be one of three types: (1) path to a CSV file containing sample
@@ -174,12 +172,6 @@ inputs:
     doc: Number of threads to use.
     'sbg:x': 0
     'sbg:y': 2350.90625
-  - id: duplex_biometrics_coverage_threshold
-    type: int?
-    label: duplex_biometrics_coverage_threshold
-    doc: Samples with Y chromosome above this value will be considered male.
-    'sbg:x': 0
-    'sbg:y': 961.734375
   - id: duplex_biometrics_major_threshold
     type: float?
     label: duplex_biometrics_major_threshold
@@ -193,9 +185,7 @@ inputs:
     'sbg:x': 0
     'sbg:y': 641.15625
   - id: collapsed_extraction_files
-    type:
-      type: array
-      items: File
+    type: 'File[]'
     label: collapsed_extraction_files
     doc: >-
       Can be one of three types: (1) path to a CSV file containing sample
@@ -371,25 +361,6 @@ steps:
     label: duplex_biometrics_minor
     'sbg:x': 410.1875
     'sbg:y': 828.734375
-  - id: duplex_biometrics_sexmismatch
-    in:
-      - id: input
-        source:
-          - duplex_extraction_files
-      - id: coverage_threshold
-        source: duplex_biometrics_coverage_threshold
-      - id: prefix
-        default: duplex
-      - id: json
-        default: true
-    out:
-      - id: biometrics_sexmismatch_csv
-      - id: biometrics_sexmismatch_json
-    run: >-
-      ../cwl-commandlinetools/biometrics_sexmismatch/0.2.9/biometrics_sexmismatch.cwl
-    label: duplex_biometrics_sexmismatch
-    'sbg:x': 410
-    'sbg:y': 623.2350463867188
   - id: duplex_biometrics_agg
     in:
       - id: files
@@ -407,8 +378,6 @@ steps:
           - duplex_biometrics_minor/biometrics_minor_plot
           - duplex_biometrics_minor/biometrics_minor_json
           - duplex_biometrics_minor/biometrics_minor_csv
-          - duplex_biometrics_sexmismatch/biometrics_sexmismatch_json
-          - duplex_biometrics_sexmismatch/biometrics_sexmismatch_csv
       - id: output_directory_name
         default: duplex_biometrics_output
     out:
