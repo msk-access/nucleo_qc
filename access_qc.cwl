@@ -71,7 +71,7 @@ inputs:
     type: File
     'sbg:x': -540.0243530273438
     'sbg:y': 559.9514770507812
-  - id: config
+  - id: multiqc_config
     type: File?
     'sbg:x': 526.150146484375
     'sbg:y': -405.7807922363281
@@ -203,18 +203,6 @@ steps:
       - id: duplex_bam_biometrics_dir
     run: qc_generator/qc_generator.cwl
     label: qc_generator
-    scatter:
-      - duplex_bam
-      - collapsed_bam
-      - group_reads_by_umi_bam
-      - uncollapsed_bam
-      - uncollapsed_bam_base_recal
-      - sample_type
-      - sample_sex
-      - sample_name
-      - sample_group
-      - simplex_bam
-    scatterMethod: dotproduct
     'sbg:x': -289.4132385253906
     'sbg:y': -274.12384033203125
   - id: qc_aggregator
@@ -278,7 +266,7 @@ steps:
         source:
           - qc_aggregator/outdir
       - id: config
-        source: config
+        source: multiqc_config
     out:
       - id: diree
       - id: multiqc_html
@@ -288,4 +276,3 @@ steps:
     'sbg:y': -141.2582550048828
 requirements:
   - class: SubworkflowFeatureRequirement
-  - class: ScatterFeatureRequirement
