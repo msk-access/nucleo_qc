@@ -5,24 +5,6 @@ label: access_qc
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
 inputs:
-  - id: duplex_extraction_files
-    type:
-      type: array
-      items: File
-      inputBinding:
-        position: 0
-        prefix: '--input'
-    'sbg:x': -39.39886474609375
-    'sbg:y': -501.99566650390625
-  - id: collapsed_extraction_files
-    type:
-      type: array
-      items: File
-      inputBinding:
-        position: 0
-        prefix: '--input'
-    'sbg:x': -192.39886474609375
-    'sbg:y': -459.99566650390625
   - id: uncollapsed_bam_base_recal
     type: 'File[]'
     'sbg:x': -458.9684143066406
@@ -144,20 +126,15 @@ steps:
       - id: reference
         source: reference
       - id: duplex_bam
-        source:
-          - duplex_bam
+        source: duplex_bam
       - id: collapsed_bam
-        source:
-          - collapsed_bam
+        source: collapsed_bam
       - id: group_reads_by_umi_bam
-        source:
-          - group_reads_by_umi_bam
+        source: group_reads_by_umi_bam
       - id: uncollapsed_bam
-        source:
-          - uncollapsed_bam
+        source: uncollapsed_bam
       - id: uncollapsed_bam_base_recal
-        source:
-          - uncollapsed_bam_base_recal
+        source: uncollapsed_bam_base_recal
       - id: pool_b_target_intervals
         source: pool_b_target_intervals
       - id: pool_b_bait_intervals
@@ -170,21 +147,14 @@ steps:
         source: biometrics_vcf_file
       - id: noise_sites_bed
         source: noise_sites_bed
-      - id: sample_type
-        source:
-          - sample_type
       - id: sample_sex
-        source:
-          - sample_sex
+        source: sample_sex
       - id: sample_name
-        source:
-          - sample_name
+        source: sample_name
       - id: sample_group
-        source:
-          - sample_group
+        source: sample_group
       - id: simplex_bam
-        source:
-          - simplex_bam
+        source: simplex_bam
     out:
       - id: uncollapsed_bam_stats_pool_a_dir
       - id: uncollapsed_bam_stats_pool_b_dir
@@ -201,6 +171,8 @@ steps:
       - id: duplex_bam_stats_pool_a_dir
       - id: duplex_bam_stats_pool_b_dir
       - id: duplex_bam_biometrics_dir
+      - id: duplex_bam_biometrics_extract_file
+      - id: collapsed_bam_biometrics_extract_file
     run: qc_generator/qc_generator.cwl
     label: qc_generator
     'sbg:x': -289.4132385253906
@@ -209,7 +181,7 @@ steps:
     in:
       - id: duplex_extraction_files
         source:
-          - duplex_extraction_files
+          - qc_generator/duplex_bam_biometrics_extract_file
       - id: simplex_bam_pool_a_dir
         source:
           - qc_generator/simplex_bam_pool_a_dir
@@ -251,7 +223,7 @@ steps:
           - qc_generator/uncollapsed_bam_stats_pool_a_dir
       - id: collapsed_extraction_files
         source:
-          - collapsed_extraction_files
+          - qc_generator/duplex_bam_biometrics_dir
     out:
       - id: outdir
       - id: duplex_biometrics_outdir
