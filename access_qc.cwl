@@ -23,22 +23,6 @@ inputs:
         prefix: '--input'
     'sbg:x': -192.39886474609375
     'sbg:y': -459.99566650390625
-  - id: uncollapsed_bam_base_recal
-    type: 'File[]'
-    'sbg:x': -458.9684143066406
-    'sbg:y': -638.8032836914062
-  - id: uncollapsed_bam
-    type: 'File[]'
-    'sbg:x': -689.236328125
-    'sbg:y': -659.3702392578125
-  - id: simplex_bam
-    type: 'File[]'
-    'sbg:x': -722.554443359375
-    'sbg:y': -483.1758117675781
-  - id: duplex_bam
-    type: 'File[]'
-    'sbg:x': -642.9684448242188
-    'sbg:y': -324.84246826171875
   - id: reference
     type: File
     'sbg:x': -972.5465087890625
@@ -63,10 +47,6 @@ inputs:
     type: File
     'sbg:x': -714.8031616210938
     'sbg:y': 498.0097351074219
-  - id: group_reads_by_umi_bam
-    type: 'File[]'
-    'sbg:x': -843.1217041015625
-    'sbg:y': -361.4939880371094
   - id: biometrics_vcf_file
     type: File
     'sbg:x': -540.0243530273438
@@ -76,25 +56,41 @@ inputs:
     'sbg:x': 526.150146484375
     'sbg:y': -405.7807922363281
   - id: collapsed_bam
-    type: 'File[]'
-    'sbg:x': -835.9942016601562
-    'sbg:y': -571.205078125
-  - id: sample_group
-    type: 'string[]'
-    'sbg:x': -261.67791748046875
-    'sbg:y': -712.6024169921875
-  - id: sample_name
-    type: 'string[]?'
-    'sbg:x': -443.0584411621094
-    'sbg:y': -781.15283203125
+    type: File
+    'sbg:x': -1057.4385986328125
+    'sbg:y': -378.73687744140625
+  - id: duplex_bam
+    type: File
+    'sbg:x': -1077.7108154296875
+    'sbg:y': -531.69970703125
+  - id: group_reads_by_umi_bam
+    type: File
+    'sbg:x': -1654.5439453125
+    'sbg:y': -756.53662109375
+  - id: simplex_bam
+    type: File
+    'sbg:x': -1245.4144287109375
+    'sbg:y': -808.1385498046875
+  - id: uncollapsed_bam_base_recal
+    type: File
+    'sbg:x': -390.296875
+    'sbg:y': -962.9439086914062
+  - id: uncollapsed_bam
+    type: File
+    'sbg:x': -554.3172607421875
+    'sbg:y': -837.6249389648438
   - id: sample_sex
-    type: 'string[]?'
-    'sbg:x': -615.9489135742188
-    'sbg:y': -871.78125
-  - id: sample_type
-    type: 'string[]?'
-    'sbg:x': -801.7835083007812
-    'sbg:y': -743.8213500976562
+    type: string?
+    'sbg:x': -674.107421875
+    'sbg:y': -745.4786376953125
+  - id: sample_name
+    type: string?
+    'sbg:x': -926.5882568359375
+    'sbg:y': -819.1956787109375
+  - id: sample_group
+    type: string
+    'sbg:x': -1464.7225341796875
+    'sbg:y': -480.09735107421875
 outputs:
   - id: collapsed_bam_biometrics_dir
     outputSource:
@@ -144,20 +140,15 @@ steps:
       - id: reference
         source: reference
       - id: duplex_bam
-        source:
-          - duplex_bam
+        source: duplex_bam
       - id: collapsed_bam
-        source:
-          - collapsed_bam
+        source: collapsed_bam
       - id: group_reads_by_umi_bam
-        source:
-          - group_reads_by_umi_bam
+        source: group_reads_by_umi_bam
       - id: uncollapsed_bam
-        source:
-          - uncollapsed_bam
+        source: uncollapsed_bam
       - id: uncollapsed_bam_base_recal
-        source:
-          - uncollapsed_bam_base_recal
+        source: uncollapsed_bam_base_recal
       - id: pool_b_target_intervals
         source: pool_b_target_intervals
       - id: pool_b_bait_intervals
@@ -170,21 +161,14 @@ steps:
         source: biometrics_vcf_file
       - id: noise_sites_bed
         source: noise_sites_bed
-      - id: sample_type
-        source:
-          - sample_type
       - id: sample_sex
-        source:
-          - sample_sex
+        source: sample_sex
       - id: sample_name
-        source:
-          - sample_name
+        source: sample_name
       - id: sample_group
-        source:
-          - sample_group
+        source: sample_group
       - id: simplex_bam
-        source:
-          - simplex_bam
+        source: simplex_bam
     out:
       - id: uncollapsed_bam_stats_pool_a_dir
       - id: uncollapsed_bam_stats_pool_b_dir
@@ -201,8 +185,20 @@ steps:
       - id: duplex_bam_stats_pool_a_dir
       - id: duplex_bam_stats_pool_b_dir
       - id: duplex_bam_biometrics_dir
+      - id: duplex_bam_biometrics_extract_file
+      - id: collapsed_bam_biometrics_extract_file
     run: qc_generator/qc_generator.cwl
     label: qc_generator
+    scatter:
+      - duplex_bam
+      - collapsed_bam
+      - group_reads_by_umi_bam
+      - uncollapsed_bam
+      - uncollapsed_bam_base_recal
+      - sample_sex
+      - sample_name
+      - sample_group
+      - simplex_bam
     'sbg:x': -289.4132385253906
     'sbg:y': -274.12384033203125
   - id: qc_aggregator
@@ -276,3 +272,4 @@ steps:
     'sbg:y': -141.2582550048828
 requirements:
   - class: SubworkflowFeatureRequirement
+  - class: ScatterFeatureRequirement
