@@ -334,20 +334,18 @@ outputs:
     label: duplex_bam_biometrics_dir
     'sbg:x': 1472.6318359375
     'sbg:y': -329.2865295410156
-  - id: duplex_bam_biometrics_extract_file
-    outputSource:
-      - qc_duplex_bam/biometrics_extract_pickle
-    type: File
-    label: duplex_bam_biometrics_extract_file
-    'sbg:x': 1507.1881103515625
-    'sbg:y': -217.92979431152344
   - id: collapsed_bam_biometrics_extract_file
     outputSource:
       - qc_collapsed_bam/biometrics_extract_pickle
-    type: File
-    label: collapsed_bam_biometrics_extract_file
-    'sbg:x': 1378.736328125
-    'sbg:y': 559.018310546875
+    type: 'File[]'
+    'sbg:x': 111.16825103759766
+    'sbg:y': 671.5779418945312
+  - id: duplex_bam_biometrics_extract_file
+    outputSource:
+      - qc_duplex_bam/biometrics_extract_pickle
+    type: 'File[]'
+    'sbg:x': 55.82897186279297
+    'sbg:y': -133.1309814453125
 steps:
   - id: qc_collapsed_bam
     in:
@@ -441,8 +439,8 @@ steps:
       - id: gatk_collect_alignment_summary_metrics_txt_pool_a
     run: ../cwl_subworkflows/qc_collapsed_bam/qc_collapsed_bam.cwl
     label: qc_collapsed_bam
-    'sbg:x': -98.75630187988281
-    'sbg:y': 269.2268981933594
+    'sbg:x': -104.56373596191406
+    'sbg:y': 322.3303527832031
   - id: qc_uncollapsed_bam
     in:
       - id: reference
@@ -573,6 +571,7 @@ steps:
       - id: gatk_collect_insert_size_metrics_histogram_pdf_pool_a
       - id: gatk_collect_insert_size_metrics_txt_pool_a
       - id: sequence_qc_pileup
+      - id: sequence_qc_noise_by_substitution
     run: ../cwl_subworkflows/qc_duplex_bam/qc_duplex_bam.cwl
     label: qc_duplex_bam
     'sbg:x': -111.68614196777344
@@ -919,7 +918,6 @@ steps:
     'sbg:y': -1110.5147705078125
 requirements:
   - class: SubworkflowFeatureRequirement
-  - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
 $schemas:
   - 'http://schema.org/version/latest/schemaorg-current-http.rdf'

@@ -73,6 +73,10 @@ inputs:
     type: 'File[]'
     'sbg:x': 0
     'sbg:y': 0
+  - id: samples-json
+    type: File
+    'sbg:x': 842.0829467773438
+    'sbg:y': 1316.44384765625
 outputs:
   - id: multiqc_zip
     outputSource:
@@ -186,6 +190,11 @@ steps:
     'sbg:y': 742.75
   - id: multiqc_1_10_1
     in:
+      - id: qc_files_array
+        linkMerge: merge_flattened
+        source:
+          - general_stats_parse/sample_meta_tumor
+          - general_stats_parse/sample_meta_normal
       - id: qc_list_of_dirs
         source:
           - access_qc_aggregator/outdir
@@ -253,6 +262,21 @@ steps:
     label: access_qc_aggregator
     'sbg:x': 920.216796875
     'sbg:y': 961.59375
+  - id: general_stats_parse
+    in:
+      - id: directories
+        source:
+          - access_qc_aggregator/outdir
+      - id: samples-json
+        source: samples-json
+    out:
+      - id: sample_meta_tumor
+      - id: sample_meta_normal
+    run: cwl-commandlinetools/access_utils/general_stats_parse.cwl
+    label: general_stats_parse
+    'sbg:x': 1194.671142578125
+    'sbg:y': 1137.9007568359375
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
+  - class: MultipleInputFeatureRequirement
