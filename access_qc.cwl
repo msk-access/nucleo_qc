@@ -69,14 +69,18 @@ inputs:
     type: 'string[]'
     'sbg:x': 0
     'sbg:y': 534.21875
-  - id: uncollapsed_bam_base_recal
-    type: 'File[]'
-    'sbg:x': 0
-    'sbg:y': 0
   - id: samples-json
     type: File
     'sbg:x': 842.0829467773438
     'sbg:y': 1316.44384765625
+  - id: uncollapsed_bam_base_recal
+    type: 'File[]'
+    'sbg:x': 215.81515502929688
+    'sbg:y': 281.2887268066406
+  - id: vcf_file
+    type: File
+    'sbg:x': 407.3812561035156
+    'sbg:y': 420.4922790527344
 outputs:
   - id: multiqc_zip
     outputSource:
@@ -155,6 +159,8 @@ steps:
         source: sample_group
       - id: simplex_bam
         source: simplex_bam
+      - id: vcf_file
+        source: vcf_file
     out:
       - id: uncollapsed_bam_stats_pool_a_dir
       - id: uncollapsed_bam_stats_pool_b_dir
@@ -171,8 +177,8 @@ steps:
       - id: duplex_bam_stats_pool_a_dir
       - id: duplex_bam_stats_pool_b_dir
       - id: duplex_bam_biometrics_dir
-      - id: duplex_bam_biometrics_extract_file
       - id: collapsed_bam_biometrics_extract_file
+      - id: duplex_bam_biometrics_extract_file
     run: qc_generator/qc_generator.cwl
     label: qc_generator
     scatter:
@@ -210,6 +216,7 @@ steps:
   - id: access_qc_aggregator
     in:
       - id: duplex_extraction_files
+        linkMerge: merge_flattened
         source:
           - qc_generator/duplex_bam_biometrics_extract_file
       - id: simplex_bam_pool_a_dir
@@ -252,6 +259,7 @@ steps:
         source:
           - qc_generator/uncollapsed_bam_stats_pool_a_dir
       - id: collapsed_extraction_files
+        linkMerge: merge_flattened
         source:
           - qc_generator/collapsed_bam_biometrics_extract_file
     out:

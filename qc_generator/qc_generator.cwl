@@ -122,24 +122,6 @@ inputs:
     doc: Minor contamination threshold for bad sample.
     'sbg:x': -1403.07958984375
     'sbg:y': -1674.0557861328125
-  - id: duplex_biometrics_min_mapping_quality
-    type: int?
-    label: duplex_biometrics_min_mapping_quality
-    doc: Minimum mapping quality of reads to be used for pileup.
-    'sbg:x': -1396.1343994140625
-    'sbg:y': -1554.8912353515625
-  - id: duplex_biometrics_min_homozygous_thresh
-    type: float?
-    label: duplex_biometrics_min_homozygous_thresh
-    doc: Minimum threshold to define homozygous.
-    'sbg:x': -1385.1710205078125
-    'sbg:y': -1427.8912353515625
-  - id: duplex_biometrics_min_coverage
-    type: int?
-    label: duplex_biometrics_min_coverage
-    doc: Minimum coverage to count a site.
-    'sbg:x': -1388.2076416015625
-    'sbg:y': -1303.781494140625
   - id: duplex_biometrics_min_base_quality
     type: int?
     label: duplex_biometrics_min_base_quality
@@ -188,12 +170,6 @@ inputs:
     doc: Minimum base quality of reads to be used for pileup.
     'sbg:x': -835.4125366210938
     'sbg:y': -1676.795166015625
-  - id: collapsed_biometrics_major_threshold
-    type: float?
-    label: collapsed_biometrics_major_threshold
-    doc: Major contamination threshold for bad sample.
-    'sbg:x': -839.7344970703125
-    'sbg:y': -1520.1512451171875
   - id: collapsed_biometrics_coverage_threshold
     type: int?
     label: collapsed_biometrics_coverage_threshold
@@ -228,6 +204,10 @@ inputs:
     type: int?
     'sbg:x': -1374.583984375
     'sbg:y': -534.837890625
+  - id: vcf_file
+    type: File
+    'sbg:x': -936.71826171875
+    'sbg:y': -914.0149536132812
 outputs:
   - id: uncollapsed_bam_stats_pool_a_dir
     outputSource:
@@ -337,15 +317,15 @@ outputs:
   - id: collapsed_bam_biometrics_extract_file
     outputSource:
       - qc_collapsed_bam/biometrics_extract_pickle
-    type: 'File[]'
+    type: 'File'
     'sbg:x': 111.16825103759766
     'sbg:y': 671.5779418945312
   - id: duplex_bam_biometrics_extract_file
     outputSource:
       - qc_duplex_bam/biometrics_extract_pickle
-    type: 'File[]'
-    'sbg:x': 55.82897186279297
-    'sbg:y': -133.1309814453125
+    type: File
+    'sbg:x': 126.59205627441406
+    'sbg:y': -113.84050750732422
 steps:
   - id: qc_collapsed_bam
     in:
@@ -355,20 +335,9 @@ steps:
         source: pool_b_target_intervals
       - id: pool_a_target_intervals
         source: pool_a_target_intervals
-      - id: biometrics_vcf_file
-        source: biometrics_vcf_file
       - id: collapsed_bam
         source:
           - collapsed_bam
-      - id: sample_sex
-        source:
-          - sample_sex
-      - id: sample_name
-        source:
-          - sample_name
-      - id: sample_group
-        source:
-          - sample_group
       - id: group_reads_by_umi_bam
         source:
           - group_reads_by_umi_bam
@@ -376,34 +345,34 @@ steps:
         source: pool_a_bait_intervals
       - id: pool_b_bait_intervals
         source: pool_b_bait_intervals
-      - id: biometrics_bed_file
-        source: biometrics_bed_file
       - id: json
         source: biometrics_json
       - id: plot
         source: biometrics_plot
-      - id: major_threshold
-        source: collapsed_biometrics_major_threshold
       - id: minor_threshold
         source: collapsed_biometrics_minor_threshold
       - id: coverage_threshold
         source: collapsed_biometrics_coverage_threshold
-      - id: min_mapping_quality
-        source: collapsed_biometrics_min_mapping_quality
-      - id: min_homozygous_thresh
-        source: collapsed_biometrics_min_homozygous_thresh
-      - id: min_coverage
-        source: collapsed_biometrics_min_coverage
-      - id: min_base_quality
-        source: collapsed_biometrics_min_base_quality
       - id: hsmetrics_minimum_mapping_quality
         source: hsmetrics_minimum_mapping_quality
       - id: hsmetrics_minimum_base_quality
         source: hsmetrics_minimum_base_quality
       - id: hsmetrics_coverage_cap
         source: hsmetrics_coverage_cap
+      - id: vcf_file
+        source: vcf_file
+      - id: sample_sex
+        source:
+          - sample_sex
+      - id: sample_name
+        linkMerge: merge_flattened
+        source:
+          - sample_name
+      - id: sample_group
+        linkMerge: merge_flattened
+        source:
+          - sample_group
     out:
-      - id: biometrics_extract_pickle
       - id: fgbio_collect_duplex_seq_metrics_duplex_family_size_pool_a
       - id: fgbio_collect_duplex_seq_metrics_duplex_qc_pool_a
       - id: fgbio_collect_duplex_seq_metrics_duplex_pool_a
@@ -420,9 +389,6 @@ steps:
       - id: biometrics_minor_json
       - id: biometrics_minor_plot
       - id: biometrics_minor_sites_plot
-      - id: biometrics_major_csv
-      - id: biometrics_major_json
-      - id: biometrics_major_plot
       - id: biometrics_sexmismatch_json
       - id: biometrics_sexmismatch_csv
       - id: gatk_collect_insert_size_metrics_txt_pool_b
@@ -437,10 +403,14 @@ steps:
       - id: gatk_collect_hs_metrics_per_target_coverage_txt_pool_a
       - id: gatk_collect_hs_metrics_per_base_coverage_txt_pool_a
       - id: gatk_collect_alignment_summary_metrics_txt_pool_a
+      - id: biometrics_extract_pickle
+      - id: biometrics_major_plot
+      - id: biometrics_major_json
+      - id: biometrics_major_csv
     run: ../cwl_subworkflows/qc_collapsed_bam/qc_collapsed_bam.cwl
     label: qc_collapsed_bam
-    'sbg:x': -104.56373596191406
-    'sbg:y': 322.3303527832031
+    'sbg:x': -118.83145141601562
+    'sbg:y': 289.04119873046875
   - id: qc_uncollapsed_bam
     in:
       - id: reference
@@ -503,29 +473,11 @@ steps:
         source: pool_b_bait_intervals
       - id: noise_sites_bed
         source: noise_sites_bed
-      - id: biometrics_vcf_file
-        source: biometrics_vcf_file
-      - id: sample_sex
-        source:
-          - sample_sex
       - id: sample_name
         source:
           - sample_name
-      - id: sample_group
-        source:
-          - sample_group
-      - id: min_mapping_quality
-        source: duplex_biometrics_min_mapping_quality
-      - id: min_homozygous_thresh
-        source: duplex_biometrics_min_homozygous_thresh
-      - id: min_coverage
-        source: duplex_biometrics_min_coverage
-      - id: min_base_quality
-        source: duplex_biometrics_min_base_quality
       - id: plot
         source: biometrics_plot
-      - id: major_threshold
-        source: duplex_biometrics_major_threshold
       - id: minor_threshold
         source: duplex_biometrics_minor_threshold
       - id: json
@@ -544,20 +496,27 @@ steps:
         source: hsmetrics_minimum_base_quality
       - id: hsmetrics_coverage_cap
         source: hsmetrics_coverage_cap
+      - id: vcf_file
+        source: vcf_file
+      - id: sample_sex
+        source:
+          - sample_sex
+      - id: sample_group
+        linkMerge: merge_flattened
+        source:
+          - sample_group
+      - id: major_threshold
+        source: duplex_biometrics_major_threshold
     out:
       - id: biometrics_minor_csv
       - id: biometrics_minor_plot
       - id: biometrics_minor_json
       - id: biometrics_minor_sites_plot
-      - id: biometrics_major_csv
-      - id: biometrics_major_json
-      - id: biometrics_major_plot
       - id: sequence_qc_noise_positions
       - id: sequence_qc_noise_n
       - id: sequence_qc_noise_del
       - id: sequence_qc_noise_acgt
       - id: sequence_qc_figures
-      - id: biometrics_extract_pickle
       - id: gatk_collect_alignment_summary_metrics_txt_pool_b
       - id: gatk_collect_hs_metrics_per_base_coverage_txt_pool_b
       - id: gatk_collect_hs_metrics_per_target_coverage_txt_pool_b
@@ -572,6 +531,10 @@ steps:
       - id: gatk_collect_insert_size_metrics_txt_pool_a
       - id: sequence_qc_pileup
       - id: sequence_qc_noise_by_substitution
+      - id: biometrics_extract_pickle
+      - id: biometrics_major_plot
+      - id: biometrics_major_json
+      - id: biometrics_major_csv
     run: ../cwl_subworkflows/qc_duplex_bam/qc_duplex_bam.cwl
     label: qc_duplex_bam
     'sbg:x': -111.68614196777344
