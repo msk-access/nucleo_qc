@@ -177,8 +177,8 @@ steps:
       - id: duplex_bam_stats_pool_a_dir
       - id: duplex_bam_stats_pool_b_dir
       - id: duplex_bam_biometrics_dir
-      - id: collapsed_bam_biometrics_extract_file
-      - id: duplex_bam_biometrics_extract_file
+      - id: collapsed_biometrics_extract_pickle
+      - id: duplex_biometrics_extract_pickle
     run: qc_generator/qc_generator.cwl
     label: qc_generator
     scatter:
@@ -218,7 +218,7 @@ steps:
       - id: duplex_extraction_files
         linkMerge: merge_flattened
         source:
-          - qc_generator/duplex_bam_biometrics_extract_file
+          - qc_generator/duplex_biometrics_extract_pickle
       - id: simplex_bam_pool_a_dir
         source:
           - qc_generator/simplex_bam_pool_a_dir
@@ -261,7 +261,7 @@ steps:
       - id: collapsed_extraction_files
         linkMerge: merge_flattened
         source:
-          - qc_generator/collapsed_bam_biometrics_extract_file
+          - qc_generator/collapsed_biometrics_extract_pickle
     out:
       - id: outdir
       - id: duplex_biometrics_outdir
