@@ -9,10 +9,6 @@ description: Workflows that generate, aggregate, and visualize quality control f
 - Free software: Apache Software License 2.0
 - Documentation: [https://msk-access.gitbook.io/access-quality-control-v2/](https://msk-access.gitbook.io/access-quality-control-v2/)
 
-## Features
-
-Given the output files from [Nucleo](https://github.com/msk-access/nucleo), the first step is to generate all the QC files for each sample. This runs tools like CollectHSMetrics (GATK), CollectDuplexSeqMetrics (fgbio), and more. You can then visualize the QC data for one or hundreds of samples via MultiQC.
-
 ## Installation
 
 Clone the repository:
