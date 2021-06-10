@@ -268,13 +268,13 @@ outputs:
   - id: duplex_bam_genotyping_maf
     outputSource:
       - qc_generator/duplex_bam_genotyping_maf
-    type: File
+    type: File[]
     'sbg:x': 932.4715576171875
     'sbg:y': 1068.90625
   - id: collapsed_bam_genotyping_maf
     outputSource:
       - qc_generator/collapsed_bam_genotyping_maf
-    type: File
+    type: File[]
     'sbg:x': 932.4715576171875
     'sbg:y': 1603.359375
 steps:
