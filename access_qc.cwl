@@ -77,6 +77,10 @@ inputs:
     type: File?
     'sbg:x': 0
     'sbg:y': 1608.46875
+  - id: hotspots_maf
+    type: File
+    'sbg:x': -264.7061767578125
+    'sbg:y': 1071.8204345703125
 outputs:
   - id: duplex_bam_biometrics_dir
     outputSource:
@@ -308,6 +312,8 @@ steps:
         source: simplex_bam
       - id: vcf_file
         source: biometrics_vcf_file
+      - id: hotspots_maf
+        source: hotspots_maf
     out:
       - id: uncollapsed_bam_stats_pool_a_dir
       - id: uncollapsed_bam_stats_pool_b_dir

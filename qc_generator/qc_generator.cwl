@@ -166,10 +166,6 @@ inputs:
     type: File
     'sbg:x': -250.6837921142578
     'sbg:y': 1308.037109375
-  - id: maf
-    type: File
-    'sbg:x': -312.029296875
-    'sbg:y': 1932.252685546875
 outputs:
   - id: uncollapsed_bam_stats_pool_a_dir
     outputSource:
@@ -343,7 +339,7 @@ steps:
       - id: sample_group
         source: sample_group
       - id: maf
-        source: maf
+        source: hotspots_maf
     out:
       - id: fgbio_collect_duplex_seq_metrics_duplex_family_size_pool_a
       - id: fgbio_collect_duplex_seq_metrics_duplex_qc_pool_a
