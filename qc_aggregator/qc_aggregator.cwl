@@ -268,7 +268,7 @@ steps:
       - id: biometrics_genotype_cluster_input_database
       - id: biometrics_genotype_plot_input
       - id: biometrics_genotype_plot_input_database
-    run: ../cwl-commandlinetools/biometrics_genotype/0.2.12/biometrics_genotype.cwl
+    run: ../cwl-commandlinetools/biometrics_genotype/0.2.13/biometrics_genotype.cwl
     'sbg:x': 410.171875
     'sbg:y': 1057.4453125
   - id: aggregate
@@ -333,7 +333,7 @@ steps:
       - id: biometrics_major_csv
       - id: biometrics_major_json
       - id: biometrics_major_plot
-    run: ../cwl-commandlinetools/biometrics_major/0.2.12/biometrics_major.cwl
+    run: ../cwl-commandlinetools/biometrics_major/0.2.13/biometrics_major.cwl
     label: duplex_biometrics_major
     'sbg:x': 410.171875
     'sbg:y': 901.7109375
@@ -357,7 +357,7 @@ steps:
       - id: biometrics_minor_json
       - id: biometrics_minor_plot
       - id: biometrics_minor_sites_plot
-    run: ../cwl-commandlinetools/biometrics_minor/0.2.12/biometrics_minor.cwl
+    run: ../cwl-commandlinetools/biometrics_minor/0.2.13/biometrics_minor.cwl
     label: duplex_biometrics_minor
     'sbg:x': 410.171875
     'sbg:y': 752.9921875
@@ -409,7 +409,7 @@ steps:
       - id: biometrics_genotype_cluster_input_database
       - id: biometrics_genotype_plot_input
       - id: biometrics_genotype_plot_input_database
-    run: ../cwl-commandlinetools/biometrics_genotype/0.2.12/biometrics_genotype.cwl
+    run: ../cwl-commandlinetools/biometrics_genotype/0.2.13/biometrics_genotype.cwl
     label: collapsed_biometrics_genotype
     'sbg:x': 410.171875
     'sbg:y': 1652.3203125
@@ -433,7 +433,7 @@ steps:
       - id: biometrics_major_csv
       - id: biometrics_major_json
       - id: biometrics_major_plot
-    run: ../cwl-commandlinetools/biometrics_major/0.2.12/biometrics_major.cwl
+    run: ../cwl-commandlinetools/biometrics_major/0.2.13/biometrics_major.cwl
     label: collapsed_biometrics_major
     'sbg:x': 410.171875
     'sbg:y': 1496.5859375
@@ -460,7 +460,7 @@ steps:
       - id: biometrics_minor_json
       - id: biometrics_minor_plot
       - id: biometrics_minor_sites_plot
-    run: ../cwl-commandlinetools/biometrics_minor/0.2.12/biometrics_minor.cwl
+    run: ../cwl-commandlinetools/biometrics_minor/0.2.13/biometrics_minor.cwl
     label: collapsed_biometrics_minor
     'sbg:x': 410.171875
     'sbg:y': 1347.8671875
@@ -480,7 +480,7 @@ steps:
       - id: biometrics_sexmismatch_csv
       - id: biometrics_sexmismatch_json
     run: >-
-      ../cwl-commandlinetools/biometrics_sexmismatch/0.2.12/biometrics_sexmismatch.cwl
+      ../cwl-commandlinetools/biometrics_sexmismatch/0.2.13/biometrics_sexmismatch.cwl
     label: collapsed_biometrics_sexmismatch
     'sbg:x': 410.171875
     'sbg:y': 1206.1640625
