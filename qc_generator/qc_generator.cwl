@@ -124,12 +124,6 @@ inputs:
     doc: Minor contamination threshold for bad sample.
     'sbg:x': 0
     'sbg:y': 2454.65625
-  - id: collapsed_biometrics_min_base_quality
-    type: int?
-    label: collapsed_biometrics_min_base_quality
-    doc: Minimum base quality of reads to be used for pileup.
-    'sbg:x': 0
-    'sbg:y': 3001.921875
   - id: collapsed_biometrics_coverage_threshold
     type: int?
     label: collapsed_biometrics_coverage_threshold
@@ -322,13 +316,11 @@ steps:
       - id: vcf_file
         source: vcf_file
       - id: sample_name
-        source:
-          - sample_name
+        source: sample_name
       - id: sample_sex
         source: sample_sex
       - id: sample_group
-        source:
-          - sample_group
+        source: sample_group
     out:
       - id: fgbio_collect_duplex_seq_metrics_duplex_family_size_pool_a
       - id: fgbio_collect_duplex_seq_metrics_duplex_qc_pool_a
@@ -458,8 +450,7 @@ steps:
       - id: sample_sex
         source: sample_sex
       - id: sample_group
-        source:
-          - sample_group
+        source: sample_group
     out:
       - id: sequence_qc_noise_positions
       - id: sequence_qc_noise_n
