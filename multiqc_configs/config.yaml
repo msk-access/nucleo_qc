@@ -371,9 +371,6 @@ custom_data:
   uncollapsed_basequality:
     parent_id: mean_base_quality
     parent_name: "Mean base quality"
-  uncollapsed_basequality-1:
-    parent_id: mean_base_quality
-    parent_name: "Mean base quality"
 
 sp:
   biometrics_minor_sites_collapsed:
@@ -896,17 +893,10 @@ module_order:
       path_filters:
         - "*uncollapsed_bam_stats_pool_b*"
   - picard:
-      name: "Mean Base Quality (Recal)"
-      anchor: "uncollapsed_basequality_recal"
-      path_filters:
-        - "*gatk_mean_quality_by_cycle_recal*"
-  - picard:
       name: "Mean Base Quality"
       anchor: "uncollapsed_basequality"
       path_filters:
         - "*gatk_mean_quality_by_cycle*"
-      path_filters_exclude:
-        - "*gatk_mean_quality_by_cycle_recal*"
   - picard:
       name: "Collapsed BAM (pool A)"
       anchor: "collapsed_poola"
@@ -979,8 +969,6 @@ report_section_order:
     order: 6
   uncollapsed_basequality:
     order: 5
-  uncollapsed_basequality_recal:
-    order: 4
   sequence_qc:
     order: 3
   contamination:
