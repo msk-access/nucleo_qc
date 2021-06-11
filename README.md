@@ -1,8 +1,5 @@
----
-description: Workflows that generate, aggregate, and visualize quality control files for MSK-ACCESS.
----
-
 # MSK-ACCESS QC generation
+Workflows that generate, aggregate, and visualize quality control files for MSK-ACCESS.
 
 - Free software: Apache Software License 2.0
 - Documentation: [https://msk-access.gitbook.io/access-quality-control-v2/](https://msk-access.gitbook.io/access-quality-control-v2/)
