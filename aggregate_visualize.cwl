@@ -20,8 +20,8 @@ inputs:
         - File
         - Directory
         - 'null'
-    'sbg:x': 0
-    'sbg:y': 0
+    'sbg:x': 320.9987487792969
+    'sbg:y': 163.49005126953125
   - id: simplex_bam_pool_b_dir
     type:
       type: array
@@ -151,12 +151,6 @@ outputs:
     type: Directory
     'sbg:x': 974.7890625
     'sbg:y': 913.3984375
-  - id: outdir
-    outputSource:
-      - qc_aggregator/outdir
-    type: 'Directory[]'
-    'sbg:x': 974.7890625
-    'sbg:y': 472.7421875
   - id: multiqc_zip
     outputSource:
       - multiqc_1_10_1/multiqc_zip
@@ -175,6 +169,12 @@ outputs:
     type: Directory
     'sbg:x': 1517.498291015625
     'sbg:y': 799.6640625
+  - id: outdir
+    outputSource:
+      - post_agg_agg/directory
+    type: Directory
+    'sbg:x': 913.861572265625
+    'sbg:y': 134.7600555419922
 steps:
   - id: qc_aggregator
     in:
@@ -231,11 +231,23 @@ steps:
     label: qc_aggregator
     'sbg:x': 522.8099975585938
     'sbg:y': 619.638671875
-  - id: general_stats_parse
+  - id: post_agg_agg
     in:
-      - id: directories
+      - id: files
         source:
           - qc_aggregator/outdir
+      - id: output_directory_name
+        default: all_qc_files
+    out:
+      - id: directory
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    label: post_agg_agg
+    'sbg:x': 721.748779296875
+    'sbg:y': 406.7313537597656
+  - id: general_stats_parse
+    in:
+      - id: directory
+        source: post_agg_agg/directory
       - id: samples-json
         source: samples-json
     out:
@@ -243,8 +255,8 @@ steps:
       - id: sample_meta_normal
     run: cwl-commandlinetools/access_utils/general_stats_parse.cwl
     label: general_stats_parse
-    'sbg:x': 974.7890625
-    'sbg:y': 586.40625
+    'sbg:x': 1083.657958984375
+    'sbg:y': 364.6903076171875
   - id: multiqc_1_10_1
     in:
       - id: qc_files_array

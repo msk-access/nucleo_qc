@@ -127,7 +127,7 @@ outputs:
   - id: outdir
     outputSource:
       - aggregate_visualize/outdir
-    type: 'Directory[]'
+    type: Directory
     'sbg:x': 1567.8502197265625
     'sbg:y': 860.234375
   - id: uncollapsed_bam_stats_pool_b_dir
@@ -268,13 +268,13 @@ outputs:
   - id: duplex_bam_genotyping_maf
     outputSource:
       - qc_generator/duplex_bam_genotyping_maf
-    type: File[]
+    type: 'File[]'
     'sbg:x': 932.4715576171875
     'sbg:y': 1068.90625
   - id: collapsed_bam_genotyping_maf
     outputSource:
       - qc_generator/collapsed_bam_genotyping_maf
-    type: File[]
+    type: 'File[]'
     'sbg:x': 932.4715576171875
     'sbg:y': 1603.359375
 steps:
@@ -403,10 +403,10 @@ steps:
     out:
       - id: duplex_biometrics_outdir
       - id: collapsed_biometrics_outdir
-      - id: outdir
       - id: multiqc_zip
       - id: multiqc_html
       - id: diree
+      - id: outdir
     run: ./aggregate_visualize.cwl
     label: aggregate_visualize
     'sbg:x': 932.4715576171875
