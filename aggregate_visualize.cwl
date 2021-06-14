@@ -171,10 +171,10 @@ outputs:
     'sbg:y': 799.6640625
   - id: outdir
     outputSource:
-      - post_agg_agg/directory
+      - post_agg_agg_agg/directory
     type: Directory
-    'sbg:x': 913.861572265625
-    'sbg:y': 134.7600555419922
+    'sbg:x': 1453.069091796875
+    'sbg:y': 202.3997344970703
 steps:
   - id: qc_aggregator
     in:
@@ -242,8 +242,8 @@ steps:
       - id: directory
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: post_agg_agg
-    'sbg:x': 721.748779296875
-    'sbg:y': 406.7313537597656
+    'sbg:x': 784.801025390625
+    'sbg:y': 344.1927795410156
   - id: general_stats_parse
     in:
       - id: directory
@@ -255,18 +255,27 @@ steps:
       - id: sample_meta_normal
     run: cwl-commandlinetools/access_utils/general_stats_parse.cwl
     label: general_stats_parse
-    'sbg:x': 1083.657958984375
-    'sbg:y': 364.6903076171875
-  - id: multiqc_1_10_1
+    'sbg:x': 1000.31591796875
+    'sbg:y': 480.4452819824219
+  - id: post_agg_agg_agg
     in:
-      - id: qc_files_array
-        linkMerge: merge_flattened
+      - id: files
         source:
           - general_stats_parse/sample_meta_tumor
           - general_stats_parse/sample_meta_normal
-      - id: qc_list_of_dirs
-        source:
-          - qc_aggregator/outdir
+          - post_agg_agg/directory
+      - id: output_directory_name
+        default: all_qc_files
+    out:
+      - id: directory
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    label: post_agg_agg_agg
+    'sbg:x': 1243.37060546875
+    'sbg:y': 346.1865539550781
+  - id: multiqc_1_10_1
+    in:
+      - id: qc_files_dir
+        source: post_agg_agg_agg/directory
       - id: config
         source: config
     out:
