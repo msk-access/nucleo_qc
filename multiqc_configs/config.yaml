@@ -839,6 +839,7 @@ remove_sections:
   - collapsed_poola_picard_hsmetrics_target_bases
   - collapsed_poola_picard_target_gc_bias_metrics
   - collapsed_poola_picard-insertsize
+  - collapsed_poola_picard_target_coverage_distribution
   # collapsed bam, pool B
   - collapsed_poolb_picard_alignment_readlength
   - collapsed_poolb_picard-alignmentsummary
@@ -861,6 +862,14 @@ remove_sections:
   - collapsed_poola_gcbias_picard_hsmetrics_target_bases
   - collapsed_poola_gcbias_picard_target_coverage_distribution
   - collapsed_poola_gcbias_picard_hsmetrics
+  # collapsed bam - show only target coverage dist., pool A
+  - collapsed_poola_targetcov_picard_alignment_readlength
+  - collapsed_poola_targetcov_picard-alignmentsummary
+  - collapsed_poola_targetcov_picard-insertsize
+  - collapsed_poola_targetcov_picard_hsmetrics_hs_penalty
+  - collapsed_poola_targetcov_picard_hsmetrics_target_bases
+  - collapsed_poola_targetcov_picard_hsmetrics
+  - collapsed_poola_targetcov_picard_target_gc_bias_metrics
   # duplex bam - pool A
   - duplex_poola_picard_alignment_readlength
   - duplex_poola_picard-alignmentsummary
@@ -946,6 +955,13 @@ module_order:
       path_filters_exclude:
         - "*uncollapsed_bam_stats_pool*"
   - picard:
+      name: "Target coverage disttribution"
+      anchor: "collapsed_poola_targetcov"
+      path_filters:
+        - "*collapsed_bam_stats_pool_a*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats_pool*"
+  - picard:
       name: "GC Bias (collapsed BAM)"
       anchor: "collapsed_poola_gcbias"
       path_filters:
@@ -997,14 +1013,16 @@ module_order:
 
 report_section_order:
   genstats_qcstatus_plasma:
-    order: 21
+    order: 22
   genstats_qcstatus_buffy:
-    order: 20
+    order: 21
   uncollapsed_poola_gcbias:
-    order: 19
+    order: 20
   collapsed_poola_gcbias:
-    order: 18
+    order: 19
   collapsed_poola_insertsize:
+    order: 18
+  collapsed_poola_targetcov:
     order: 17
   uncollapsed_poola:
     order: 16
