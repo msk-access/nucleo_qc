@@ -293,7 +293,7 @@ custom_data:
   biometrics_minor_duplex:
     plot_type: 'table'
     file_format: 'csv'
-    section_name: 'Minor contamination (duplex)'
+    section_name: 'Minor contamination duplex'
     parent_id: 'contamination'
     parent_name: 'Contamination'
     description: "Minor contamination statistics for duplex BAMs."
