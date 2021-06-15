@@ -219,7 +219,7 @@ steps:
         default: all_qc_files
     out:
       - id: directory
-    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: post_agg_agg
     'sbg:x': 986.3519287109375
     'sbg:y': 748.015625
@@ -255,7 +255,7 @@ steps:
         default: all_qc_files
     out:
       - id: directory
-    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: post_agg_agg_agg
     'sbg:x': 1515.1036376953125
     'sbg:y': 694.5859375
