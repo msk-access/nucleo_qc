@@ -99,7 +99,7 @@ custom_data:
         description: "Duplex target coverage."
         placement: 8
       MODE_INSERT_SIZE_plasma:
-        title: "Ins. size"
+        title: "Ins. size (MODE)"
         description: "The most frequently occuring insert size."
         placement: 12
         format: '{:,.0f}'
@@ -219,7 +219,7 @@ custom_data:
         description: "Duplex target coverage."
         placement: 8
       MODE_INSERT_SIZE_buffy:
-        title: "Ins. size"
+        title: "Ins. size (MODE)"
         description: "The most frequently occuring insert size."
         placement: 11
         format: '{:,.0f}'
