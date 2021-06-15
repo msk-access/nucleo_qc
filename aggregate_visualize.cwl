@@ -236,7 +236,7 @@ steps:
       - id: sequence_qc_substitution_mqc
       - id: sequence_qc_mqc_yaml
       - id: minor_contamination_sites_mqc
-    run: cwl-commandlinetools/access_utils/general_stats_parse.cwl
+    run: cwl-commandlinetools/access_utils/0.1.1/general_stats_parse.cwl
     label: general_stats_parse
     'sbg:x': 1146.0081787109375
     'sbg:y': 713.015625
@@ -269,7 +269,7 @@ steps:
       - id: diree
       - id: multiqc_html
       - id: multiqc_zip
-    run: cwl-commandlinetools/multiqc_1.10.1/multiqc_1.10.1.cwl
+    run: cwl-commandlinetools/multiqc/1.10.1.7/multiqc.cwl
     'sbg:x': 1674.7598876953125
     'sbg:y': 801.4453125
 requirements:
