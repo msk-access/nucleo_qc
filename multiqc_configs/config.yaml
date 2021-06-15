@@ -965,12 +965,12 @@ module_order:
       path_filters_exclude:
         - "*uncollapsed_bam_stats_pool*"
   - fgbio:
-      name: "Collapsed BAM Duplex Metrics (pool A)"
+      name: "Duplex Metrics (pool A)"
       anchor: "collapsed_duplex_metrics_poola"
       path_filters:
         - "*collapsed_bam_duplex_metrics_pool_a*"
   - fgbio:
-      name: "Collapsed BAM Duplex Metrics (pool B)"
+      name: "Duplex Metrics (pool B)"
       anchor: "collapsed_duplex_metrics_poolb"
       path_filters:
         - "*collapsed_bam_duplex_metrics_pool_b*"
