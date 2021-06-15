@@ -90,12 +90,6 @@ outputs:
     type: File
     'sbg:x': 1479.285400390625
     'sbg:y': 961.875
-  - id: diree
-    outputSource:
-      - aggregate_visualize/diree
-    type: Directory
-    'sbg:x': 1479.285400390625
-    'sbg:y': 1068.75
   - id: outdir
     outputSource:
       - aggregate_visualize/outdir
@@ -138,6 +132,12 @@ outputs:
         items: Directory
     'sbg:x': 921.3070068359375
     'sbg:y': 910.3125
+  - id: multiqc_output_dir
+    outputSource:
+      - aggregate_visualize/multiqc_output_dir
+    type: Directory
+    'sbg:x': 1406.6307373046875
+    'sbg:y': 1315.246826171875
 steps:
   - id: qc_generator
     in:
@@ -257,8 +257,8 @@ steps:
     out:
       - id: multiqc_zip
       - id: multiqc_html
-      - id: diree
       - id: outdir
+      - id: multiqc_output_dir
     run: ./aggregate_visualize.cwl
     label: aggregate_visualize
     'sbg:x': 921.3070068359375

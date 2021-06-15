@@ -142,18 +142,18 @@ outputs:
     type: File
     'sbg:x': 1917.4169921875
     'sbg:y': 748.015625
-  - id: diree
-    outputSource:
-      - multiqc_1_10_1/diree
-    type: Directory
-    'sbg:x': 1917.4169921875
-    'sbg:y': 854.875
   - id: outdir
     outputSource:
       - post_agg_agg_agg/directory
     type: Directory
     'sbg:x': 1674.7598876953125
     'sbg:y': 680.5859375
+  - id: multiqc_output_dir
+    outputSource:
+      - multiqc_1_10_1/multiqc_output_dir
+    type: Directory
+    'sbg:x': 1914.6417236328125
+    'sbg:y': 951.1354370117188
 steps:
   - id: qc_aggregator
     in:
@@ -266,7 +266,7 @@ steps:
       - id: config
         source: config
     out:
-      - id: diree
+      - id: multiqc_output_dir
       - id: multiqc_html
       - id: multiqc_zip
     run: cwl-commandlinetools/multiqc/1.10.1.7/multiqc.cwl
