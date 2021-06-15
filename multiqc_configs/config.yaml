@@ -842,6 +842,13 @@ remove_sections:
   - collapsed_poola_picard_hsmetrics_target_bases
   - collapsed_poolb_picard_hsmetrics_target_bases
   - collapsed_poolb_picard_target_coverage_distribution
+  - collapsed_poola_picard-insertsize
+  - collapsed_poola_insertsize_picard_alignment_readlength
+  - collapsed_poola_insertsize_picard-alignmentsummary
+  - collapsed_poola_insertsize_picard_hsmetrics
+  - collapsed_poola_insertsize_picard_target_gc_bias_metrics
+  - collapsed_poola_insertsize_picard_hsmetrics_target_bases
+  - collapsed_poola_insertsize_picard_target_coverage_distribution
   - duplex_poola_picard_alignment_readlength
   - duplex_poolb_picard_alignment_readlength
   - duplex_poola_picard-alignmentsummary
@@ -900,6 +907,13 @@ module_order:
   - picard:
       name: "Collapsed BAM (pool A)"
       anchor: "collapsed_poola"
+      path_filters:
+        - "*collapsed_bam_stats_pool_a*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats_pool*"
+  - picard:
+      name: "Insert Size"
+      anchor: "collapsed_poola_insertsize"
       path_filters:
         - "*collapsed_bam_stats_pool_a*"
       path_filters_exclude:
