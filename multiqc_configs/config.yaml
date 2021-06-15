@@ -99,7 +99,7 @@ custom_data:
         description: "Duplex target coverage."
         placement: 8
       MODE_INSERT_SIZE_plasma:
-        title: "Ins. size"
+        title: "Ins. size (MODE)"
         description: "The most frequently occuring insert size."
         placement: 12
         format: '{:,.0f}'
@@ -219,7 +219,7 @@ custom_data:
         description: "Duplex target coverage."
         placement: 8
       MODE_INSERT_SIZE_buffy:
-        title: "Ins. size"
+        title: "Ins. size (MODE)"
         description: "The most frequently occuring insert size."
         placement: 11
         format: '{:,.0f}'
@@ -833,53 +833,96 @@ show_hide_patterns:
   - -N0
 
 remove_sections:
+  # collapsed bam, pool A
   - collapsed_poola_picard_alignment_readlength
-  - collapsed_poolb_picard_alignment_readlength
   - collapsed_poola_picard-alignmentsummary
+  - collapsed_poola_picard_hsmetrics_target_bases
+  - collapsed_poola_picard_target_gc_bias_metrics
+  - collapsed_poola_picard-insertsize
+  - collapsed_poola_picard_target_coverage_distribution
+  # collapsed bam, pool B
+  - collapsed_poolb_picard_alignment_readlength
   - collapsed_poolb_picard-alignmentsummary
   - collapsed_poolb_picard-insertsize
   - collapsed_poolb_picard_target_gc_bias_metrics
-  - collapsed_poola_picard_hsmetrics_target_bases
   - collapsed_poolb_picard_hsmetrics_target_bases
   - collapsed_poolb_picard_target_coverage_distribution
+  # collapsed bam - show only insert size only, pool A
+  - collapsed_poola_insertsize_picard_alignment_readlength
+  - collapsed_poola_insertsize_picard-alignmentsummary
+  - collapsed_poola_insertsize_picard_hsmetrics
+  - collapsed_poola_insertsize_picard_target_gc_bias_metrics
+  - collapsed_poola_insertsize_picard_hsmetrics_target_bases
+  - collapsed_poola_insertsize_picard_target_coverage_distribution
+  # collapsed bam - show only gc bias, pool A
+  - collapsed_poola_gcbias_picard_alignment_readlength
+  - collapsed_poola_gcbias_picard-alignmentsummary
+  - collapsed_poola_gcbias_picard-insertsize
+  - collapsed_poola_gcbias_picard_hsmetrics_hs_penalty
+  - collapsed_poola_gcbias_picard_hsmetrics_target_bases
+  - collapsed_poola_gcbias_picard_target_coverage_distribution
+  - collapsed_poola_gcbias_picard_hsmetrics
+  # collapsed bam - show only target coverage dist., pool A
+  - collapsed_poola_targetcov_picard_alignment_readlength
+  - collapsed_poola_targetcov_picard-alignmentsummary
+  - collapsed_poola_targetcov_picard-insertsize
+  - collapsed_poola_targetcov_picard_hsmetrics_hs_penalty
+  - collapsed_poola_targetcov_picard_hsmetrics_target_bases
+  - collapsed_poola_targetcov_picard_hsmetrics
+  - collapsed_poola_targetcov_picard_target_gc_bias_metrics
+  # duplex bam - pool A
   - duplex_poola_picard_alignment_readlength
-  - duplex_poolb_picard_alignment_readlength
   - duplex_poola_picard-alignmentsummary
-  - duplex_poolb_picard-alignmentsummary
   - duplex_poola_picard-insertsize
-  - duplex_poolb_picard-insertsize
   - duplex_poola_picard_target_gc_bias_metrics
-  - duplex_poolb_picard_target_gc_bias_metrics
   - duplex_poola_picard_hsmetrics_target_bases
-  - duplex_poolb_picard_hsmetrics_target_bases
   - duplex_poola_picard_target_coverage_distribution
+  # duplex bam - pool B
+  - duplex_poolb_picard_alignment_readlength
+  - duplex_poolb_picard-alignmentsummary
+  - duplex_poolb_picard-insertsize
+  - duplex_poolb_picard_target_gc_bias_metrics
+  - duplex_poolb_picard_hsmetrics_target_bases
   - duplex_poolb_picard_target_coverage_distribution
+  # simplex bam - pool A
   - simplex_poola_picard_alignment_readlength
-  - simplex_poolb_picard_alignment_readlength
   - simplex_poola_picard-alignmentsummary
-  - simplex_poolb_picard-alignmentsummary
   - simplex_poola_picard-insertsize
-  - simplex_poolb_picard-insertsize
   - simplex_poola_picard_target_gc_bias_metrics
-  - simplex_poolb_picard_target_gc_bias_metrics
   - simplex_poola_picard_hsmetrics_target_bases
-  - simplex_poolb_picard_hsmetrics_target_bases
   - simplex_poola_picard_target_coverage_distribution
+  # simplex bam - pool B
+  - simplex_poolb_picard_alignment_readlength
+  - simplex_poolb_picard-alignmentsummary
+  - simplex_poolb_picard-insertsize
+  - simplex_poolb_picard_target_gc_bias_metrics
+  - simplex_poolb_picard_hsmetrics_target_bases
   - simplex_poolb_picard_target_coverage_distribution
+  # uncollapsed bam - pool A
   - uncollapsed_poola_picard_alignment_readlength
-  - uncollapsed_poolb_picard_alignment_readlength
   - uncollapsed_poola_picard-alignmentsummary
-  - uncollapsed_poolb_picard-alignmentsummary
   - uncollapsed_poola_picard-insertsize
+  - uncollapsed_poola_picard_target_gc_bias_metrics
+  - uncollapsed_poola_picard_hsmetrics_hs_penalty
+  - uncollapsed_poola_picard_hsmetrics_target_bases
+  - uncollapsed_poola_picard_target_coverage_distribution
+  # uncollapsed bam - pool B
+  - uncollapsed_poolb_picard_alignment_readlength
+  - uncollapsed_poolb_picard-alignmentsummary
   - uncollapsed_poolb_picard-insertsize
   - uncollapsed_poolb_picard_target_gc_bias_metrics
-  - uncollapsed_poola_picard_hsmetrics_hs_penalty
   - uncollapsed_poolb_picard_hsmetrics_hs_penalty
-  - uncollapsed_poola_picard_hsmetrics_target_bases
   - uncollapsed_poolb_picard_hsmetrics_target_bases
-  - uncollapsed_poola_picard_target_coverage_distribution
   - uncollapsed_poolb_picard_target_coverage_distribution
   - uncollapsed_poolb_picard_hsmetrics
+  # uncollapsed bam - show only gc bias, pool A
+  - uncollapsed_poola_gcbias_picard_alignment_readlength
+  - uncollapsed_poola_gcbias_picard-alignmentsummary
+  - uncollapsed_poola_gcbias_picard-insertsize
+  - uncollapsed_poola_gcbias_picard_hsmetrics_hs_penalty
+  - uncollapsed_poola_gcbias_picard_hsmetrics_target_bases
+  - uncollapsed_poola_gcbias_picard_target_coverage_distribution
+  - uncollapsed_poola_gcbias_picard_hsmetrics
 
 module_order:
   - picard:
@@ -905,6 +948,32 @@ module_order:
       path_filters_exclude:
         - "*uncollapsed_bam_stats_pool*"
   - picard:
+      name: "Insert Size"
+      anchor: "collapsed_poola_insertsize"
+      path_filters:
+        - "*collapsed_bam_stats_pool_a*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats_pool*"
+  - picard:
+      name: "Target coverage disttribution"
+      anchor: "collapsed_poola_targetcov"
+      path_filters:
+        - "*collapsed_bam_stats_pool_a*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats_pool*"
+  - picard:
+      name: "GC Bias (collapsed BAM)"
+      anchor: "collapsed_poola_gcbias"
+      path_filters:
+        - "*collapsed_bam_stats_pool_a*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats_pool*"
+  - picard:
+      name: "GC Bias (uncollapsed BAM)"
+      anchor: "uncollapsed_poola_gcbias"
+      path_filters:
+        - "*uncollapsed_bam_stats_pool_a*"
+  - picard:
       name: "Collapsed BAM (pool B)"
       anchor: "collapsed_poolb"
       path_filters:
@@ -912,12 +981,12 @@ module_order:
       path_filters_exclude:
         - "*uncollapsed_bam_stats_pool*"
   - fgbio:
-      name: "Collapsed BAM Duplex Metrics (pool A)"
+      name: "Duplex Metrics (pool A)"
       anchor: "collapsed_duplex_metrics_poola"
       path_filters:
         - "*collapsed_bam_duplex_metrics_pool_a*"
   - fgbio:
-      name: "Collapsed BAM Duplex Metrics (pool B)"
+      name: "Duplex Metrics (pool B)"
       anchor: "collapsed_duplex_metrics_poolb"
       path_filters:
         - "*collapsed_bam_duplex_metrics_pool_b*"
@@ -944,28 +1013,36 @@ module_order:
 
 report_section_order:
   genstats_qcstatus_plasma:
-    order: 17
+    order: 22
   genstats_qcstatus_buffy:
-    order: 16
+    order: 21
+  uncollapsed_poola_gcbias:
+    order: 20
+  collapsed_poola_gcbias:
+    order: 19
+  collapsed_poola_insertsize:
+    order: 18
+  collapsed_poola_targetcov:
+    order: 17
   uncollapsed_poola:
-    order: 15
+    order: 16
   uncollapsed_poolb:
     order: 14
   collapsed_poola:
     order: 13
   collapsed_poolb:
     order: 12
-  collapsed_duplex_metrics_poola:
-    order: 11
-  collapsed_duplex_metrics_poolb:
-    order: 10
   duplex_poola:
-    order: 9
+    order: 11
   duplex_poolb:
-    order: 8
+    order: 10
   simplex_poola:
-    order: 7
+    order: 9
   simplex_poolb:
+    order: 8
+  collapsed_duplex_metrics_poola:
+    order: 7
+  collapsed_duplex_metrics_poolb:
     order: 6
   uncollapsed_basequality:
     order: 5
