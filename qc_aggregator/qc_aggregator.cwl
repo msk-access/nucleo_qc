@@ -136,16 +136,6 @@ inputs:
     label: gatk_mean_quality_by_cycle_recal_dir
     'sbg:x': 0
     'sbg:y': 427.5
-  - id: gatk_mean_quality_by_cycle_dir
-    type:
-      type: array
-      items:
-        - File
-        - Directory
-        - 'null'
-    label: gatk_mean_quality_by_cycle_dir
-    'sbg:x': 0
-    'sbg:y': 534.375
   - id: uncollapsed_bam_stats_pool_b_dir
     type:
       type: array
@@ -240,7 +230,7 @@ outputs:
   - id: directory
     outputSource:
       - aggregate/directory
-    type: Directory[]
+    type: 'Directory[]'
     'sbg:x': 782.2349243164062
     'sbg:y': 1791.95654296875
 steps:
@@ -283,7 +273,6 @@ steps:
           - collapsed_bam_duplex_metrics_pool_a_dir
           - collapsed_bam_duplex_metrics_pool_b_dir
           - gatk_mean_quality_by_cycle_recal_dir
-          - gatk_mean_quality_by_cycle_dir
           - uncollapsed_bam_stats_pool_b_dir
           - uncollapsed_bam_stats_pool_a_dir
           - duplex_bam_sequence_qc_dir

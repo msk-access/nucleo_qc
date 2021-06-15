@@ -8,59 +8,55 @@ inputs:
   - id: reference
     type: File
     'sbg:x': 0
-    'sbg:y': 746.75
+    'sbg:y': 641.25
   - id: pool_b_target_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 853.4453125
+    'sbg:y': 748.125
   - id: pool_b_bait_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 960.140625
+    'sbg:y': 855
   - id: pool_a_target_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 1066.8359375
+    'sbg:y': 961.875
   - id: pool_a_bait_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 1173.53125
+    'sbg:y': 1068.75
   - id: noise_sites_bed
     type: File
     'sbg:x': 0
-    'sbg:y': 1280.1875
+    'sbg:y': 1175.625
   - id: biometrics_vcf_file
     type: File
     'sbg:x': 0
-    'sbg:y': 1920.28125
+    'sbg:y': 1816.875
   - id: collapsed_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1813.625
+    'sbg:y': 1710
   - id: duplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1706.96875
+    'sbg:y': 1603.125
   - id: group_reads_by_umi_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1600.2734375
+    'sbg:y': 1496.25
   - id: simplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 213.3125
-  - id: uncollapsed_bam
-    type: 'File[]'
-    'sbg:x': 0
-    'sbg:y': 106.65625
+    'sbg:y': 106.875
   - id: sample_sex
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 426.703125
+    'sbg:y': 320.625
   - id: sample_group
     type: 'string[]'
     'sbg:x': 0
-    'sbg:y': 640.0546875
+    'sbg:y': 534.375
   - id: uncollapsed_bam_base_recal
     type: 'File[]'
     'sbg:x': 0
@@ -68,44 +64,44 @@ inputs:
   - id: sample_name
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 533.359375
+    'sbg:y': 427.5
   - id: samples-json
     type: File
     'sbg:x': 0
-    'sbg:y': 320.0078125
+    'sbg:y': 213.75
   - id: multiqc_config
     type: File?
     'sbg:x': 0
-    'sbg:y': 1386.8828125
+    'sbg:y': 1282.5
   - id: hotspots_maf
     type: File
     'sbg:x': 0
-    'sbg:y': 1493.578125
+    'sbg:y': 1389.375
 outputs:
   - id: multiqc_zip
     outputSource:
       - aggregate_visualize/multiqc_zip
     type: File?
-    'sbg:x': 1501.5306396484375
-    'sbg:y': 906.8125
+    'sbg:x': 1479.285400390625
+    'sbg:y': 855
   - id: multiqc_html
     outputSource:
       - aggregate_visualize/multiqc_html
     type: File
-    'sbg:x': 1501.5306396484375
-    'sbg:y': 1013.46875
+    'sbg:x': 1479.285400390625
+    'sbg:y': 961.875
   - id: diree
     outputSource:
       - aggregate_visualize/diree
     type: Directory
-    'sbg:x': 1501.5306396484375
-    'sbg:y': 1120.125
+    'sbg:x': 1479.285400390625
+    'sbg:y': 1068.75
   - id: outdir
     outputSource:
       - aggregate_visualize/outdir
     type: Directory
-    'sbg:x': 1501.5306396484375
-    'sbg:y': 800.15625
+    'sbg:x': 1479.285400390625
+    'sbg:y': 748.125
   - id: collapsed_bam_genotyping_maf
     outputSource:
       - qc_generator/collapsed_bam_genotyping_maf
@@ -113,8 +109,8 @@ outputs:
       - File
       - type: array
         items: File
-    'sbg:x': 932.876708984375
-    'sbg:y': 848.1015625
+    'sbg:x': 921.3070068359375
+    'sbg:y': 803.4375
   - id: duplex_bam_biometrics_dir
     outputSource:
       - qc_generator/duplex_bam_biometrics_dir
@@ -122,8 +118,8 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 932.876708984375
-    'sbg:y': 741.40625
+    'sbg:x': 921.3070068359375
+    'sbg:y': 696.5625
   - id: duplex_bam_genotyping_maf
     outputSource:
       - qc_generator/duplex_bam_genotyping_maf
@@ -131,8 +127,8 @@ outputs:
       - File
       - type: array
         items: File
-    'sbg:x': 806.7962036132812
-    'sbg:y': 452.60040283203125
+    'sbg:x': 921.3070068359375
+    'sbg:y': 589.6875
   - id: collapsed_bam_biometrics_dir
     outputSource:
       - qc_generator/collapsed_bam_biometrics_dir
@@ -140,8 +136,8 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 872.4326782226562
-    'sbg:y': 587.4212646484375
+    'sbg:x': 921.3070068359375
+    'sbg:y': 910.3125
 steps:
   - id: qc_generator
     in:
@@ -153,8 +149,6 @@ steps:
         source: collapsed_bam
       - id: group_reads_by_umi_bam
         source: group_reads_by_umi_bam
-      - id: uncollapsed_bam
-        source: uncollapsed_bam
       - id: uncollapsed_bam_base_recal
         source: uncollapsed_bam_base_recal
       - id: pool_b_target_intervals
@@ -182,7 +176,6 @@ steps:
     out:
       - id: uncollapsed_bam_stats_pool_a_dir
       - id: uncollapsed_bam_stats_pool_b_dir
-      - id: gatk_mean_quality_by_cycle_dir
       - id: gatk_mean_quality_by_cycle_recal_dir
       - id: collapsed_bam_biometrics_dir
       - id: collapsed_bam_duplex_metrics_pool_b_dir
@@ -205,7 +198,6 @@ steps:
       - duplex_bam
       - collapsed_bam
       - group_reads_by_umi_bam
-      - uncollapsed_bam
       - uncollapsed_bam_base_recal
       - sample_sex
       - sample_name
@@ -213,7 +205,7 @@ steps:
       - simplex_bam
     scatterMethod: dotproduct
     'sbg:x': 288.796875
-    'sbg:y': 834.1015625
+    'sbg:y': 789.4375
   - id: aggregate_visualize
     in:
       - id: duplex_extraction_files
@@ -234,9 +226,6 @@ steps:
       - id: gatk_mean_quality_by_cycle_recal_dir
         source:
           - qc_generator/gatk_mean_quality_by_cycle_recal_dir
-      - id: gatk_mean_quality_by_cycle_dir
-        source:
-          - qc_generator/gatk_mean_quality_by_cycle_dir
       - id: duplex_bam_stats_pool_b_dir
         source:
           - qc_generator/duplex_bam_stats_pool_b_dir
@@ -272,8 +261,8 @@ steps:
       - id: outdir
     run: ./aggregate_visualize.cwl
     label: aggregate_visualize
-    'sbg:x': 932.876708984375
-    'sbg:y': 1173.4921875
+    'sbg:x': 921.3070068359375
+    'sbg:y': 1122.1875
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
