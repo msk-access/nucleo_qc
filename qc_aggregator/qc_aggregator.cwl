@@ -16,26 +16,26 @@ inputs:
       sample to analyze; this assumes there is a file named '{sample_name}.pk'
       in your database directory. Can be specified more than once.
     'sbg:x': 0
-    'sbg:y': 641.25
+    'sbg:y': 533.609375
   - id: duplex_biometrics_discordance_threshold
     type: float?
     doc: >-
       Discordance values less than this are regarded as matching samples.
       (default: 0.05)
     'sbg:x': 0
-    'sbg:y': 961.875
+    'sbg:y': 853.78125
   - id: biometrics_json
     type: boolean?
     label: biometrics_json
     doc: Also output data in JSON format.
     'sbg:x': 0
-    'sbg:y': 2565
+    'sbg:y': 2454.6015625
   - id: biometrics_plot
     type: boolean?
     label: biometrics_plot
     doc: Also output plots of the data.
     'sbg:x': 0
-    'sbg:y': 2458.125
+    'sbg:y': 2347.875
   - id: simplex_bam_pool_a_dir
     type:
       type: array
@@ -45,7 +45,7 @@ inputs:
         - 'null'
     label: simplex_bam_pool_a_dir
     'sbg:x': 0
-    'sbg:y': 320.625
+    'sbg:y': 320.15625
   - id: simplex_bam_pool_b_dir
     type:
       type: array
@@ -55,7 +55,7 @@ inputs:
         - 'null'
     label: simplex_bam_pool_b_dir
     'sbg:x': 0
-    'sbg:y': 213.75
+    'sbg:y': 213.4375
   - id: duplex_bam_sequence_qc_dir
     type:
       type: array
@@ -65,7 +65,7 @@ inputs:
         - 'null'
     label: duplex_bam_sequence_qc_dir
     'sbg:x': 0
-    'sbg:y': 1282.5
+    'sbg:y': 1173.9375
   - id: duplex_bam_stats_pool_a_dir
     type:
       type: array
@@ -75,7 +75,7 @@ inputs:
         - 'null'
     label: duplex_bam_stats_pool_a_dir
     'sbg:x': 0
-    'sbg:y': 1175.625
+    'sbg:y': 1067.21875
   - id: duplex_bam_stats_pool_b_dir
     type:
       type: array
@@ -85,7 +85,7 @@ inputs:
         - 'null'
     label: duplex_bam_stats_pool_b_dir
     'sbg:x': 0
-    'sbg:y': 1068.75
+    'sbg:y': 960.5
   - id: collapsed_bam_stats_pool_a_dir
     type:
       type: array
@@ -95,7 +95,7 @@ inputs:
         - 'null'
     label: collapsed_bam_stats_pool_a_dir
     'sbg:x': 0
-    'sbg:y': 2030.625
+    'sbg:y': 1921
   - id: collapsed_bam_stats_pool_b_dir
     type:
       type: array
@@ -105,7 +105,7 @@ inputs:
         - 'null'
     label: collapsed_bam_stats_pool_b_dir
     'sbg:x': 0
-    'sbg:y': 1923.75
+    'sbg:y': 1814.28125
   - id: collapsed_bam_duplex_metrics_pool_a_dir
     type:
       type: array
@@ -115,7 +115,7 @@ inputs:
         - 'null'
     label: collapsed_bam_duplex_metrics_pool_a_dir
     'sbg:x': 0
-    'sbg:y': 2244.375
+    'sbg:y': 2134.4375
   - id: collapsed_bam_duplex_metrics_pool_b_dir
     type:
       type: array
@@ -125,7 +125,7 @@ inputs:
         - 'null'
     label: collapsed_bam_duplex_metrics_pool_b_dir
     'sbg:x': 0
-    'sbg:y': 2137.5
+    'sbg:y': 2027.71875
   - id: gatk_mean_quality_by_cycle_recal_dir
     type:
       type: array
@@ -135,7 +135,7 @@ inputs:
         - 'null'
     label: gatk_mean_quality_by_cycle_recal_dir
     'sbg:x': 0
-    'sbg:y': 427.5
+    'sbg:y': 426.8828125
   - id: uncollapsed_bam_stats_pool_b_dir
     type:
       type: array
@@ -155,25 +155,25 @@ inputs:
         - 'null'
     label: uncollapsed_bam_stats_pool_a_dir
     'sbg:x': 0
-    'sbg:y': 106.875
+    'sbg:y': 106.71875
   - id: biometrics_threads
     type: int?
     label: biometrics_threads
     doc: Number of threads to use.
     'sbg:x': 0
-    'sbg:y': 2351.25
+    'sbg:y': 2241.15625
   - id: duplex_biometrics_major_threshold
     type: float?
     label: duplex_biometrics_major_threshold
     doc: Major contamination threshold for bad sample.
     'sbg:x': 0
-    'sbg:y': 855
+    'sbg:y': 747.0546875
   - id: duplex_biometrics_minor_threshold
     type: float?
     label: duplex_biometrics_minor_threshold
     doc: Minor contamination threshold for bad sample.
     'sbg:x': 0
-    'sbg:y': 748.125
+    'sbg:y': 640.328125
   - id: collapsed_extraction_files
     type: 'File[]'
     label: collapsed_extraction_files
@@ -185,7 +185,7 @@ inputs:
       sample to analyze; this assumes there is a file named '{sample_name}.pk'
       in your database directory. Can be specified more than once.
     'sbg:x': 0
-    'sbg:y': 1389.375
+    'sbg:y': 1280.65625
   - id: collapsed_biometrics_discordance_threshold
     type: float?
     label: collapsed_biometrics_discordance_threshold
@@ -193,25 +193,25 @@ inputs:
       Discordance values less than this are regarded as matching samples.
       (default: 0.05)
     'sbg:x': 0
-    'sbg:y': 1710
+    'sbg:y': 1600.828125
   - id: collapsed_biometrics_major_threshold
     type: float?
     label: collapsed_biometrics_major_threshold
     doc: Major contamination threshold for bad sample.
     'sbg:x': 0
-    'sbg:y': 1603.125
+    'sbg:y': 1494.1015625
   - id: collapsed_biometrics_minor_threshold
     type: float?
     label: collapsed_biometrics_minor_threshold
     doc: Minor contamination threshold for bad sample.
     'sbg:x': 0
-    'sbg:y': 1496.25
+    'sbg:y': 1387.375
   - id: collapsed_biometrics_coverage_threshold
     type: int?
     label: collapsed_biometrics_coverage_threshold
     doc: Samples with Y chromosome above this value will be considered male.
     'sbg:x': 0
-    'sbg:y': 1816.875
+    'sbg:y': 1707.5546875
 outputs:
   - id: duplex_biometrics_outdir
     outputSource:
@@ -219,20 +219,20 @@ outputs:
     type: Directory
     label: duplex_biometrics_outdir
     'sbg:x': 1054.633544921875
-    'sbg:y': 1229.0625
+    'sbg:y': 1173.9453125
   - id: collapsed_biometrics_outdir
     outputSource:
       - collapsed_biometrics_agg/directory
     type: Directory
     label: collapsed_biometrics_outdir
     'sbg:x': 1054.633544921875
-    'sbg:y': 1335.9375
+    'sbg:y': 1280.6640625
   - id: directory
     outputSource:
       - aggregate/directory
     type: 'Directory[]'
-    'sbg:x': 782.2349243164062
-    'sbg:y': 1791.95654296875
+    'sbg:x': 887.633544921875
+    'sbg:y': 1227.296875
 steps:
   - id: duplex_biometrics_genotype
     in:
@@ -259,7 +259,7 @@ steps:
       - id: biometrics_genotype_plot_input_database
     run: ../cwl-commandlinetools/biometrics_genotype/0.2.13/biometrics_genotype.cwl
     'sbg:x': 410.171875
-    'sbg:y': 1059.1875
+    'sbg:y': 1004.2109375
   - id: aggregate
     in:
       - id: files
@@ -287,7 +287,6 @@ steps:
           - collapsed_bam_duplex_metrics_pool_a_dir
           - collapsed_bam_duplex_metrics_pool_b_dir
           - gatk_mean_quality_by_cycle_recal_dir
-          - gatk_mean_quality_by_cycle_dir
           - uncollapsed_bam_stats_pool_b_dir
           - uncollapsed_bam_stats_pool_a_dir
           - duplex_bam_sequence_qc_dir
@@ -300,7 +299,7 @@ steps:
       - output_directory_name
     scatterMethod: dotproduct
     'sbg:x': 410.171875
-    'sbg:y': 1789.5625
+    'sbg:y': 1733.8515625
   - id: duplex_biometrics_major
     in:
       - id: input
@@ -323,7 +322,7 @@ steps:
     run: ../cwl-commandlinetools/biometrics_major/0.2.13/biometrics_major.cwl
     label: duplex_biometrics_major
     'sbg:x': 410.171875
-    'sbg:y': 903.3125
+    'sbg:y': 848.4765625
   - id: duplex_biometrics_minor
     in:
       - id: input
@@ -347,7 +346,7 @@ steps:
     run: ../cwl-commandlinetools/biometrics_minor/0.2.13/biometrics_minor.cwl
     label: duplex_biometrics_minor
     'sbg:x': 410.171875
-    'sbg:y': 754.4375
+    'sbg:y': 699.75
   - id: duplex_biometrics_agg
     in:
       - id: files
@@ -372,7 +371,7 @@ steps:
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_biometrics_agg
     'sbg:x': 887.633544921875
-    'sbg:y': 1175.625
+    'sbg:y': 1120.5625
   - id: collapsed_biometrics_genotype
     in:
       - id: input
@@ -399,7 +398,7 @@ steps:
     run: ../cwl-commandlinetools/biometrics_genotype/0.2.13/biometrics_genotype.cwl
     label: collapsed_biometrics_genotype
     'sbg:x': 410.171875
-    'sbg:y': 1654.6875
+    'sbg:y': 1599.1171875
   - id: collapsed_biometrics_major
     in:
       - id: input
@@ -423,7 +422,7 @@ steps:
     run: ../cwl-commandlinetools/biometrics_major/0.2.13/biometrics_major.cwl
     label: collapsed_biometrics_major
     'sbg:x': 410.171875
-    'sbg:y': 1498.8125
+    'sbg:y': 1443.3828125
   - id: collapsed_biometrics_minor
     in:
       - id: input
@@ -450,7 +449,7 @@ steps:
     run: ../cwl-commandlinetools/biometrics_minor/0.2.13/biometrics_minor.cwl
     label: collapsed_biometrics_minor
     'sbg:x': 410.171875
-    'sbg:y': 1349.9375
+    'sbg:y': 1294.65625
   - id: collapsed_biometrics_sexmismatch
     in:
       - id: input
@@ -470,7 +469,7 @@ steps:
       ../cwl-commandlinetools/biometrics_sexmismatch/0.2.13/biometrics_sexmismatch.cwl
     label: collapsed_biometrics_sexmismatch
     'sbg:x': 410.171875
-    'sbg:y': 1208.0625
+    'sbg:y': 1152.9375
   - id: collapsed_biometrics_agg
     in:
       - id: files
@@ -498,7 +497,7 @@ steps:
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: collapsed_biometrics_agg
     'sbg:x': 887.633544921875
-    'sbg:y': 1389.375
+    'sbg:y': 1334.03125
 requirements:
   - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement

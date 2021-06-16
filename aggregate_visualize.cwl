@@ -219,10 +219,10 @@ steps:
         default: all_qc_files
     out:
       - id: directory
-    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: post_agg_agg
-    'sbg:x': 986.3519287109375
-    'sbg:y': 748.015625
+    'sbg:x': 840.5604858398438
+    'sbg:y': 813.7940673828125
   - id: general_stats_parse
     in:
       - id: directory
@@ -238,8 +238,8 @@ steps:
       - id: minor_contamination_sites_mqc
     run: cwl-commandlinetools/access_utils/0.1.1/general_stats_parse.cwl
     label: general_stats_parse
-    'sbg:x': 1146.0081787109375
-    'sbg:y': 713.015625
+    'sbg:x': 1116.5657958984375
+    'sbg:y': 650.6687622070312
   - id: post_agg_agg_agg
     in:
       - id: files
@@ -255,7 +255,7 @@ steps:
         default: all_qc_files
     out:
       - id: directory
-    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: post_agg_agg_agg
     'sbg:x': 1515.1036376953125
     'sbg:y': 694.5859375
