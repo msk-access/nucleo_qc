@@ -170,15 +170,6 @@
                     "https://www.sevenbridges.com/y": 961.875
                 },
                 {
-                    "id": "#diree",
-                    "outputSource": [
-                        "#aggregate_visualize/diree"
-                    ],
-                    "type": "Directory",
-                    "https://www.sevenbridges.com/x": 1479.285400390625,
-                    "https://www.sevenbridges.com/y": 1068.75
-                },
-                {
                     "id": "#outdir",
                     "outputSource": [
                         "#aggregate_visualize/outdir"
@@ -246,6 +237,15 @@
                     ],
                     "https://www.sevenbridges.com/x": 921.3070068359375,
                     "https://www.sevenbridges.com/y": 910.3125
+                },
+                {
+                    "id": "#multiqc_output_dir",
+                    "outputSource": [
+                        "#aggregate_visualize/multiqc_output_dir"
+                    ],
+                    "type": "Directory",
+                    "https://www.sevenbridges.com/x": 1406.6307373046875,
+                    "https://www.sevenbridges.com/y": 1315.246826171875
                 }
             ],
             "steps": [
@@ -493,10 +493,10 @@
                             "id": "#aggregate_visualize/multiqc_html"
                         },
                         {
-                            "id": "#aggregate_visualize/diree"
+                            "id": "#aggregate_visualize/outdir"
                         },
                         {
-                            "id": "#aggregate_visualize/outdir"
+                            "id": "#aggregate_visualize/multiqc_output_dir"
                         }
                     ],
                     "run": "#aggregate_visualize.cwl",
@@ -735,15 +735,6 @@
                     "https://www.sevenbridges.com/y": 748.015625
                 },
                 {
-                    "id": "#aggregate_visualize.cwl/diree",
-                    "outputSource": [
-                        "#aggregate_visualize.cwl/multiqc_1_10_1/diree"
-                    ],
-                    "type": "Directory",
-                    "https://www.sevenbridges.com/x": 1917.4169921875,
-                    "https://www.sevenbridges.com/y": 854.875
-                },
-                {
                     "id": "#aggregate_visualize.cwl/outdir",
                     "outputSource": [
                         "#aggregate_visualize.cwl/post_agg_agg_agg/directory"
@@ -751,6 +742,15 @@
                     "type": "Directory",
                     "https://www.sevenbridges.com/x": 1674.7598876953125,
                     "https://www.sevenbridges.com/y": 680.5859375
+                },
+                {
+                    "id": "#aggregate_visualize.cwl/multiqc_output_dir",
+                    "outputSource": [
+                        "#aggregate_visualize.cwl/multiqc_1_10_1/multiqc_output_dir"
+                    ],
+                    "type": "Directory",
+                    "https://www.sevenbridges.com/x": 1914.6417236328125,
+                    "https://www.sevenbridges.com/y": 951.1354370117188
                 }
             ],
             "steps": [
@@ -882,8 +882,8 @@
                     ],
                     "run": "#put_in_dir.cwl_2",
                     "label": "post_agg_agg",
-                    "https://www.sevenbridges.com/x": 986.3519287109375,
-                    "https://www.sevenbridges.com/y": 748.015625
+                    "https://www.sevenbridges.com/x": 840.5604858398438,
+                    "https://www.sevenbridges.com/y": 813.7940673828125
                 },
                 {
                     "id": "#aggregate_visualize.cwl/general_stats_parse",
@@ -919,8 +919,8 @@
                     ],
                     "run": "#general_stats_parse.cwl",
                     "label": "general_stats_parse",
-                    "https://www.sevenbridges.com/x": 1146.0081787109375,
-                    "https://www.sevenbridges.com/y": 713.015625
+                    "https://www.sevenbridges.com/x": 1116.5657958984375,
+                    "https://www.sevenbridges.com/y": 650.6687622070312
                 },
                 {
                     "id": "#aggregate_visualize.cwl/post_agg_agg_agg",
@@ -966,7 +966,7 @@
                     ],
                     "out": [
                         {
-                            "id": "#aggregate_visualize.cwl/multiqc_1_10_1/diree"
+                            "id": "#aggregate_visualize.cwl/multiqc_1_10_1/multiqc_output_dir"
                         },
                         {
                             "id": "#aggregate_visualize.cwl/multiqc_1_10_1/multiqc_html"
@@ -8329,7 +8329,7 @@
                     "label": "duplex_extraction_files",
                     "doc": "Can be one of three types: (1) path to a CSV file containing sample information (one per line). For example: sample_name,sample_bam,sample_type,sample_sex,sample_group. (2) Path to a '*.pk' file that was produced by the 'extract' tool. (3) Name of the sample to analyze; this assumes there is a file named '{sample_name}.pk' in your database directory. Can be specified more than once.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 641.25
+                    "https://www.sevenbridges.com/y": 533.609375
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_biometrics_discordance_threshold",
@@ -8339,7 +8339,7 @@
                     ],
                     "doc": "Discordance values less than this are regarded as matching samples. (default: 0.05)",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 961.875
+                    "https://www.sevenbridges.com/y": 853.78125
                 },
                 {
                     "id": "#qc_aggregator.cwl/biometrics_json",
@@ -8350,7 +8350,7 @@
                     "label": "biometrics_json",
                     "doc": "Also output data in JSON format.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 2565
+                    "https://www.sevenbridges.com/y": 2454.6015625
                 },
                 {
                     "id": "#qc_aggregator.cwl/biometrics_plot",
@@ -8361,7 +8361,7 @@
                     "label": "biometrics_plot",
                     "doc": "Also output plots of the data.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 2458.125
+                    "https://www.sevenbridges.com/y": 2347.875
                 },
                 {
                     "id": "#qc_aggregator.cwl/simplex_bam_pool_a_dir",
@@ -8375,7 +8375,7 @@
                     },
                     "label": "simplex_bam_pool_a_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 320.625
+                    "https://www.sevenbridges.com/y": 320.15625
                 },
                 {
                     "id": "#qc_aggregator.cwl/simplex_bam_pool_b_dir",
@@ -8389,7 +8389,7 @@
                     },
                     "label": "simplex_bam_pool_b_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 213.75
+                    "https://www.sevenbridges.com/y": 213.4375
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_bam_sequence_qc_dir",
@@ -8403,7 +8403,7 @@
                     },
                     "label": "duplex_bam_sequence_qc_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1282.5
+                    "https://www.sevenbridges.com/y": 1173.9375
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_bam_stats_pool_a_dir",
@@ -8417,7 +8417,7 @@
                     },
                     "label": "duplex_bam_stats_pool_a_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1175.625
+                    "https://www.sevenbridges.com/y": 1067.21875
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_bam_stats_pool_b_dir",
@@ -8431,7 +8431,7 @@
                     },
                     "label": "duplex_bam_stats_pool_b_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1068.75
+                    "https://www.sevenbridges.com/y": 960.5
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_bam_stats_pool_a_dir",
@@ -8445,7 +8445,7 @@
                     },
                     "label": "collapsed_bam_stats_pool_a_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 2030.625
+                    "https://www.sevenbridges.com/y": 1921
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_bam_stats_pool_b_dir",
@@ -8459,7 +8459,7 @@
                     },
                     "label": "collapsed_bam_stats_pool_b_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1923.75
+                    "https://www.sevenbridges.com/y": 1814.28125
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_bam_duplex_metrics_pool_a_dir",
@@ -8473,7 +8473,7 @@
                     },
                     "label": "collapsed_bam_duplex_metrics_pool_a_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 2244.375
+                    "https://www.sevenbridges.com/y": 2134.4375
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_bam_duplex_metrics_pool_b_dir",
@@ -8487,7 +8487,7 @@
                     },
                     "label": "collapsed_bam_duplex_metrics_pool_b_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 2137.5
+                    "https://www.sevenbridges.com/y": 2027.71875
                 },
                 {
                     "id": "#qc_aggregator.cwl/gatk_mean_quality_by_cycle_recal_dir",
@@ -8501,7 +8501,7 @@
                     },
                     "label": "gatk_mean_quality_by_cycle_recal_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 427.5
+                    "https://www.sevenbridges.com/y": 426.8828125
                 },
                 {
                     "id": "#qc_aggregator.cwl/uncollapsed_bam_stats_pool_b_dir",
@@ -8529,7 +8529,7 @@
                     },
                     "label": "uncollapsed_bam_stats_pool_a_dir",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 106.875
+                    "https://www.sevenbridges.com/y": 106.71875
                 },
                 {
                     "id": "#qc_aggregator.cwl/biometrics_threads",
@@ -8540,7 +8540,7 @@
                     "label": "biometrics_threads",
                     "doc": "Number of threads to use.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 2351.25
+                    "https://www.sevenbridges.com/y": 2241.15625
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_biometrics_major_threshold",
@@ -8551,7 +8551,7 @@
                     "label": "duplex_biometrics_major_threshold",
                     "doc": "Major contamination threshold for bad sample.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 855
+                    "https://www.sevenbridges.com/y": 747.0546875
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_biometrics_minor_threshold",
@@ -8562,7 +8562,7 @@
                     "label": "duplex_biometrics_minor_threshold",
                     "doc": "Minor contamination threshold for bad sample.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 748.125
+                    "https://www.sevenbridges.com/y": 640.328125
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_extraction_files",
@@ -8573,7 +8573,7 @@
                     "label": "collapsed_extraction_files",
                     "doc": "Can be one of three types: (1) path to a CSV file containing sample information (one per line). For example: sample_name,sample_bam,sample_type,sample_sex,sample_group. (2) Path to a '*.pk' file that was produced by the 'extract' tool. (3) Name of the sample to analyze; this assumes there is a file named '{sample_name}.pk' in your database directory. Can be specified more than once.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1389.375
+                    "https://www.sevenbridges.com/y": 1280.65625
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_discordance_threshold",
@@ -8584,7 +8584,7 @@
                     "label": "collapsed_biometrics_discordance_threshold",
                     "doc": "Discordance values less than this are regarded as matching samples. (default: 0.05)",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1710
+                    "https://www.sevenbridges.com/y": 1600.828125
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_major_threshold",
@@ -8595,7 +8595,7 @@
                     "label": "collapsed_biometrics_major_threshold",
                     "doc": "Major contamination threshold for bad sample.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1603.125
+                    "https://www.sevenbridges.com/y": 1494.1015625
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_minor_threshold",
@@ -8606,7 +8606,7 @@
                     "label": "collapsed_biometrics_minor_threshold",
                     "doc": "Minor contamination threshold for bad sample.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1496.25
+                    "https://www.sevenbridges.com/y": 1387.375
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_coverage_threshold",
@@ -8617,7 +8617,7 @@
                     "label": "collapsed_biometrics_coverage_threshold",
                     "doc": "Samples with Y chromosome above this value will be considered male.",
                     "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1816.875
+                    "https://www.sevenbridges.com/y": 1707.5546875
                 }
             ],
             "outputs": [
@@ -8629,7 +8629,7 @@
                     "type": "Directory",
                     "label": "duplex_biometrics_outdir",
                     "https://www.sevenbridges.com/x": 1054.633544921875,
-                    "https://www.sevenbridges.com/y": 1229.0625
+                    "https://www.sevenbridges.com/y": 1173.9453125
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_outdir",
@@ -8639,7 +8639,7 @@
                     "type": "Directory",
                     "label": "collapsed_biometrics_outdir",
                     "https://www.sevenbridges.com/x": 1054.633544921875,
-                    "https://www.sevenbridges.com/y": 1335.9375
+                    "https://www.sevenbridges.com/y": 1280.6640625
                 },
                 {
                     "id": "#qc_aggregator.cwl/directory",
@@ -8650,8 +8650,8 @@
                         "type": "array",
                         "items": "Directory"
                     },
-                    "https://www.sevenbridges.com/x": 782.2349243164062,
-                    "https://www.sevenbridges.com/y": 1791.95654296875
+                    "https://www.sevenbridges.com/x": 887.633544921875,
+                    "https://www.sevenbridges.com/y": 1227.296875
                 }
             ],
             "steps": [
@@ -8706,7 +8706,7 @@
                     ],
                     "run": "#biometrics_genotype.cwl",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 1059.1875
+                    "https://www.sevenbridges.com/y": 1004.2109375
                 },
                 {
                     "id": "#qc_aggregator.cwl/aggregate",
@@ -8740,7 +8740,6 @@
                                 "collapsed_bam_duplex_metrics_pool_a_dir",
                                 "collapsed_bam_duplex_metrics_pool_b_dir",
                                 "gatk_mean_quality_by_cycle_recal_dir",
-                                "gatk_mean_quality_by_cycle_dir",
                                 "uncollapsed_bam_stats_pool_b_dir",
                                 "uncollapsed_bam_stats_pool_a_dir",
                                 "duplex_bam_sequence_qc_dir"
@@ -8760,7 +8759,7 @@
                     ],
                     "scatterMethod": "dotproduct",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 1789.5625
+                    "https://www.sevenbridges.com/y": 1733.8515625
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_biometrics_major",
@@ -8804,7 +8803,7 @@
                     "run": "#biometrics_major.cwl",
                     "label": "duplex_biometrics_major",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 903.3125
+                    "https://www.sevenbridges.com/y": 848.4765625
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_biometrics_minor",
@@ -8851,7 +8850,7 @@
                     "run": "#biometrics_minor.cwl",
                     "label": "duplex_biometrics_minor",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 754.4375
+                    "https://www.sevenbridges.com/y": 699.75
                 },
                 {
                     "id": "#qc_aggregator.cwl/duplex_biometrics_agg",
@@ -8886,7 +8885,7 @@
                     "run": "#put_in_dir.cwl",
                     "label": "duplex_biometrics_agg",
                     "https://www.sevenbridges.com/x": 887.633544921875,
-                    "https://www.sevenbridges.com/y": 1175.625
+                    "https://www.sevenbridges.com/y": 1120.5625
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_genotype",
@@ -8940,7 +8939,7 @@
                     "run": "#biometrics_genotype.cwl",
                     "label": "collapsed_biometrics_genotype",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 1654.6875
+                    "https://www.sevenbridges.com/y": 1599.1171875
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_major",
@@ -8985,7 +8984,7 @@
                     "run": "#biometrics_major.cwl",
                     "label": "collapsed_biometrics_major",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 1498.8125
+                    "https://www.sevenbridges.com/y": 1443.3828125
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_minor",
@@ -9037,7 +9036,7 @@
                     "run": "#biometrics_minor.cwl",
                     "label": "collapsed_biometrics_minor",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 1349.9375
+                    "https://www.sevenbridges.com/y": 1294.65625
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_sexmismatch",
@@ -9073,7 +9072,7 @@
                     "run": "#biometrics_sexmismatch.cwl",
                     "label": "collapsed_biometrics_sexmismatch",
                     "https://www.sevenbridges.com/x": 410.171875,
-                    "https://www.sevenbridges.com/y": 1208.0625
+                    "https://www.sevenbridges.com/y": 1152.9375
                 },
                 {
                     "id": "#qc_aggregator.cwl/collapsed_biometrics_agg",
@@ -9110,7 +9109,7 @@
                     "run": "#put_in_dir.cwl",
                     "label": "collapsed_biometrics_agg",
                     "https://www.sevenbridges.com/x": 887.633544921875,
-                    "https://www.sevenbridges.com/y": 1389.375
+                    "https://www.sevenbridges.com/y": 1334.03125
                 }
             ],
             "requirements": [
