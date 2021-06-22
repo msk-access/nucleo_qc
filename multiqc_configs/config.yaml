@@ -955,7 +955,7 @@ module_order:
       path_filters_exclude:
         - "*uncollapsed_bam_stats_pool*"
   - picard:
-      name: "Target coverage disttribution"
+      name: "Target coverage distribution"
       anchor: "collapsed_poola_targetcov"
       path_filters:
         - "*collapsed_bam_stats_pool_a*"
