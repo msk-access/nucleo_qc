@@ -1,8 +1,8 @@
-# Requirements
+# requirements
 
-Before [Installation](https://github.com/msk-access/access_qc_generation/tree/master/docs/installation-and-usage.md) of the pipeline, make sure your system supports these requirements
-=======
+## Requirements
 
+## Before [Installation](https://github.com/msk-access/access_qc_generation/tree/master/docs/installation-and-usage.md) of the pipeline, make sure your system supports these requirements
 
 Following are the requirements for running the workflow:
 
@@ -26,3 +26,4 @@ Following are the requirements for running the workflow:
     * coloredlogs==10.0
     * pytest-travis-fold==1.3.0
   * Python Virtual Environment using [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/).
+

@@ -1,6 +1,8 @@
 ---
 description: >-
-  You must have run the Nucleo workflow first before running any of the MSK-ACCESS QC workflows. Depending on your use case, there are two main sets of workflows you can choose to run: (1) `qc_generator.cwl` followed by `aggregate_visualize.cwl` or (2) `access_qc.cwl`. The first option generates the QC files for one or more samples, and you use the second CWL script to aggregate the QC files and visualize with MultiQC. This option can be useful for when you want to generate the QC files for some samples just once, and then reuse those samples in multiple MultiQC visualizations. The second option just combines the two steps from the first option into one workflow.
+  You must have run the Nucleo workflow first before running any of the
+  MSK-ACCESS QC workflows. Depending on your use case, there are two main sets
+  of workflows you can choose to run: (1) `qc_generator
 ---
 
 # Installation and Usage
@@ -97,6 +99,7 @@ Here we show how to use [cwltool](https://github.com/common-workflow-language/cw
 #### Run the workflow with a given set of input using [cwltool](https://github.com/common-workflow-language/cwltool) on single machine
 
 To generate the QC files for one sample:
+
 {% code title="cwltool-execution" %}
 ```bash
 cwltool nucleo.cwl inputs.yaml
@@ -104,7 +107,11 @@ cwltool nucleo.cwl inputs.yaml
 {% endcode %}
 {% endtab %}
 
+{% tab %}
 To aggregate the QC files across one or more samples and visualize with MultiQC:
+{% endtab %}
+
+{% tab %}
 {% code title="cwltool-execution" %}
 ```bash
 cwltool nucleo.cwl inputs.yaml
@@ -165,5 +172,6 @@ toil-cwl-runner \
 {% endtabs %}
 
 {% hint style="success" %}
-Your workflow should now be running on the specified batch system. See [outputs](outputs-description.md) for a description of the resulting files when is it completed.
+Your workflow should now be running on the specified batch system. See [outputs](https://github.com/msk-access/access_qc_generation/tree/5087428d557571e8a6cfea17b46ad8c22fd96ca1/docs/outputs-description.md) for a description of the resulting files when is it completed.
 {% endhint %}
+
