@@ -6,6 +6,4 @@
   * [Installation and Usage](docs/installation.md)
   * [Inputs Description](docs/inputs-description.md)
 
-## Interpretation
-
-* [Untitled](interpretation/untitled.md)
+* [Interpretation](docs/interpretation.md)
