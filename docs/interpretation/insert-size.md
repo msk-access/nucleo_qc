@@ -7,7 +7,7 @@ description: >-
 
 This figure shows the insert size distribution from the ACCESS target regions. Insert size is calculated from the start and stop positions of the reads after mapping to the reference genome.
 
-<!-- ![Example MultiQC report showing insert size distribution for 20 samples (10 plasma and 10 buffy coat samples).](../.gitbook/assets/insert.png) -->
+![Example MultiQC report showing insert size distribution for 20 samples (10 plasma and 10 buffy coat samples).](../.gitbook/assets/insert.png)
 
 ### Methods
 **Tool used:** [GATK-CollectInsertSizeMetrics](https://gatk.broadinstitute.org/hc/en-us/articles/360037055772-CollectInsertSizeMetrics-Picard-)<br>
