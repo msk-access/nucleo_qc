@@ -19,15 +19,15 @@ In the above figure you'll notice that most columns are highlighted as either re
 | Library input | LIMS | The library input. |
 | Library yield | LIMS | The library yield. |
 | Pool input | LIMS | The pool input. |
-| Raw cov. (pool A) | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (uncollapsed BAM, pool A). | The mean sequencing coverage over target regions in Pool A. |
-| Raw cov. (pool B) | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (uncollapsed BAM, pool B). | The mean sequencing coverage over target regions in Pool B. |
-| Duplex target cov. | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (duplex BAM, pool A). | Average coverage over pool A targets in the duplex BAM. |
+| Raw cov. (pool A) | MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool A). | The mean sequencing coverage over target regions in Pool A. |
+| Raw cov. (pool B) | MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool B). | The mean sequencing coverage over target regions in Pool B. |
+| Duplex target cov. | MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (duplex BAM, pool A). | Average coverage over pool A targets in the duplex BAM. |
 | Minor contamination | [biometrics](https://github.com/msk-access/biometrics) | Minor contamination based on biometrics. |
 | Major contamination | [biometrics](https://github.com/msk-access/biometrics) | Major contamination based on. |
 | Fingerprint | [biometrics](https://github.com/msk-access/biometrics) | Pass: no unexpected matches/mismatches. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatches. |
 | Sex mismatch | [biometrics](https://github.com/msk-access/biometrics) | Do the sample's predicted and expected sex mismatch? |
 | Ins. size (MODE) | MODE_INSERT_SIZE column from GATK-CollectHsMetrics (Duplex BAM). | The most frequently occurring insert size. |
-| N reads | TOTAL_READS column from GATK-CollectHsMetrics (uncollapsed BAM). | Total reads sequenced (uncollapsed) |
-| % Aligned | PCT_PF_UQ_READS_ALIGNED column from GATK-CollectHsMetrics (uncollapsed BAM). | Percentage of reads aligned to the genome. |
+| N reads | TOTAL_READS column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM). | Total reads sequenced (uncollapsed) |
+| % Aligned | PCT_PF_UQ_READS_ALIGNED column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM). | Percentage of reads aligned to the genome. |
 | % Noise | [sequence_qc](https://github.com/msk-access/sequence_qc) | Percentage of noise. |
 | N noise sites | [sequence_qc](https://github.com/msk-access/sequence_qc) | Number of sites contributing to noise. |
