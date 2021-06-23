@@ -5,15 +5,16 @@ description: >-
 
 ### Introduction
 
-Coverage of each genomic region in the ACCESS panel is grouped on a per-sample basis, and a distribution of these values is plotted. Each sample is normalized by the median coverage value of that sample to align all peaks with one another and correct for sample-level differences.
+This figure plots the normalized coverage against the % GC content from the ACCESS target regions. Each line is data from one sample.
 
 ![Example MultiQC report showing % GC bias in coverage for 20 samples.](../.gitbook/assets/gc-bias.png)
 
 ### Methods
-**Tool used:** GATK-CollectHsMetrics
-**BAM type:** (1) collapsed BAM and (2) uncollapsed BAM.
-**Region:** Pool A
+**Tool used:** [GATK-CollectHsMetrics](https://gatk.broadinstitute.org/hc/en-us/articles/360036856051-CollectHsMetrics-Picard-)<br>
+**BAM type:** (1) collapsed BAM and (2) uncollapsed BAM.<br>
+**Regions:** Pool A
 
+The data used to produce this figure are the values under the `normalized_coverage` and `%gc` columns, which are in the `*_per_target_coverage.txt` output file from CollectHsMetrics. For each sample separately, the % GC content for each target region is calculated, followed by binning the target regions by their GC content (in 5% intervals). Then for each bin, the mean coverage is calculated and then normalized across all regions that fall into each GC bin.
 
 ### Interpretation
 
