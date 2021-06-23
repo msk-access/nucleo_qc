@@ -5,4 +5,4 @@ description: >-
 
 
 
-<!-- ![](.gitbook/assets/meta.png) -->
+![](../.gitbook/assets/meta.png)
