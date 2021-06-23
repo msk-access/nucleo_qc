@@ -7,18 +7,20 @@ At the top of the MultiQC report are one or two tables showing some per-sample i
 
 ![Example MultiQC report showing sample meta information.](../.gitbook/assets/meta.png)
 
+In the figure you'll notice that most columns are highlighted as either red, yellow or green, which indicates if the metric fails, is borderline, or passes the thresholds set for each, respectively.
+
 
 Below are the descriptions for each column and were the data was obtained from.
 
 | Column name | Source | Description |
 |-|-|-|
-| cmoSampleName | LIMS | The sample name |
+| cmoSampleName | LIMS | The sample name. |
 | Library input | LIMS | The library input. |
 | Library yield | LIMS | The library yield. |
 | Pool input | LIMS | The pool input. |
-| Raw cov. (pool A) | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (uncollapsed BAM). | The mean sequencing coverage over target regions in Pool A. |
-| Raw cov. (pool B) | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (uncollapsed BAM). | The mean sequencing coverage over target regions in Pool B. |
-| Duplex target cov. | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (duplex BAM). | Average coverage over pool A targets in the duplex BAM. |
+| Raw cov. (pool A) | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (uncollapsed BAM, pool A). | The mean sequencing coverage over target regions in Pool A. |
+| Raw cov. (pool B) | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (uncollapsed BAM, pool B). | The mean sequencing coverage over target regions in Pool B. |
+| Duplex target cov. | MEAN_TARGET_COVERAGE column from GATK-CollectHsMetrics (duplex BAM, pool A). | Average coverage over pool A targets in the duplex BAM. |
 | Minor contamination | [biometrics](https://github.com/msk-access/biometrics) | Minor contamination based on biometrics. |
 | Major contamination | [biometrics](https://github.com/msk-access/biometrics) | Major contamination based on. |
 | Fingerprint | [biometrics](https://github.com/msk-access/biometrics) | Pass: no unexpected matches/mismatches. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatches. |
