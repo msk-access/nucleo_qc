@@ -469,7 +469,7 @@ table_cond_formatting_rules:
         - gt: 0.6
     fail:
         - gt: 0.65
-  input_ng_plasma:
+  dnaInputNg_plasma:
     pass:
         - gt: 5
         - eq: 5
@@ -480,7 +480,7 @@ table_cond_formatting_rules:
         - gt: 20
     fail:
         - lt: 3
-  input_ng_buffy:
+  dnaInputNg_buffy:
     pass:
         - gt: 180
         - eq: 180
@@ -491,7 +491,7 @@ table_cond_formatting_rules:
         - gt: 220
     fail:
         - lt: 150
-  library_yield_plasma:
+  captureConcentrationNm_plasma:
     pass:
         - lt: 0.6
         - eq: 0.6
@@ -499,7 +499,7 @@ table_cond_formatting_rules:
         - gt: 0.6
     fail:
         - gt: 0.65
-  library_yield_buffy:
+  captureConcentrationNm_buffy:
     pass:
         - lt: 0.6
         - eq: 0.6
@@ -507,7 +507,7 @@ table_cond_formatting_rules:
         - gt: 0.6
     fail:
         - gt: 0.65
-  pool_input_plasma:
+  captureInputNg_plasma:
     pass:
         - gt: 450
         - eq: 450
@@ -515,7 +515,7 @@ table_cond_formatting_rules:
         - lt: 550
     fail:
         - lt: 400
-  pool_input_buffy:
+  captureInputNg_buffy:
     pass:
         - gt: 450
         - eq: 450
