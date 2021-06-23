@@ -3,14 +3,15 @@ description: >-
   Guide to MultiQC sections displaying sample meta information and pass/fail/warn metrics.
 ---
 
+### Introduction
+
 At the top of the MultiQC report are one or two tables showing some per-sample information. One table is for plasma samples and another is for buffy-coat samples; so only one table may show up depending on your sample composition.
 
 ![Example MultiQC report showing sample meta information.](../.gitbook/assets/meta.png)
 
-In the figure you'll notice that most columns are highlighted as either red, yellow or green, which indicates if the metric fails, is borderline, or passes the thresholds set for each, respectively.
+### Interpretation
 
-
-Below are the descriptions for each column and were the data was obtained from.
+In the above figure you'll notice that most columns are highlighted as either red, yellow or green, which indicates if the metric fails, is borderline, or passes the thresholds set for each, respectively. This allows you to quickly glance at all samples to see where potential issues are. Below are the descriptions for each column and were the data was obtained from.
 
 | Column name | Source | Description |
 |-|-|-|
