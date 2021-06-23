@@ -11,41 +11,41 @@ custom_data:
     headers:
       cmoSampleName:
         title: "Sample"
-        description: "Sample name"
+        description: "Sample name. Data is from LIMS."
         placement: 1
       cmoPatientId:
         title: "Patient"
-        description: "Patient ID"
+        description: "Patient ID. Data is from LIMS."
         placement: 2
         hidden: true
       igoId:
         title: "IGO ID"
-        description: "Sample pool ID"
+        description: "Sample pool ID. Data is from LIMS."
         placement: 2
         hidden: true
       investigatorSampleId:
         title: "Investigator Sample ID"
-        description: "Investigator Sample ID"
+        description: "Investigator Sample ID. Data is from LIMS."
         placement: 2
         hidden: true
       barcodeId:
         title: "Barcode ID"
-        description: "Barcode ID"
+        description: "Barcode ID. Data is from LIMS."
         placement: 2
         hidden: true
       oncoTreeCode:
         title: "OncoTreeCode"
-        description: "OncoTreeCode"
+        description: "OncoTreeCode. Data is from LIMS."
         placement: 2
         hidden: true
       cmoSampleClass:
         title: "Class"
-        description: "Sample class"
+        description: "Sample class. Data is from LIMS."
         placement: 2
         hidden: true
       specimenType:
         title: "Type"
-        description: "Sample type"
+        description: "Sample type. Data is from LIMS."
         placement: 2
         hidden: true
       status_plasma:
@@ -59,68 +59,69 @@ custom_data:
         hidden: true
       minor_contamination_plasma:
         title: "Minor contamination"
-        description: "Minor contamination based on biometrics."
+        description: "Minor contamination based on analysis from biometrics."
         format: '{:,.4f}'
         placement: 9
       major_contamination_plasma:
         title: "Major contamination"
-        description: "Major contamination based on."
+        description: "Major contamination based on analysis from biometrics."
         format: '{:,.2f}'
         placement: 10
       sex_mismatch_plasma:
         title: "Sex mismatch"
+        description: "Whether the sample's predicted and expected sex mismatch. Based on analysis from biometrics."
         placement: 11
       fingerprint_plasma:
         title: "Fingerprint"
         placement: 11
-        description: "Pass: no unexpected matches/mismatchs. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatchs."
+        description: "Pass: no unexpected matches/mismatchs. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatchs. Based on analysis from biometrics."
       dnaInputNg_plasma:
         title: "Library input"
-        description: "Library input in nanograms."
+        description: "Library input in nanograms. Data is from LIMS."
         placement: 3
       captureConcentrationNm_plasma:
         title: "Library yield"
-        description: "Library yield in nanograms."
+        description: "Library yield in nanograms. Data is from LIMS."
         placement: 4
       captureInputNg_plasma:
         title: "Pool input"
-        description: "Pool input in nanograms."
+        description: "Pool input in nanograms. Data is from LIMS."
         placement: 5
       raw_coverage_a_plasma:
         title: "Raw cov. (pool A)"
-        description: "Raw coverage A."
+        description: "Raw coverage A. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool A)."
         placement: 6
       raw_coverage_b_plasma:
         title: "Raw cov. (pool B)"
-        description: "Raw coverage B."
+        description: "Raw coverage B. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool B)."
         placement: 7
       duplex_target_coverage_plasma:
         title: "Duplex target cov."
-        description: "Duplex target coverage."
+        description: "Duplex target coverage. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (duplex BAM, pool A)."
         placement: 8
       MODE_INSERT_SIZE_plasma:
         title: "Ins. size (MODE)"
-        description: "The most frequently occuring insert size."
+        description: "The most frequently occuring insert size. Data is from the MODE_INSERT_SIZE column in the output file produced by GATK-CollectHsMetrics (Duplex BAM)."
         placement: 12
         format: '{:,.0f}'
       TOTAL_READS_plasma:
         title: "N reads"
-        description: "Total reads sequenced (uncollapsed)"
+        description: "Total reads sequenced (uncollapsed). Data is from the TOTAL_READS column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
         placement: 12
         format: '{:,.0f}'
       PCT_PF_UQ_READS_ALIGNED_plasma:
         title: "% Aligned"
-        description: "Percentage of reads aligned to the genome."
+        description: "Percentage of reads aligned to the genome. Data is from the PCT_PF_UQ_READS_ALIGNED column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
         placement: 13
         format: '{:,.2%}'
       noise_percentage_plasma:
         title: "% Noise"
-        description: "Percentage of noise."
+        description: "Percentage of noise (ACGT substitutions). Data is from the sequence_qc python package."
         placement: 14
         format: '{:,.4%}'
       contributing_sites_plasma:
         title: "N noise sites"
-        description: "Number of sites contributing to noise."
+        description: "Number of sites contributing to noise (ACGT substitutions). Data is from the sequence_qc python package."
         placement: 15
         format: '{:,.0f}'
   genstats_qcstatus_buffy:
@@ -131,41 +132,41 @@ custom_data:
     headers:
       cmoSampleName:
         title: "Sample"
-        description: "Sample name"
+        description: "Sample name. Data is from LIMS."
         placement: 1
       cmoPatientId:
         title: "Patient"
-        description: "Patient ID"
+        description: "Patient ID. Data is from LIMS."
         placement: 2
         hidden: true
       igoId:
         title: "IGO ID"
-        description: "Sample pool ID"
+        description: "Sample pool ID. Data is from LIMS."
         placement: 2
         hidden: true
       investigatorSampleId:
         title: "Investigator Sample ID"
-        description: "Investigator Sample ID"
+        description: "Investigator Sample ID. Data is from LIMS."
         placement: 2
         hidden: true
       barcodeId:
         title: "Barcode ID"
-        description: "Barcode ID"
+        description: "Barcode ID. Data is from LIMS."
         placement: 2
         hidden: true
       oncoTreeCode:
         title: "OncoTreeCode"
-        description: "OncoTreeCode"
+        description: "OncoTreeCode. Data is from LIMS."
         placement: 2
         hidden: true
       cmoSampleClass:
         title: "Class"
-        description: "Sample class"
+        description: "Sample class. Data is from LIMS."
         placement: 2
         hidden: true
       specimenType:
         title: "Sample type"
-        description: "Sample type"
+        description: "Sample type. Data is from LIMS."
         placement: 2
         hidden: true
       status_buffy:
@@ -179,63 +180,69 @@ custom_data:
         hidden: true
       minor_contamination_buffy:
         title: "Minor contamination"
-        description: "Minor contamination based on biometrics."
+        description: "Minor contamination based on analysis from biometrics."
         format: '{:,.4f}'
         placement: 9
       major_contamination_buffy:
         title: "Major contamination"
-        description: "Major contamination based on."
+        description: "Major contamination based on analysis from biometrics."
         format: '{:,.2f}'
         placement: 10
       sex_mismatch_buffy:
         title: "Sex mismatch"
+        description: "Whether the sample's predicted and expected sex mismatch. Based on analysis from biometrics."
         placement: 11
       fingerprint_buffy:
         title: "Fingerprint"
-        description: "Pass: no unexpected matches/mismatchs. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatchs."
+        description: "Pass: no unexpected matches/mismatchs. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatchs. Based on analysis from biometrics."
         placement: 11
       dnaInputNg_buffy:
         title: "Library input"
-        description: "Library input in nanograms."
+        description: "Library input in nanograms. Data is from LIMS."
         placement: 3
       captureInputNg_buffy:
         title: "Library yield"
-        description: "Library yield in nanograms."
+        description: "Library yield in nanograms. Data is from LIMS."
         placement: 4
       captureConcentrationNm_buffy:
         title: "Pool input"
-        description: "Pool input in nanograms."
+        description: "Pool input in nanograms. Data is from LIMS."
         placement: 5
       raw_coverage_a_buffy:
         title: "Raw cov. (pool A)"
-        description: "Raw coverage A."
+        description: "Raw coverage A. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool A)."
         placement: 6
       raw_coverage_b_buffy:
         title: "Raw cov. (pool B)"
-        description: "Raw coverage B."
+        description: "Raw coverage B. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool B)."
         placement: 7
       duplex_target_coverage_buffy:
         title: "Duplex target cov."
-        description: "Duplex target coverage."
+        description: "Duplex target coverage. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (duplex BAM, pool A)."
         placement: 8
       MODE_INSERT_SIZE_buffy:
         title: "Ins. size (MODE)"
-        description: "The most frequently occuring insert size."
+        description: "The most frequently occuring insert size. Data is from the MODE_INSERT_SIZE column in the output file produced by GATK-CollectHsMetrics (Duplex BAM)."
         placement: 11
         format: '{:,.0f}'
       TOTAL_READS_buffy:
         title: "N reads"
-        description: "Total reads sequenced (uncollapsed)"
+        description: "Total reads sequenced (uncollapsed). Data is from the TOTAL_READS column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
         placement: 12
         format: '{:,.0f}'
+      PCT_PF_UQ_READS_ALIGNED_buffy:
+        title: "% Aligned"
+        description: "Percentage of reads aligned to the genome. Data is from the PCT_PF_UQ_READS_ALIGNED column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
+        placement: 13
+        format: '{:,.2%}'
       noise_percentage_buffy:
         title: "% Noise"
-        description: "Percentage of noise."
+        description: "Percentage of noise (ACGT substitutions). Data is from the sequence_qc python package."
         placement: 14
         format: '{:,.4%}'
       contributing_sites_buffy:
         title: "N noise sites"
-        description: "Number of sites contributing to noise."
+        description: "Number of sites contributing to noise (ACGT substitutions). Data is from the sequence_qc python package."
         placement: 15
         format: '{:,.0f}'
   biometrics_major_collapsed:
