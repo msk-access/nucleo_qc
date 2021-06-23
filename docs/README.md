@@ -13,6 +13,5 @@ Given the output files from [Nucleo](https://github.com/msk-access/nucleo), ther
 \(2\) Run just `access_qc.cwl`. This option just combines the two steps from the first option into one workflow. This workflow can
 
 {% hint style="warning" %}
-**Note:** Including more than 50 samples in the MultiQC report will cause some figures to lose interactivity. Including more than a few hundreds samples may cause MultiQC to fail.
+**Warning:** Including more than 50 samples in the MultiQC report will cause some figures to lose interactivity. Including more than a few hundreds samples may cause MultiQC to fail.
 {% endhint %}
-
