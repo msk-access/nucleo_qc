@@ -721,6 +721,7 @@ steps:
           - qc_duplex_bam/sequence_qc_noise_acgt
           - qc_duplex_bam/sequence_qc_figures
           - qc_duplex_bam/sequence_qc_pileup
+          - qc_duplex_bam/sequence_qc_noise_by_substitution
       - id: output_directory_name
         default: duplex_bam_sequence_qc
         source: sample_name
@@ -832,7 +833,6 @@ steps:
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
-  - class: StepInputExpressionRequirement
 $schemas:
   - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
 's:author':
