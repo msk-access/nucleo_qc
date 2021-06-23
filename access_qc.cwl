@@ -266,3 +266,4 @@ steps:
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
+  - class: StepInputExpressionRequirement
