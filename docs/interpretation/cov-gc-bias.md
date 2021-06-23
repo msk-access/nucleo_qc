@@ -1,15 +1,20 @@
 ---
 description: >-
-  Guide to the MultiQC section displaying coverage distribution over target regions.
+  Awareness of possible loss of accuracy in downstream sequencing results due to coverage due to GC content bias.
 ---
 
 ### Introduction
 
 Coverage of each genomic region in the ACCESS panel is grouped on a per-sample basis, and a distribution of these values is plotted. Each sample is normalized by the median coverage value of that sample to align all peaks with one another and correct for sample-level differences.
 
-![Example MultiQC report showing coverage distribution.](../.gitbook/assets/cov-dist.png)
+![Example MultiQC report showing % GC bias in coverage for 20 samples.](../.gitbook/assets/gc-bias.png)
+
+### Methods
+**Tool used:** GATK-CollectHsMetrics
+**BAM type:** (1) collapsed BAM and (2) uncollapsed BAM.
+**Region:** Pool A
 
 
 ### Interpretation
 
-Each distribution should be unimodal, apart from a second peak on the low end due to X chromosome mapping from male samples. Narrow peaks are indicative of evenly distributed coverage across all bait regions. Wider distributions indicate uneven read distribution, and may be correlated with a large GC bias. Note that the provided bed file lists start and stop coordinates of ACCESS design probes, not the actual genomic target regions.
+Extreme base compositions, i.e., GC-poor or GC-rich sequences, lead to an uneven coverage or even no coverage of reads across the genome. This can affect downstream small variant and copy number calling. Both of which rely on consistent sequencing depth across all regions. Ideally this plot should be as flat as possible. The above example depicts a slight decrease in coverage at really high GC-rich regions, but is a good result for ACCESS.
