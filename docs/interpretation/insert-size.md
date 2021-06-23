@@ -14,7 +14,7 @@ This figure shows the insert size distribution from the ACCESS target regions. I
 **BAM type:** Collapsed BAM<br>
 **Regions:** Pool A
 
-The data used to produce this figure are the values under the `MODE_INSERT_SIZE` column contained in the file from CollectInsertSizeMetrics.
+The data used to produce this figure are the values under the `MODE_INSERT_SIZE` column contained in the output file from CollectInsertSizeMetrics.
 
 ### Interpretation
 
