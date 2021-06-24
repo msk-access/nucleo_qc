@@ -353,7 +353,7 @@ custom_data:
       file_format: 'csv'
       section_name: 'QC criteria'
       plot_type: 'table'
-      description: "For each metric, these thresholds are used to calculate whether a sample has status of 'pass', 'warn' or 'fail'. These metrics have been decided by the MSK-ACCESS team and are intended for guidance only. Status of each sample is given in the QC metrics tables."
+      description: "For each metric, these thresholds are used to calculate whether a sample has status of 'pass', 'warn' or 'fail'. These metrics have been decided by the MSK-ACCESS team and are intended for guidance only. Status of each sample is given in the QC metrics tables. NOTE: each metric is evaluated in the order of pass, warn, and then fail. Hence, anything matching both pass and fail will be marked as fail."
       parent_id: 'qc_criteria'
       parent_name: 'QC criteria'
   uncollapsed_basequality:
