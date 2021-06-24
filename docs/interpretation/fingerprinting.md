@@ -14,7 +14,7 @@ This section contains a table showing the samples clustered into groups, where e
 **BAM type:** Collapsed BAM<br>
 **Regions:** MSK-ACCESS-v1_0-curatedSNPs.vcf
 
-It is a three step process to produce the table: (1) extract SNP genotypes from each sample using `biometrics extract` command and (2) perform a pairwise comparison of all samples to determine sample relatedness using the `biometrics genotype` command. Please see the biometrics documentation for further documentation on the methods.
+It is a two step process to produce the table: (1) extract SNP genotypes from each sample using `biometrics extract` command and (2) perform a pairwise comparison of all samples to determine sample relatedness using the `biometrics genotype` command. Please see the biometrics documentation for further documentation on the methods.
 
 ### Interpretation
 
