@@ -13,6 +13,7 @@
   * [Target coverage distribution](docs/interpretation/target-cov-dist.md)
   * [Capture metrics](docs/interpretation/capture-metrics.md)
   * [Duplex family metrics](docs/interpretation/duplex-family-metrics.md)
+  * [Mean base quality](docs/interpretation/mean-base-quality.md)
   * [Duplex noise metrics](docs/interpretation/duplex-noise-metrics.md)
   * [Contamination](docs/interpretation/contamination.md)
   * [Fingerprinting](docs/interpretation/fingerprinting.md)
