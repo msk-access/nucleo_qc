@@ -501,6 +501,7 @@ steps:
           - qc_simplex_bam/gatk_collect_alignment_summary_metrics_txt_pool_a
       - id: output_directory_name
         default: simplex_bam_pool_a
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -522,6 +523,7 @@ steps:
           - qc_simplex_bam/gatk_collect_alignment_summary_metrics_txt_pool_b
       - id: output_directory_name
         default: simplex_bam_pool_b
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -545,6 +547,7 @@ steps:
           - qc_uncollapsed_bam/gatk_collect_insert_size_metrics_txt_pool_b
       - id: output_directory_name
         default: uncollapsed_bam_stats_pool_b
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -568,6 +571,7 @@ steps:
           - qc_uncollapsed_bam/gatk_collect_insert_size_metrics_txt_pool_a
       - id: output_directory_name
         default: uncollapsed_bam_stats_pool_a
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -585,6 +589,7 @@ steps:
           - qc_uncollapsed_bam/gatk_mean_quality_by_cycle_output_base_recal
       - id: output_directory_name
         default: gatk_mean_quality_by_cycle_recal
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -608,6 +613,7 @@ steps:
           - qc_collapsed_bam/gatk_collect_alignment_summary_metrics_txt_pool_a
       - id: output_directory_name
         default: collapsed_bam_stats_pool_a
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -631,6 +637,7 @@ steps:
           - qc_collapsed_bam/gatk_collect_alignment_summary_metrics_txt_pool_b
       - id: output_directory_name
         default: collapsed_bam_stats_pool_b
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -653,6 +660,7 @@ steps:
             qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_family_size_pool_a
       - id: output_directory_name
         default: collapsed_bam_duplex_metrics_pool_a
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -676,6 +684,7 @@ steps:
             qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_family_size_pool_b
       - id: output_directory_name
         default: collapsed_bam_duplex_metrics_pool_b
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -703,6 +712,7 @@ steps:
           - qc_collapsed_bam/biometrics_sexmismatch_json
       - id: output_directory_name
         default: collapsed_bam_biometrics
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -724,6 +734,7 @@ steps:
           - qc_duplex_bam/sequence_qc_noise_by_substitution
       - id: output_directory_name
         default: duplex_bam_sequence_qc
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -744,6 +755,7 @@ steps:
           - qc_duplex_bam/gatk_collect_alignment_summary_metrics_txt_pool_a
       - id: output_directory_name
         default: duplex_bam_stats_pool_a
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -764,6 +776,7 @@ steps:
           - qc_duplex_bam/gatk_collect_alignment_summary_metrics_txt_pool_b
       - id: output_directory_name
         default: duplex_bam_stats_pool_b
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
@@ -786,6 +799,7 @@ steps:
           - qc_duplex_bam/biometrics_extract_pickle
       - id: output_directory_name
         default: duplex_bam_biometrics
+      - id: output_subdirectory_name
         source: sample_name
     out:
       - id: directory
