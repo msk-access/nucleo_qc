@@ -48,15 +48,6 @@ custom_data:
         description: "Sample type. Data is from LIMS."
         placement: 2
         hidden: true
-      status_plasma:
-        title: "Status"
-        description: "Overall sample QC status."
-        placement: 2
-      reason_plasma:
-        title: "Reason"
-        description: "If sample did not pass, indicates why."
-        placement: 2
-        hidden: true
       minor_contamination_plasma:
         title: "Minor contamination"
         description: "Minor contamination based on analysis from biometrics."
@@ -167,15 +158,6 @@ custom_data:
       specimenType:
         title: "Sample type"
         description: "Sample type. Data is from LIMS."
-        placement: 2
-        hidden: true
-      status_buffy:
-        title: "Status"
-        description: "Overall sample QC status."
-        placement: 2
-      reason_buffy:
-        title: "Reason"
-        description: "If sample did not pass, indicates why."
         placement: 2
         hidden: true
       minor_contamination_buffy:
@@ -367,14 +349,13 @@ custom_data:
         title: 'N unexpected mismatches'
         placement: 9
         format: '{:,.0f}'
-  criteria:
-      file_format: 'tsv'
+  qc_criteria:
+      file_format: 'csv'
       section_name: 'QC criteria'
       plot_type: 'table'
-      description: "These thresholds are used to calculate whether a sample is given a <b>Status</b> of 'pass', 'warn' or 'fail'. These metrics have been decided by the MSK-ACCESS team and are intended for guidance only. Status of each sample is given in the QC metrics tables."
-      pconfig:
-        id: 'criteria_tab'
-        namespace: 'criteria_tabby'
+      description: "For each metric, these thresholds are used to calculate whether a sample has status of 'pass', 'warn' or 'fail'. These metrics have been decided by the MSK-ACCESS team and are intended for guidance only. Status of each sample is given in the QC metrics tables."
+      parent_id: 'qc_criteria'
+      parent_name: 'QC criteria'
   uncollapsed_basequality:
     parent_id: mean_base_quality
     parent_name: "Mean base quality"
@@ -396,8 +377,8 @@ sp:
     fn: "genstats_qc_status_plasma.csv"
   genstats_qcstatus_buffy:
     fn: "genstats_qc_status_buffy.csv"
-  criteria:
-    fn: 'CriteriaTable.txt'
+  qc_criteria:
+    fn: 'qc_criterion.csv'
 
 thousandsSep_format: ","
 table_cond_formatting_rules:
@@ -1059,6 +1040,8 @@ report_section_order:
     order: 2
   fingerprinting:
     order: 1
+  qc_criteria:
+    order: 0
 
 extra_fn_clean_exts:
   - "_collapsed_FM"
