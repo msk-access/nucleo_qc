@@ -378,7 +378,7 @@ sp:
   genstats_qcstatus_buffy:
     fn: "genstats_qc_status_buffy.csv"
   qc_criteria:
-    fn: 'qc_criterion.csv'
+    fn: 'qc_criteria.csv'
 
 thousandsSep_format: ","
 table_cond_formatting_rules:
