@@ -321,33 +321,37 @@ custom_data:
         title: 'Expected patient'
         scale: false
         placement: 2
+      predicted_sample_group:
+        title: 'Predicted patient'
+        scale: false
+        placement: 3
       cluster_index:
         title: 'Cluster'
         scale: false
-        placement: 3
+        placement: 4
         format: '{:,.0f}'
       cluster_size:
         title: 'Cluster size'
-        placement: 4
+        placement: 5
         format: '{:,.0f}'
       avg_discordance:
         title: 'Avg discordance'
-        placement: 5
+        placement: 6
       count_expected_matches:
         title: 'N expected matches'
-        placement: 6
+        placement: 7
         format: '{:,.0f}'
       count_unexpected_matches:
         title: 'N unexpected matches'
-        placement: 7
+        placement: 8
         format: '{:,.0f}'
       count_expected_mismatches:
         title: 'N expected mismatches'
-        placement: 8
+        placement: 9
         format: '{:,.0f}'
       count_unexpected_mismatches:
         title: 'N unexpected mismatches'
-        placement: 9
+        placement: 10
         format: '{:,.0f}'
   qc_criteria:
       file_format: 'csv'
