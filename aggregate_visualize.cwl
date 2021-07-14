@@ -109,8 +109,8 @@ inputs:
     'sbg:y': 426.6640625
   - id: config
     type: File?
-    'sbg:x': 986.3519287109375
-    'sbg:y': 800
+    'sbg:x': 582.6686401367188
+    'sbg:y': 940.3840942382812
   - id: duplex_bam_sequence_qc_dir
     type:
       type: array
@@ -200,33 +200,15 @@ steps:
         source:
           - collapsed_extraction_files
     out:
-      - id: duplex_biometrics_outdir
-      - id: collapsed_biometrics_outdir
-      - id: directory
+      - id: directory_1
     run: qc_aggregator/qc_aggregator.cwl
     label: qc_aggregator
     'sbg:x': 397.1875
     'sbg:y': 655.6328125
-  - id: post_agg_agg
-    in:
-      - id: files
-        linkMerge: merge_flattened
-        source:
-          - qc_aggregator/duplex_biometrics_outdir
-          - qc_aggregator/collapsed_biometrics_outdir
-          - qc_aggregator/directory
-      - id: output_directory_name
-        default: all_qc_files
-    out:
-      - id: directory
-    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
-    label: post_agg_agg
-    'sbg:x': 986.3519287109375
-    'sbg:y': 693.265625
   - id: general_stats_parse
     in:
       - id: directory
-        source: post_agg_agg/directory
+        source: qc_aggregator/directory_1
       - id: samples-json
         source: samples-json
       - id: config
@@ -241,8 +223,8 @@ steps:
       - id: qc_criteria
     run: cwl-commandlinetools/access_utils/0.1.1/general_stats_parse.cwl
     label: general_stats_parse
-    'sbg:x': 1146.0081787109375
-    'sbg:y': 800
+    'sbg:x': 930.6519775390625
+    'sbg:y': 660.797119140625
   - id: post_agg_agg_agg
     in:
       - id: files
@@ -253,15 +235,14 @@ steps:
           - general_stats_parse/sequence_qc_mqc_yaml
           - general_stats_parse/sequence_qc_substitution_mqc
           - general_stats_parse/minor_contamination_sites_mqc
-          - post_agg_agg/directory
       - id: output_directory_name
         default: all_qc_files
     out:
       - id: directory
     run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: post_agg_agg_agg
-    'sbg:x': 1146.0081787109375
-    'sbg:y': 651.1328125
+    'sbg:x': 1303.04931640625
+    'sbg:y': 643.8613891601562
   - id: multiqc_1_10_1
     in:
       - id: qc_files_dir
