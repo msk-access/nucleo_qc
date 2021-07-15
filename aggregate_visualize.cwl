@@ -235,6 +235,8 @@ steps:
           - general_stats_parse/sequence_qc_mqc_yaml
           - general_stats_parse/sequence_qc_substitution_mqc
           - general_stats_parse/minor_contamination_sites_mqc
+          - general_stats_parse/qc_criteria
+          - post_agg_agg/directory
       - id: output_directory_name
         default: all_qc_files
     out:
