@@ -223,8 +223,8 @@ steps:
       - id: qc_criteria
     run: cwl-commandlinetools/access_utils/0.1.1/general_stats_parse.cwl
     label: general_stats_parse
-    'sbg:x': 930.6519775390625
-    'sbg:y': 660.797119140625
+    'sbg:x': 872.410888671875
+    'sbg:y': 786.8911743164062
   - id: stats_agg
     in:
       - id: files
@@ -236,6 +236,7 @@ steps:
           - general_stats_parse/sequence_qc_substitution_mqc
           - general_stats_parse/minor_contamination_sites_mqc
           - general_stats_parse/qc_criteria
+          - qc_aggregator/directory_1
       - id: output_directory_name
         default: all_qc_files
     out:
