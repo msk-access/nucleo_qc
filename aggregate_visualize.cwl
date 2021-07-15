@@ -144,10 +144,10 @@ outputs:
     'sbg:y': 853.328125
   - id: outdir
     outputSource:
-      - post_agg_agg_agg/directory
+      - stats_agg/directory
     type: Directory
-    'sbg:x': 1515.5164794921875
-    'sbg:y': 679.34375
+    'sbg:x': 1515
+    'sbg:y': 569.5472412109375
   - id: multiqc_output_dir
     outputSource:
       - multiqc_1_10_1/multiqc_output_dir
@@ -225,7 +225,7 @@ steps:
     label: general_stats_parse
     'sbg:x': 930.6519775390625
     'sbg:y': 660.797119140625
-  - id: post_agg_agg_agg
+  - id: stats_agg
     in:
       - id: files
         source:
@@ -235,18 +235,19 @@ steps:
           - general_stats_parse/sequence_qc_mqc_yaml
           - general_stats_parse/sequence_qc_substitution_mqc
           - general_stats_parse/minor_contamination_sites_mqc
+          - general_stats_parse/qc_criteria
       - id: output_directory_name
         default: all_qc_files
     out:
       - id: directory
     run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
-    label: post_agg_agg_agg
+    label: stats_agg
     'sbg:x': 1303.04931640625
     'sbg:y': 643.8613891601562
   - id: multiqc_1_10_1
     in:
       - id: qc_files_dir
-        source: post_agg_agg_agg/directory
+        source: stats_agg/directory
       - id: config
         source: config
     out:
