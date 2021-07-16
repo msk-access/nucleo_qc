@@ -8,11 +8,11 @@ inputs:
   - id: duplex_extraction_files
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 640.09375
+    'sbg:y': 640.28125
   - id: collapsed_extraction_files
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1066.71875
+    'sbg:y': 1067.09375
   - id: uncollapsed_bam_stats_pool_a_dir
     type:
       type: array
@@ -21,7 +21,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 106.65625
+    'sbg:y': 106.703125
   - id: simplex_bam_pool_b_dir
     type:
       type: array
@@ -30,7 +30,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 213.3125
+    'sbg:y': 213.40625
   - id: simplex_bam_pool_a_dir
     type:
       type: array
@@ -39,7 +39,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 319.96875
+    'sbg:y': 320.109375
   - id: gatk_mean_quality_by_cycle_recal_dir
     type:
       type: array
@@ -48,7 +48,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 533.3984375
+    'sbg:y': 533.5625
   - id: duplex_bam_stats_pool_b_dir
     type:
       type: array
@@ -57,7 +57,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 746.75
+    'sbg:y': 746.984375
   - id: duplex_bam_stats_pool_a_dir
     type:
       type: array
@@ -66,7 +66,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 853.40625
+    'sbg:y': 853.6875
   - id: collapsed_bam_stats_pool_b_dir
     type:
       type: array
@@ -75,7 +75,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 1173.375
+    'sbg:y': 1173.796875
   - id: collapsed_bam_stats_pool_a_dir
     type:
       type: array
@@ -84,7 +84,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 1280.03125
+    'sbg:y': 1280.5
   - id: collapsed_bam_duplex_metrics_pool_b_dir
     type:
       type: array
@@ -93,7 +93,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 1386.6875
+    'sbg:y': 1387.203125
   - id: collapsed_bam_duplex_metrics_pool_a_dir
     type:
       type: array
@@ -102,15 +102,15 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 1493.34375
+    'sbg:y': 1493.90625
   - id: samples-json
     type: File
     'sbg:x': 0
-    'sbg:y': 426.6640625
+    'sbg:y': 426.828125
   - id: config
     type: File?
-    'sbg:x': 582.6686401367188
-    'sbg:y': 940.3840942382812
+    'sbg:x': 397.1875
+    'sbg:y': 800.3046875
   - id: duplex_bam_sequence_qc_dir
     type:
       type: array
@@ -119,7 +119,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 960.0625
+    'sbg:y': 960.390625
   - id: uncollapsed_bam_stats_pool_b_dir
     type:
       type: array
@@ -134,26 +134,26 @@ outputs:
     outputSource:
       - multiqc_1_10_1/multiqc_zip
     type: File?
-    'sbg:x': 1788.267333984375
-    'sbg:y': 640.015625
+    'sbg:x': 1547.731201171875
+    'sbg:y': 640.25
   - id: multiqc_html
     outputSource:
       - multiqc_1_10_1/multiqc_html
     type: File
-    'sbg:x': 1788.267333984375
-    'sbg:y': 853.328125
-  - id: outdir
-    outputSource:
-      - stats_agg/directory
-    type: Directory
-    'sbg:x': 1515
-    'sbg:y': 569.5472412109375
+    'sbg:x': 1547.731201171875
+    'sbg:y': 853.65625
   - id: multiqc_output_dir
     outputSource:
       - multiqc_1_10_1/multiqc_output_dir
     type: Directory
-    'sbg:x': 1788.267333984375
-    'sbg:y': 746.671875
+    'sbg:x': 1547.731201171875
+    'sbg:y': 746.953125
+  - id: aggregate_parsed_stats
+    outputSource:
+      - general_stats_parse/aggregate_parsed_stats
+    type: Directory
+    'sbg:x': 1175.390869140625
+    'sbg:y': 506.6195983886719
 steps:
   - id: qc_aggregator
     in:
@@ -200,55 +200,29 @@ steps:
         source:
           - collapsed_extraction_files
     out:
-      - id: directory_1
+      - id: aggregate_qc_stats
     run: qc_aggregator/qc_aggregator.cwl
     label: qc_aggregator
     'sbg:x': 397.1875
-    'sbg:y': 655.6328125
+    'sbg:y': 602.5703125
   - id: general_stats_parse
     in:
       - id: directory
-        source: qc_aggregator/directory_1
+        source: qc_aggregator/aggregate_qc_stats
       - id: samples-json
         source: samples-json
       - id: config
         source: config
     out:
-      - id: sample_meta_tumor
-      - id: sample_meta_normal
-      - id: sequence_qc_mqc
-      - id: sequence_qc_substitution_mqc
-      - id: sequence_qc_mqc_yaml
-      - id: minor_contamination_sites_mqc
-      - id: qc_criteria
+      - id: aggregate_parsed_stats
     run: cwl-commandlinetools/access_utils/0.1.1/general_stats_parse.cwl
     label: general_stats_parse
-    'sbg:x': 872.410888671875
-    'sbg:y': 786.8911743164062
-  - id: stats_agg
-    in:
-      - id: files
-        source:
-          - general_stats_parse/sample_meta_tumor
-          - general_stats_parse/sample_meta_normal
-          - general_stats_parse/sequence_qc_mqc
-          - general_stats_parse/sequence_qc_mqc_yaml
-          - general_stats_parse/sequence_qc_substitution_mqc
-          - general_stats_parse/minor_contamination_sites_mqc
-          - general_stats_parse/qc_criteria
-          - qc_aggregator/directory_1
-      - id: output_directory_name
-        default: all_qc_files
-    out:
-      - id: directory
-    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
-    label: stats_agg
-    'sbg:x': 1303.04931640625
-    'sbg:y': 643.8613891601562
+    'sbg:x': 924.7194213867188
+    'sbg:y': 674.3446655273438
   - id: multiqc_1_10_1
     in:
       - id: qc_files_dir
-        source: stats_agg/directory
+        source: general_stats_parse/aggregate_parsed_stats
       - id: config
         source: config
     out:
@@ -256,8 +230,7 @@ steps:
       - id: multiqc_html
       - id: multiqc_zip
     run: cwl-commandlinetools/multiqc/1.10.1.7/multiqc.cwl
-    'sbg:x': 1515.5164794921875
-    'sbg:y': 800
+    'sbg:x': 1274.980224609375
+    'sbg:y': 732.953125
 requirements:
   - class: SubworkflowFeatureRequirement
-  - class: MultipleInputFeatureRequirement

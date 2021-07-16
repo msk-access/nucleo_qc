@@ -213,12 +213,13 @@ inputs:
     'sbg:x': 0
     'sbg:y': 1707.359375
 outputs:
-  - id: directory_1
+  - id: aggregate_qc_stats
     outputSource:
       - final_aggregate/directory
     type: Directory
-    'sbg:x': 1214.305419921875
-    'sbg:y': 1227.1484375
+    label: aggregate_qc_stats
+    'sbg:x': 1217.726806640625
+    'sbg:y': 1330.7305908203125
 steps:
   - id: duplex_biometrics_genotype
     in:
