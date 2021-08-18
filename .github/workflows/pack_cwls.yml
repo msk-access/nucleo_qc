@@ -31,7 +31,7 @@ jobs:
           echo Removing old packed workflows
           rm -rf ./packed_workflows/*
           echo Packing CWL files...
-          find . -name '*.cwl' ! -path '*__packed*' ! -path '*/command_line_tools/*' -type f -print0 -exec sh -c 'cwltool --pack $0 > ${0/.cwl/__packed.cwl}' {} \;
+          find . -name '*.cwl' ! -path '*__packed*' ! -path '*/command/*' -type f -print0 -exec sh -c 'cwltool --pack $0 > ${0/.cwl/__packed.cwl}' {} \;
       - name: Validate packed workflows
         run: |
           echo Validating packed workflows...
