@@ -7,81 +7,59 @@
             "inputs": [
                 {
                     "id": "#reference",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 639.8203125
+                    "type": "File"
                 },
                 {
                     "id": "#pool_b_target_intervals",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 746.4609375
+                    "type": "File"
                 },
                 {
                     "id": "#pool_b_bait_intervals",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 853.125
+                    "type": "File"
                 },
                 {
                     "id": "#pool_a_target_intervals",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 959.7890625
+                    "type": "File"
                 },
                 {
                     "id": "#pool_a_bait_intervals",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1066.453125
+                    "type": "File"
                 },
                 {
                     "id": "#noise_sites_bed",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1173.046875
+                    "type": "File"
                 },
                 {
                     "id": "#biometrics_vcf_file",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1812.890625
+                    "type": "File"
                 },
                 {
                     "id": "#collapsed_bam",
                     "type": {
                         "type": "array",
                         "items": "File"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1706.296875
+                    }
                 },
                 {
                     "id": "#duplex_bam",
                     "type": {
                         "type": "array",
                         "items": "File"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1599.703125
+                    }
                 },
                 {
                     "id": "#group_reads_by_umi_bam",
                     "type": {
                         "type": "array",
                         "items": "File"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1493.0390625
+                    }
                 },
                 {
                     "id": "#simplex_bam",
                     "type": {
                         "type": "array",
                         "items": "File"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 106.59375
+                    }
                 },
                 {
                     "id": "#sample_sex",
@@ -91,27 +69,21 @@
                             "type": "array",
                             "items": "string"
                         }
-                    ],
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 319.921875
+                    ]
                 },
                 {
                     "id": "#sample_group",
                     "type": {
                         "type": "array",
                         "items": "string"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 533.1796875
+                    }
                 },
                 {
                     "id": "#uncollapsed_bam_base_recal",
                     "type": {
                         "type": "array",
                         "items": "File"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 0
+                    }
                 },
                 {
                     "id": "#sample_name",
@@ -121,30 +93,22 @@
                             "type": "array",
                             "items": "string"
                         }
-                    ],
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 426.515625
+                    ]
                 },
                 {
                     "id": "#samples-json",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 213.2578125
+                    "type": "File"
                 },
                 {
                     "id": "#multiqc_config",
                     "type": [
                         "null",
                         "File"
-                    ],
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1279.7109375
+                    ]
                 },
                 {
                     "id": "#hotspots_maf",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1386.375
+                    "type": "File"
                 }
             ],
             "outputs": [
@@ -156,18 +120,14 @@
                     "type": [
                         "null",
                         "File"
-                    ],
-                    "https://www.sevenbridges.com/x": 1513.61279296875,
-                    "https://www.sevenbridges.com/y": 799.8515625
+                    ]
                 },
                 {
                     "id": "#multiqc_html",
                     "outputSource": [
                         "#aggregate_visualize/multiqc_html"
                     ],
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 1513.61279296875,
-                    "https://www.sevenbridges.com/y": 1013.0390625
+                    "type": "File"
                 },
                 {
                     "id": "#collapsed_bam_genotyping_maf",
@@ -180,9 +140,7 @@
                             "type": "array",
                             "items": "File"
                         }
-                    ],
-                    "https://www.sevenbridges.com/x": 921.3226318359375,
-                    "https://www.sevenbridges.com/y": 801.375
+                    ]
                 },
                 {
                     "id": "#duplex_bam_biometrics_dir",
@@ -195,9 +153,7 @@
                             "type": "array",
                             "items": "Directory"
                         }
-                    ],
-                    "https://www.sevenbridges.com/x": 921.3226318359375,
-                    "https://www.sevenbridges.com/y": 694.7109375
+                    ]
                 },
                 {
                     "id": "#duplex_bam_genotyping_maf",
@@ -210,9 +166,7 @@
                             "type": "array",
                             "items": "File"
                         }
-                    ],
-                    "https://www.sevenbridges.com/x": 921.3226318359375,
-                    "https://www.sevenbridges.com/y": 588.046875
+                    ]
                 },
                 {
                     "id": "#collapsed_bam_biometrics_dir",
@@ -225,27 +179,14 @@
                             "type": "array",
                             "items": "Directory"
                         }
-                    ],
-                    "https://www.sevenbridges.com/x": 921.3226318359375,
-                    "https://www.sevenbridges.com/y": 908.0390625
+                    ]
                 },
                 {
                     "id": "#multiqc_output_dir",
                     "outputSource": [
                         "#aggregate_visualize/multiqc_output_dir"
                     ],
-                    "type": "Directory",
-                    "https://www.sevenbridges.com/x": 1513.61279296875,
-                    "https://www.sevenbridges.com/y": 906.4453125
-                },
-                {
-                    "id": "#aggregate_parsed_stats",
-                    "outputSource": [
-                        "#aggregate_visualize/aggregate_parsed_stats"
-                    ],
-                    "type": "Directory",
-                    "https://www.sevenbridges.com/x": 1390.41552734375,
-                    "https://www.sevenbridges.com/y": 1331.471435546875
+                    "type": "Directory"
                 }
             ],
             "steps": [
@@ -385,9 +326,7 @@
                         "#qc_generator/sample_group",
                         "#qc_generator/simplex_bam"
                     ],
-                    "scatterMethod": "dotproduct",
-                    "https://www.sevenbridges.com/x": 288.8125,
-                    "https://www.sevenbridges.com/y": 787.375
+                    "scatterMethod": "dotproduct"
                 },
                 {
                     "id": "#aggregate_visualize",
@@ -494,15 +433,10 @@
                         },
                         {
                             "id": "#aggregate_visualize/multiqc_output_dir"
-                        },
-                        {
-                            "id": "#aggregate_visualize/aggregate_parsed_stats"
                         }
                     ],
                     "run": "#aggregate_visualize.cwl",
-                    "label": "aggregate_visualize",
-                    "https://www.sevenbridges.com/x": 921.3226318359375,
-                    "https://www.sevenbridges.com/y": 1119.703125
+                    "label": "aggregate_visualize"
                 }
             ],
             "requirements": [
@@ -527,18 +461,14 @@
                     "type": {
                         "type": "array",
                         "items": "File"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 640.28125
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/collapsed_extraction_files",
                     "type": {
                         "type": "array",
                         "items": "File"
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1067.09375
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/uncollapsed_bam_stats_pool_a_dir",
@@ -549,9 +479,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 106.703125
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/simplex_bam_pool_b_dir",
@@ -562,9 +490,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 213.40625
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/simplex_bam_pool_a_dir",
@@ -575,9 +501,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 320.109375
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/gatk_mean_quality_by_cycle_recal_dir",
@@ -588,9 +512,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 533.5625
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/duplex_bam_stats_pool_b_dir",
@@ -601,9 +523,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 746.984375
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/duplex_bam_stats_pool_a_dir",
@@ -614,9 +534,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 853.6875
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/collapsed_bam_stats_pool_b_dir",
@@ -627,9 +545,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1173.796875
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/collapsed_bam_stats_pool_a_dir",
@@ -640,9 +556,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1280.5
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/collapsed_bam_duplex_metrics_pool_b_dir",
@@ -653,9 +567,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1387.203125
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/collapsed_bam_duplex_metrics_pool_a_dir",
@@ -666,24 +578,18 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 1493.90625
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/samples-json",
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 426.828125
+                    "type": "File"
                 },
                 {
                     "id": "#aggregate_visualize.cwl/config",
                     "type": [
                         "null",
                         "File"
-                    ],
-                    "https://www.sevenbridges.com/x": 397.1875,
-                    "https://www.sevenbridges.com/y": 800.3046875
+                    ]
                 },
                 {
                     "id": "#aggregate_visualize.cwl/duplex_bam_sequence_qc_dir",
@@ -694,9 +600,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 960.390625
+                    }
                 },
                 {
                     "id": "#aggregate_visualize.cwl/uncollapsed_bam_stats_pool_b_dir",
@@ -707,9 +611,7 @@
                             "Directory",
                             "null"
                         ]
-                    },
-                    "https://www.sevenbridges.com/x": 0,
-                    "https://www.sevenbridges.com/y": 0
+                    }
                 }
             ],
             "outputs": [
@@ -721,36 +623,21 @@
                     "type": [
                         "null",
                         "File"
-                    ],
-                    "https://www.sevenbridges.com/x": 1547.731201171875,
-                    "https://www.sevenbridges.com/y": 640.25
+                    ]
                 },
                 {
                     "id": "#aggregate_visualize.cwl/multiqc_html",
                     "outputSource": [
                         "#aggregate_visualize.cwl/multiqc_1_10_1/multiqc_html"
                     ],
-                    "type": "File",
-                    "https://www.sevenbridges.com/x": 1547.731201171875,
-                    "https://www.sevenbridges.com/y": 853.65625
+                    "type": "File"
                 },
                 {
                     "id": "#aggregate_visualize.cwl/multiqc_output_dir",
                     "outputSource": [
                         "#aggregate_visualize.cwl/multiqc_1_10_1/multiqc_output_dir"
                     ],
-                    "type": "Directory",
-                    "https://www.sevenbridges.com/x": 1547.731201171875,
-                    "https://www.sevenbridges.com/y": 746.953125
-                },
-                {
-                    "id": "#aggregate_visualize.cwl/aggregate_parsed_stats",
-                    "outputSource": [
-                        "#aggregate_visualize.cwl/general_stats_parse/aggregate_parsed_stats"
-                    ],
-                    "type": "Directory",
-                    "https://www.sevenbridges.com/x": 1175.390869140625,
-                    "https://www.sevenbridges.com/y": 506.6195983886719
+                    "type": "Directory"
                 }
             ],
             "steps": [
@@ -848,9 +735,7 @@
                         }
                     ],
                     "run": "#qc_aggregator.cwl",
-                    "label": "qc_aggregator",
-                    "https://www.sevenbridges.com/x": 397.1875,
-                    "https://www.sevenbridges.com/y": 602.5703125
+                    "label": "qc_aggregator"
                 },
                 {
                     "id": "#aggregate_visualize.cwl/general_stats_parse",
@@ -874,9 +759,7 @@
                         }
                     ],
                     "run": "#general_stats_parse.cwl",
-                    "label": "general_stats_parse",
-                    "https://www.sevenbridges.com/x": 924.7194213867188,
-                    "https://www.sevenbridges.com/y": 674.3446655273438
+                    "label": "general_stats_parse"
                 },
                 {
                     "id": "#aggregate_visualize.cwl/multiqc_1_10_1",
@@ -901,9 +784,7 @@
                             "id": "#aggregate_visualize.cwl/multiqc_1_10_1/multiqc_zip"
                         }
                     ],
-                    "run": "#multiqc.cwl",
-                    "https://www.sevenbridges.com/x": 1274.980224609375,
-                    "https://www.sevenbridges.com/y": 732.953125
+                    "run": "#multiqc.cwl"
                 }
             ],
             "requirements": [
