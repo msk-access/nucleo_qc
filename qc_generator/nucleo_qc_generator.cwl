@@ -326,10 +326,6 @@ steps:
         source: target_intervals
       - id: bait_intervals
         source: bait_intervals
-      - id: bait_intervals
-        source: bait_intervals
-      - id: target_intervals
-        source: target_intervals
       - id: hsmetrics_minimum_mapping_quality
         source: hsmetrics_minimum_mapping_quality
       - id: hsmetrics_minimum_base_quality
