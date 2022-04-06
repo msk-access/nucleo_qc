@@ -36,24 +36,24 @@ inputs:
     doc: Also output plots of the data.
     'sbg:x': 0
     'sbg:y': 2347.59375
-  - id: simplex_bam_pool_a_dir
+  - id: simplex_bam_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: simplex_bam_pool_a_dir
+    label: simplex_bam_dir
     'sbg:x': 0
     'sbg:y': 320.109375
-  - id: simplex_bam_pool_b_dir
+  - id: simplex_bam_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: simplex_bam_pool_b_dir
+    label: simplex_bam_dir
     'sbg:x': 0
     'sbg:y': 213.40625
   - id: duplex_bam_sequence_qc_dir
@@ -66,64 +66,64 @@ inputs:
     label: duplex_bam_sequence_qc_dir
     'sbg:x': 0
     'sbg:y': 1173.796875
-  - id: duplex_bam_stats_pool_a_dir
+  - id: duplex_bam_stats_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: duplex_bam_stats_pool_a_dir
+    label: duplex_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 1067.09375
-  - id: duplex_bam_stats_pool_b_dir
+  - id: duplex_bam_stats_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: duplex_bam_stats_pool_b_dir
+    label: duplex_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 960.390625
-  - id: collapsed_bam_stats_pool_a_dir
+  - id: collapsed_bam_stats_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: collapsed_bam_stats_pool_a_dir
+    label: collapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 1920.78125
-  - id: collapsed_bam_stats_pool_b_dir
+  - id: collapsed_bam_stats_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: collapsed_bam_stats_pool_b_dir
+    label: collapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 1814.078125
-  - id: collapsed_bam_duplex_metrics_pool_a_dir
+  - id: collapsed_bam_duplex_metrics_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: collapsed_bam_duplex_metrics_pool_a_dir
+    label: collapsed_bam_duplex_metrics_dir
     'sbg:x': 0
     'sbg:y': 2134.1875
-  - id: collapsed_bam_duplex_metrics_pool_b_dir
+  - id: collapsed_bam_duplex_metrics_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: collapsed_bam_duplex_metrics_pool_b_dir
+    label: collapsed_bam_duplex_metrics_dir
     'sbg:x': 0
     'sbg:y': 2027.484375
   - id: gatk_mean_quality_by_cycle_recal_dir
@@ -136,24 +136,24 @@ inputs:
     label: gatk_mean_quality_by_cycle_recal_dir
     'sbg:x': 0
     'sbg:y': 426.828125
-  - id: uncollapsed_bam_stats_pool_b_dir
+  - id: uncollapsed_bam_stats_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: uncollapsed_bam_stats_pool_b_dir
+    label: uncollapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 0
-  - id: uncollapsed_bam_stats_pool_a_dir
+  - id: uncollapsed_bam_stats_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: uncollapsed_bam_stats_pool_a_dir
+    label: uncollapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 106.703125
   - id: biometrics_threads
@@ -251,31 +251,31 @@ steps:
     in:
       - id: files
         source:
-          - simplex_bam_pool_a_dir
-          - simplex_bam_pool_b_dir
-          - duplex_bam_stats_pool_a_dir
-          - duplex_bam_stats_pool_b_dir
-          - collapsed_bam_stats_pool_a_dir
-          - collapsed_bam_stats_pool_b_dir
-          - collapsed_bam_duplex_metrics_pool_a_dir
-          - collapsed_bam_duplex_metrics_pool_b_dir
+          - simplex_bam_dir
+          - simplex_bam_dir
+          - duplex_bam_stats_dir
+          - duplex_bam_stats_dir
+          - collapsed_bam_stats_dir
+          - collapsed_bam_stats_dir
+          - collapsed_bam_duplex_metrics_dir
+          - collapsed_bam_duplex_metrics_dir
           - gatk_mean_quality_by_cycle_recal_dir
-          - uncollapsed_bam_stats_pool_b_dir
-          - uncollapsed_bam_stats_pool_a_dir
+          - uncollapsed_bam_stats_dir
+          - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
       - id: output_directory_name
         default:
-          - simplex_bam_pool_a_dir
-          - simplex_bam_pool_b_dir
-          - duplex_bam_stats_pool_a_dir
-          - duplex_bam_stats_pool_b_dir
-          - collapsed_bam_stats_pool_a_dir
-          - collapsed_bam_stats_pool_b_dir
-          - collapsed_bam_duplex_metrics_pool_a_dir
-          - collapsed_bam_duplex_metrics_pool_b_dir
+          - simplex_bam_dir
+          - simplex_bam_dir
+          - duplex_bam_stats_dir
+          - duplex_bam_stats_dir
+          - collapsed_bam_stats_dir
+          - collapsed_bam_stats_dir
+          - collapsed_bam_duplex_metrics_dir
+          - collapsed_bam_duplex_metrics_dir
           - gatk_mean_quality_by_cycle_recal_dir
-          - uncollapsed_bam_stats_pool_b_dir
-          - uncollapsed_bam_stats_pool_a_dir
+          - uncollapsed_bam_stats_dir
+          - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
     out:
       - id: directory
