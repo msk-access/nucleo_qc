@@ -1,0 +1,18 @@
+# Table of contents
+
+* [MSK-ACCESS QC generation](README.md)
+* [Installation and Running](docs/README.md)
+  * [Requirements](docs/requirements.md)
+  * [Installation and Usage](docs/installation.md)
+  * [Inputs Description](docs/inputs-description.md)
+* [Interpretation](introduction/README.md)
+  * [Sample meta information](introduction/meta.md)
+  * [Coverage vs GC bias](introduction/cov-gc-bias.md)
+  * [Insert size metrics](introduction/insert-size.md)
+  * [Target coverage distribution](introduction/target-cov-dist.md)
+  * [Capture metrics](introduction/capture-metrics.md)
+  * [Duplex family metrics](introduction/duplex-family-metrics.md)
+  * [Mean base quality](introduction/mean-base-quality.md)
+  * [Duplex noise metrics](introduction/duplex-noise-metrics.md)
+  * [Contamination](introduction/contamination.md)
+  * [Fingerprinting](introduction/fingerprinting.md)
