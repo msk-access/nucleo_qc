@@ -36,14 +36,14 @@ inputs:
     doc: Also output plots of the data.
     'sbg:x': 0
     'sbg:y': 2347.59375
-  - id: simplex_bam_dir
+  - id: simplex_bam_stats_dir
     type:
       type: array
       items:
         - File
         - Directory
         - 'null'
-    label: simplex_bam_dir
+    label: simplex_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 320.109375
   - id: duplex_bam_sequence_qc_dir
@@ -201,30 +201,20 @@ steps:
     in:
       - id: files
         source:
-          - simplex_bam_dir
-          - simplex_bam_dir
-          - duplex_bam_stats_dir
+          - simplex_bam_stats_dir
           - duplex_bam_stats_dir
           - collapsed_bam_stats_dir
-          - collapsed_bam_stats_dir
-          - collapsed_bam_duplex_metrics_dir
           - collapsed_bam_duplex_metrics_dir
           - gatk_mean_quality_by_cycle_recal_dir
-          - uncollapsed_bam_stats_dir
           - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
       - id: output_directory_name
         default:
-          - simplex_bam_dir
-          - simplex_bam_dir
-          - duplex_bam_stats_dir
+          - simplex_bam_stats_dir
           - duplex_bam_stats_dir
           - collapsed_bam_stats_dir
-          - collapsed_bam_stats_dir
-          - collapsed_bam_duplex_metrics_dir
           - collapsed_bam_duplex_metrics_dir
           - gatk_mean_quality_by_cycle_recal_dir
-          - uncollapsed_bam_stats_dir
           - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
     out:

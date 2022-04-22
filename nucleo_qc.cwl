@@ -167,7 +167,7 @@ steps:
       - id: collapsed_bam_biometrics_dir
       - id: collapsed_bam_duplex_metrics_dir
       - id: collapsed_bam_stats_dir
-      - id: simplex_bam_dir
+      - id: simplex_bam_stats_dir
       - id: duplex_bam_sequence_qc_dir
       - id: duplex_bam_stats_dir
       - id: duplex_bam_biometrics_dir
@@ -207,9 +207,9 @@ steps:
       - id: duplex_bam_stats_dir
         source:
           - qc_generator/duplex_bam_stats_dir
-      - id: simplex_bam_dir
+      - id: simplex_bam_stats_dir
         source:
-          - qc_generator/simplex_bam_dir
+          - qc_generator/simplex_bam_stats_dir
       - id: collapsed_bam_stats_dir
         source:
           - qc_generator/collapsed_bam_stats_dir

@@ -109,9 +109,9 @@ steps:
       - id: duplex_extraction_files
         source:
           - duplex_extraction_files
-      - id: simplex_bam_dir
+      - id: simplex_bam_stats_dir
         source:
-          - simplex_bam_dir
+          - simplex_bam_stats_dir
       - id: duplex_bam_sequence_qc_dir
         source:
           - duplex_bam_sequence_qc_dir
