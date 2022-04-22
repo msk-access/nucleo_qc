@@ -1,7 +1,7 @@
 class: Workflow
 cwlVersion: v1.0
-id: access_qc
-label: access_qc
+id: nucleo_qc
+label: nucleo_qc
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
 inputs:
@@ -162,6 +162,7 @@ steps:
       - id: mosdepth_bed
         source: mosdepth_bed
     out:
+      - id: uncollapsed_bam_stats_dir
       - id: gatk_mean_quality_by_cycle_recal_dir
       - id: collapsed_bam_biometrics_dir
       - id: collapsed_bam_duplex_metrics_dir
