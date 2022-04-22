@@ -189,11 +189,11 @@ outputs:
     label: collapsed_bam_stats_dir
     'sbg:x': 1796.531494140625
     'sbg:y': 1497.34375
-  - id: simplex_bam_qc_dir
+  - id: simplex_bam_stats_dir
     outputSource:
-      - simplex_bam_qc/directory
+      - simplex_bam_stats/directory
     type: Directory
-    label: simplex_bam_qc_dir
+    label: simplex_bam_stats_dir
     'sbg:x': 1796.531494140625
     'sbg:y': 962.578125
   - id: duplex_bam_sequence_qc_dir
@@ -423,7 +423,7 @@ steps:
     label: qc_duplex_bam
     'sbg:x': 494.33056640625
     'sbg:y': 1374.3541259765625
-  - id: simplex_bam_qc
+  - id: simplex_bam_stats
     in:
       - id: files
         linkMerge: merge_flattened
@@ -435,7 +435,7 @@ steps:
           - qc_simplex_bam/gatk_collect_hs_metrics_per_base_coverage_txt
           - qc_simplex_bam/gatk_collect_alignment_summary_metrics_txt
       - id: output_directory_name
-        default: simplex_bam_qc
+        default: simplex_bam_stats
         source: sample_name
     out:
       - id: directory

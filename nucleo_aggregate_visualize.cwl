@@ -9,7 +9,7 @@ inputs:
     type: 'File[]'
     'sbg:x': 0
     'sbg:y': 320.625
-  - id: simplex_bam_dir
+  - id: simplex_bam_stats_dir
     type:
       type: array
       items:
