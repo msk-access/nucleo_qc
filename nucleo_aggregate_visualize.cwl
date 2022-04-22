@@ -16,8 +16,8 @@ inputs:
         - File
         - Directory
         - 'null'
-    'sbg:x': -7.6886749267578125
-    'sbg:y': 270.641357421875
+    'sbg:x': -5.005326271057129
+    'sbg:y': 279.9733581542969
   - id: collapsed_extraction_files
     type: 'File[]'
     'sbg:x': 0
@@ -73,8 +73,8 @@ inputs:
     'sbg:y': 428
   - id: config
     type: File?
-    'sbg:x': 397.203125
-    'sbg:y': 802.5
+    'sbg:x': 675.5126342773438
+    'sbg:y': 1172.02392578125
   - id: duplex_bam_sequence_qc_dir
     type:
       type: array
@@ -109,6 +109,9 @@ steps:
       - id: duplex_extraction_files
         source:
           - duplex_extraction_files
+      - id: simplex_bam_dir
+        source:
+          - simplex_bam_qc_dir
       - id: duplex_bam_sequence_qc_dir
         source:
           - duplex_bam_sequence_qc_dir

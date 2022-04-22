@@ -8,47 +8,47 @@ inputs:
   - id: reference
     type: File
     'sbg:x': 0
-    'sbg:y': 642
+    'sbg:y': 746.890625
   - id: target_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 963
+    'sbg:y': 106.703125
   - id: bait_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 1070
+    'sbg:y': 1600.328125
   - id: noise_sites_bed
     type: File
     'sbg:x': 0
-    'sbg:y': 1177
+    'sbg:y': 853.5625
   - id: biometrics_vcf_file
     type: File
     'sbg:x': 0
-    'sbg:y': 1819
+    'sbg:y': 1493.65625
   - id: collapsed_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1712
+    'sbg:y': 1386.984375
   - id: duplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1605
+    'sbg:y': 1280.3125
   - id: group_reads_by_umi_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1498
+    'sbg:y': 1173.609375
   - id: simplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 107
+    'sbg:y': 213.40625
   - id: sample_sex
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 321
+    'sbg:y': 426.8125
   - id: sample_group
     type: 'string[]'
     'sbg:x': 0
-    'sbg:y': 535
+    'sbg:y': 640.1875
   - id: uncollapsed_bam_base_recal
     type: 'File[]'
     'sbg:x': 0
@@ -56,36 +56,36 @@ inputs:
   - id: sample_name
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 428
+    'sbg:y': 533.484375
   - id: samples-json
     type: File
     'sbg:x': 0
-    'sbg:y': 214
+    'sbg:y': 320.109375
   - id: multiqc_config
     type: File?
-    'sbg:x': 0
-    'sbg:y': 1284
+    'sbg:x': 268.8914489746094
+    'sbg:y': 1047.559814453125
   - id: hotspots_maf
     type: File
     'sbg:x': 0
-    'sbg:y': 1391
+    'sbg:y': 1066.90625
   - id: mosdepth_bed
     type: File?
-    'sbg:x': -6.56458044052124
-    'sbg:y': 821.4234619140625
+    'sbg:x': 0
+    'sbg:y': 960.234375
 outputs:
   - id: multiqc_zip
     outputSource:
       - nucleo_aggregate_visualize/multiqc_zip
     type: File?
-    'sbg:x': 1513.61279296875
-    'sbg:y': 802.5
+    'sbg:x': 1352.197265625
+    'sbg:y': 693.4921875
   - id: multiqc_html
     outputSource:
       - nucleo_aggregate_visualize/multiqc_html
     type: File
-    'sbg:x': 1513.61279296875
-    'sbg:y': 1016.5
+    'sbg:x': 1352.197265625
+    'sbg:y': 906.8359375
   - id: collapsed_bam_genotyping_maf
     outputSource:
       - qc_generator/collapsed_bam_genotyping_maf
@@ -93,8 +93,8 @@ outputs:
       - File
       - type: array
         items: File
-    'sbg:x': 921.3226318359375
-    'sbg:y': 804.5
+    'sbg:x': 872.725341796875
+    'sbg:y': 906.8671875
   - id: duplex_bam_biometrics_dir
     outputSource:
       - qc_generator/duplex_bam_biometrics_dir
@@ -102,8 +102,8 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 921.3226318359375
-    'sbg:y': 697.5
+    'sbg:x': 872.725341796875
+    'sbg:y': 800.1640625
   - id: duplex_bam_genotyping_maf
     outputSource:
       - qc_generator/duplex_bam_genotyping_maf
@@ -111,8 +111,8 @@ outputs:
       - File
       - type: array
         items: File
-    'sbg:x': 921.3226318359375
-    'sbg:y': 590.5
+    'sbg:x': 872.725341796875
+    'sbg:y': 693.4609375
   - id: collapsed_bam_biometrics_dir
     outputSource:
       - qc_generator/collapsed_bam_biometrics_dir
@@ -120,20 +120,14 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 921.3226318359375
-    'sbg:y': 911.5
+    'sbg:x': 872.725341796875
+    'sbg:y': 1013.5703125
   - id: multiqc_output_dir
     outputSource:
       - nucleo_aggregate_visualize/multiqc_output_dir
     type: Directory
-    'sbg:x': 1513.61279296875
-    'sbg:y': 909.5
-  - id: mosdepth_bed
-    outputSource:
-      - mosdepth_bed
-    type: File?
-    'sbg:x': 269.5332946777344
-    'sbg:y': 787.2923583984375
+    'sbg:x': 1352.197265625
+    'sbg:y': 800.1640625
 steps:
   - id: qc_generator
     in:
@@ -193,8 +187,8 @@ steps:
       - sample_group
       - simplex_bam
     scatterMethod: dotproduct
-    'sbg:x': 290.4471435546875
-    'sbg:y': 796.1178588867188
+    'sbg:x': 288.8125
+    'sbg:y': 648.765625
   - id: nucleo_aggregate_visualize
     in:
       - id: duplex_extraction_files
@@ -231,8 +225,8 @@ steps:
       - id: multiqc_output_dir
     run: ./nucleo_aggregate_visualize.cwl
     label: aggregate_visualize
-    'sbg:x': 921.3226318359375
-    'sbg:y': 1123.5
+    'sbg:x': 872.725341796875
+    'sbg:y': 530.7265625
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement

@@ -154,6 +154,13 @@ inputs:
     'sbg:x': -4.452571392059326
     'sbg:y': 1301.1131591796875
 outputs:
+  - id: uncollapsed_bam_stats_dir
+    outputSource:
+      - uncollapsed_bam_stats/directory
+    type: Directory
+    label: uncollapsed_bam_stats_dir
+    'sbg:x': 1831.181884765625
+    'sbg:y': 287.9933776855469
   - id: gatk_mean_quality_by_cycle_recal_dir
     outputSource:
       - gatk_mean_quality_by_cycle_recal/directory
@@ -221,8 +228,8 @@ outputs:
     outputSource:
       - qc_duplex_bam/biometrics_extract_pickle
     type: File
-    'sbg:x': 1458.218994140625
-    'sbg:y': 988.0546875
+    'sbg:x': 1813.513427734375
+    'sbg:y': 669.6298217773438
   - id: duplex_bam_mosdepth_dir
     outputSource:
       - duplex_bam_mosdepth/directory
@@ -249,14 +256,14 @@ steps:
         source: reference
       - id: target_intervals
         source: target_intervals
-      - id: bait_intervals
-        source: bait_intervals
       - id: collapsed_bam
         source:
           - collapsed_bam
       - id: group_reads_by_umi_bam
         source:
           - group_reads_by_umi_bam
+      - id: bait_intervals
+        source: bait_intervals
       - id: json
         source: biometrics_json
       - id: plot
@@ -313,13 +320,13 @@ steps:
     in:
       - id: reference
         source: reference
+      - id: uncollapsed_bam_base_recal
+        source:
+          - uncollapsed_bam_base_recal
       - id: bait_intervals
         source: bait_intervals
       - id: target_intervals
         source: target_intervals
-      - id: uncollapsed_bam_base_recal
-        source:
-          - uncollapsed_bam_base_recal
       - id: hsmetrics_minimum_mapping_quality
         source: hsmetrics_minimum_mapping_quality
       - id: hsmetrics_minimum_base_quality
