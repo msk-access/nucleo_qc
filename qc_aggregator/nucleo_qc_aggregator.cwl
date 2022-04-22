@@ -46,16 +46,6 @@ inputs:
     label: simplex_bam_dir
     'sbg:x': 0
     'sbg:y': 320.109375
-  - id: simplex_bam_dir
-    type:
-      type: array
-      items:
-        - File
-        - Directory
-        - 'null'
-    label: simplex_bam_dir
-    'sbg:x': 0
-    'sbg:y': 213.40625
   - id: duplex_bam_sequence_qc_dir
     type:
       type: array
@@ -76,16 +66,6 @@ inputs:
     label: duplex_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 1067.09375
-  - id: duplex_bam_stats_dir
-    type:
-      type: array
-      items:
-        - File
-        - Directory
-        - 'null'
-    label: duplex_bam_stats_dir
-    'sbg:x': 0
-    'sbg:y': 960.390625
   - id: collapsed_bam_stats_dir
     type:
       type: array
@@ -96,16 +76,6 @@ inputs:
     label: collapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 1920.78125
-  - id: collapsed_bam_stats_dir
-    type:
-      type: array
-      items:
-        - File
-        - Directory
-        - 'null'
-    label: collapsed_bam_stats_dir
-    'sbg:x': 0
-    'sbg:y': 1814.078125
   - id: collapsed_bam_duplex_metrics_dir
     type:
       type: array
@@ -116,16 +86,6 @@ inputs:
     label: collapsed_bam_duplex_metrics_dir
     'sbg:x': 0
     'sbg:y': 2134.1875
-  - id: collapsed_bam_duplex_metrics_dir
-    type:
-      type: array
-      items:
-        - File
-        - Directory
-        - 'null'
-    label: collapsed_bam_duplex_metrics_dir
-    'sbg:x': 0
-    'sbg:y': 2027.484375
   - id: gatk_mean_quality_by_cycle_recal_dir
     type:
       type: array
@@ -146,16 +106,6 @@ inputs:
     label: uncollapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 0
-  - id: uncollapsed_bam_stats_dir
-    type:
-      type: array
-      items:
-        - File
-        - Directory
-        - 'null'
-    label: uncollapsed_bam_stats_dir
-    'sbg:x': 0
-    'sbg:y': 106.703125
   - id: biometrics_threads
     type: int?
     label: biometrics_threads
@@ -504,4 +454,3 @@ steps:
 requirements:
   - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
-
