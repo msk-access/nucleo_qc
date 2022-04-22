@@ -188,8 +188,6 @@ steps:
       - sample_group
       - simplex_bam
     scatterMethod: dotproduct
-    'sbg:x': 288.8125
-    'sbg:y': 648.765625
   - id: nucleo_aggregate_visualize
     in:
       - id: duplex_extraction_files
