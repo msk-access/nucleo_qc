@@ -137,10 +137,6 @@ steps:
       - id: aggregate_qc_stats
     run: qc_aggregator/nucleo_qc_aggregator.cwl
     label: qc_aggregator
-    scatter:
-      - simplex_bam_qc_dir
-    'sbg:x': 360.75
-    'sbg:y': 325.0625
   - id: general_stats_parse
     in:
       - id: directory
