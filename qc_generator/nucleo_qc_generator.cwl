@@ -440,7 +440,7 @@ steps:
     out:
       - id: directory
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
-    label: simplex_bam_qc
+    label: simplex_bam_stats
     'sbg:x': 1458
     'sbg:y': 493
   - id: uncollapsed_bam_stats

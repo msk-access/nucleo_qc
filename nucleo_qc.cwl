@@ -76,13 +76,13 @@ inputs:
 outputs:
   - id: multiqc_zip
     outputSource:
-      - nucleo_aggregate_visualize/multiqc_zip
+      - aggregate_visualize/multiqc_zip
     type: File?
     'sbg:x': 1352.197265625
     'sbg:y': 693.4921875
   - id: multiqc_html
     outputSource:
-      - nucleo_aggregate_visualize/multiqc_html
+      - aggregate_visualize/multiqc_html
     type: File
     'sbg:x': 1352.197265625
     'sbg:y': 906.8359375
@@ -124,7 +124,7 @@ outputs:
     'sbg:y': 1013.5703125
   - id: multiqc_output_dir
     outputSource:
-      - nucleo_aggregate_visualize/multiqc_output_dir
+      - aggregate_visualize/multiqc_output_dir
     type: Directory
     'sbg:x': 1352.197265625
     'sbg:y': 800.1640625
@@ -188,7 +188,7 @@ steps:
       - sample_group
       - simplex_bam
     scatterMethod: dotproduct
-  - id: nucleo_aggregate_visualize
+  - id: aggregate_visualize
     in:
       - id: duplex_extraction_files
         source:
