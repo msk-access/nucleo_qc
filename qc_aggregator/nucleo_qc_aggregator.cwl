@@ -64,6 +64,14 @@ inputs:
         - Directory
         - 'null'
     label: duplex_bam_stats_dir
+  - id: duplex_bam_mosdepth_dir
+    type:
+      type: array
+      items:
+        - File
+        - Directory
+        - 'null'
+    label: duplex_bam_mosdepth_dir
     'sbg:x': 0
     'sbg:y': 1067.09375
   - id: collapsed_bam_stats_dir
@@ -104,8 +112,8 @@ inputs:
         - Directory
         - 'null'
     label: uncollapsed_bam_stats_dir
-    'sbg:x': 0
-    'sbg:y': 0
+    'sbg:x': -16.982759475708008
+    'sbg:y': -149.41770935058594
   - id: biometrics_threads
     type: int?
     label: biometrics_threads
@@ -203,6 +211,7 @@ steps:
         source:
           - simplex_bam_stats_dir
           - duplex_bam_stats_dir
+          - duplex_bam_mosdepth_dir
           - collapsed_bam_stats_dir
           - collapsed_bam_duplex_metrics_dir
           - gatk_mean_quality_by_cycle_recal_dir
@@ -212,6 +221,7 @@ steps:
         default:
           - simplex_bam_stats_dir
           - duplex_bam_stats_dir
+          - duplex_bam_mosdepth_dir
           - collapsed_bam_stats_dir
           - collapsed_bam_duplex_metrics_dir
           - gatk_mean_quality_by_cycle_recal_dir
