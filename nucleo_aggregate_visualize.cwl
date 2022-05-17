@@ -49,15 +49,6 @@ inputs:
         - 'null'
     'sbg:x': 0
     'sbg:y': 535
-  - id: duplex_bam_mosdepth_dir
-    type:
-      type: array
-      items:
-        - File
-        - Directory
-        - 'null'
-    'sbg:x': 0
-    'sbg:y': 1083.5
   - id: collapsed_bam_stats_dir
     type:
       type: array
@@ -127,9 +118,6 @@ steps:
       - id: duplex_bam_stats_dir
         source:
           - duplex_bam_stats_dir
-      - id: duplex_bam_mosdepth_dir
-        source:
-          - duplex_bam_mosdepth_dir
       - id: collapsed_bam_stats_dir
         source:
           - collapsed_bam_stats_dir
