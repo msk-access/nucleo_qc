@@ -1,6 +1,6 @@
 # Table of contents
 
-* [MSK-ACCESS QC generation](README.md)
+* [Nucleo QC generation](README.md)
 * [Installation and Running](docs/README.md)
   * [Requirements](docs/requirements.md)
   * [Installation and Usage](docs/installation.md)
@@ -16,3 +16,4 @@
   * [Duplex noise metrics](introduction/duplex-noise-metrics.md)
   * [Contamination](introduction/contamination.md)
   * [Fingerprinting](introduction/fingerprinting.md)
+  * [mosdepth] (introduction/mosdepth_0.3.3.md)
