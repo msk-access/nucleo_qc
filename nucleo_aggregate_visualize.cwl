@@ -149,7 +149,7 @@ steps:
         source: config
     out:
       - id: aggregate_parsed_stats
-    run: cwl-commandlinetools/cci_utils/0.1.7/general_stats_parse.cwl
+    run: cwl-commandlinetools/access_utils/0.1.1/general_stats_parse.cwl
     label: general_stats_parse
     'sbg:x': 860.2547607421875
     'sbg:y': 467.5
