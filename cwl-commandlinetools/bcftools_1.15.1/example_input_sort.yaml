@@ -1,5 +1,0 @@
-input:
-  class: File
-  path: /path/to/input.vcf.gz
-output_name: out.sorted.vcf.gz
-output_type: z

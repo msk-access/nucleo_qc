@@ -1,4 +1,0 @@
-input:
-  class: File
-  path: /path/to/input.vcf
-stdout: True
