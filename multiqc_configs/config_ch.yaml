@@ -6,7 +6,7 @@ custom_data:
   genstats_qcstatus_buffy:
     plot_type: 'table'
     file_format: 'csv'
-    section_name: 'CMO_CH QC metrics'
+    section_name: 'Summary QC metrics'
     description: "Lists the important per-sample statistics and associated QC statuses."
     headers:
       cmoSampleName:
