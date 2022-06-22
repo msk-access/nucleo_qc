@@ -1,5 +1,5 @@
 hiddentitle: "MSK CMO-CH QC report"
-intro_text: "Aggregate QC metrics for MSK CMO-CH samples from the uncollapsed, collapsed, simplex, and duplex BAMs."
+intro_text: "Aggregate Quality Control (QC) metrics for samples ran on MSK CMO-CH assay"
 skip_generalstats: true
 
 custom_data:
