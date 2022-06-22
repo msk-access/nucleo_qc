@@ -6,7 +6,7 @@ custom_data:
   genstats_qcstatus_buffy:
     plot_type: 'table'
     file_format: 'csv'
-    section_name: 'QC metrics for buffy-coat samples'
+    section_name: 'CMO_CH QC metrics'
     description: "Lists the important per-sample statistics and associated QC statuses."
     headers:
       cmoSampleName:
@@ -244,6 +244,32 @@ custom_data:
       description: "For each metric, these thresholds are used to calculate whether a sample has status of 'pass', 'warn' or 'fail'. These metrics have been decided by the MSK-ACCESS team and are intended for guidance only. Status of each sample is given in the QC metrics tables. NOTE: each metric is evaluated in the order of pass, warn, and then fail. Hence, anything matching both pass and fail will be marked as fail."
       parent_id: 'qc_criteria'
       parent_name: 'QC criteria'
+      headers:
+        Metric ID:
+          title: 'Metric ID'
+          scale: false
+          placement: 1
+        Metric name:
+          title: 'Metric name'
+          scale: false
+          placement: 2
+        Section name:
+          title: 'Section name'
+          scale: false
+          placement: 3
+        Fail condition:
+          title: 'Fail condition'
+          scale: false
+          placement: 4
+        Pass condition:
+          title: 'Pass condition'
+          scale: false
+          placement: 5
+        Warn condition:
+          title: 'Warn condition'
+          scale: false
+          placement: 6
+      
 sp:
   biometrics_minor_sites_collapsed:
     fn: 'minor_contamination_sites_mqc.html'
@@ -713,3 +739,4 @@ extra_fn_clean_exts:
   - "_uncollapsed_BR"
   - "_collapsed_duplex"
   - "_collapsed_simplex"
+  
