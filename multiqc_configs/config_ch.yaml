@@ -79,7 +79,7 @@ custom_data:
         description: "Pool input in nanograms. Data is from LIMS."
         placement: 5
       raw_coverage:
-        title: "Raw cov. (pool A)"
+        title: "Raw cov."
         description: "Raw coverage A. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool A)."
         placement: 6
       duplex_target_coverage:
@@ -101,16 +101,30 @@ custom_data:
         description: "Percentage of reads aligned to the genome. Data is from the PCT_PF_UQ_READS_ALIGNED column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
         placement: 13
         format: '{:,.2%}'
+      on_target_perc: 
+        title: "% ON TARGET"
+        placement: 14
+        format: '{:,.2%}'
+      on_bait_perc: 
+        title: "% ON BAIT"
+        placement: 15
+        format: '{:,.2%}'
+      on_near_perc:
+        title: "% ON NEAR BAIT"
+        placement: 16
+        format: '{:,.2%}'
       noise_percentage:
         title: "% Noise"
         description: "Percentage of noise (ACGT substitutions). Data is from the sequence_qc python package."
-        placement: 14
+        placement: 17
         format: '{:,.4%}'
       contributing_sites:
         title: "N noise sites"
         description: "Number of sites contributing to noise (ACGT substitutions). Data is from the sequence_qc python package."
-        placement: 15
+        placement: 18
         format: '{:,.0f}'
+
+
   biometrics_major_collapsed:
     plot_type: 'table'
     file_format: 'csv'
@@ -422,6 +436,30 @@ table_cond_formatting_rules:
         - lt: 0.97
     fail:
         - lt: 0.95
+  on_target_perc:
+    pass:
+        - gt: 0.25
+        - eq: 0.25
+    warn:
+        - lt: 0.25
+    fail:
+        - lt: 0.25
+  on_bait_perc: 
+    pass:
+        - gt: 0.25
+        - eq: 0.25
+    warn:
+        - lt: 0.25
+    fail:
+        - lt: 0.25
+  on_near_perc: 
+    pass:
+        - gt: 0.40
+        - eq: 0.40
+    warn:
+        - lt: 0.40
+    fail:
+        - lt: 0.40
   contributing_sites:
     pass:
         - lt: 0.001
@@ -430,7 +468,7 @@ table_cond_formatting_rules:
         - gt: 0.001
     fail:
         - gt: 0.01
-  noise_n_sites:
+  contributing_sites_ns:
     pass:
         - lt: 1000
         - eq: 1000
@@ -523,9 +561,24 @@ table_cond_formatting_rules:
     fail:
         - eq: 0.002
         - gt: 0.002
+  T_G:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
 
 
 picard_config:
+  HsMetrics_table_cols:
+    - PCT_OFF_BAIT
+    - PCT_USABLE_BASES_ON_TARGET
+    - PCT_USABLE_BASES_ON_BAIT
+    - MEAN_BAIT_COVERAGE
+    - MEAN_TARGET_COVERAGE
   HsMetrics_table_cols_hidden:
     - TOTAL_READS
     - BAIT_SET
@@ -535,9 +588,7 @@ picard_config:
     - NEAR_BAIT_BASES
     - OFF_BAIT_BASES
     - PCT_SELECTED_BASES
-    # PCT_OFF_BAIT
     - ON_BAIT_VS_SELECTED
-    - PCT_USABLE_BASES_ON_BAIT
     - FOLD_ENRICHMENT
     - HS_LIBRARY_SIZE
     - TARGET_TERRITORY
@@ -567,7 +618,6 @@ picard_config:
     - GC_DROPOUT
     - HET_SNP_SENSITIVITY
     - HET_SNP_Q
-
 
 show_hide_buttons:
   - Hide tumor
@@ -690,7 +740,7 @@ module_order:
       path_filters:
         - "*collapsed_bam_duplex_metrics*"
   - picard:
-      name: "HSMetrics (Simplex BAM)"
+      name: "HSMetrics (Duplex BAM)"
       anchor: "duplex_bam"
       path_filters:
         - "*duplex_bam_stats*"
@@ -739,4 +789,4 @@ extra_fn_clean_exts:
   - "_uncollapsed_BR"
   - "_collapsed_duplex"
   - "_collapsed_simplex"
-  
+
