@@ -50,7 +50,7 @@ custom_data:
         hidden: true
       tumorOrNormal:
         title: "Tumor or Normal"
-        description: "Whether sample is tumor or normal sample."
+        description: "Whether sample is tumor or normal."
         placement: 2
         hidden: true
       minor_contamination:
