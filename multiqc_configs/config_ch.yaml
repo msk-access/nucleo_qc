@@ -48,6 +48,11 @@ custom_data:
         description: "Sample type. Data is from LIMS."
         placement: 2
         hidden: true
+      tumorOrNormal:
+        title: "Tumor or Normal"
+        description: "Whether sample is tumor or normal sample."
+        placement: 2
+        hidden: true
       minor_contamination:
         title: "Minor contamination"
         description: "Minor contamination based on analysis from biometrics."
@@ -123,6 +128,7 @@ custom_data:
         description: "Number of sites contributing to noise (ACGT substitutions). Data is from the sequence_qc python package."
         placement: 18
         format: '{:,.0f}'
+
 
 
   biometrics_major_collapsed:
@@ -619,15 +625,6 @@ picard_config:
     - HET_SNP_SENSITIVITY
     - HET_SNP_Q
 
-show_hide_buttons:
-  - Hide tumor
-  - Hide normal
-show_hide_mode:
-  - hide
-  - hide
-show_hide_patterns:
-  - -L0
-  - -N0
 
 remove_sections:
   # collapsed bam - show only hsmetrics 
@@ -789,4 +786,3 @@ extra_fn_clean_exts:
   - "_uncollapsed_BR"
   - "_collapsed_duplex"
   - "_collapsed_simplex"
-
