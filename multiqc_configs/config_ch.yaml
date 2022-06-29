@@ -1,0 +1,788 @@
+hiddentitle: "MSK CMO-CH QC report"
+intro_text: "Aggregate Quality Control (QC) metrics for samples ran on MSK CMO-CH assay"
+skip_generalstats: true
+
+custom_data:
+  genstats_qcstatus_buffy:
+    plot_type: 'table'
+    file_format: 'csv'
+    section_name: 'Summary QC metrics'
+    description: "Lists the important per-sample statistics and associated QC statuses."
+    headers:
+      cmoSampleName:
+        title: "Sample"
+        description: "Sample name. Data is from LIMS."
+        placement: 1
+      cmoPatientId:
+        title: "Patient"
+        description: "Patient ID. Data is from LIMS."
+        placement: 2
+        hidden: true
+      igoId:
+        title: "IGO ID"
+        description: "Sample pool ID. Data is from LIMS."
+        placement: 2
+        hidden: true
+      investigatorSampleId:
+        title: "Investigator Sample ID"
+        description: "Investigator Sample ID. Data is from LIMS."
+        placement: 2
+        hidden: true
+      barcodeId:
+        title: "Barcode ID"
+        description: "Barcode ID. Data is from LIMS."
+        placement: 2
+        hidden: true
+      oncoTreeCode:
+        title: "OncoTreeCode"
+        description: "OncoTreeCode. Data is from LIMS."
+        placement: 2
+        hidden: true
+      cmoSampleClass:
+        title: "Class"
+        description: "Sample class. Data is from LIMS."
+        placement: 2
+        hidden: true
+      specimenType:
+        title: "Sample type"
+        description: "Sample type. Data is from LIMS."
+        placement: 2
+        hidden: true
+      tumorOrNormal:
+        title: "Tumor or Normal"
+        description: "Whether sample is tumor or normal."
+        placement: 2
+        hidden: true
+      minor_contamination:
+        title: "Minor contamination"
+        description: "Minor contamination based on analysis from biometrics."
+        format: '{:,.4f}'
+        placement: 9
+      major_contamination:
+        title: "Major contamination"
+        description: "Major contamination based on analysis from biometrics."
+        format: '{:,.2f}'
+        placement: 10
+      sex_mismatch:
+        title: "Sex mismatch"
+        description: "Whether the sample's predicted and expected sex mismatch. Based on analysis from biometrics."
+        placement: 11
+      fingerprint:
+        title: "Fingerprint"
+        description: "Pass: no unexpected matches/mismatchs. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatchs. Based on analysis from biometrics."
+        placement: 11
+      dnaInputNg:
+        title: "Library input"
+        description: "Library input in nanograms. Data is from LIMS."
+        placement: 3
+      captureInputNg:
+        title: "Library yield"
+        description: "Library yield in nanograms. Data is from LIMS."
+        placement: 4
+      captureConcentrationNm:
+        title: "Pool input"
+        description: "Pool input in nanograms. Data is from LIMS."
+        placement: 5
+      raw_coverage:
+        title: "Raw cov."
+        description: "Raw coverage A. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM, pool A)."
+        placement: 6
+      duplex_target_coverage:
+        title: "Duplex target cov."
+        description: "Duplex target coverage. Data is from the MEAN_TARGET_COVERAGE column in the output file produced by GATK-CollectHsMetrics (duplex BAM, pool A)."
+        placement: 8
+      MODE_INSERT_SIZE:
+        title: "Ins. size (MODE)"
+        description: "The most frequently occuring insert size. Data is from the MODE_INSERT_SIZE column in the output file produced by GATK-CollectHsMetrics (Duplex BAM)."
+        placement: 11
+        format: '{:,.0f}'
+      TOTAL_READS:
+        title: "N reads"
+        description: "Total reads sequenced (uncollapsed). Data is from the TOTAL_READS column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
+        placement: 12
+        format: '{:,.0f}'
+      PCT_PF_UQ_READS_ALIGNED:
+        title: "% Aligned"
+        description: "Percentage of reads aligned to the genome. Data is from the PCT_PF_UQ_READS_ALIGNED column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
+        placement: 13
+        format: '{:,.2%}'
+      on_target_perc: 
+        title: "% ON TARGET"
+        placement: 14
+        format: '{:,.2%}'
+      on_bait_perc: 
+        title: "% ON BAIT"
+        placement: 15
+        format: '{:,.2%}'
+      on_near_perc:
+        title: "% ON NEAR BAIT"
+        placement: 16
+        format: '{:,.2%}'
+      noise_percentage:
+        title: "% Noise"
+        description: "Percentage of noise (ACGT substitutions). Data is from the sequence_qc python package."
+        placement: 17
+        format: '{:,.4%}'
+      contributing_sites:
+        title: "N noise sites"
+        description: "Number of sites contributing to noise (ACGT substitutions). Data is from the sequence_qc python package."
+        placement: 18
+        format: '{:,.0f}'
+
+
+
+  biometrics_major_collapsed:
+    plot_type: 'table'
+    file_format: 'csv'
+    section_name: 'Major contamination'
+    parent_id: 'contamination'
+    parent_name: 'Contamination'
+    description: "Major contamination statistics for collapsed BAMs."
+    headers:
+      sample_name:
+        title: 'Sample'
+        placement: 1
+      sample_group:
+        title: 'Patient'
+        placement: 2
+      total_sites:
+        title: 'N sites'
+        placement: 3
+        format: '{:,.0f}'
+      total_heterozygous_sites:
+        title: 'N heterozygous sites'
+        placement: 4
+        format: '{:,.0f}'
+      major_contamination:
+        title: 'Major contamination'
+        placement: 5
+        format: '{:,.3f}'
+  biometrics_minor_collapsed:
+    plot_type: 'table'
+    file_format: 'csv'
+    section_name: 'Minor contamination'
+    parent_id: 'contamination'
+    parent_name: 'Contamination'
+    description: "Minor contamination statistics for collapsed BAMs."
+    headers:
+      sample_name:
+        title: 'Sample'
+        placement: 1
+      sample_group:
+        title: 'Patient'
+        placement: 2
+      total_homozygous_sites:
+        title: 'N homozygous sites'
+        placement: 3
+        format: '{:,.0f}'
+      n_contributing_sites:
+        title: 'N contributing sites'
+        placement: 4
+        format: '{:,.0f}'
+      minor_contamination:
+        title: 'Minor contamination'
+        placement: 5
+        format: '{:,.4f}'
+  biometrics_minor_duplex:
+    plot_type: 'table'
+    file_format: 'csv'
+    section_name: 'Minor contamination duplex'
+    parent_id: 'contamination'
+    parent_name: 'Contamination'
+    description: "Minor contamination statistics for duplex BAMs."
+    headers:
+      sample_name:
+        title: 'Sample'
+        placement: 1
+      sample_group:
+        title: 'Patient'
+        placement: 2
+      total_homozygous_sites:
+        title: 'N homozygous sites'
+        placement: 3
+        format: '{:,.0f}'
+      n_contributing_sites:
+        title: 'N contributing sites'
+        placement: 4
+        format: '{:,.0f}'
+      minor_contamination:
+        title: 'Minor contamination'
+        placement: 5
+        format: '{:,.4f}'
+  biometrics_cluster_collapsed:
+    plot_type: 'table'
+    file_format: 'csv'
+    section_name: 'Sample clusters'
+    parent_id: 'fingerprinting'
+    parent_name: 'Fingerprinting'
+    description: "After the fingerprints from all samples have been compared against each other, the samples are clustered together."
+    headers:
+      sample_name:
+        title: 'Sample'
+        scale: false
+        placement: 1
+      expected_sample_group:
+        title: 'Expected patient'
+        scale: false
+        placement: 2
+      predicted_sample_group:
+        title: 'Predicted patient'
+        scale: false
+        placement: 3
+      cluster_index:
+        title: 'Cluster'
+        scale: false
+        placement: 4
+        format: '{:,.0f}'
+      cluster_size:
+        title: 'Cluster size'
+        placement: 5
+        format: '{:,.0f}'
+      avg_discordance:
+        title: 'Avg discordance'
+        placement: 6
+      count_expected_matches:
+        title: 'N expected matches'
+        placement: 7
+        format: '{:,.0f}'
+      count_unexpected_matches:
+        title: 'N unexpected matches'
+        placement: 8
+        format: '{:,.0f}'
+      count_expected_mismatches:
+        title: 'N expected mismatches'
+        placement: 9
+        format: '{:,.0f}'
+      count_unexpected_mismatches:
+        title: 'N unexpected mismatches'
+        placement: 10
+        format: '{:,.0f}'
+  qc_criteria:
+      file_format: 'csv'
+      section_name: 'QC criteria'
+      plot_type: 'table'
+      description: "For each metric, these thresholds are used to calculate whether a sample has status of 'pass', 'warn' or 'fail'. These metrics have been decided by the MSK-ACCESS team and are intended for guidance only. Status of each sample is given in the QC metrics tables. NOTE: each metric is evaluated in the order of pass, warn, and then fail. Hence, anything matching both pass and fail will be marked as fail."
+      parent_id: 'qc_criteria'
+      parent_name: 'QC criteria'
+      headers:
+        Metric ID:
+          title: 'Metric ID'
+          scale: false
+          placement: 1
+        Metric name:
+          title: 'Metric name'
+          scale: false
+          placement: 2
+        Section name:
+          title: 'Section name'
+          scale: false
+          placement: 3
+        Fail condition:
+          title: 'Fail condition'
+          scale: false
+          placement: 4
+        Pass condition:
+          title: 'Pass condition'
+          scale: false
+          placement: 5
+        Warn condition:
+          title: 'Warn condition'
+          scale: false
+          placement: 6
+      
+sp:
+  biometrics_minor_sites_collapsed:
+    fn: 'minor_contamination_sites_mqc.html'
+  biometrics_major_collapsed:
+    fn: 'collapsed_major_contamination.csv'
+  biometrics_minor_collapsed:
+    fn: 'collapsed_minor_contamination.csv'
+  biometrics_cluster_collapsed:
+    fn: 'collapsed_genotype_clusters_input.csv'
+  biometrics_minor_duplex:
+    fn: 'duplex_minor_contamination.csv'
+  genstats_sample_info:
+    fn: "genstats-sample-info.csv"
+  genstats_qcstatus_buffy:
+    fn: "genstats_qc_status.csv"
+  qc_criteria:
+    fn: 'qc_criteria.csv'
+
+thousandsSep_format: ","
+table_cond_formatting_rules:
+  all_columns:
+    pass:
+      - s_eq: 'pass'
+      - s_eq: 'PASS'
+    warn:
+      - s_eq: 'warn'
+      - s_eq: 'WARN'
+    fail:
+      - s_eq: 'fail'
+      - s_eq: 'FAIL'
+  minor_contamination:
+    pass:
+        - lt: 0.02
+        - eq: 0.02
+    warn:
+        - gt: 0.02
+    fail:
+        - gt: 0.05
+  minor_contamination:
+    pass:
+        - lt: 0.02
+        - eq: 0.02
+    warn:
+        - gt: 0.02
+    fail:
+        - gt: 0.05
+  count_unexpected_matches:
+    pass:
+        - eq: 0
+    fail:
+        - gt: 0
+  count_unexpected_mismatches:
+    pass:
+        - eq: 0
+    fail:
+        - gt: 0
+  major_contamination:
+    pass:
+        - lt: 0.6
+        - eq: 0.6
+    warn:
+        - gt: 0.6
+    fail:
+        - gt: 0.65
+  major_contamination:
+    pass:
+        - lt: 0.6
+        - eq: 0.6
+    warn:
+        - gt: 0.6
+    fail:
+        - gt: 0.65
+  dnaInputNg:
+    pass:
+        - gt: 180
+        - eq: 180
+        - lt: 220
+        - eq: 220
+    warn:
+        - lt: 180
+        - gt: 220
+    fail:
+        - lt: 150
+  captureConcentrationNm:
+    pass:
+        - lt: 0.6
+        - eq: 0.6
+    warn:
+        - gt: 0.6
+    fail:
+        - gt: 0.65
+  captureInputNg:
+    pass:
+        - gt: 450
+        - eq: 450
+    warn:
+        - lt: 550
+    fail:
+        - lt: 400
+  raw_coverage:
+    pass:
+        - lt: 1000
+        - eq: 1000
+        - gt: 500
+        - eq: 500
+    warn:
+        - lt: 500
+        - gt: 1000
+    fail:
+        - lt: 100
+  duplex_target_coverage:
+    pass:
+        - lt: 50
+        - eq: 50
+        - gt: 10
+        - eq: 10
+    warn:
+        - gt: 50
+        - lt: 10
+    fail:
+        - lt: 5
+  MODE_INSERT_SIZE:
+    pass:
+        - lt: 170
+        - eq: 170
+        - gt: 163
+        - eq: 163
+    warn:
+        - gt: 170
+        - lt: 163
+    fail:
+        - gt: 180
+        - lt: 150
+  TOTAL_READS:
+    pass:
+        - lt: 20000000
+        - eq: 20000000
+        - gt: 5000000
+        - eq: 5000000
+    warn:
+        - gt: 20000000
+        - lt: 5000000
+    fail:
+        - lt: 1000000
+  PCT_PF_UQ_READS_ALIGNED:
+    pass:
+        - gt: 0.97
+        - eq: 0.97
+    warn:
+        - lt: 0.97
+    fail:
+        - lt: 0.95
+  on_target_perc:
+    pass:
+        - gt: 0.25
+        - eq: 0.25
+    warn:
+        - lt: 0.25
+    fail:
+        - lt: 0.25
+  on_bait_perc: 
+    pass:
+        - gt: 0.25
+        - eq: 0.25
+    warn:
+        - lt: 0.25
+    fail:
+        - lt: 0.25
+  on_near_perc: 
+    pass:
+        - gt: 0.40
+        - eq: 0.40
+    warn:
+        - lt: 0.40
+    fail:
+        - lt: 0.40
+  contributing_sites:
+    pass:
+        - lt: 0.001
+        - eq: 0.001
+    warn:
+        - gt: 0.001
+    fail:
+        - gt: 0.01
+  contributing_sites_ns:
+    pass:
+        - lt: 1000
+        - eq: 1000
+    warn:
+        - gt: 1000
+    fail:
+        - gt: 1500
+  fingerprint:
+    pass:
+        - s_eq: 'pass'
+    warn:
+        - s_eq: 'NA'
+        - s_eq: ''
+    fail:
+        - s_eq: 'fail'
+  sex_mismatch:
+    pass:
+      - s_eq: 'False'
+    warn:
+        - s_eq: ''
+    fail:
+        - s_eq: 'True'
+  noise_percentage:
+    pass:
+        - lt: 0.001
+        - eq: 0.001
+    warn:
+        - gt: 0.001
+    fail:
+        - gt: 0.01
+  contributing_sites:
+    pass:
+        - lt: 1000
+        - eq: 1000
+    warn:
+        - gt: 1000
+    fail:
+        - gt: 1500
+  C_A:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
+  C_G:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
+  C_T:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
+  T_A:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
+  T_C:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
+  T_G:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
+  T_G:
+    pass:
+        - lt: 0.001
+    warn:
+        - eq: 0.001
+        - gt: 0.001
+    fail:
+        - eq: 0.002
+        - gt: 0.002
+
+
+picard_config:
+  HsMetrics_table_cols:
+    - PCT_OFF_BAIT
+    - PCT_USABLE_BASES_ON_TARGET
+    - PCT_USABLE_BASES_ON_BAIT
+    - MEAN_BAIT_COVERAGE
+    - MEAN_TARGET_COVERAGE
+  HsMetrics_table_cols_hidden:
+    - TOTAL_READS
+    - BAIT_SET
+    - BAIT_TERRITORY
+    - BAIT_DESIGN_EFFICIENCY
+    - ON_BAIT_BASES
+    - NEAR_BAIT_BASES
+    - OFF_BAIT_BASES
+    - PCT_SELECTED_BASES
+    - ON_BAIT_VS_SELECTED
+    - FOLD_ENRICHMENT
+    - HS_LIBRARY_SIZE
+    - TARGET_TERRITORY
+    - GENOME_SIZE
+    - PF_READS
+    - PF_BASES
+    - PF_UNIQUE_READS
+    - PF_UQ_READS_ALIGNED
+    - PF_BASES_ALIGNED
+    - PF_UQ_BASES_ALIGNED
+    - ON_TARGET_BASES
+    - PCT_PF_READS
+    - PCT_PF_UQ_READS
+    - PCT_PF_UQ_READS_ALIGNED
+    - MEDIAN_TARGET_COVERAGE
+    - MAX_TARGET_COVERAGE
+    - MIN_TARGET_COVERAGE
+    - ZERO_CVG_TARGETS_PCT
+    - PCT_EXC_DUPE
+    - PCT_EXC_ADAPTER
+    - PCT_EXC_MAPQ
+    - PCT_EXC_BASEQ
+    - PCT_EXC_OVERLAP
+    - PCT_EXC_OFF_TARGET
+    - FOLD_80_BASE_PENALTY
+    - AT_DROPOUT
+    - GC_DROPOUT
+    - HET_SNP_SENSITIVITY
+    - HET_SNP_Q
+
+
+remove_sections:
+  # collapsed bam - show only hsmetrics 
+  - collapsed_bam_picard_alignment_readlength
+  - collapsed_bam_picard-alignmentsummary
+  - collapsed_bam_picard_hsmetrics_target_bases
+  - collapsed_bam_picard_target_gc_bias_metrics
+  - collapsed_bam_picard-insertsize
+  - collapsed_bam_picard_target_coverage_distribution
+  # collapsed bam - show only insert size only, pool A
+  - collapsed_insertsize_picard-alignmentsummary
+  - collapsed_insertsize_picard_alignment_readlength
+  - collapsed_insertsize_picard_hsmetrics
+  - collapsed_insertsize_picard_hsmetrics_target_bases
+  - collapsed_insertsize_picard_target_gc_bias_metrics
+  - collapsed_insertsize_picard_target_coverage_distribution
+  # collapsed bam - show only gc bias, A
+  - collapsed_gcbias_picard-alignmentsummary
+  - collapsed_gcbias_picard_alignment_readlength
+  - collapsed_gcbias_picard_hsmetrics
+  - collapsed_gcbias_picard_hsmetrics_target_bases
+  - collapsed_gcbias_picard_target_coverage_distribution
+  - collapsed_gcbias_picard-insertsize
+  # collapsed bam - show only target coverage dist., pool A
+  - collapsed_targetcov_picard-alignmentsummary
+  - collapsed_targetcov_picard_alignment_readlength
+  - collapsed_targetcov_picard_hsmetrics_target_bases
+  - collapsed_targetcov_picard_hsmetrics
+  - collapsed_targetcov_picard_target_gc_bias_metrics
+  - collapsed_targetcov_picard-insertsize
+  # duplex bam 
+  - duplex_bam_picard_alignment_readlength
+  - duplex_bam_picard-alignmentsummary
+  - duplex_bam_picard-insertsize
+  - duplex_bam_picard_target_gc_bias_metrics
+  - duplex_bam_picard_hsmetrics_target_bases
+  - duplex_bam_picard_target_coverage_distribution
+  # simplex bam 
+  - simplex_bam_picard_alignment_readlength
+  - simplex_bam_picard-alignmentsummary
+  - simplex_bam_picard-insertsize
+  - simplex_bam_picard_target_gc_bias_metrics
+  - simplex_bam_picard_hsmetrics_target_bases
+  - simplex_bam_picard_target_coverage_distribution
+  # uncollapsed bam -- show only hs metrics 
+  - uncollapsed_bam_picard_alignment_readlength
+  - uncollapsed_bam_picard-alignmentsummary
+  - uncollapsed_bam_picard_hsmetrics_target_bases
+  - uncollapsed_bam_picard_target_gc_bias_metrics
+  - uncollapsed_bam_picard-insertsize
+  - uncollapsed_bam_picard_target_coverage_distribution
+  # uncollapsed bam -- show only gcbias
+  - uncollapsed_gcbias_picard-alignmentsummary
+  - uncollapsed_gcbias_picard_alignment_readlength
+  - uncollapsed_gcbias_picard_hsmetrics
+  - uncollapsed_gcbias_picard_hsmetrics_target_bases
+  - uncollapsed_gcbias_picard_target_coverage_distribution
+  - uncollapsed_gcbias_picard-insertsize
+  - mosdepth-coverage-dist
+  - mosdepth-coverage-cov
+  - mosdepth-coverage-per-contig-id
+
+module_order:
+  - picard:
+      name: "HSMetrics (Uncollapsed BAM)"
+      anchor: "uncollapsed_bam"
+      path_filters:
+        - "*uncollapsed_bam_stats*"
+  - picard:
+      name: "Mean Base Quality"
+      anchor: "uncollapsed_basequality"
+      path_filters:
+        - "*gatk_mean_quality_by_cycle*"
+  - picard:
+      name: "HSMetrics (Collapsed BAM)"
+      anchor: "collapsed_bam"
+      path_filters:
+        - "*collapsed_bam_stats*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats*"
+  - picard:
+      name: "Insert Size (Collapsed BAM)"
+      anchor: "collapsed_insertsize"
+      path_filters:
+        - "*collapsed_bam_stats*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats*"
+  - picard:
+      name: "Target coverage distribution (Collapsed BAM)"
+      anchor: "collapsed_targetcov"
+      path_filters:
+        - "*collapsed_bam_stats*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats*"
+  - picard:
+      name: "GC Bias (Collapsed BAM)"
+      anchor: "collapsed_gcbias"
+      path_filters:
+        - "*collapsed_bam_stats*"
+      path_filters_exclude:
+        - "*uncollapsed_bam_stats*"
+  - picard:
+      name: "GC Bias (Uncollapsed BAM)"
+      anchor: "uncollapsed_gcbias"
+      path_filters:
+        - "*uncollapsed_bam_stats*"
+  - fgbio:
+      name: "Duplex Metrics (Grouped BAM)"
+      anchor: "collapsed_duplex_metrics"
+      path_filters:
+        - "*collapsed_bam_duplex_metrics*"
+  - picard:
+      name: "HSMetrics (Duplex BAM)"
+      anchor: "duplex_bam"
+      path_filters:
+        - "*duplex_bam_stats*"
+  - picard:
+      name: "HSMetrics (Simplex BAM)"
+      anchor: "simplex_bam"
+      path_filters:
+        - "*simplex_bam_stats*"
+
+report_section_order:
+  genstats_qcstatus_buffy:
+    order: 15
+  uncollapsed_gcbias:
+    order: 14
+  collapsed_gcbias:
+    order: 13
+  uncollapsed_bam:
+    order: 12
+  collapsed_bam:
+    order: 11
+  duplex_bam:
+    order: 10
+  simplex_bam:
+    order: 9
+  collapsed_insertsize:
+    order: 8
+  collapsed_targetcov:
+    order: 7
+  collapsed_duplex_metrics:
+    order: 6
+  uncollapsed_basequality:
+    order: 5
+  sequence_qc:
+    order: 3
+  contamination:
+    order: 2
+  fingerprinting:
+    order: 1
+  qc_criteria:
+    order: 0
+
+extra_fn_clean_exts:
+  - "_collapsed_FM"
+  - "_collapsed_grouped"
+  - "_uncollapsed_FM"
+  - "_uncollapsed_BR"
+  - "_collapsed_duplex"
+  - "_collapsed_simplex"
