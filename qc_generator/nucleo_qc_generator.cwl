@@ -161,6 +161,27 @@ inputs:
     type: int?
     'sbg:x': 0
     'sbg:y': 1279.3125
+  - id: athena_transcript_file
+    type: File?
+  - id: athena_build
+    type: File?
+  - id: athena_flagstat
+    type: File?
+  - id: athena_thresholds
+    type: int[]?
+  - id: athena_threshold
+    type: int?
+  - id: athena_limit
+    type: int?
+  - id: athena_summary
+    type: boolean?
+  - id: athena_vcf
+    type: File?
+  - id: athena_bed
+  - id: athena_cores
+    type: int?
+  - id: duplex_bam_stats/per_base_bed
+    type: File?
 outputs:
   - id: uncollapsed_bam_stats_dir
     outputSource:
@@ -428,6 +449,40 @@ steps:
     label: qc_duplex_bam
     'sbg:x': 386.875
     'sbg:y': 1483.234375
+  - id: athena_report
+    in:
+      - id: transcript_file
+        source: athena_transcript_file
+      - id: output_name
+        source: sample_name
+      - id: build
+        source: athena_build
+      - id: flagstat
+        source: athena_flagstat
+      - id: thresholds
+        source: athena_thresholds
+      - id: threshold
+        source: athena_threshold
+      - id: sample_name
+        source: sample_name
+      - id: output
+        source: sample_name
+      - id: limit
+        source: athena_limit
+      - id: summary
+        source: athena_summary
+      - id: snps
+        source: athena_vcf
+      - id: panel_bed
+        source: athena_bed
+      - id: coverage_file
+        source: duplex_bam_stats/per_base_bed
+      - id: cores
+        source: athena_cores
+    out:
+      - id: coverage_report_single
+    run: ../cwl_subworkflows/athena_report/athena_report.cwl
+    label: athena_report
   - id: simplex_bam_stats
     in:
       - id: files
