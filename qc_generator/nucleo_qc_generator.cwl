@@ -643,6 +643,7 @@ steps:
           - qc_duplex_bam/per_region_bed
           - qc_duplex_bam/global_distribution
           - qc_duplex_bam/region_distribution
+          - athena_report/coverage_report_single
       - id: output_directory_name
         default: duplex_bam_stats
         source: sample_name
