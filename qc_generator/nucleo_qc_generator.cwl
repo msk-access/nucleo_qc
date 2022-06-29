@@ -178,10 +178,9 @@ inputs:
   - id: athena_vcf
     type: File?
   - id: athena_bed
+    type: File?
   - id: athena_cores
     type: int?
-  - id: duplex_bam_stats/per_base_bed
-    type: File?
 outputs:
   - id: uncollapsed_bam_stats_dir
     outputSource:
@@ -476,7 +475,7 @@ steps:
       - id: panel_bed
         source: athena_bed
       - id: coverage_file
-        source: duplex_bam_stats/per_base_bed
+        source: qc_duplex_bam/per_base_bed
       - id: cores
         source: athena_cores
     out:
