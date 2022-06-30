@@ -177,8 +177,6 @@ inputs:
     type: boolean?
   - id: athena_vcf
     type: File?
-  - id: athena_bed
-    type: File?
   - id: athena_cores
     type: int?
 outputs:
@@ -473,7 +471,7 @@ steps:
       - id: snps
         source: athena_vcf
       - id: panel_bed
-        source: athena_bed
+        source: mosdepth_bed
       - id: coverage_file
         source: qc_duplex_bam/per_base_bed
       - id: cores
