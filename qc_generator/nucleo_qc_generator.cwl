@@ -5,6 +5,9 @@ label: qc_generator
 $namespaces:
   s: 'https://schema.org/'
   sbg: 'https://www.sevenbridges.com/'
+  dct: 'http://purl.org/dc/terms/'
+  doap: 'http://usefulinc.com/ns/doap#'
+  foaf: 'http://xmlns.com/foaf/0.1/'
 inputs:
   - id: reference
     type: File
