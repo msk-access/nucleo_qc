@@ -506,8 +506,7 @@ steps:
         source: qc_duplex_bam/per_base_bed
       - id: cores
         source: athena_cores
-    out:
-      - id: ''
+    out: [coverage_report_single]
     run: ../cwl_subworkflows/athena_report/athena_report.cwl
     label: athena_report
     'sbg:x': 1378
