@@ -190,9 +190,11 @@ inputs:
     'sbg:x': 0
     'sbg:y': 3418.5
   - id: athena_vcf
-    type: File?
-    'sbg:x': 0
-    'sbg:y': 2991.1875
+    type:
+      - 'null'
+      - File
+      - type: array
+        items: File
   - id: athena_cores
     type: int?
     'sbg:x': 386.90625
@@ -495,15 +497,14 @@ steps:
       - id: summary
         source: athena_summary
       - id: snps
-        source:
-          - athena_vcf
+        source: athena_vcf
       - id: panel_bed
         source: mosdepth_bed
       - id: coverage_file
         source: qc_duplex_bam/per_base_bed
       - id: cores
         source: athena_cores
-    out: [coverage_report_single] 
+    out: coverage_report_single
     run: ../cwl_subworkflows/athena_report/athena_report.cwl
     label: athena_report
     'sbg:x': 1378
