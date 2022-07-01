@@ -5,9 +5,6 @@ label: qc_generator
 $namespaces:
   s: 'https://schema.org/'
   sbg: 'https://www.sevenbridges.com/'
-  dct: 'http://purl.org/dc/terms/'
-  doap: 'http://usefulinc.com/ns/doap#'
-  foaf: 'http://xmlns.com/foaf/0.1/'
 inputs:
   - id: reference
     type: File
@@ -193,15 +190,16 @@ inputs:
     'sbg:x': 0
     'sbg:y': 3418.5
   - id: athena_vcf
-    type:
-      - 'null'
-      - File
-      - type: array
-        items: File
+    type: File?
+    'sbg:x': 0
+    'sbg:y': 2991.1875
   - id: athena_cores
     type: int?
     'sbg:x': 386.90625
     'sbg:y': 2449.734375
+  - id: output
+    type: string?
+    'sbg:exposed': true
 outputs:
   - id: uncollapsed_bam_stats_dir
     outputSource:
@@ -293,11 +291,11 @@ outputs:
     'sbg:y': 2020.1484375
   - id: athena_coverage_report_dir
     outputSource:
-      - athena_coverage_report/directory
+      - athena_report/
     type: Directory
     label: athena_coverage_report_dir
-    'sbg:x': 1625.7747802734375
-    'sbg:y': 1816.078125
+    'sbg:x': 1863.69580078125
+    'sbg:y': 2662.66015625
 steps:
   - id: qc_collapsed_bam
     in:
@@ -494,20 +492,22 @@ steps:
       - id: sample_name
         source: sample_name
       - id: output
-        source: sample_name
+        source: output
       - id: limit
         source: athena_limit
       - id: summary
         source: athena_summary
       - id: snps
-        source: athena_vcf
+        source:
+          - athena_vcf
       - id: panel_bed
         source: mosdepth_bed
       - id: coverage_file
         source: qc_duplex_bam/per_base_bed
       - id: cores
         source: athena_cores
-    out: coverage_report_single
+    out:
+      - id: ''
     run: ../cwl_subworkflows/athena_report/athena_report.cwl
     label: athena_report
     'sbg:x': 1378
@@ -702,21 +702,6 @@ steps:
       - id: directory
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
     label: duplex_bam_biometrics
-    'sbg:x': 1283.092529296875
-    'sbg:y': 1678.6640625
-  - id: athena_coverage_report
-    in:
-      - id: files
-        linkMerge: merge_flattened
-        source:
-          - athena_report/coverage_report_single
-      - id: output_directory_name
-        default: athena_coverage_report
-        source: sample_name
-    out:
-      - id: directory
-    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
-    label: athena_coverage_report
     'sbg:x': 1283.092529296875
     'sbg:y': 1678.6640625
   - id: qc_simplex_bam
