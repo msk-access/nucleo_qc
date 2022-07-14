@@ -264,13 +264,6 @@ outputs:
     label: duplex_bam_biometrics_dir
     'sbg:x': 1625.7747802734375
     'sbg:y': 1816.078125
-  - id: duplex_bam_genotyping_maf
-    outputSource:
-      - qc_duplex_bam/fillout_maf
-    type: File
-    label: duplex_bam_genotyping_maf
-    'sbg:x': 1283.092529296875
-    'sbg:y': 1564.8359375
   - id: duplex_biometrics_extract_pickle
     outputSource:
       - qc_duplex_bam/biometrics_extract_pickle
@@ -283,19 +276,11 @@ outputs:
     type: File
     'sbg:x': 1283.092529296875
     'sbg:y': 1792.4921875
-  - id: collapsed_bam_genotyping_maf
-    outputSource:
-      - qc_collapsed_bam/fillout_maf
-    type: File
-    'sbg:x': 1283.092529296875
-    'sbg:y': 2020.1484375
   - id: athena_coverage_report_dir
     outputSource:
-      - athena_report/
+      - athena_coverage_report/directory
     type: Directory
     label: athena_coverage_report_dir
-    'sbg:x': 1863.69580078125
-    'sbg:y': 2662.66015625
 steps:
   - id: qc_collapsed_bam
     in:
@@ -304,11 +289,9 @@ steps:
       - id: target_intervals
         source: target_intervals
       - id: collapsed_bam
-        source:
-          - collapsed_bam
+        source: collapsed_bam
       - id: group_reads_by_umi_bam
-        source:
-          - group_reads_by_umi_bam
+        source: group_reads_by_umi_bam
       - id: bait_intervals
         source: bait_intervals
       - id: json
@@ -398,8 +381,7 @@ steps:
       - id: reference
         source: reference
       - id: duplex_bam
-        source:
-          - duplex_bam
+        source: duplex_bam
       - id: target_intervals
         source: target_intervals
       - id: bait_intervals
@@ -407,8 +389,7 @@ steps:
       - id: noise_sites_bed
         source: noise_sites_bed
       - id: sample_name
-        source:
-          - sample_name
+        source: sample_name
       - id: plot
         source: biometrics_plot
       - id: json
@@ -506,7 +487,8 @@ steps:
         source: qc_duplex_bam/per_base_bed
       - id: cores
         source: athena_cores
-    out: [coverage_report_single]
+    out:
+      - id: coverage_report_single
     run: ../cwl_subworkflows/athena_report/athena_report.cwl
     label: athena_report
     'sbg:x': 1378
@@ -579,6 +561,7 @@ steps:
           - qc_collapsed_bam/gatk_collect_hs_metrics_per_target_coverage_txt
           - qc_collapsed_bam/gatk_collect_hs_metrics_per_base_coverage_txt
           - qc_collapsed_bam/gatk_collect_alignment_summary_metrics_txt
+          - qc_collapsed_bam/fillout_maf
       - id: output_directory_name
         default: collapsed_bam_stats
         source: sample_name
@@ -672,6 +655,7 @@ steps:
           - qc_duplex_bam/per_region_bed
           - qc_duplex_bam/global_distribution
           - qc_duplex_bam/region_distribution
+          - qc_duplex_bam/fillout_maf
       - id: output_directory_name
         default: duplex_bam_stats
         source: sample_name
@@ -681,6 +665,19 @@ steps:
     label: duplex_bam_stats
     'sbg:x': 1283.092529296875
     'sbg:y': 1330.1796875
+  - id: athena_coverage_report
+    in:
+      - id: files
+        linkMerge: merge_flattened
+        source:
+          - athena_report/coverage_report_single
+      - id: output_directory_name
+        default: athena_coverage_report
+        source: sample_name
+    out:
+      - id: directory
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    label: athena_coverage_report
   - id: duplex_bam_biometrics
     in:
       - id: files
@@ -733,6 +730,7 @@ steps:
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
+  - class: StepInputExpressionRequirement
 $schemas:
   - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
 's:author':
