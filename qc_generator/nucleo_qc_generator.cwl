@@ -200,6 +200,14 @@ inputs:
   - id: output
     type: string?
     'sbg:exposed': true
+  - id: omaf
+    type: boolean?
+  - id: generic_counting
+    type: boolean?
+  - id: fragment_count
+    type: int
+  - id: filter_duplicate
+    type: int
 outputs:
   - id: uncollapsed_bam_stats_dir
     outputSource:
@@ -318,6 +326,16 @@ steps:
         source: sample_group
       - id: maf
         source: hotspots_maf
+      - id: generic_counting
+        source: generic_counting
+      - id: omaf
+        source: omaf
+      - id: filter_duplicate
+        default: 0
+        source: filter_duplicate
+      - id: fragment_count
+        default: 1
+        source: fragment_count
     out:
       - id: fgbio_collect_duplex_seq_metrics_duplex_family_size
       - id: fgbio_collect_duplex_seq_metrics_duplex_qc
@@ -424,6 +442,16 @@ steps:
         source: mosdepth_flag
       - id: mosdepth_minimum_mapping_quality
         source: mosdepth_minimum_mapping_quality
+      - id: generic_counting
+        source: generic_counting
+      - id: omaf
+        source: omaf
+      - id: filter_duplicate
+        default: 0
+        source: filter_duplicate
+      - id: fragment_count
+        default: 1
+        source: fragment_count
     out:
       - id: sequence_qc_noise_positions
       - id: sequence_qc_noise_n
