@@ -8,7 +8,7 @@ inputs:
   - id: duplex_extraction_files
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 428
+    'sbg:y': 427.25
   - id: simplex_bam_stats_dir
     type:
       type: array
@@ -17,11 +17,11 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 107
+    'sbg:y': 106.8125
   - id: collapsed_extraction_files
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 749
+    'sbg:y': 747.6875
   - id: uncollapsed_bam_stats_dir
     type:
       type: array
@@ -39,7 +39,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 321
+    'sbg:y': 320.4375
   - id: duplex_bam_stats_dir
     type:
       type: array
@@ -48,7 +48,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 535
+    'sbg:y': 534.0625
   - id: collapsed_bam_stats_dir
     type:
       type: array
@@ -57,7 +57,7 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 856
+    'sbg:y': 854.5
   - id: collapsed_bam_duplex_metrics_dir
     type:
       type: array
@@ -66,15 +66,24 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 963
+    'sbg:y': 961.3125
+  - id: athena_coverage_report_dir
+    type:
+      type: array
+      items:
+        - File
+        - Directory
+        - 'null'
+    'sbg:x': 0
+    'sbg:y': 1068.125
   - id: samples-json
     type: File
     'sbg:x': 0
-    'sbg:y': 214
+    'sbg:y': 213.625
   - id: config
     type: File?
     'sbg:x': 360.765625
-    'sbg:y': 535
+    'sbg:y': 587.46875
   - id: duplex_bam_sequence_qc_dir
     type:
       type: array
@@ -83,26 +92,26 @@ inputs:
         - Directory
         - 'null'
     'sbg:x': 0
-    'sbg:y': 642
+    'sbg:y': 640.875
 outputs:
   - id: multiqc_zip
     outputSource:
       - multiqc_1_10_1/multiqc_zip
     type: File?
-    'sbg:x': 1440.8917236328125
-    'sbg:y': 374.5
+    'sbg:x': 1450.7501220703125
+    'sbg:y': 427.25
   - id: multiqc_html
     outputSource:
       - multiqc_1_10_1/multiqc_html
     type: File
-    'sbg:x': 1440.8917236328125
-    'sbg:y': 588.5
+    'sbg:x': 1450.7501220703125
+    'sbg:y': 640.875
   - id: multiqc_output_dir
     outputSource:
       - multiqc_1_10_1/multiqc_output_dir
     type: Directory
-    'sbg:x': 1440.8917236328125
-    'sbg:y': 481.5
+    'sbg:x': 1450.7501220703125
+    'sbg:y': 534.0625
 steps:
   - id: qc_aggregator
     in:
@@ -130,6 +139,9 @@ steps:
       - id: uncollapsed_bam_stats_dir
         source:
           - uncollapsed_bam_stats_dir
+      - id: athena_coverage_report_dir
+        source:
+          - athena_coverage_report_dir
       - id: collapsed_extraction_files
         source:
           - collapsed_extraction_files
@@ -138,7 +150,7 @@ steps:
     run: qc_aggregator/nucleo_qc_aggregator.cwl
     label: qc_aggregator
     'sbg:x': 360.765625
-    'sbg:y': 372
+    'sbg:y': 417.65625
   - id: general_stats_parse
     in:
       - id: directory
@@ -151,8 +163,8 @@ steps:
       - id: aggregate_parsed_stats
     run: cwl-commandlinetools/cci_utils/0.2.1/general_stats_parse.cwl
     label: general_stats_parse
-    'sbg:x': 860.2547607421875
-    'sbg:y': 467.5
+    'sbg:x': 870.1131591796875
+    'sbg:y': 520.0625
   - id: multiqc_1_10_1
     in:
       - id: qc_files_dir
@@ -164,7 +176,7 @@ steps:
       - id: multiqc_html
       - id: multiqc_zip
     run: cwl-commandlinetools/multiqc/1.10.1.7/multiqc.cwl
-    'sbg:x': 1168.140869140625
-    'sbg:y': 467.5
+    'sbg:x': 1177.999267578125
+    'sbg:y': 520.0625
 requirements:
   - class: SubworkflowFeatureRequirement

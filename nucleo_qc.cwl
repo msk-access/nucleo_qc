@@ -8,47 +8,47 @@ inputs:
   - id: reference
     type: File
     'sbg:x': 0
-    'sbg:y': 748.234375
+    'sbg:y': 747.90625
   - id: target_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 106.890625
+    'sbg:y': 106.84375
   - id: bait_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 1710.25
+    'sbg:y': 2136.875
   - id: noise_sites_bed
     type: File
     'sbg:x': 0
-    'sbg:y': 855.125
+    'sbg:y': 961.59375
   - id: biometrics_vcf_file
     type: File
     'sbg:x': 0
-    'sbg:y': 1603.359375
+    'sbg:y': 2030.03125
   - id: collapsed_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1496.46875
+    'sbg:y': 1923.1875
   - id: duplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1389.578125
+    'sbg:y': 1816.34375
   - id: group_reads_by_umi_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1282.6875
+    'sbg:y': 1388.96875
   - id: simplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 213.78125
+    'sbg:y': 213.6875
   - id: sample_sex
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 427.5625
+    'sbg:y': 427.375
   - id: sample_group
     type: 'string[]'
     'sbg:x': 0
-    'sbg:y': 641.34375
+    'sbg:y': 641.0625
   - id: uncollapsed_bam_base_recal
     type: 'File[]'
     'sbg:x': 0
@@ -56,45 +56,91 @@ inputs:
   - id: sample_name
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 534.453125
+    'sbg:y': 534.21875
   - id: samples-json
     type: File
     'sbg:x': 0
-    'sbg:y': 320.671875
+    'sbg:y': 320.53125
   - id: multiqc_config
     type: File?
     'sbg:x': 0
-    'sbg:y': 962.015625
+    'sbg:y': 1068.4375
   - id: hotspots_maf
     type: File
     'sbg:x': 0
-    'sbg:y': 1175.796875
+    'sbg:y': 1282.125
   - id: mosdepth_bed
     type: File?
     'sbg:x': 0
-    'sbg:y': 1068.90625
+    'sbg:y': 1175.28125
+  - id: athena_transcript_file
+    type: File?
+    'sbg:x': 0
+    'sbg:y': 2350.5625
+  - id: athena_build
+    type: File?
+    'sbg:x': 0
+    'sbg:y': 3098.46875
+  - id: athena_flagstat
+    type: File?
+    'sbg:x': 0
+    'sbg:y': 2884.78125
+  - id: athena_thresholds
+    type: 'int[]?'
+    'sbg:x': 0
+    'sbg:y': 2457.40625
+  - id: athena_threshold
+    type: int?
+    'sbg:x': 0
+    'sbg:y': 2564.25
+  - id: athena_limit
+    type: int?
+    'sbg:x': 0
+    'sbg:y': 2777.9375
+  - id: athena_summary
+    type: boolean?
+    'sbg:x': 0
+    'sbg:y': 2671.09375
+  - id: athena_vcf
+    type: File?
+    'sbg:x': 0
+    'sbg:y': 2243.71875
+  - id: athena_cores
+    type: int?
+    'sbg:x': 0
+    'sbg:y': 2991.625
+  - id: output
+    type: 'string[]?'
+    'sbg:exposed': true
+  - id: omaf
+    type: boolean?
+    'sbg:x': 0
+    'sbg:y': 854.75
+  - id: generic_counting
+    type: boolean?
+    'sbg:x': 0
+    'sbg:y': 1495.8125
+  - id: fragment_count
+    type: int
+    'sbg:x': 0
+    'sbg:y': 1602.65625
+  - id: filter_duplicate
+    type: int
+    'sbg:x': 0
+    'sbg:y': 1709.5
 outputs:
   - id: multiqc_zip
     outputSource:
       - aggregate_visualize/multiqc_zip
     type: File?
-    'sbg:x': 1395.302490234375
-    'sbg:y': 748.234375
+    'sbg:x': 1599.148681640625
+    'sbg:y': 1442.390625
   - id: multiqc_html
     outputSource:
       - aggregate_visualize/multiqc_html
     type: File
-    'sbg:x': 1395.302490234375
-    'sbg:y': 962.015625
-  - id: collapsed_bam_genotyping_maf
-    outputSource:
-      - qc_generator/collapsed_bam_genotyping_maf
-    type:
-      - File
-      - type: array
-        items: File
-    'sbg:x': 872.6940307617188
-    'sbg:y': 785.125
+    'sbg:x': 1599.148681640625
+    'sbg:y': 1656.078125
   - id: duplex_bam_biometrics_dir
     outputSource:
       - qc_generator/duplex_bam_biometrics_dir
@@ -102,17 +148,8 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 872.6940307617188
-    'sbg:y': 678.234375
-  - id: duplex_bam_genotyping_maf
-    outputSource:
-      - qc_generator/duplex_bam_genotyping_maf
-    type:
-      - File
-      - type: array
-        items: File
-    'sbg:x': 872.6940307617188
-    'sbg:y': 571.34375
+    'sbg:x': 1076.5401611328125
+    'sbg:y': 1372.390625
   - id: collapsed_bam_biometrics_dir
     outputSource:
       - qc_generator/collapsed_bam_biometrics_dir
@@ -120,14 +157,14 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 872.6940307617188
-    'sbg:y': 892.015625
+    'sbg:x': 1076.5401611328125
+    'sbg:y': 1479.234375
   - id: multiqc_output_dir
     outputSource:
       - aggregate_visualize/multiqc_output_dir
     type: Directory
-    'sbg:x': 1395.302490234375
-    'sbg:y': 855.125
+    'sbg:x': 1599.148681640625
+    'sbg:y': 1549.234375
 steps:
   - id: qc_generator
     in:
@@ -161,6 +198,38 @@ steps:
         source: hotspots_maf
       - id: mosdepth_bed
         source: mosdepth_bed
+      - id: athena_transcript_file
+        source: athena_transcript_file
+      - id: athena_build
+        source: athena_build
+      - id: athena_flagstat
+        source: athena_flagstat
+      - id: athena_thresholds
+        source: athena_thresholds
+      - id: panel_bed
+        source: mosdepth_bed
+      - id: athena_threshold
+        source: athena_threshold
+      - id: athena_limit
+        source: athena_limit
+      - id: athena_summary
+        source: athena_summary
+      - id: athena_vcf
+        source: athena_vcf
+      - id: athena_cores
+        source: athena_cores
+      - id: output
+        source: output
+      - id: omaf
+        source: omaf
+      - id: generic_counting
+        source: generic_counting
+      - id: fragment_count
+        default: 1
+        source: fragment_count
+      - id: filter_duplicate
+        default: 0
+        source: filter_duplicate
     out:
       - id: uncollapsed_bam_stats_dir
       - id: gatk_mean_quality_by_cycle_recal_dir
@@ -171,10 +240,9 @@ steps:
       - id: duplex_bam_sequence_qc_dir
       - id: duplex_bam_stats_dir
       - id: duplex_bam_biometrics_dir
-      - id: duplex_bam_genotyping_maf
       - id: duplex_biometrics_extract_pickle
       - id: collapsed_biometrics_extract_pickle
-      - id: collapsed_bam_genotyping_maf
+      - id: athena_coverage_report_dir
     run: qc_generator/nucleo_qc_generator.cwl
     label: qc_generator
     scatter:
@@ -187,8 +255,8 @@ steps:
       - sample_group
       - simplex_bam
     scatterMethod: dotproduct
-    'sbg:x': 288.78125
-    'sbg:y': 757.125
+    'sbg:x': 288.796875
+    'sbg:y': 1360.234375
   - id: aggregate_visualize
     in:
       - id: duplex_extraction_files
@@ -222,14 +290,17 @@ steps:
       - id: duplex_bam_sequence_qc_dir
         source:
           - qc_generator/duplex_bam_sequence_qc_dir
+      - id: athena_coverage_report_dir
+        source:
+          - qc_generator/athena_coverage_report_dir
     out:
       - id: multiqc_zip
       - id: multiqc_html
       - id: multiqc_output_dir
     run: ./nucleo_aggregate_visualize.cwl
     label: aggregate_visualize
-    'sbg:x': 872.6940307617188
-    'sbg:y': 1068.90625
+    'sbg:x': 1076.5401611328125
+    'sbg:y': 1656.078125
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
