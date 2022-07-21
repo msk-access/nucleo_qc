@@ -1,7 +1,7 @@
 hiddentitle: "MSK CMO-CH QC report"
 intro_text: "Aggregate Quality Control (QC) metrics for samples ran on MSK CMO-CH assay"
 skip_generalstats: true
-max_table_rows: 1000
+max_table_rows: 100000
 custom_data:
   genstats_qcstatus_buffy:
     plot_type: 'table'
