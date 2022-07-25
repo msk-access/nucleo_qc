@@ -137,62 +137,64 @@ custom_data:
       parent_id: 'contamination'
       parent_name: 'Contamination'
       headers:
+        Tumor_Sample_Barcode:
+          title: "Tumor_Sample_Barcode"
+          description: ""
+          placement: 1
+          scale: False
         Hugo_Symbol:
           title: "Hugo_Symbol"
           description: ""
-          placement: 1
+          placement: 2
           scale: False
         Chromosome:
           title: "Chromosome"
           description: 
-          placement: 2
+          placement: 3
           scale: False
         Start_Position:
           title: "Start_Position"
           description: ""
-          placement: 3
+          placement: 4
           scale: False
         End_Position:
           title: "End_Position"
           description: ""
-          placement: 4
+          placement: 5
           scale: False
         Variant_Classification:
           title: "Variant_Classification"
           description: ""
-          placement: 5
+          placement: 6
           scale: False
         Reference_Allele:
           title: "Reference_Allele"
           description: ""
-          placement: 6
+          placement: 7
           scale: False
         Tumor_Seq_Allele1:
           title: "Tumor_Seq_Allele1"
           description: ""
-          placement: 7
+          placement: 8
           scale: False
         Tumor_Seq_Allele2:
           title: "Tumor_Seq_Allele2"
           description: ""
-          placement: 8
+          placement: 9
           scale: False
         t_ref_count_fragment:
           title: "t_ref_count_fragment"
           description: ""
-          placement: 9
-          scale: False
+          placement: 10
         t_alt_count_fragment:
           title: "t_alt_count_fragment"
           description: ""
-          placement: 10
-          scale: False
+          placement: 11
         t_alt_percent_fragment:
           title: "t_alt_percent_fragment"
           description: ""
-          placement: 11
+          placement: 12
           format: '{:,.2%}'
-          scale: False
         
     
 
