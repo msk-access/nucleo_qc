@@ -1,7 +1,7 @@
 hiddentitle: "MSK CMO-CH QC report"
 intro_text: "Aggregate Quality Control (QC) metrics for samples ran on MSK CMO-CH assay"
 skip_generalstats: true
-max_table_rows: 100000
+max_table_rows: 10000
 custom_data:
   genstats_qcstatus_buffy:
     plot_type: 'table'
@@ -133,6 +133,7 @@ custom_data:
       section_name: 'Hotspots in Normals'
       plot_type: 'table'
       description: "Investigation into presence of hotspot sites in the normal DNA."
+      no_beeswarm: False 
       parent_id: 'contamination'
       parent_name: 'Contamination'
       headers:
@@ -140,47 +141,58 @@ custom_data:
           title: "Hugo_Symbol"
           description: ""
           placement: 1
+          scale: False
         Chromosome:
           title: "Chromosome"
           description: 
           placement: 2
+          scale: False
         Start_Position:
           title: "Start_Position"
           description: ""
           placement: 3
+          scale: False
         End_Position:
           title: "End_Position"
           description: ""
           placement: 4
+          scale: False
         Variant_Classification:
           title: "Variant_Classification"
           description: ""
           placement: 5
+          scale: False
         Reference_Allele:
           title: "Reference_Allele"
           description: ""
           placement: 6
+          scale: False
         Tumor_Seq_Allele1:
           title: "Tumor_Seq_Allele1"
           description: ""
           placement: 7
+          scale: False
         Tumor_Seq_Allele2:
           title: "Tumor_Seq_Allele2"
           description: ""
           placement: 8
+          scale: False
         t_ref_count_fragment:
           title: "t_ref_count_fragment"
           description: ""
           placement: 9
+          scale: False
         t_alt_count_fragment:
           title: "t_alt_count_fragment"
           description: ""
           placement: 10
+          scale: False
         t_alt_percent_fragment:
           title: "t_alt_percent_fragment"
           description: ""
           placement: 11
           format: '{:,.2%}'
+          scale: False
         
     
 
