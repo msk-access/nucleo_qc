@@ -11,41 +11,41 @@ custom_data:
     headers:
       cmoSampleName:
         title: "Sample"
-        description: "Sample name. Data is from LIMS."
+        description: "Sample name. Data is from SMILE."
         placement: 1
       cmoPatientId:
         title: "Patient"
-        description: "Patient ID. Data is from LIMS."
+        description: "Patient ID. Data is from SMILE."
         placement: 2
         hidden: true
       igoId:
         title: "IGO ID"
-        description: "Sample pool ID. Data is from LIMS."
+        description: "Sample pool ID. Data is from SMILE."
         placement: 2
         hidden: true
       investigatorSampleId:
         title: "Investigator Sample ID"
-        description: "Investigator Sample ID. Data is from LIMS."
+        description: "Investigator Sample ID. Data is from SMILE."
         placement: 2
         hidden: true
       barcodeId:
         title: "Barcode ID"
-        description: "Barcode ID. Data is from LIMS."
+        description: "Barcode ID. Data is from SMILE."
         placement: 2
         hidden: true
       oncoTreeCode:
         title: "OncoTreeCode"
-        description: "OncoTreeCode. Data is from LIMS."
+        description: "OncoTreeCode. Data is from SMILE."
         placement: 2
         hidden: true
       cmoSampleClass:
         title: "Class"
-        description: "Sample class. Data is from LIMS."
+        description: "Sample class. Data is from SMILE."
         placement: 2
         hidden: true
       specimenType:
         title: "Sample type"
-        description: "Sample type. Data is from LIMS."
+        description: "Sample type. Data is from SMILE."
         placement: 2
         hidden: true
       tumorOrNormal:
@@ -72,16 +72,16 @@ custom_data:
         description: "Pass: no unexpected matches/mismatchs. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatchs. Based on analysis from biometrics."
         placement: 11
       dnaInputNg:
-        title: "Library input"
-        description: "Library input in nanograms. Data is from LIMS."
+        title: "DNA input"
+        description: "DNA input in nanograms. Data is from SMILE."
         placement: 3
-      captureInputNg:
+      library_yield:
         title: "Library yield"
-        description: "Library yield in nanograms. Data is from LIMS."
+        description: "Library yield in nanograms. Data is from SMILE."
         placement: 4
-      captureConcentrationNm:
+      captureInputNg:
         title: "Pool input"
-        description: "Pool input in nanograms. Data is from LIMS."
+        description: "Pool input in nanograms. Data is from SMILE."
         placement: 5
       raw_coverage:
         title: "Raw cov."
@@ -444,14 +444,14 @@ table_cond_formatting_rules:
         - gt: 220
     fail:
         - lt: 150
-  captureConcentrationNm:
+  library_yield:
     pass:
-        - lt: 0.6
-        - eq: 0.6
+        - gt: 450
+        - eq: 450
     warn:
-        - gt: 0.6
+        - lt: 550
     fail:
-        - gt: 0.65
+        - lt: 400
   captureInputNg:
     pass:
         - gt: 450
