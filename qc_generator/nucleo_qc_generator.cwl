@@ -89,12 +89,6 @@ inputs:
     doc: Also output plots of the data.
     'sbg:x': 0
     'sbg:y': 2670.703125
-  - id: duplex_biometrics_major_threshold
-    type: float?
-    label: duplex_biometrics_major_threshold
-    doc: Major contamination threshold for bad sample.
-    'sbg:x': 0
-    'sbg:y': 2136.5625
   - id: biometrics_json
     type: boolean?
     label: biometrics_json
@@ -426,8 +420,6 @@ steps:
         source: hsmetrics_minimum_base_quality
       - id: hsmetrics_coverage_cap
         source: hsmetrics_coverage_cap
-      - id: major_threshold
-        source: duplex_biometrics_major_threshold
       - id: vcf_file
         source: vcf_file
       - id: sample_sex
@@ -466,9 +458,6 @@ steps:
       - id: gatk_collect_insert_size_metrics_txt
       - id: sequence_qc_pileup
       - id: sequence_qc_noise_by_substitution
-      - id: biometrics_major_plot
-      - id: biometrics_major_json
-      - id: biometrics_major_csv
       - id: biometrics_extract_pickle
       - id: biometrics_minor_sites_plot
       - id: biometrics_minor_plot
@@ -711,9 +700,6 @@ steps:
       - id: files
         linkMerge: merge_flattened
         source:
-          - qc_duplex_bam/biometrics_major_csv
-          - qc_duplex_bam/biometrics_major_json
-          - qc_duplex_bam/biometrics_major_plot
           - qc_duplex_bam/biometrics_minor_csv
           - qc_duplex_bam/biometrics_minor_json
           - qc_duplex_bam/biometrics_minor_plot
