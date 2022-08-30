@@ -1,0 +1,130 @@
+multiqc_config:
+    class: File
+    path:  config_ch.yaml
+samples-json:
+  class: File
+  path:  samples_12405_D.json
+biometrics_bed_file:
+  class: File
+  path:  picard_baits.bed
+
+biometrics_json: true
+biometrics_plot: true
+
+biometrics_vcf_file:
+  class: File
+  path:  fp_tiling_snps.vcf
+
+mosdepth_bed:
+  class: File
+  path:  panel_bed_file_athena_CH_nodup.bed
+
+collapsed_biometrics_coverage_threshold: null
+collapsed_biometrics_major_threshold: null
+collapsed_biometrics_min_base_quality: null
+collapsed_biometrics_min_coverage: null
+collapsed_biometrics_min_homozygous_thresh: null
+collapsed_biometrics_min_mapping_quality: null
+collapsed_biometrics_minor_threshold: null
+
+duplex_biometrics_major_threshold: null
+duplex_biometrics_min_base_quality: null
+duplex_biometrics_min_coverage: null
+duplex_biometrics_min_homozygous_thresh: null
+duplex_biometrics_min_mapping_quality: null
+duplex_biometrics_minor_threshold: null
+fragment_count: 1
+filter_duplicate: 0
+omaf: true
+generic_counting: true
+
+collapsed_bam:
+- class: File
+  path:  C-FRMMAT-P001-d01_collapsed_FM.bam
+  secondaryFiles:
+  - class: File
+    path:  C-FRMMAT-P001-d01_collapsed_FM.bai
+
+duplex_bam:
+- class: File
+  path:  C-FRMMAT-P001-d01_collapsed_duplex.bam
+  secondaryFiles:
+  - class: File
+    path:  C-FRMMAT-P001-d01_collapsed_duplex.bai
+
+group_reads_by_umi_bam:
+- class: File
+  path:  C-FRMMAT-P001-d01_uncollapsed_grouped.bam
+
+uncollapsed_bam_base_recal:
+- class: File
+  path:  C-FRMMAT-P001-d01_uncollapsed_FM.bam
+  secondaryFiles:
+  - class: File
+    path:  C-FRMMAT-P001-d01_uncollapsed_FM.bai
+
+simplex_bam:
+- class: File
+  path:  C-FRMMAT-P001-d01_collapsed_simplex.bam
+  secondaryFiles:
+  - class: File
+    path:  C-FRMMAT-P001-d01_collapsed_simplex.bai
+
+athena_transcript_file:
+  class: File
+  path:  CH_transcript_pad3bp_athena_nodup.bed
+
+athena_build:
+  class: File
+  path:  reference_build.txt
+
+athena_vcf:
+  class: File
+  path:  CH-hotspot-list-union-v1-v2_with_TERT.vcf
+
+noise_sites_bed:
+  class: File
+  path:  picard_baits.bed
+
+bait_intervals:
+  class: File
+  path:  picard_baits.interval_list
+
+target_intervals:
+  class: File
+  path:  picard_baits.interval_list
+
+reference:
+  class: File
+  path:  Homo_sapiens_assembly19.fasta
+  secondaryFiles:
+  - class: File
+    path:  Homo_sapiens_assembly19.fasta.fai
+  - class: File
+    path:  Homo_sapiens_assembly19.dict
+
+hotspots_maf:
+  class: File
+  path:  hotspot-list-union-v1-v2_with_TERT.maf
+
+athena_cores: 4
+athena_thresholds: [250,500,1000,1500,2000]
+athena_threshold: 500
+athena_summary: true
+
+sample_group:
+- C-FRMMAT
+
+sample_name:
+- C-FRMMAT-P001-d01
+
+sample_sex:
+- Female
+
+hsmetrics_coverage_cap: 30000
+hsmetrics_minimum_base_quality: 1
+hsmetrics_minimum_mapping_quality: 1
+sequence_qc_min_basq: 1
+sequence_qc_min_mapq: 1
+sequence_qc_threshold: null
+sequence_qc_truncate: null

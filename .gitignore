@@ -128,3 +128,14 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+
+# test data folder 
+test_data/test_nucleo_qc/*
+!test_data/test_nucleo_qc/test_input.yml
+
+# vscode 
+.vscode/
+
+# tmp 
+.tmp/ 
+cookie
