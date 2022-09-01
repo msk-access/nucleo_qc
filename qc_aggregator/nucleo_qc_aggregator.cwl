@@ -122,12 +122,6 @@ inputs:
     doc: Number of threads to use.
     'sbg:x': 0
     'sbg:y': 1709.5
-  - id: duplex_biometrics_major_threshold
-    type: float?
-    label: duplex_biometrics_major_threshold
-    doc: Major contamination threshold for bad sample.
-    'sbg:x': 0
-    'sbg:y': 534.21875
   - id: duplex_biometrics_minor_threshold
     type: float?
     label: duplex_biometrics_minor_threshold
@@ -239,29 +233,6 @@ steps:
     scatterMethod: dotproduct
     'sbg:x': 410.171875
     'sbg:y': 1468.546875
-  - id: duplex_biometrics_major
-    in:
-      - id: input
-        source:
-          - duplex_extraction_files
-      - id: major_threshold
-        source: duplex_biometrics_major_threshold
-      - id: prefix
-        default: duplex
-      - id: plot
-        default: true
-        source: biometrics_plot
-      - id: json
-        default: true
-        source: biometrics_json
-    out:
-      - id: biometrics_major_csv
-      - id: biometrics_major_json
-      - id: biometrics_major_plot
-    run: ../cwl-commandlinetools/biometrics_major/0.2.13/biometrics_major.cwl
-    label: duplex_biometrics_major
-    'sbg:x': 410.171875
-    'sbg:y': 582.484375
   - id: duplex_biometrics_minor
     in:
       - id: input
@@ -296,9 +267,6 @@ steps:
           - >-
             duplex_biometrics_genotype/biometrics_genotype_cluster_input_database
           - duplex_biometrics_genotype/biometrics_genotype_cluster_input
-          - duplex_biometrics_major/biometrics_major_plot
-          - duplex_biometrics_major/biometrics_major_json
-          - duplex_biometrics_major/biometrics_major_csv
           - duplex_biometrics_minor/biometrics_minor_sites_plot
           - duplex_biometrics_minor/biometrics_minor_plot
           - duplex_biometrics_minor/biometrics_minor_json
