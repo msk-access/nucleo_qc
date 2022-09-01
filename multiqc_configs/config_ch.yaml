@@ -1,7 +1,7 @@
 hiddentitle: "MSK CMO-CH QC report"
 intro_text: "Aggregate Quality Control (QC) metrics for samples ran on MSK CMO-CH assay"
 skip_generalstats: true
-
+max_table_rows: 10000
 custom_data:
   genstats_qcstatus_buffy:
     plot_type: 'table'
@@ -11,41 +11,41 @@ custom_data:
     headers:
       cmoSampleName:
         title: "Sample"
-        description: "Sample name. Data is from LIMS."
+        description: "Sample name. Data is from SMILE."
         placement: 1
       cmoPatientId:
         title: "Patient"
-        description: "Patient ID. Data is from LIMS."
+        description: "Patient ID. Data is from SMILE."
         placement: 2
         hidden: true
       igoId:
         title: "IGO ID"
-        description: "Sample pool ID. Data is from LIMS."
+        description: "Sample pool ID. Data is from SMILE."
         placement: 2
         hidden: true
       investigatorSampleId:
         title: "Investigator Sample ID"
-        description: "Investigator Sample ID. Data is from LIMS."
+        description: "Investigator Sample ID. Data is from SMILE."
         placement: 2
         hidden: true
       barcodeId:
         title: "Barcode ID"
-        description: "Barcode ID. Data is from LIMS."
+        description: "Barcode ID. Data is from SMILE."
         placement: 2
         hidden: true
       oncoTreeCode:
         title: "OncoTreeCode"
-        description: "OncoTreeCode. Data is from LIMS."
+        description: "OncoTreeCode. Data is from SMILE."
         placement: 2
         hidden: true
       cmoSampleClass:
         title: "Class"
-        description: "Sample class. Data is from LIMS."
+        description: "Sample class. Data is from SMILE."
         placement: 2
         hidden: true
       specimenType:
         title: "Sample type"
-        description: "Sample type. Data is from LIMS."
+        description: "Sample type. Data is from SMILE."
         placement: 2
         hidden: true
       tumorOrNormal:
@@ -72,16 +72,16 @@ custom_data:
         description: "Pass: no unexpected matches/mismatchs. NA: if no samples from the same patient to compare with. Fail: has unexpected matches/mismatchs. Based on analysis from biometrics."
         placement: 11
       dnaInputNg:
-        title: "Library input"
-        description: "Library input in nanograms. Data is from LIMS."
+        title: "DNA input"
+        description: "DNA input in nanograms. Data is from SMILE."
         placement: 3
-      captureInputNg:
+      library_yield:
         title: "Library yield"
-        description: "Library yield in nanograms. Data is from LIMS."
+        description: "Library yield in nanograms. Data is from SMILE."
         placement: 4
-      captureConcentrationNm:
+      captureInputNg:
         title: "Pool input"
-        description: "Pool input in nanograms. Data is from LIMS."
+        description: "Pool input in nanograms. Data is from SMILE."
         placement: 5
       raw_coverage:
         title: "Raw cov."
@@ -128,6 +128,75 @@ custom_data:
         description: "Number of sites contributing to noise (ACGT substitutions). Data is from the sequence_qc python package."
         placement: 18
         format: '{:,.0f}'
+  hotspots:
+      file_format: 'tsv'
+      section_name: 'Hotspots in Normals'
+      plot_type: 'table'
+      description: "Investigation into presence of hotspot sites in the normal DNA."
+      no_beeswarm: False 
+      parent_id: 'contamination'
+      parent_name: 'Contamination'
+      headers:
+        Tumor_Sample_Barcode:
+          title: "Tumor_Sample_Barcode"
+          description: ""
+          placement: 1
+          scale: False
+        Hugo_Symbol:
+          title: "Hugo_Symbol"
+          description: ""
+          placement: 2
+          scale: False
+        Chromosome:
+          title: "Chromosome"
+          description: 
+          placement: 3
+          scale: False
+        Start_Position:
+          title: "Start_Position"
+          description: ""
+          placement: 4
+          scale: False
+        End_Position:
+          title: "End_Position"
+          description: ""
+          placement: 5
+          scale: False
+        Variant_Classification:
+          title: "Variant_Classification"
+          description: ""
+          placement: 6
+          scale: False
+        Reference_Allele:
+          title: "Reference_Allele"
+          description: ""
+          placement: 7
+          scale: False
+        Tumor_Seq_Allele1:
+          title: "Tumor_Seq_Allele1"
+          description: ""
+          placement: 8
+          scale: False
+        Tumor_Seq_Allele2:
+          title: "Tumor_Seq_Allele2"
+          description: ""
+          placement: 9
+          scale: False
+        t_ref_count_fragment:
+          title: "t_ref_count_fragment"
+          description: ""
+          placement: 10
+        t_alt_count_fragment:
+          title: "t_alt_count_fragment"
+          description: ""
+          placement: 11
+        t_alt_percent_fragment:
+          title: "t_alt_percent_fragment"
+          description: ""
+          placement: 12
+          format: '{:,.2%}'
+        
+    
 
 
 
@@ -305,6 +374,8 @@ sp:
     fn: "genstats-sample-info.csv"
   genstats_qcstatus_buffy:
     fn: "genstats_qc_status.csv"
+  hotspots:
+    fn: "hotspot_table.tsv"
   qc_criteria:
     fn: 'qc_criteria.csv'
 
@@ -373,14 +444,14 @@ table_cond_formatting_rules:
         - gt: 220
     fail:
         - lt: 150
-  captureConcentrationNm:
+  library_yield:
     pass:
-        - lt: 0.6
-        - eq: 0.6
+        - gt: 450
+        - eq: 450
     warn:
-        - gt: 0.6
+        - lt: 550
     fail:
-        - gt: 0.65
+        - lt: 400
   captureInputNg:
     pass:
         - gt: 450
@@ -577,6 +648,8 @@ table_cond_formatting_rules:
         - eq: 0.002
         - gt: 0.002
 
+table_columns_visible:
+  hotspots: True
 
 picard_config:
   HsMetrics_table_cols:
@@ -748,6 +821,8 @@ module_order:
         - "*simplex_bam_stats*"
 
 report_section_order:
+  hotspots: 
+    order: 16 
   genstats_qcstatus_buffy:
     order: 15
   uncollapsed_gcbias:
