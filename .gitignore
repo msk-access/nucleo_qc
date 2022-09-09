@@ -130,8 +130,7 @@ dmypy.json
 .DS_Store
 
 # test data folder 
-test_data/test_nucleo_qc/*
-!test_data/test_nucleo_qc/test_input.yml
+test_data/*
 
 # vscode 
 .vscode/
