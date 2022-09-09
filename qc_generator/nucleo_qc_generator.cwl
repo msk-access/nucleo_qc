@@ -595,8 +595,7 @@ steps:
         source:
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_umi_counts
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_family_size
-          - >-
-            qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
+          - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_qc
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_family_size
