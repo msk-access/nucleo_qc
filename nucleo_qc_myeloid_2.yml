@@ -3,7 +3,7 @@ multiqc_config:
   path: test_data/config_ch.yaml
 samples-json:
   class: File
-  path: test_data/samples_12405_D.json
+  path: test_data/access_qc_testing_samples.json
 biometrics_bed_file:
   class: File
   path: test_data/picard_baits.bed
@@ -13,6 +13,11 @@ biometrics_plot: true
 biometrics_vcf_file:
   class: File
   path: test_data/fp_tiling_snps.vcf
+
+fragment_count: 1
+filter_duplicate: 0
+omaf: true
+generic_counting: true
 
 mosdepth_bed:
   class: File
@@ -26,52 +31,42 @@ collapsed_biometrics_min_homozygous_thresh: null
 collapsed_biometrics_min_mapping_quality: null
 collapsed_biometrics_minor_threshold: null
 
-duplex_biometrics_major_threshold: null
 duplex_biometrics_min_base_quality: null
 duplex_biometrics_min_coverage: null
 duplex_biometrics_min_homozygous_thresh: null
 duplex_biometrics_min_mapping_quality: null
 duplex_biometrics_minor_threshold: null
-fragment_count: 1
-filter_duplicate: 0
-omaf: true
-generic_counting: true
 
 collapsed_bam:
 - class: File
-  path: test_data/C-FRMMAT-P001-d01_collapsed_FM.bam
+  path: test_data/Myeloid200-2-05500HJ_P20_collapsed_fx_down_0.001.bam
   secondaryFiles:
   - class: File
-    path: test_data/C-FRMMAT-P001-d01_collapsed_FM.bai
-
+    path: test_data/Myeloid200-2-05500HJ_P20_collapsed_fx_down_0.001.bai
 
 duplex_bam:
 - class: File
-  path: test_data/C-FRMMAT-P001-d01_collapsed_duplex.bam
+  path: test_data/Myeloid200-2-05500HJ_P20_collapsed_duplex_down_0.04.bam
   secondaryFiles:
   - class: File
-    path: test_data/C-FRMMAT-P001-d01_collapsed_duplex.bai
-
+    path: test_data/Myeloid200-2-05500HJ_P20_collapsed_duplex_down_0.04.bai
 
 group_reads_by_umi_bam:
 - class: File
-  path: test_data/C-FRMMAT-P001-d01_collapsed_grouped.bam
-
-
+  path:  test_data/Myeloid200-2-05500HJ_uncollapsed_FM_P20_group_down_0.001.bam
 simplex_bam:
 - class: File
-  path: test_data/C-FRMMAT-P001-d01_collapsed_simplex.bam
+  path:  test_data/Myeloid200-2-05500HJ_P20_collapsed_simplex_down_0.001.bam
   secondaryFiles:
   - class: File
-    path: test_data/C-FRMMAT-P001-d01_collapsed_simplex.bai
+    path: test_data/Myeloid200-2-05500HJ_P20_collapsed_simplex_down_0.001.bai
 
 uncollapsed_bam_base_recal:
 - class: File
-  path: test_data/C-FRMMAT-P001-d01_uncollapsed_BR.bam
+  path: test_data/Myeloid200-1-05500HJ_uncollapsed_FM_P20_down_0.001.bam
   secondaryFiles:
   - class: File
-    path: test_data/C-FRMMAT-P001-d01_uncollapsed_BR.bai
-
+    path: test_data/Myeloid200-1-05500HJ_uncollapsed_FM_P20_down_0.001.bai
 
 athena_transcript_file:
   class: File
@@ -88,13 +83,14 @@ athena_vcf:
 athena_cores: 4
 
 sample_group:
-- C-FRMMAT
+- C-UJ1WNV
 
 sample_name:
-- C-FRMMAT-P001-d01
+- Myeloid200-2-05500HJ_P20
 
 sample_sex:
-- Female
+- Unknown
+
 
 hsmetrics_coverage_cap: 30000
 hsmetrics_minimum_base_quality: 1

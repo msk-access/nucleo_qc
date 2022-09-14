@@ -9,6 +9,7 @@ import shutil
 import difflib
 import json
 import logging
+import pytest
 import coloredlogs
 
 # Create Logger if verbose
@@ -54,29 +55,21 @@ def test_setup_module():
     """
     Setup and Test the workflow with cwltool
     """
-    cmd = [
-        "cwltool",
-        "nucleo_qc.cwl",
-        "test_data/test_nucleo_qc/test_input.yml",
-    ]
-    breakpoint()
-    process = subprocess.Popen(cmd)
-    process.wait()
     
-    # logging.info("### SETUP ###")
-    # with open(OUTPUT_JSON_FILENAME, "w") as json:
+    logging.info("### SETUP ###")
+    with open(OUTPUT_JSON_FILENAME, "w") as json:
 
-    #     cmd = [
-    #         "cwltool",
-    #         "nucleo_qc.cwl",
-    #         "nucleo_qc.yml",
-    #     ]
-    #     logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
-    #     process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True)
-    #     process.wait()
-    #     json.flush()
-
-    return [process.returncode, process.communicate()[0]]
+        cmd = [
+            "cwltool",
+            "nucleo_qc.cwl",
+            "nucleo_qc_myeloid_2.yml",
+        ]
+        logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
+        process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True)
+        ret_code = process.wait()
+        # res = tuple (stdout, stderr)
+        assert process.returncode == 0 
+        return(ret_code)
 
 
 
