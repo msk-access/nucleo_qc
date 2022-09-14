@@ -43,10 +43,11 @@ jobs:
                 registry: ghcr.io
                 username: ${{ github.repository_owner }}
                 password: ${{ secrets.RS_PAT }}
-                  - name: Set up Python 
-                    uses: actions/setup-python@v3
-                    with:
-                        python-version: ${{ matrix.python-version }}
+
+            - name: Set up Python 
+              uses: actions/setup-python@v3
+              with:
+                  python-version: ${{ matrix.python-version }}
             - name: Dependencies
               run: |
                   pip install -r requirements.txt
