@@ -8,7 +8,6 @@ fileid=1crIalUNjs7Od9RCLEdNLDjCuWhh1C473
 
 filename=test_nucleo_qc.tar.gz
 foldername=test_nucleo_qc
-pip install gdown
 gdown https://drive.google.com/uc?id=$fileid 
 
 # Suppress linux warnings for MacOS tar.gz files
