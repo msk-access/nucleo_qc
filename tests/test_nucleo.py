@@ -68,7 +68,7 @@ def test_setup_module():
         process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True)
         ret_code = process.wait()
         # res = tuple (stdout, stderr)
-        assert process.returncode == 0 
+        assert process.returncode == 0, process.stderr
         return(ret_code)
 
 
