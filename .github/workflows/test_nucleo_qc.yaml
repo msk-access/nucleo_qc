@@ -1,38 +1,35 @@
-name: test_nucleo
+name: test nucleo_qc
 on:
-  push:
-    paths-ignore:
-    - 'docs/**'
-    - '**.md'
-  pull_request:
-    paths-ignore:
-    - 'docs/**'
-    - '**.md'
+    push:
+        branches: [main, develop, release/*, testing]
+        tags:
+            - '*'
+        paths-ignore:
+            - "docs/**"
+            - "**.md"
+    pull_request:
+        branches: "*"
+        paths-ignore:
+            - "docs/**"
+            - "**.md"
 jobs:
-  test_nucleo:
-    runs-on: ${{ matrix.platform }}
-    if: "!contains(github.event.head_commit.message, 'ci skip')"
-    strategy:
-      max-parallel: 1
-      matrix:
-        platform: [ubuntu-latest]
-        python-version: [3.9]
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-          submodules: recursive
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install tox tox-gh-actions
-      - name: Test with tox
-        id: run-tox
-        run: tox -e py39
-        env:
-          PLATFORM: ${{ matrix.platform }}
+    run_test_vardict_filter:
+        # The type of runner that the job will run on
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: [3.9]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Set up Python 
+              uses: actions/setup-python@v3
+              with:
+                  python-version: ${{ matrix.python-version }}
+            - name: Dependencies
+              run: |
+                  pip install -r requirements.txt
+            - name: Pytest
+              run: |
+                  pytest
