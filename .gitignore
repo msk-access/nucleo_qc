@@ -138,3 +138,13 @@ test_data/*
 # tmp 
 .tmp/ 
 cookie
+
+# sif files from sigularity 
+*.sif
+
+# ignore test output
+pipeline_result.json
+
+# test files 
+Myeloid200-2-05500HJ_P20/*
+multiqc_1.10.1.7/*
