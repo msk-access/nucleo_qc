@@ -151,4 +151,4 @@ multiqc_1.10.1.7/*
 pipeline_result_aggregate.json
 pipeline_result_single.json
 tests/inputs/test_nucleo_qc.tar.gz
-tests/inputs/new_test_data/
+tests/inputs/new_test_data/*
