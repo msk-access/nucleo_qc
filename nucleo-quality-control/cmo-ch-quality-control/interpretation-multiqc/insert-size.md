@@ -4,7 +4,7 @@
 
 This figure below represents the insert size distribution from the CMO-CH target regions. Insert size is calculated from the start and stop positions of the reads after mapping to the reference genome.
 
-![](<../.gitbook/assets/iScreen Shoter - 2022-07-21 122943.834.png>)
+![](<../../../.gitbook/assets/iScreen Shoter - 2022-07-21 122943.834.png>)
 
 ## Methods
 

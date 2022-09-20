@@ -2,7 +2,7 @@
 
 The figure plots below represent the normalized coverage against the % GC content from the CMO-CH target regions. Each line is data from a single sample.
 
-![](<../.gitbook/assets/iScreen Shoter - 2022-07-21 122859.982.png>)
+![](<../../../.gitbook/assets/iScreen Shoter - 2022-07-21 122859.982.png>)
 
 ## Methods
 

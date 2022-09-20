@@ -4,7 +4,7 @@
 
 The first section of MultiQC report is the Summary QC metrics table that displays the summary information per-sample. The metrics presented are mainly lab sample quality metrics, alignment information and quality of the target capture.
 
-<figure><img src="../.gitbook/assets/iScreen Shoter - 2022-09-06 073722.703.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/iScreen Shoter - 2022-09-06 073722.703.png" alt=""><figcaption></figcaption></figure>
 
 ### Interpretation
 
