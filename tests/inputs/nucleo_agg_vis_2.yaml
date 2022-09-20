@@ -20,7 +20,7 @@ collapsed_extraction_files:
   path: test_data/Myeloid200-2-05500HJ_P20_collapsed.pickle
 config:
   class: File
-  path: multiqc_configs/config_ch.yaml
+  path: ../../multiqc_configs/config_ch.yaml
 duplex_bam_sequence_qc_dir:
 - class: Directory
   path: test_data/all_qc_files/duplex_bam_sequence_qc_dir/Myeloid200-1-05500HJ_P20/

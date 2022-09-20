@@ -1,6 +1,6 @@
 multiqc_config:
   class: File
-  path: test_data/config_ch.yaml
+  path: ../../test_data/config_ch.yaml
 samples-json:
   class: File
   path: test_data/access_qc_testing_samples.json

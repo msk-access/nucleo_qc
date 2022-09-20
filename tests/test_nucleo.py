@@ -30,7 +30,7 @@ OUTPUT_JSON_AGGREGATE_FILENAME = "pipeline_result_aggregate.json"
 
 def test_single_sample(platform):
     """
-    Setup and Test the workflow with cwltool
+    Test Single Sample Workflow workflow with cwltool
     """
     
     logging.info("### SETUP ###")
@@ -59,9 +59,9 @@ def test_single_sample(platform):
 
 def test_single_sample_output():
 
-#     """
-#     General tests for output json
-#     """
+    """
+    Test Output of Single Sample Workflow
+    """
     logging.info(
     "### Check if json file exists and check some basic stats ###")
     assert os.path.exists(OUTPUT_JSON_SINGLE_FILENAME)
@@ -75,7 +75,7 @@ def test_single_sample_output():
 
 def test_aggregate_visual(platform):
     """
-    Setup and Test the workflow with cwltool
+    Test Aggregate Visualize workflow with cwltool
     """
     
     logging.info("### SETUP ###")
@@ -105,9 +105,9 @@ def test_aggregate_visual(platform):
 
 def test_aggregate_visual_output():
 
-#     """
-#     General tests for output json
-#     """
+    """
+    Test Aggregate Visualize output
+    """
     logging.info(
     "### Check if json file exists and check some basic stats ###")
     assert os.path.exists(OUTPUT_JSON_AGGREGATE_FILENAME )

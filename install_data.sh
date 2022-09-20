@@ -12,9 +12,9 @@ gdown https://drive.google.com/uc?id=$fileid
 
 # Suppress linux warnings for MacOS tar.gz files
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    tar --warning=no-unknown-keyword -xzvf $filename 
+    tar --warning=no-unknown-keyword -xzvf $filename -C tests/inputs/
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    tar -xzvf $filename 
+    tar -xzvf $filename -C tests/inputs/
 fi
 
 rm $filename
