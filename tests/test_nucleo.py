@@ -83,13 +83,13 @@ def test_aggregate_visual(platform):
         if platform == "singularity":
             cmd = [
                 "cwltool",
+                "--singularity",
                 "nucleo_aggregate_visualize.cwl",
                 "tests/inputs/nucleo_agg_vis_2.yaml",
             ]
         elif platform == "docker": 
             cmd = [
                 "cwltool",
-                "--singularity",
                 "nucleo_aggregate_visualize.cwl",
                 "tests/inputs/nucleo_agg_vis_2.yaml",
             ]
