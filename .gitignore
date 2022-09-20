@@ -148,3 +148,6 @@ pipeline_result.json
 # test files 
 Myeloid200-2-05500HJ_P20/*
 multiqc_1.10.1.7/*
+
+pipeline_result_aggregate.json
+pipeline_result_single.json

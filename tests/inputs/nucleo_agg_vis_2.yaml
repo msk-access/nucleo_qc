@@ -1,0 +1,56 @@
+athena_coverage_report_dir:
+- class: Directory
+  path: test_data/all_qc_files/athena_coverage_report_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/athena_coverage_report_dir/Myeloid200-2-05500HJ_P20/
+collapsed_bam_duplex_metrics_dir:
+- class: Directory
+  path: test_data/all_qc_files/collapsed_bam_duplex_metrics_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/collapsed_bam_duplex_metrics_dir/Myeloid200-2-05500HJ_P20/
+collapsed_bam_stats_dir:
+- class: Directory
+  path: test_data/all_qc_files/collapsed_bam_stats_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/collapsed_bam_stats_dir/Myeloid200-2-05500HJ_P20/
+collapsed_extraction_files:
+- class: File
+  path: test_data/Myeloid200-1-05500HJ_P20_collapsed.pickle
+- class: File
+  path: test_data/Myeloid200-2-05500HJ_P20_collapsed.pickle
+config:
+  class: File
+  path: multiqc_configs/config_ch.yaml
+duplex_bam_sequence_qc_dir:
+- class: Directory
+  path: test_data/all_qc_files/duplex_bam_sequence_qc_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/duplex_bam_sequence_qc_dir/Myeloid200-2-05500HJ_P20/
+duplex_bam_stats_dir:
+- class: Directory
+  path: test_data/all_qc_files/duplex_bam_stats_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/duplex_bam_stats_dir/Myeloid200-2-05500HJ_P20/
+duplex_extraction_files:
+- class: File
+  path: test_data/Myeloid200-1-05500HJ_P20_duplex.pickle
+- class: File
+  path: test_data/Myeloid200-2-05500HJ_P20_duplex.pickle
+gatk_mean_quality_by_cycle_recal_dir:
+- class: Directory
+  path: test_data/all_qc_files/gatk_mean_quality_by_cycle_recal_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/gatk_mean_quality_by_cycle_recal_dir/Myeloid200-2-05500HJ_P20/
+samples-json:
+  class: File
+  path: test_data/all_qc_agg.json
+simplex_bam_stats_dir:
+- class: Directory
+  path: test_data/all_qc_files/simplex_bam_stats_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/simplex_bam_stats_dir/Myeloid200-2-05500HJ_P20/
+uncollapsed_bam_stats_dir:
+- class: Directory
+  path: test_data/all_qc_files/uncollapsed_bam_stats_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/uncollapsed_bam_stats_dir/Myeloid200-2-05500HJ_P20/
