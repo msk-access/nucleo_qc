@@ -1,29 +1,33 @@
 # Table of contents
 
-* [What is MyProduct?](README.md)
-
-## Guides
-
-* [Creating your first project](guides/creating-your-first-project.md)
-* [Creating your first task](guides/creating-your-first-task.md)
-* [Advanced permissions](guides/advanced-permissions.md)
-
-## Fundamentals
-
-* [Projects](fundamentals/projects.md)
-* [Members](fundamentals/members.md)
-* [Task Lists](fundamentals/task-lists.md)
-* [Tasks](fundamentals/tasks.md)
-
-## Use Cases
-
-* [For Designers](use-cases/for-designers/README.md)
-  * [Figma Integration](use-cases/for-designers/figma-integration.md)
-* [For Engineers](use-cases/for-engineers/README.md)
-  * [GitHub Integration](use-cases/for-engineers/github-integration.md)
-* [For Support](use-cases/for-support/README.md)
-  * [Intercom Integration](use-cases/for-support/intercom-integration.md)
-
-## Extras
-
-* [Keyboard Shortcuts](extras/keyboard-shortcuts.md)
+* [🌸 CMO-CH QC generation](README.md)
+  * [Installation and running](cmo-ch-qc-generation/installation-and-running.md)
+* [☀ Interpretation - MultiQC](interpretation-multiqc/README.md)
+  * [Summary QC metrics](interpretation-multiqc/summary-qc-metrics.md)
+  * [GC Bias](interpretation-multiqc/gc-bias.md)
+  * [HSMetrics](interpretation-multiqc/hsmetrics.md)
+  * [Insert Size](interpretation-multiqc/insert-size.md)
+  * [Target coverage distribution](interpretation-multiqc/target-coverage-distribution.md)
+  * [Duplex Metrics](interpretation-multiqc/duplex-metrics/README.md)
+    * [Duplex family sizes](interpretation-multiqc/duplex-metrics/duplex-family-sizes.md)
+    * [Simplex family sizes](interpretation-multiqc/duplex-metrics/simplex-family-sizes.md)
+    * [Duplex yield metrics](interpretation-multiqc/duplex-metrics/duplex-yield-metrics.md)
+  * [Mean Base Quality](interpretation-multiqc/mean-base-quality.md)
+  * [Duplex Noise Metrics](interpretation-multiqc/duplex-noise-metrics.md)
+  * [Contamination](interpretation-multiqc/contamination/README.md)
+    * [Hotspot in Normals](interpretation-multiqc/contamination/hotspot-in-normals.md)
+    * [Major contamination](interpretation-multiqc/contamination/major-contamination.md)
+    * [Minor contamination](interpretation-multiqc/contamination/minor-contamination.md)
+    * [Contributing sites](interpretation-multiqc/contamination/contributing-sites.md)
+  * [Fingerprinting](interpretation-multiqc/fingerprinting.md)
+  * [QC criteria](interpretation-multiqc/qc-criteria.md)
+* [🇬🇷 Interpretation - Athena Coverage report](interpretation-athena-coverage-report/README.md)
+  * [Installation and running](interpretation-athena-coverage-report/installation-and-running.md)
+  * [Interpretation coverage report](interpretation-athena-coverage-report/interpretation-coverage-report/README.md)
+    * [Report details](interpretation-athena-coverage-report/interpretation-coverage-report/report-details.md)
+    * [Summary](interpretation-athena-coverage-report/interpretation-coverage-report/summary.md)
+    * [Exons with <100% coverage at 500x](interpretation-athena-coverage-report/interpretation-coverage-report/exons-with-less-than-100-coverage-at-500x.md)
+    * [Per gene coverage summary](interpretation-athena-coverage-report/interpretation-coverage-report/per-gene-coverage-summary.md)
+    * [Per exon coverage](interpretation-athena-coverage-report/interpretation-coverage-report/per-exon-coverage.md)
+    * [Coverage of Known Variants](interpretation-athena-coverage-report/interpretation-coverage-report/coverage-of-known-variants.md)
+    * [Coverage per chromosome](interpretation-athena-coverage-report/interpretation-coverage-report/coverage-per-chromosome.md)
