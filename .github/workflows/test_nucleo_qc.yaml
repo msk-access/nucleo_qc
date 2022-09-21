@@ -1,7 +1,7 @@
 name: test nucleo_qc
 on:
     push:
-        branches: [main, develop, release/*, testing]
+        branches: [main, develop, release/*]
         tags:
             - '*'
         paths-ignore:
