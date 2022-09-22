@@ -1,0 +1,58 @@
+name: test nucleo_qc
+on:
+    push:
+        branches: [main, develop, release/*]
+        tags:
+            - '*'
+        paths-ignore:
+            - "docs/**"
+            - "**.md"
+    pull_request:
+        branches: "*"
+        paths-ignore:
+            - "docs/**"
+            - "**.md"
+jobs:
+    run_test_nucleo_qc:
+        # The type of runner that the job will run on
+        runs-on: ${{ matrix.platform }}
+        strategy:
+            matrix:
+                platform: [ubuntu-latest]
+                python-version: [3.9]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                ref: ${{ github.head_ref }}
+                submodules: recursive
+
+            - name: Set up Python 
+              uses: actions/setup-python@v3
+              with:
+                  python-version: ${{ matrix.python-version }}
+
+            - name : Set up NodeJS
+              run: |
+                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+                export NVM_DIR="$HOME/.nvm" 
+                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+                [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+                nvm install node
+            - name: Setup Docker   
+              uses: docker-practice/actions-setup-docker@master
+              with:
+                docker_channel: nightly
+              # this value please see https://github.com/AkihiroSuda/moby-snapshot/releases
+                docker_nightly_version: snapshot-20201109
+              env:
+                PLATFORM: ${{ matrix.platform }}
+
+            - name: Dependencies
+              run: |
+                  pip install -r requirements.txt
+
+            - name: Pytest
+              run: |
+                  bash install_data.sh
+                  pytest

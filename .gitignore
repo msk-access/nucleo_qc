@@ -130,7 +130,7 @@ dmypy.json
 .DS_Store
 
 # test data folder 
-test_data/*
+tests/inputs/test_data/*
 
 # vscode 
 .vscode/
@@ -138,3 +138,17 @@ test_data/*
 # tmp 
 .tmp/ 
 cookie
+
+# sif files from sigularity 
+*.sif
+
+# ignore test output
+pipeline_result.json
+
+# test files 
+Myeloid200-2-05500HJ_P20/*
+multiqc_1.10.1.7/*
+pipeline_result_aggregate.json
+pipeline_result_single.json
+tests/inputs/test_nucleo_qc.tar.gz
+tests/inputs/new_test_data/*
