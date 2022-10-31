@@ -4,7 +4,7 @@
 
 This figure below illustrates the mean base quality by cycle BaseQualityScoreRecalibration (BQSR). The sequencer uses the difference in intensity of the fluorescence of the bases to give an estimate of the quality of the base that has been read. The BQSR tool from GATK recalculates these values based on the empirical error rate of the reads themselves, which is a more accurate estimate of the original quality of the read.
 
-![](<../../../.gitbook/assets/iScreen Shoter - 2022-07-21 123205.462.png>)
+![](<../../.gitbook/assets/iScreen Shoter - 2022-07-21 123205.462.png>)
 
 ## Methods
 

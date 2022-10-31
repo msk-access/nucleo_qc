@@ -4,7 +4,7 @@
 
 This section contains a table showing the samples clustered into groups, where each row in the table corresponds to one sample. The table will show whether your samples are grouping together in unexpected ways, which would indicate sample mislabelling.
 
-![](<../../../.gitbook/assets/iScreen Shoter - 2022-07-21 123352.704.png>)
+![](<../../.gitbook/assets/iScreen Shoter - 2022-07-21 123352.704.png>)
 
 ## Methods <a href="#methods" id="methods"></a>
 

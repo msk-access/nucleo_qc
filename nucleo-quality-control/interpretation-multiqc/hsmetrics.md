@@ -4,7 +4,7 @@
 
 There are several sections displaying bait set capture efficiency. Each section corresponds to a separate BAM type and bait set combination. The tool used to produce the metrics is GATK-CollectHsMetrics. By default, only the mean bait coverage, mean target coverage, and % Usable bases on-target are displayed. However, there are many more metrics that can be toggled to display by clicking on the `Configure Columns` button.
 
-![](<../../../.gitbook/assets/iScreen Shoter - 2022-07-21 122923.235.png>)
+![](<../../.gitbook/assets/iScreen Shoter - 2022-07-21 122923.235.png>)
 
 ## Methods
 
