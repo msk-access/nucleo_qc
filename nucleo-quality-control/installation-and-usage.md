@@ -6,6 +6,28 @@ description: >-
 
 # Installation and Usage
 
+## Step 1: Clone the repository
+
+Clone the repository and checkout the develop branch for the most up-to-date version:
+
+{% code lineNumbers="true" %}
+```
+git clone --recursive https://github.com/msk-access/nucleo_qc.git
+cd nucleo_qc
+git checkout develop
+git submodule update --init --recursive --merge
+cd cwl_subworkflows/
+git checkout develop
+cd command_line_tools/
+git checkout develop
+cd ../..
+cd cwl-commandlinetools/
+git checkout develop
+```
+{% endcode %}
+
+
+
 ## Step 1: Create a virtual environment. <a href="#step-1-create-a-virtual-environment." id="step-1-create-a-virtual-environment."></a>
 
 Option (A) - if using cwltool, please proceed using python 3.6 as done below: Here we can use either virtualenv or conda.&#x20;
