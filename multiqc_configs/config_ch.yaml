@@ -520,7 +520,7 @@ table_cond_formatting_rules:
     warn:
         - lt: 0.20
 #    fail:
-        - lt: 0.10
+#        - lt: 0.10
   on_bait_perc:
     pass:
         - gt: 0.30
@@ -528,7 +528,7 @@ table_cond_formatting_rules:
     warn:
         - lt: 0.20
 #    fail:
-        - lt: 0.15
+#        - lt: 0.15
   on_near_perc:
     pass:
         - gt: 0.40
