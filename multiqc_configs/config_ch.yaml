@@ -106,11 +106,11 @@ custom_data:
         description: "Percentage of reads aligned to the genome. Data is from the PCT_PF_UQ_READS_ALIGNED column in the output file produced by GATK-CollectHsMetrics (uncollapsed BAM)."
         placement: 13
         format: '{:,.2%}'
-      on_target_perc: 
+      on_target_perc:
         title: "% ON TARGET"
         placement: 14
         format: '{:,.2%}'
-      on_bait_perc: 
+      on_bait_perc:
         title: "% ON BAIT"
         placement: 15
         format: '{:,.2%}'
@@ -133,7 +133,7 @@ custom_data:
       section_name: 'Hotspots in Normals'
       plot_type: 'table'
       description: "Investigation into presence of hotspot sites in the normal DNA."
-      no_beeswarm: False 
+      no_beeswarm: False
       parent_id: 'contamination'
       parent_name: 'Contamination'
       headers:
@@ -149,7 +149,7 @@ custom_data:
           scale: False
         Chromosome:
           title: "Chromosome"
-          description: 
+          description:
           placement: 3
           scale: False
         Start_Position:
@@ -195,8 +195,8 @@ custom_data:
           description: ""
           placement: 12
           format: '{:,.2%}'
-        
-    
+
+
 
 
 
@@ -358,7 +358,7 @@ custom_data:
           title: 'Warn condition'
           scale: false
           placement: 6
-      
+
 sp:
   biometrics_minor_sites_collapsed:
     fn: 'minor_contamination_sites_mqc.html'
@@ -454,12 +454,12 @@ table_cond_formatting_rules:
         - lt: 400
   captureInputNg:
     pass:
-        - gt: 450
-        - eq: 450
+        - gt: 250
+        - eq: 250
     warn:
-        - lt: 550
+        - lt: 350
     fail:
-        - lt: 400
+        - lt: 200
   raw_coverage:
     pass:
         - lt: 1000
@@ -484,27 +484,27 @@ table_cond_formatting_rules:
         - lt: 5
   MODE_INSERT_SIZE:
     pass:
-        - lt: 170
-        - eq: 170
-        - gt: 163
-        - eq: 163
+        - lt: 250
+        - eq: 250
+        - gt: 150
+        - eq: 150
     warn:
-        - gt: 170
-        - lt: 163
+        - gt: 251
+        - lt: 149
     fail:
-        - gt: 180
-        - lt: 150
+        - gt: 300
+        - lt: 100
   TOTAL_READS:
     pass:
-        - lt: 20000000
-        - eq: 20000000
-        - gt: 5000000
-        - eq: 5000000
+        - lt: 40000000
+        - eq: 40000000
+        - gt: 35000000
+        - eq: 35000000
     warn:
-        - gt: 20000000
-        - lt: 5000000
-    fail:
-        - lt: 1000000
+        - gt: 40000000
+        - lt: 20000000
+#    fail:
+#        - lt: 1000000
   PCT_PF_UQ_READS_ALIGNED:
     pass:
         - gt: 0.97
@@ -515,28 +515,28 @@ table_cond_formatting_rules:
         - lt: 0.95
   on_target_perc:
     pass:
-        - gt: 0.25
-        - eq: 0.25
+        - gt: 0.30
+        - eq: 0.30
     warn:
-        - lt: 0.25
-    fail:
-        - lt: 0.25
-  on_bait_perc: 
+        - lt: 0.20
+#    fail:
+        - lt: 0.10
+  on_bait_perc:
     pass:
-        - gt: 0.25
-        - eq: 0.25
+        - gt: 0.30
+        - eq: 0.30
     warn:
-        - lt: 0.25
-    fail:
-        - lt: 0.25
-  on_near_perc: 
+        - lt: 0.20
+#    fail:
+        - lt: 0.15
+  on_near_perc:
     pass:
         - gt: 0.40
         - eq: 0.40
     warn:
         - lt: 0.40
-    fail:
-        - lt: 0.40
+#    fail:
+#        - lt: 0.40
   contributing_sites:
     pass:
         - lt: 0.001
@@ -700,7 +700,7 @@ picard_config:
 
 
 remove_sections:
-  # collapsed bam - show only hsmetrics 
+  # collapsed bam - show only hsmetrics
   - collapsed_bam_picard_alignment_readlength
   - collapsed_bam_picard-alignmentsummary
   - collapsed_bam_picard_hsmetrics_target_bases
@@ -728,21 +728,21 @@ remove_sections:
   - collapsed_targetcov_picard_hsmetrics
   - collapsed_targetcov_picard_target_gc_bias_metrics
   - collapsed_targetcov_picard-insertsize
-  # duplex bam 
+  # duplex bam
   - duplex_bam_picard_alignment_readlength
   - duplex_bam_picard-alignmentsummary
   - duplex_bam_picard-insertsize
   - duplex_bam_picard_target_gc_bias_metrics
   - duplex_bam_picard_hsmetrics_target_bases
   - duplex_bam_picard_target_coverage_distribution
-  # simplex bam 
+  # simplex bam
   - simplex_bam_picard_alignment_readlength
   - simplex_bam_picard-alignmentsummary
   - simplex_bam_picard-insertsize
   - simplex_bam_picard_target_gc_bias_metrics
   - simplex_bam_picard_hsmetrics_target_bases
   - simplex_bam_picard_target_coverage_distribution
-  # uncollapsed bam -- show only hs metrics 
+  # uncollapsed bam -- show only hs metrics
   - uncollapsed_bam_picard_alignment_readlength
   - uncollapsed_bam_picard-alignmentsummary
   - uncollapsed_bam_picard_hsmetrics_target_bases
@@ -821,8 +821,8 @@ module_order:
         - "*simplex_bam_stats*"
 
 report_section_order:
-  hotspots: 
-    order: 16 
+  hotspots:
+    order: 16
   genstats_qcstatus_buffy:
     order: 15
   uncollapsed_gcbias:
