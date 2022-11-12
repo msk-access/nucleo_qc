@@ -79,7 +79,7 @@ athena_threshold: 500
 athena_summary: true
 athena_vcf:
   class: File
-  path: test_data/hotspot-list-ch-pd-v1.maf
+  path: test_data/CH-hotspot-list-union-v1-v2_with_TERT.vcf
 athena_cores: 4
 
 sample_group:
