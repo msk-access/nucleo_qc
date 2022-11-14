@@ -1,3 +1,7 @@
+---
+description: QC thresholds are specified in the config file and I
+---
+
 # QC thresholds
 
 ### CMO-CH QC thresholds
