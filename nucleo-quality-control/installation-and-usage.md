@@ -67,7 +67,25 @@ We have already specified the version of cwltool and other packages in the requi
 <pre class="language-bash" data-title="installing_python_packages"><code class="lang-bash"><strong>cd nucleo_qc
 </strong><strong>python3 pip3 install -r requirements.txt</strong></code></pre>
 
-## Step 4: Generate an inputs file <a href="#step-4-generate-an-inputs-file" id="step-4-generate-an-inputs-file"></a>
+## Step 4: Check if you have singularity and nodejs for HPC
+
+For HPC normally singularity is used for containers. Thus please make sure that is installed. For JUNO, you can do the following:
+
+{% code title="load-singularity-on-juno" %}
+```bash
+module load singularity/3.7.1
+```
+{% endcode %}
+
+We also need to make sure nodejs is installed, this can be installed using conda:
+
+<pre class="language-shell" data-title="conda-install-nodejs"><code class="lang-shell"><strong>conda install -c conda-forge nodejs</strong></code></pre>
+
+{% hint style="info" %}
+If you are having issues with the initial set-up (venv conda/node.js) please refer to the [manual](https://app.gitbook.com/s/-MXY9KcVjrKoEWe0OQVs/common-operations/initial-setup)
+{% endhint %}
+
+## Step 5: Generate an inputs file <a href="#step-4-generate-an-inputs-file" id="step-4-generate-an-inputs-file"></a>
 
 Next you must generate a proper input file in either [json](https://www.json.org/) or [yaml](https://yaml.org/) format.For details on how to create this file, please follow this example (there is a minimal example of what needs to be filled in at the end of the page):​
 
