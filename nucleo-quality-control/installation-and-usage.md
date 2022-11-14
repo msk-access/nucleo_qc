@@ -8,9 +8,7 @@ description: >-
 
 ## Step 1: Create a virtual environment. <a href="#step-1-create-a-virtual-environment." id="step-1-create-a-virtual-environment."></a>
 
-### **Option (A) - if using cwltool,**
-
-### &#x20;**please proceed using python 3.6 as done below:**&#x20;
+### **Option (A) - if using cwltool**
 
 Here we can use either virtualenv or conda.&#x20;
 
@@ -21,8 +19,6 @@ python3 -m venv my_project
 source my_project/bin/activate
 ```
 {% endcode %}
-
-
 
 ### Option (B) - recommended for Juno HPC cluster
 
@@ -44,17 +40,7 @@ Clone the repository and checkout the develop branch for the most up-to-date ver
 
 {% code lineNumbers="true" %}
 ```
-git clone --recursive https://github.com/msk-access/nucleo_qc.git
-cd nucleo_qc
-git checkout develop
-git submodule update --init --recursive --merge
-cd cwl_subworkflows/
-git checkout develop
-cd command_line_tools/
-git checkout develop
-cd ../..
-cd cwl-commandlinetools/
-git checkout develop
+git clone --recursive --branch release/1.0.0 https://github.com/msk-access/nucleo_qc.git
 ```
 {% endcode %}
 
