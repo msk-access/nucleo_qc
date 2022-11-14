@@ -14,10 +14,11 @@ description: >-
 
 Here we can use either virtualenv or conda.&#x20;
 
-{% code title="installing_python_packages" %}
+{% code title="python3-virtualenv" %}
 ```bash
-conda create --name nucleo_qc_project python=3.9
-conda activate nucleo_qc_project
+pip3 install virtualenv
+python3 -m venv my_project
+source my_project/bin/activate
 ```
 {% endcode %}
 
@@ -25,9 +26,17 @@ conda activate nucleo_qc_project
 
 ### Option (B) - recommended for Juno HPC cluster
 
-If you are using toil, python 3 is required. Please install using Python 3.6 as done below:Here we can use eithervirtualenvorconda.&#x20;
+If you are using toil, python 3 is required. Please install using Python 3.6 as done below:
 
+Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
 
+{% code title="python3-virtaulenv" %}
+```bash
+pip install virtualenv
+virtualenv my_project
+source my_project/bin/activate
+```
+{% endcode %}
 
 ## Step 2: Clone the repository
 
@@ -148,5 +157,5 @@ toil-cwl-runner \
 {% endtabs %}
 
 {% hint style="info" %}
-See /
+See workflow [outputs](workflow-outputs.md) sections
 {% endhint %}
