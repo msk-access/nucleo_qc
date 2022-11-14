@@ -1,12 +1,35 @@
 ---
 description: >-
-  You must have run the Nucleo workflow first before running any of the
-  MSK-ACCESS QC workflows.
+  You must have run the main Nucleo workflow first before running the Nucleo QC
+  workflows.
 ---
 
 # Installation and Usage
 
-## Step 1: Clone the repository
+## Step 1: Create a virtual environment. <a href="#step-1-create-a-virtual-environment." id="step-1-create-a-virtual-environment."></a>
+
+### **Option (A) - if using cwltool,**
+
+### &#x20;**please proceed using python 3.6 as done below:**&#x20;
+
+Here we can use either virtualenv or conda.&#x20;
+
+{% code title="installing_python_packages" %}
+```bash
+conda create --name nucleo_qc_project python=3.9
+conda activate nucleo_qc_project
+```
+{% endcode %}
+
+
+
+### Option (B) - recommended for Juno HPC cluster
+
+If you are using toil, python 3 is required. Please install using Python 3.6 as done below:Here we can use eithervirtualenvorconda.&#x20;
+
+
+
+## Step 2: Clone the repository
 
 Clone the repository and checkout the develop branch for the most up-to-date version:
 
@@ -28,43 +51,12 @@ git checkout develop
 
 
 
-## Step 1: Create a virtual environment. <a href="#step-1-create-a-virtual-environment." id="step-1-create-a-virtual-environment."></a>
-
-Option (A) - if using cwltool, please proceed using python 3.6 as done below: Here we can use either virtualenv or conda.&#x20;
-
-Here we will use virtualenv.
-
-`pip3 install virtualenv`
-
-`python3 -m venv my_project`
-
-`source my_project/bin/activate`
-
-Option (B) - recommended for Juno HPC clusterIf you are using toil, python 3 is required. Please install using Python 3.6 as done below:Here we can use eithervirtualenvorconda.&#x20;
-
-Here we will use virtualenv.
-
-`pip install virtualenv`
-
-`virtualenv my_project`
-
-`source my_project/bin/activate`
-
-Once you execute the above command you will see your bash prompt something on this lines:
-
-`(my_project)[server]$`
-
-Step 2: Clone the repository
-
-`git clone --recursive --branch develop https://github.com/msk-access/access_qc_generation.git`
-
-Note: The develop branch is the latest stable release of the pipeline
-
 ## Step 3: Install requirements using pip <a href="#step-3-install-requirements-using-pip" id="step-3-install-requirements-using-pip"></a>
 
 We have already specified the version of cwltool and other packages in the requirements.txt file. Please use this to install.
 
-python3 pip3 install -r requirements.txt
+<pre class="language-bash" data-title="installing_python_packages"><code class="lang-bash"><strong>cd nucleo_qc
+</strong><strong>python3 pip3 install -r requirements.txt</strong></code></pre>
 
 ## Step 4: Generate an inputs file <a href="#step-4-generate-an-inputs-file" id="step-4-generate-an-inputs-file"></a>
 
@@ -72,18 +64,89 @@ Next you must generate a proper input file in either [json](https://www.json.org
 
 It's also possible to create and fill in a "template" inputs file using this command:
 
-`$ cwltool --make-template nucleo.cwl > inputs.yaml`
+```
+cwltool --make-template nucleo.cwl > inputs.yaml
+```
 
 Note: To see help for the inputs for cwl workflow you can use:&#x20;
 
-`toil-cwl-runner nucleo.cwl --help`
+```
+toil-cwl-runner nucleo.cwl --help
+```
 
 Once we have successfully installed the requirements we can now run the workflow using _cwltool/toil_ .
 
 ## Step 5: Run the workflow <a href="#step-5-run-the-workflow" id="step-5-run-the-workflow"></a>
 
-Using toil-cwl-runner locally Using toil-cwl-runner on JUNOHere we show how to use [cwltool](https://github.com/common-workflow-language/cwltool) to run the workflow on a single machine, such as a laptop
+{% tabs %}
+{% tab title="Using cwltool locally" %}
+Here we show how to use [cwltool](https://github.com/common-workflow-language/cwltool) to run the workflow on a single machine, such as a laptop
 
-#### Run the workflow with a given set of input using [cwltool](https://github.com/common-workflow-language/cwltool) on single machine <a href="#run-the-workflow-with-a-given-set-of-input-using-cwltool-on-single-machine" id="run-the-workflow-with-a-given-set-of-input-using-cwltool-on-single-machine"></a>
+#### Run the workflow with a given set of input using [cwltool](https://github.com/common-workflow-language/cwltool) on single machine
 
-To generate the QC files for one sample:cwltool nucleo.cwl inputs.yamlYour workflow should now be running on the specified batch system. See [outputs](https://github.com/msk-access/access\_qc\_generation/tree/5087428d557571e8a6cfea17b46ad8c22fd96ca1/docs/outputs-description.md) for a description of the resulting files when is it completed.PreviousRequirementsNextInputs Description\
+```
+cwltool nucleo.cwl inputs.yaml
+```
+{% endtab %}
+
+{% tab title="using toil-cwl-runner locally" %}
+Here we show how to run the workflow using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) using single machine interface
+
+Once we have successfully installed the requirements we can now run the workflow using _cwltool_ if you have proper input file generated either in [json](https://www.json.org/) or [yaml](https://yaml.org/) format. Please look at [Inputs Description](broken-reference) for more details.
+
+#### Run the workflow with a given set of input using [toil](https://toil.readthedocs.io/en/latest/running/introduction.html) on single machine
+
+```
+toil-cwl-runner nucleo.cwl inputs.yaml
+```
+{% endtab %}
+
+{% tab title="using cwltool on selene" %}
+You can also run using cwltool on selene using singularity (`module load singularity/3.7.1`)
+
+```
+nohup cwltool --singularity --outdir /path/to/outdir nucleo.cwl inputs.yaml
+```
+{% endtab %}
+
+{% tab title="Using toil-cwl-runner on JUNO" %}
+Here we show how to run the workflow using [toil-cwl-runner](https://toil.readthedocs.io/en/latest/running/introduction.html) on MSKCC internal compute cluster called JUNO which has [IBM LSF](https://www.ibm.com/support/knowledgecenter/en/SSETD4/product\_welcome\_platform\_lsf.html) as a scheduler.
+
+Note the use of `--singularity`to convert Docker containers into singularity containers, the `TMPDIR` environment variable to avoid writing temporary files to shared disk space, the `_JAVA_OPTIONS` environment variable to specify java temporary directory to `/scratch`, using `SINGULARITY_BINDPATH` environment variable to bind the `/scratch` when running singularity containers and `TOIl_LSF_ARGS` to specify any additional arguments to `bsub`commands that the jobs should have (in this case, setting a max wall-time of 6 hours).
+
+Run the workflow with a given set of input using [toil](https://toil.readthedocs.io/en/latest/running/introduction.html) on JUNO (MSKCC Research Cluster)
+
+{% code title="toil-lsf-execution" %}
+```bash
+TMPDIR=$PWD
+TOIL_LSF_ARGS='-W 3600 -P test_nucleo_qc -app anyOS -R select[type==CentOS7]'
+_JAVA_OPTIONS='-Djava.io.tmpdir=/scratch/'
+SINGULARITY_BINDPATH='/scratch:/scratch:rw'
+toil-cwl-runner \
+       --singularity \
+       --logFile ./example.log  \
+       --jobStore ./example_jobStore \
+       --batchSystem lsf \
+       --workDir ./example_working_directory/ \
+       --outdir $PWD \
+       --writeLogs ./example_log_folder/ \
+       --logLevel DEBUG \
+       --stats \
+       --retryCount 2 \
+       --disableCaching \
+       --disableChaining \
+       --preserve-environment TOIL_LSF_ARGS TMPDIR \
+       --maxLogFileSize 20000000000 \
+       --cleanWorkDir onSuccess \
+       nucleo_qc.cwl \
+       inputs.yaml \
+       > toil.stdout \
+       2> toil.stderr 
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+See /
+{% endhint %}
