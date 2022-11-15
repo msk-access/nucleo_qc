@@ -10,13 +10,14 @@ description: >-
 
 ### **Option (A) - if using cwltool**
 
-Here we can use either virtualenv or conda.&#x20;
+If you are using cwltool only, please proceed using python 3.9 as done below:
 
-{% code title="python3-virtualenv" %}
+Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use conda. The
+
+{% code title="python3-conda" %}
 ```bash
-pip3 install virtualenv
-python3 -m venv my_project
-source my_project/bin/activate
+conda create --name nucleo_qc_project python=3.9
+conda activate nucleo_qc_project
 ```
 {% endcode %}
 
@@ -28,9 +29,8 @@ Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](http
 
 {% code title="python3-virtaulenv" %}
 ```bash
-pip install virtualenv
-virtualenv my_project
-source my_project/bin/activate
+conda create --name nucleo_qc_project python=3.9
+conda activate nucleo_qc_project
 ```
 {% endcode %}
 
@@ -44,7 +44,9 @@ git clone --recursive --branch release/1.0.0 https://github.com/msk-access/nucle
 ```
 {% endcode %}
 
-
+{% hint style="warning" %}
+Replace _release/1.0.0_ with the latest stable release of the pipeline
+{% endhint %}
 
 ## Step 3: Install requirements using pip <a href="#step-3-install-requirements-using-pip" id="step-3-install-requirements-using-pip"></a>
 
@@ -53,11 +55,11 @@ We have already specified the version of cwltool and other packages in the requi
 <pre class="language-bash" data-title="installing_python_packages"><code class="lang-bash"><strong>cd nucleo_qc
 </strong><strong>python3 pip3 install -r requirements.txt</strong></code></pre>
 
-## Step 4: Check if you have singularity and nodejs for HPC
+## Step 4: Load singularity and nodejs for HPC
 
-For HPC normally singularity is used for containers. Thus please make sure that is installed. For JUNO, you can do the following:
+For HPC normally singularity is used for containers. Therefore, please make sure that it is loaded. For JUNO/SELENE, you can do the following:
 
-{% code title="load-singularity-on-juno" %}
+{% code title="load-singularity-on-juno-selene" %}
 ```bash
 module load singularity/3.7.1
 ```
@@ -68,7 +70,7 @@ We also need to make sure nodejs is installed, this can be installed using conda
 <pre class="language-shell" data-title="conda-install-nodejs"><code class="lang-shell"><strong>conda install -c conda-forge nodejs</strong></code></pre>
 
 {% hint style="info" %}
-If you are having issues with the initial set-up (venv conda/node.js) please refer to the [manual](https://app.gitbook.com/s/-MXY9KcVjrKoEWe0OQVs/common-operations/initial-setup)
+If you are having issues with the initial set-up (venv/conda/node.js) please refer to the [manual](https://app.gitbook.com/s/-MXY9KcVjrKoEWe0OQVs/common-operations/initial-setup)
 {% endhint %}
 
 ## Step 5: Generate an inputs file <a href="#step-4-generate-an-inputs-file" id="step-4-generate-an-inputs-file"></a>
@@ -78,13 +80,13 @@ Next you must generate a proper input file in either [json](https://www.json.org
 It's also possible to create and fill in a "template" inputs file using this command:
 
 ```
-cwltool --make-template nucleo.cwl > inputs.yaml
+cwltool --make-template nucleo_qc.cwl > inputs.yaml
 ```
 
 Note: To see help for the inputs for cwl workflow you can use:&#x20;
 
 ```
-toil-cwl-runner nucleo.cwl --help
+toil-cwl-runner nucleo_qc.cwl --help
 ```
 
 Once we have successfully installed the requirements we can now run the workflow using _cwltool/toil_ .
@@ -98,7 +100,7 @@ Here we show how to use [cwltool](https://github.com/common-workflow-language/cw
 #### Run the workflow with a given set of input using [cwltool](https://github.com/common-workflow-language/cwltool) on single machine
 
 ```
-cwltool nucleo.cwl inputs.yaml
+cwltool nucleo_qc.cwl inputs.yaml
 ```
 {% endtab %}
 
@@ -110,7 +112,7 @@ Once we have successfully installed the requirements we can now run the workflow
 #### Run the workflow with a given set of input using [toil](https://toil.readthedocs.io/en/latest/running/introduction.html) on single machine
 
 ```
-toil-cwl-runner nucleo.cwl inputs.yaml
+toil-cwl-runner nucleo_qc.cwl inputs.yaml
 ```
 {% endtab %}
 
@@ -118,7 +120,7 @@ toil-cwl-runner nucleo.cwl inputs.yaml
 You can also run using cwltool on selene using singularity (`module load singularity/3.7.1`)
 
 ```
-nohup cwltool --singularity --outdir /path/to/outdir nucleo.cwl inputs.yaml
+nohup cwltool --singularity --outdir /path/to/outdir nucleo_qc.cwl inputs.yaml
 ```
 {% endtab %}
 
