@@ -75,7 +75,7 @@ If you are having issues with the initial set-up (venv/conda/node.js) please ref
 
 ## Step 5: Generate an inputs file <a href="#step-4-generate-an-inputs-file" id="step-4-generate-an-inputs-file"></a>
 
-Next you must generate a proper input file in either [json](https://www.json.org/) or [yaml](https://yaml.org/) format.For details on how to create this file, please follow this example (there is a minimal example of what needs to be filled in at the end of the page):​
+Next you must generate a proper input file in either [json](https://www.json.org/) or [yaml](https://yaml.org/) format.For details on how to create this file, please follow this example (there is a minimal example of what needs to be filled in in the workflow inputs [section](workflow-inputs.md)):​
 
 It's also possible to create and fill in a "template" inputs file using this command:
 
@@ -93,6 +93,12 @@ Once we have successfully installed the requirements we can now run the workflow
 
 ## Step 5: Run the workflow <a href="#step-5-run-the-workflow" id="step-5-run-the-workflow"></a>
 
+Given the output files from [Nucleo](https://github.com/msk-access/nucleo), there are workflows to generate the quality control files, aggregate them files across many samples, and visualize them using MultQC. You can choose to run these workflows whether you have just one or hundreds of samples. Depending on your use case, there are two main options:
+
+Option 1:
+
+Generate a single inputs.yml file for all your samples and run nucleo\_qc.cwl. This will generate a single MultiQC report with all the samples. The samples you selected do run together may be from a single batch.
+
 {% tabs %}
 {% tab title="Using cwltool locally" %}
 Here we show how to use [cwltool](https://github.com/common-workflow-language/cwltool) to run the workflow on a single machine, such as a laptop
@@ -100,7 +106,7 @@ Here we show how to use [cwltool](https://github.com/common-workflow-language/cw
 #### Run the workflow with a given set of input using [cwltool](https://github.com/common-workflow-language/cwltool) on single machine
 
 ```
-cwltool nucleo_qc.cwl inputs.yaml
+cwltool nucleo_qc.cwl inputs_nucleo_qc.yaml
 ```
 {% endtab %}
 
@@ -112,7 +118,7 @@ Once we have successfully installed the requirements we can now run the workflow
 #### Run the workflow with a given set of input using [toil](https://toil.readthedocs.io/en/latest/running/introduction.html) on single machine
 
 ```
-toil-cwl-runner nucleo_qc.cwl inputs.yaml
+toil-cwl-runner nucleo_qc.cwl inputs_nucleo_qc.yaml
 ```
 {% endtab %}
 
@@ -120,7 +126,7 @@ toil-cwl-runner nucleo_qc.cwl inputs.yaml
 You can also run using cwltool on selene using singularity (`module load singularity/3.7.1`)
 
 ```
-nohup cwltool --singularity --outdir /path/to/outdir nucleo_qc.cwl inputs.yaml
+nohup cwltool --singularity --outdir /path/to/outdir nucleo_qc.cwl inputs_nucleo_qc.yaml.yaml
 ```
 {% endtab %}
 
@@ -154,7 +160,7 @@ toil-cwl-runner \
        --maxLogFileSize 20000000000 \
        --cleanWorkDir onSuccess \
        nucleo_qc.cwl \
-       inputs.yaml \
+       inputs_nucleo_qc.yaml \
        > toil.stdout \
        2> toil.stderr 
 ```
@@ -162,6 +168,13 @@ toil-cwl-runner \
 {% endtab %}
 {% endtabs %}
 
+Option 2:
+
+Generate multiple inputs\__nucleo\__qc.yml files for each sample or batches and run nucleo_qc.cwl seperately on each. This will generate multiple outputs and multiple MultiQC reports. In order to rejoin all the outputs to a single MultiQC report you must then run nucleo\_aggregate\_visualize.cwl._
+
+__
+
 {% hint style="info" %}
-See workflow [outputs](workflow-outputs.md) sections
+See workflow [outputs](workflow-outputs/) sections
 {% endhint %}
+
