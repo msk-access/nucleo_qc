@@ -75,7 +75,7 @@ If you are having issues with the initial set-up (venv/conda/node.js) please ref
 
 ## Step 5: Generate an inputs file <a href="#step-4-generate-an-inputs-file" id="step-4-generate-an-inputs-file"></a>
 
-Next you must generate a proper input file in either [json](https://www.json.org/) or [yaml](https://yaml.org/) format.For details on how to create this file, please follow this example (there is a minimal example of what needs to be filled in in the workflow inputs [section](workflow-inputs.md)):​
+Next you must generate a proper input file in either [json](https://www.json.org/) or [yaml](https://yaml.org/) format.For details on how to create this file, please follow this example (there is a minimal example of what needs to be filled in in the workflow inputs [section](workflow-inputs/)):​
 
 It's also possible to create and fill in a "template" inputs file using this command:
 
@@ -170,7 +170,7 @@ toil-cwl-runner \
 
 Option 2:
 
-Generate multiple inputs\__nucleo\__qc.yml files for each sample or batches and run nucleo_qc.cwl seperately on each. This will generate multiple outputs and multiple MultiQC reports. In order to rejoin all the outputs to a single MultiQC report you must then run nucleo\_aggregate\_visualize.cwl._
+Generate multiple inputs\__nucleoqc.yml files for each sample or batches and run nucleoqc.cwl seperately on each. This will generate multiple outputs and multiple MultiQC reports. In order to rejoin all the outputs to a single MultiQC report you must then run nucleo\_aggregate\_visualize.cwl_. S
 
 __
 
