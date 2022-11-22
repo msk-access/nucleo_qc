@@ -25,7 +25,7 @@ conda activate nucleo_qc_project
 
 If you are using toil, python 3 is required. Please install using Python 3.6 as done below:
 
-Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use virtualenv.
+Here we can use either [virtualenv](https://virtualenv.pypa.io/) or [conda](https://docs.conda.io/en/latest/). Here we will use conda.
 
 {% code title="python3-virtaulenv" %}
 ```bash
