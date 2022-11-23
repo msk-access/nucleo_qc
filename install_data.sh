@@ -2,9 +2,9 @@
 
 
 # Test data is hosted on Google Drive at:
-# https://drive.google.com/drive/folders/1RPVfKqUccvNscab19J3Da3qgPrEcK7G0?usp=sharing
+# https://drive.google.com/file/d/1i1GA4AZhuw6Si8RmPFPJxmejIUt3ZZ1D/view?usp=sharing
 
-fileid=1RPVfKqUccvNscab19J3Da3qgPrEcK7G0
+fileid=1i1GA4AZhuw6Si8RmPFPJxmejIUt3ZZ1D
 
 filename=test_nucleo_qc.tar.gz
 foldername=test_nucleo_qc
