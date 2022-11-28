@@ -264,7 +264,8 @@ steps:
           - duplex_biometrics_genotype/biometrics_genotype_plot_input_database
           - duplex_biometrics_genotype/biometrics_genotype_plot_input
           - duplex_biometrics_genotype/biometrics_genotype_comparisons
-          - duplex_biometrics_genotype/biometrics_genotype_cluster_input_database
+          - >-
+            duplex_biometrics_genotype/biometrics_genotype_cluster_input_database
           - duplex_biometrics_genotype/biometrics_genotype_cluster_input
           - duplex_biometrics_minor/biometrics_minor_sites_plot
           - duplex_biometrics_minor/biometrics_minor_plot
@@ -380,10 +381,12 @@ steps:
     in:
       - id: files
         source:
-          - collapsed_biometrics_genotype/biometrics_genotype_plot_input_database
+          - >-
+            collapsed_biometrics_genotype/biometrics_genotype_plot_input_database
           - collapsed_biometrics_genotype/biometrics_genotype_plot_input
           - collapsed_biometrics_genotype/biometrics_genotype_comparisons
-          - collapsed_biometrics_genotype/biometrics_genotype_cluster_input_database
+          - >-
+            collapsed_biometrics_genotype/biometrics_genotype_cluster_input_database
           - collapsed_biometrics_genotype/biometrics_genotype_cluster_input
           - collapsed_biometrics_major/biometrics_major_plot
           - collapsed_biometrics_major/biometrics_major_json
