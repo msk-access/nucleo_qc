@@ -40,11 +40,7 @@ jobs:
                 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
                 nvm install node
             - name: Setup Docker   
-              uses: docker-practice/actions-setup-docker@master
-              with:
-                docker_channel: nightly
-              # this value please see https://github.com/AkihiroSuda/moby-snapshot/releases
-                docker_nightly_version: snapshot-20201109
+              uses: docker/build-push-action@v3.2.0
               env:
                 PLATFORM: ${{ matrix.platform }}
 
