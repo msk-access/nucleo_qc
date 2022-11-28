@@ -41,9 +41,6 @@ jobs:
                 nvm install node
             - name: Setup Docker   
               uses: docker/build-push-action@v3.2.0
-              env:
-                PLATFORM: ${{ matrix.platform }}
-
             - name: Dependencies
               run: |
                   pip install -r requirements.txt
