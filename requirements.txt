@@ -4,7 +4,6 @@ typing
 ruamel.yaml
 pip
 bumpversion
-gdown
 wheel
 watchdog
 flake8
