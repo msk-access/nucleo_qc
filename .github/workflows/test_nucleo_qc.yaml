@@ -47,4 +47,4 @@ jobs:
                   bash install_data.sh
             - name: Pytest
               run: |
-                  pytest
+                  tox
