@@ -22,7 +22,7 @@ jobs:
                 python-version: [3.10.8]
         steps:
             - name: Check Docker Version
-                run: docker --version
+              run: docker --version
             - name: Checkout
               uses: actions/checkout@v3
               with:
