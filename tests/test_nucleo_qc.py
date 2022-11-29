@@ -77,27 +77,26 @@ def test_aggregate_visual(platform):
     """
     
     logging.info("### SETUP ###")
-    with open(OUTPUT_JSON_AGGREGATE_FILENAME, "w") as json:
-        if platform == "singularity":
-            cmd = [
-                "cwltool",
-                "--singularity",
-                "nucleo_aggregate_visualize.cwl",
-                "tests/inputs/nucleo_agg_vis_2.yaml",
-            ]
-        elif platform == "docker": 
-            cmd = [
-                "cwltool",
-                "nucleo_aggregate_visualize.cwl",
-                "tests/inputs/nucleo_agg_vis_2.yaml",
-            ]
-        else: 
-            assert platform in ['docker', 'singularity'] 
+    if platform == "singularity":
+        cmd = [
+            "cwltool",
+            "--singularity",
+            "nucleo_aggregate_visualize.cwl",
+            "tests/inputs/nucleo_agg_vis_2.yaml",
+        ]
+    elif platform == "docker": 
+        cmd = [
+            "cwltool",
+            "nucleo_aggregate_visualize.cwl",
+            "tests/inputs/nucleo_agg_vis_2.yaml",
+        ]
+    else: 
+        assert platform in ['docker', 'singularity'] 
 
-        logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
-        process = subprocess.Popen(cmd)
-        ret_code = process.wait()
-        assert process.returncode == 0, process.stderr
+    logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
+    process = subprocess.Popen(cmd)
+    ret_code = process.wait()
+    assert process.returncode == 0, process.stderr
         
 
 
