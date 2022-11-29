@@ -94,8 +94,8 @@ def test_aggregate_visual(platform):
         assert platform in ['docker', 'singularity'] 
 
     logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
-    process = subprocess.Popen(cmd)
-    ret_code = process.wait()
+    process = subprocess.run(cmd)
+    #ret_code = process.wait()
     assert process.returncode == 0, process.stderr
         
 
@@ -107,6 +107,5 @@ def test_aggregate_visual_output():
     """
     logging.info(
     "### Check if json file exists and check some basic stats ###")
-    assert os.path.exists(OUTPUT_JSON_AGGREGATE_FILENAME )
     assert (os.path.isfile('multiqc_1.10.1.7/multiqc_1.10.1.7.html') )
     shutil.rmtree('multiqc_1.10.1.7')
