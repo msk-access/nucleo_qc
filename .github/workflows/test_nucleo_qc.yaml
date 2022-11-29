@@ -48,4 +48,4 @@ jobs:
                   bash install_data.sh
             - name: Pytest
               run: |
-                  tox
+                  tox -vv
