@@ -95,7 +95,7 @@ def test_aggregate_visual(platform):
             assert platform in ['docker', 'singularity'] 
 
         logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
-        process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True)
+        process = subprocess.Popen(cmd)
         ret_code = process.wait()
         assert process.returncode == 0, process.stderr
         
