@@ -53,7 +53,8 @@ Replace _release/1.0.0_ with the latest stable release of the pipeline
 We have already specified the version of cwltool and other packages in the requirements.txt file. Please use this to install.
 
 <pre class="language-bash" data-title="installing_python_packages"><code class="lang-bash"><strong>cd nucleo_qc
-</strong><strong>python3 pip3 install -r requirements.txt</strong></code></pre>
+</strong><strong>python3 pip3 install -r requirements.txt
+</strong></code></pre>
 
 ## Step 4: Load singularity and nodejs for HPC
 
@@ -67,7 +68,8 @@ module load singularity/3.7.1
 
 We also need to make sure nodejs is installed, this can be installed using conda:
 
-<pre class="language-shell" data-title="conda-install-nodejs"><code class="lang-shell"><strong>conda install -c conda-forge nodejs</strong></code></pre>
+<pre class="language-shell" data-title="conda-install-nodejs"><code class="lang-shell"><strong>conda install -c conda-forge nodejs
+</strong></code></pre>
 
 {% hint style="info" %}
 If you are having issues with the initial set-up (venv/conda/node.js) please refer to the [manual](https://app.gitbook.com/s/-MXY9KcVjrKoEWe0OQVs/common-operations/initial-setup)
@@ -170,7 +172,9 @@ toil-cwl-runner \
 
 Option 2:
 
-Generate multiple inputs\__nucleoqc.yml files for each sample or batches and run nucleoqc.cwl seperately on each. This will generate multiple outputs and multiple MultiQC reports. In order to rejoin all the outputs to a single MultiQC report you must then run nucleo\_aggregate\_visualize.cwl_. S
+Generate multiple yaml files _for each sample or sample batches and run nucleo\_qc.cwl seperately on each. This will generate multiple outputs and multiple single sample MultiQC reports. In order to rejoin all samples to a single MultiQC report you must generate nucleo\_aggregate\_visualize.yml file (_[_see option 3_](workflow-inputs/)_) and then run nucleo\_aggregate\_visualize.cwl (Figure 4)._
+
+<figure><img src="../.gitbook/assets/iScreen Shoter - 2022-12-06 100846.903.png" alt=""><figcaption><p>Figure 4. Generate single sample outputs with the possibility to create a single MultiQC report with multiple samples.</p></figcaption></figure>
 
 __
 
