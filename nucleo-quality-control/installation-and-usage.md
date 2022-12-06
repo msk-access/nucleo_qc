@@ -172,7 +172,7 @@ toil-cwl-runner \
 
 Option 2:
 
-Generate multiple yaml files _for each sample or sample batches and run nucleo\_qc.cwl seperately on each. This will generate multiple outputs and multiple single sample MultiQC reports. In order to rejoin all samples to a single MultiQC report you must generate nucleo\_aggregate\_visualize.yml file (_[_see option 3_](workflow-inputs/)_) and then run nucleo\_aggregate\_visualize.cwl (Figure 4)._
+Generate multiple yaml files _for each sample or sample batches and run nucleo\_qc.cwl seperately on each. This will generate multiple outputs and multiple single sample MultiQC reports. In order to rejoin all samples to a single MultiQC report you must generate nucleo\_aggregate\_visualize.yml file (_[_see template_](workflow-inputs/input-for-nucleo\_aggregate\_visualize.cwl.md)_) and then run nucleo\_aggregate\_visualize.cwl (Figure 4)._
 
 <figure><img src="../.gitbook/assets/iScreen Shoter - 2022-12-06 100846.903.png" alt=""><figcaption><p>Figure 4. Generate single sample outputs with the possibility to create a single MultiQC report with multiple samples.</p></figcaption></figure>
 
