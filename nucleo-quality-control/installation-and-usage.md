@@ -179,6 +179,6 @@ Generate multiple yaml files _for each sample or sample batches and run nucleo\_
 __
 
 {% hint style="info" %}
-See workflow [outputs](workflow-outputs/) sections
+See workflow [outputs](workflow-outputs.md) sections
 {% endhint %}
 
