@@ -95,9 +95,9 @@ Once we have successfully installed the requirements we can now run the workflow
 
 ## Step 5: Run the workflow <a href="#step-5-run-the-workflow" id="step-5-run-the-workflow"></a>
 
-Given the output files from [Nucleo](https://github.com/msk-access/nucleo), there are workflows to generate the quality control files, aggregate them files across many samples, and visualize them using MultQC. You can choose to run these workflows whether you have just one or hundreds of samples. Depending on your use case, there are two main options:
+Given the output files from [Nucleo](https://github.com/msk-access/nucleo), there are workflows to generate the quality control files, aggregate the files across many samples, and visualize them using MultQC. You can choose to run these workflows whether you have just one or hundreds of samples. Depending on your use case, there are two main options:
 
-Option 1:
+#### Option A:
 
 Generate a single inputs.yml file for all your samples and run nucleo\_qc.cwl. This will generate a single MultiQC report with all the samples. The samples you selected do run together may be from a single batch.
 
@@ -170,7 +170,7 @@ toil-cwl-runner \
 {% endtab %}
 {% endtabs %}
 
-Option 2:
+#### Option B:
 
 Generate multiple yaml files _for each sample or sample batches and run nucleo\_qc.cwl seperately on each. This will generate multiple outputs and multiple single sample MultiQC reports. In order to rejoin all samples to a single MultiQC report you must generate nucleo\_aggregate\_visualize.yml file (_[_see template_](workflow-inputs/input-for-nucleo\_aggregate\_visualize.cwl.md)_) and then run nucleo\_aggregate\_visualize.cwl (Figure 4)._
 
