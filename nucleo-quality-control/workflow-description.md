@@ -18,6 +18,6 @@ Figure 2 depicts the qc aggregator workflow that aggregates the qc files generat
 
 2\. To generate all the QC files in a single step run the main workflow nucleo\_qc.cwl (Figure 3). This workflow is made up of the two previous subworkflows seen in Figure 1 and 2.&#x20;
 
-<figure><img src="../.gitbook/assets/iScreen Shoter - 2022-10-28 144132.119.png" alt=""><figcaption><p>Figure 3. Main workflow nucleo_qc.cwl</p></figcaption></figure>
-
-&#x20;\*Note: Use the second method by running nucleo\_qc.cwl. You can always generate single sample multiQC reports by running nucleo\__aggregate\_visualize.cwl on the sample QC folders produced by nucleo\_qc.cwl._
+{% hint style="info" %}
+Use the second method by running nucleo\_qc.cwl. You can always generate single sample multiQC reports by running nucleo\__aggregate\_visualize.cwl on the sample QC folders produced by nucleo\_qc.cwl._
+{% endhint %}
