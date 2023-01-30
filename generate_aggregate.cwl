@@ -1,8 +1,9 @@
 class: Workflow
 cwlVersion: v1.0
-id: nucleo_qc_heme
-label: nucleo_qc_heme
+id: generate_aggregate
+label: generate_aggregate
 $namespaces:
+  s: 'https://schema.org/'
   sbg: 'https://www.sevenbridges.com/'
 inputs:
   - id: reference
@@ -277,3 +278,21 @@ steps:
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
+  - class: StepInputExpressionRequirement
+  - class: InlineJavascriptRequirement
+$schemas:
+  - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
+'s:author':
+  - class: 's:Person'
+    's:email': 'mailto:charalk@mskcc.org'
+    's:identifier': ''
+    's:name': Carmelina Charalambous
+'s:citation': ''
+'s:codeRepository': 'https://github.com/msk-access/nucleo'
+'s:contributor':
+  - class: 's:Person'
+    's:email': 'mailto:shahr2@mskcc.org'
+    's:identifier': 'https://orcid.org/0000-0001-9042-6213'
+    's:name': Ronak Shah
+'s:dateCreated': '2020-11-23'
+'s:license': 'https://spdx.org/licenses/Apache-2.0'
