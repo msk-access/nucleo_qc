@@ -1,0 +1,125 @@
+multiqc_config:
+  class: File
+  path: ../../multiqc_configs/config_ch.yaml
+samples-json:
+  class: File
+  path: test_data/access_qc_testing_samples.json
+biometrics_bed_file:
+  class: File
+  path: test_data/picard_baits.bed
+
+biometrics_json: true
+biometrics_plot: true
+biometrics_vcf_file:
+  class: File
+  path: test_data/fp_tiling_snps.vcf
+
+fragment_count: 1
+filter_duplicate: 0
+omaf: true
+generic_counting: true
+
+mosdepth_bed:
+  class: File
+  path: test_data/panel_bed_file_athena_CH_nodup.bed
+
+collapsed_biometrics_coverage_threshold: null
+collapsed_biometrics_major_threshold: null
+collapsed_biometrics_min_base_quality: null
+collapsed_biometrics_min_coverage: null
+collapsed_biometrics_min_homozygous_thresh: null
+collapsed_biometrics_min_mapping_quality: null
+collapsed_biometrics_minor_threshold: null
+
+duplex_biometrics_min_base_quality: null
+duplex_biometrics_min_coverage: null
+duplex_biometrics_min_homozygous_thresh: null
+duplex_biometrics_min_mapping_quality: null
+duplex_biometrics_minor_threshold: null
+
+collapsed_bam:
+- class: File
+  path: test_data/Myeloid200-2-05500HJ_P20_collapsed_fx_down_0.001.bam
+  secondaryFiles:
+  - class: File
+    path: test_data/Myeloid200-2-05500HJ_P20_collapsed_fx_down_0.001.bai
+
+duplex_bam:
+- class: File
+  path: test_data/Myeloid200-2-05500HJ_P20_collapsed_duplex_down_0.04.bam
+  secondaryFiles:
+  - class: File
+    path: test_data/Myeloid200-2-05500HJ_P20_collapsed_duplex_down_0.04.bai
+
+group_reads_by_umi_bam:
+- class: File
+  path:  test_data/Myeloid200-2-05500HJ_uncollapsed_FM_P20_group_down_0.001.bam
+simplex_bam:
+- class: File
+  path:  test_data/Myeloid200-2-05500HJ_P20_collapsed_simplex_down_0.001.bam
+  secondaryFiles:
+  - class: File
+    path: test_data/Myeloid200-2-05500HJ_P20_collapsed_simplex_down_0.001.bai
+
+uncollapsed_bam_base_recal:
+- class: File
+  path: test_data/Myeloid200-1-05500HJ_uncollapsed_FM_P20_down_0.001.bam
+  secondaryFiles:
+  - class: File
+    path: test_data/Myeloid200-1-05500HJ_uncollapsed_FM_P20_down_0.001.bai
+
+athena_transcript_file:
+  class: File
+  path: test_data/CH_transcript_pad3bp_athena_nodup.bed
+athena_build:
+  class: File
+  path: test_data/reference_build.txt
+athena_thresholds: [250,500,1000,1500,2000]
+athena_threshold: 500
+athena_summary: true
+athena_vcf:
+  class: File
+  path: test_data/CH-hotspot-list-union-v1-v2_with_TERT.vcf
+athena_cores: 4
+
+sample_group:
+- C-UJ1WNV
+
+sample_name:
+- Myeloid200-2-05500HJ_P20
+
+sample_sex:
+- Unknown
+
+
+hsmetrics_coverage_cap: 30000
+hsmetrics_minimum_base_quality: 1
+hsmetrics_minimum_mapping_quality: 1
+
+noise_sites_bed:
+  class: File
+  path: test_data/picard_baits.bed
+bait_intervals:
+  class: File
+  path: test_data/picard_baits.interval_list
+target_intervals:
+  class: File
+  path: test_data/picard_baits.interval_list
+
+reference:
+  class: File
+  path: test_data/Homo_sapiens_assembly19.fasta
+  secondaryFiles:
+  - class: File
+    path: test_data/Homo_sapiens_assembly19.fasta.fai
+  - class: File
+    path: test_data/Homo_sapiens_assembly19.dict
+
+hotspots_maf:
+  class: File
+  path: test_data/hotspot-list-ch-pd-v1.maf
+
+sequence_qc_min_basq: 1
+sequence_qc_min_mapq: 1
+sequence_qc_threshold: null
+sequence_qc_truncate: null
