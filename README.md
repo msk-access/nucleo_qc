@@ -1,16 +1,15 @@
-# Nucleo QC generation
+# Nucleo Quality Control
 
 Workflows that generate, aggregate, and visualize quality control files for the Nucleo pipeline.
 
-* Free software: Apache Software License 2.0
-* Documentation: [https://msk-access.gitbook.io/access-quality-control-v2/](https://msk-access.gitbook.io/access-quality-control-v2/)
+* Documentation: [https://cmo-ci.gitbook.io/nucleo-quality-control/](https://cmo-ci.gitbook.io/nucleo-quality-control/)
 
 ## Installation
 
 Clone the repository:
 
 ```
-git clone --depth 50 https://github.com/msk-access/nucleo_qc_generation.git
+git clone --depth 50 https://github.com/msk-access/nucleo_qc.git
 ```
 
 ## Credits
