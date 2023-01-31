@@ -117,7 +117,7 @@ reference:
 
 hotspots_maf:
   class: File
-  path: test_data/hotspot-list-union-v1-v2_with_TERT.maf
+  path: test_data/hotspot-list-ch-pd-v1.maf
 
 sequence_qc_min_basq: 1
 sequence_qc_min_mapq: 1

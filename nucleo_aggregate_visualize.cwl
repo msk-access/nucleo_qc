@@ -1,8 +1,11 @@
 class: Workflow
 cwlVersion: v1.0
 id: aggregate_visualize
+doc: >-
+  This workflow takes output of per sample nucleo_qc.cwl and merges to generate a single report across one or multiple samples
 label: aggregate_visualize
 $namespaces:
+  s: 'https://schema.org/'
   sbg: 'https://www.sevenbridges.com/'
 inputs:
   - id: duplex_extraction_files
@@ -161,7 +164,7 @@ steps:
         source: config
     out:
       - id: aggregate_parsed_stats
-    run: cwl-commandlinetools/cci_utils/0.2.8/general_stats_parse.cwl
+    run: cwl-commandlinetools/cci_utils/0.3.0/general_stats_parse.cwl
     label: general_stats_parse
     'sbg:x': 870.1131591796875
     'sbg:y': 520.0625
@@ -180,3 +183,19 @@ steps:
     'sbg:y': 520.0625
 requirements:
   - class: SubworkflowFeatureRequirement
+$schemas:
+  - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
+'s:author':
+  - class: 's:Person'
+    's:email': 'mailto:charlk@mskcc.org'
+    's:identifier': ''
+    's:name': Carmelina Charlambous
+'s:citation': ''
+'s:codeRepository': 'https://github.com/msk-access/nucleo'
+'s:contributor':
+  - class: 's:Person'
+    's:email': 'mailto:shahr2@mskcc.org'
+    's:identifier': 'https://orcid.org/0000-0001-9042-6213'
+    's:name': Ronak Shah
+'s:dateCreated': '2020-11-23'
+'s:license': 'https://spdx.org/licenses/Apache-2.0'
