@@ -9,8 +9,8 @@ This section will guide you in how to interpret the output from running the ACCE
 ### Table of Contents
 
 * [summary-qc-metrics.md](summary-qc-metrics.md "mention")
-* [gc-bias.md](gc-bias.md "mention")
-* [hsmetrics.md](hsmetrics.md "mention")
+* [coverage-vs-gc-content.md](coverage-vs-gc-content.md "mention")
+* [capture-metrics.md](capture-metrics.md "mention")
 * [insert-size.md](insert-size.md "mention")
 * [target-coverage-distribution.md](target-coverage-distribution.md "mention")
 * [duplex-metrics](duplex-metrics/ "mention")

@@ -1,4 +1,8 @@
-# HSMetrics
+---
+description: Validating the efficacy of the bait sets.
+---
+
+# Capture Metrics
 
 ## Introduction
 
@@ -13,4 +17,4 @@ There are several sections displaying bait set capture efficiency. Each section 
 
 ## Interpretation
 
-The aim is to have high coverage across the CMO-CH panel.
+The aim is to have high coverage across the panel.
