@@ -1,9 +1,7 @@
 class: Workflow
 cwlVersion: v1.0
-id: nucleo_qc
-doc: >-
-  This workflow generated all different quality control metrics and report for one or multiple samples
-label: nucleo_qc
+id: generate_aggregate
+label: generate_aggregate
 $namespaces:
   s: 'https://schema.org/'
   sbg: 'https://www.sevenbridges.com/'
@@ -11,47 +9,47 @@ inputs:
   - id: reference
     type: File
     'sbg:x': 0
-    'sbg:y': 747.90625
+    'sbg:y': 640.21875
   - id: target_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 106.84375
+    'sbg:y': 106.7109375
   - id: bait_intervals
     type: File
     'sbg:x': 0
-    'sbg:y': 2136.875
+    'sbg:y': 1920.609375
   - id: noise_sites_bed
     type: File
     'sbg:x': 0
-    'sbg:y': 961.59375
+    'sbg:y': 853.59375
   - id: biometrics_vcf_file
     type: File
     'sbg:x': 0
-    'sbg:y': 2030.03125
+    'sbg:y': 1813.921875
   - id: collapsed_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1923.1875
+    'sbg:y': 1707.234375
   - id: duplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1816.34375
+    'sbg:y': 1600.546875
   - id: group_reads_by_umi_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 1388.96875
+    'sbg:y': 1173.6796875
   - id: simplex_bam
     type: 'File[]'
     'sbg:x': 0
-    'sbg:y': 213.6875
+    'sbg:y': 213.421875
   - id: sample_sex
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 427.375
+    'sbg:y': 320.109375
   - id: sample_group
     type: 'string[]'
     'sbg:x': 0
-    'sbg:y': 641.0625
+    'sbg:y': 533.5078125
   - id: uncollapsed_bam_base_recal
     type: 'File[]'
     'sbg:x': 0
@@ -59,91 +57,71 @@ inputs:
   - id: sample_name
     type: 'string[]?'
     'sbg:x': 0
-    'sbg:y': 534.21875
-  - id: samples-json
-    type: File
-    'sbg:x': 0
-    'sbg:y': 320.53125
-  - id: multiqc_config
-    type: File?
-    'sbg:x': 0
-    'sbg:y': 1068.4375
+    'sbg:y': 426.796875
   - id: hotspots_maf
     type: File
     'sbg:x': 0
-    'sbg:y': 1282.125
+    'sbg:y': 1066.96875
   - id: mosdepth_bed
     type: File?
     'sbg:x': 0
-    'sbg:y': 1175.28125
+    'sbg:y': 960.28125
   - id: athena_transcript_file
     type: File?
     'sbg:x': 0
-    'sbg:y': 2350.5625
+    'sbg:y': 2133.984375
   - id: athena_build
     type: File?
     'sbg:x': 0
-    'sbg:y': 3098.46875
+    'sbg:y': 2880.890625
   - id: athena_flagstat
     type: File?
     'sbg:x': 0
-    'sbg:y': 2884.78125
+    'sbg:y': 2667.4921875
   - id: athena_thresholds
     type: 'int[]?'
     'sbg:x': 0
-    'sbg:y': 2457.40625
+    'sbg:y': 2240.671875
   - id: athena_threshold
     type: int?
     'sbg:x': 0
-    'sbg:y': 2564.25
+    'sbg:y': 2347.359375
   - id: athena_limit
     type: int?
     'sbg:x': 0
-    'sbg:y': 2777.9375
+    'sbg:y': 2560.78125
   - id: athena_summary
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2671.09375
+    'sbg:y': 2454.0703125
   - id: athena_vcf
     type: File?
     'sbg:x': 0
-    'sbg:y': 2243.71875
+    'sbg:y': 2027.296875
   - id: athena_cores
     type: int?
     'sbg:x': 0
-    'sbg:y': 2991.625
+    'sbg:y': 2774.203125
   - id: output
     type: 'string[]?'
     'sbg:exposed': true
   - id: omaf
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 854.75
+    'sbg:y': 746.90625
   - id: generic_counting
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1495.8125
+    'sbg:y': 1280.4140625
   - id: fragment_count
     type: int
     'sbg:x': 0
-    'sbg:y': 1602.65625
+    'sbg:y': 1387.1484375
   - id: filter_duplicate
     type: int
     'sbg:x': 0
-    'sbg:y': 1709.5
+    'sbg:y': 1493.859375
 outputs:
-  - id: multiqc_zip
-    outputSource:
-      - aggregate_visualize/multiqc_zip
-    type: File?
-    'sbg:x': 1599.148681640625
-    'sbg:y': 1442.390625
-  - id: multiqc_html
-    outputSource:
-      - aggregate_visualize/multiqc_html
-    type: File
-    'sbg:x': 1599.148681640625
-    'sbg:y': 1656.078125
   - id: duplex_bam_biometrics_dir
     outputSource:
       - qc_generator/duplex_bam_biometrics_dir
@@ -151,8 +129,8 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 1076.5401611328125
-    'sbg:y': 1372.390625
+    'sbg:x': 1076.5557861328125
+    'sbg:y': 1440.4453125
   - id: collapsed_bam_biometrics_dir
     outputSource:
       - qc_generator/collapsed_bam_biometrics_dir
@@ -160,14 +138,14 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 1076.5401611328125
-    'sbg:y': 1479.234375
-  - id: multiqc_output_dir
+    'sbg:x': 1076.5557861328125
+    'sbg:y': 1547.1328125
+  - id: aggregate_qc_stats
     outputSource:
-      - aggregate_visualize/multiqc_output_dir
+      - qc_aggregator/aggregate_qc_stats
     type: Directory
-    'sbg:x': 1599.148681640625
-    'sbg:y': 1549.234375
+    'sbg:x': 1585.9033203125
+    'sbg:y': 1440.421875
 steps:
   - id: qc_generator
     in:
@@ -208,9 +186,8 @@ steps:
       - id: athena_flagstat
         source: athena_flagstat
       - id: athena_thresholds
-        source: athena_thresholds
-      - id: panel_bed
-        source: mosdepth_bed
+        source:
+          - athena_thresholds
       - id: athena_threshold
         source: athena_threshold
       - id: athena_limit
@@ -246,7 +223,6 @@ steps:
       - id: duplex_biometrics_extract_pickle
       - id: collapsed_biometrics_extract_pickle
       - id: athena_coverage_report_dir
-      - id: biometrics_extract_files_dir
     run: qc_generator/nucleo_qc_generator.cwl
     label: qc_generator
     scatter:
@@ -259,9 +235,9 @@ steps:
       - sample_group
       - simplex_bam
     scatterMethod: dotproduct
-    'sbg:x': 288.796875
-    'sbg:y': 1360.234375
-  - id: aggregate_visualize
+    'sbg:x': 288.8125
+    'sbg:y': 1251.421875
+  - id: qc_aggregator
     in:
       - id: duplex_extraction_files
         source:
@@ -269,15 +245,9 @@ steps:
       - id: simplex_bam_stats_dir
         source:
           - qc_generator/simplex_bam_stats_dir
-      - id: collapsed_extraction_files
+      - id: duplex_bam_sequence_qc_dir
         source:
-          - qc_generator/collapsed_biometrics_extract_pickle
-      - id: uncollapsed_bam_stats_dir
-        source:
-          - qc_generator/uncollapsed_bam_stats_dir
-      - id: gatk_mean_quality_by_cycle_recal_dir
-        source:
-          - qc_generator/gatk_mean_quality_by_cycle_recal_dir
+          - qc_generator/duplex_bam_sequence_qc_dir
       - id: duplex_bam_stats_dir
         source:
           - qc_generator/duplex_bam_stats_dir
@@ -287,27 +257,24 @@ steps:
       - id: collapsed_bam_duplex_metrics_dir
         source:
           - qc_generator/collapsed_bam_duplex_metrics_dir
-      - id: biometrics_extract_files_dir
-        source: 
-          - qc_generator/biometrics_extract_files_dir
-      - id: samples-json
-        source: samples-json
-      - id: config
-        source: multiqc_config
-      - id: duplex_bam_sequence_qc_dir
+      - id: gatk_mean_quality_by_cycle_recal_dir
         source:
-          - qc_generator/duplex_bam_sequence_qc_dir
+          - qc_generator/gatk_mean_quality_by_cycle_recal_dir
+      - id: uncollapsed_bam_stats_dir
+        source:
+          - qc_generator/uncollapsed_bam_stats_dir
       - id: athena_coverage_report_dir
         source:
           - qc_generator/athena_coverage_report_dir
+      - id: collapsed_extraction_files
+        source:
+          - qc_generator/collapsed_biometrics_extract_pickle
     out:
-      - id: multiqc_zip
-      - id: multiqc_html
-      - id: multiqc_output_dir
-    run: ./nucleo_aggregate_visualize.cwl
-    label: aggregate_visualize
-    'sbg:x': 1076.5401611328125
-    'sbg:y': 1656.078125
+      - id: aggregate_qc_stats
+    run: qc_aggregator/nucleo_qc_aggregator.cwl
+    label: qc_aggregator
+    'sbg:x': 1076.5557861328125
+    'sbg:y': 1270.734375
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
@@ -317,9 +284,9 @@ $schemas:
   - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
 's:author':
   - class: 's:Person'
-    's:email': 'mailto:charlk@mskcc.org'
+    's:email': 'mailto:charalk@mskcc.org'
     's:identifier': ''
-    's:name': Carmelina Charlambous
+    's:name': Carmelina Charalambous
 's:citation': ''
 's:codeRepository': 'https://github.com/msk-access/nucleo'
 's:contributor':
