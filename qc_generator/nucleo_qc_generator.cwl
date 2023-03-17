@@ -224,6 +224,13 @@ outputs:
     label: collapsed_bam_biometrics_dir
     'sbg:x': 1625.7747802734375
     'sbg:y': 2136.5625
+  - id: biometrics_extract_files_dir
+    outputSource:
+      - biometrics_extract_files/directory
+    type: Directory
+    label: biometrics_extract_files_dir
+    'sbg:x': 1658.52490234375
+    'sbg:y': 2355.774658203125
   - id: collapsed_bam_duplex_metrics_dir
     outputSource:
       - collapsed_bam_duplex_metrics/directory
@@ -268,13 +275,13 @@ outputs:
     'sbg:y': 1816.078125
   - id: duplex_biometrics_extract_pickle
     outputSource:
-      - qc_duplex_bam/biometrics_extract_pickle
+      - qc_duplex_bam/duplex_biometrics_extract_pickle
     type: File
     'sbg:x': 1283.092529296875
     'sbg:y': 1216.3515625
   - id: collapsed_biometrics_extract_pickle
     outputSource:
-      - qc_collapsed_bam/biometrics_extract_pickle
+      - qc_collapsed_bam/collapsed_biometrics_extract_pickle
     type: File
     'sbg:x': 1283.092529296875
     'sbg:y': 1792.4921875
@@ -291,9 +298,11 @@ steps:
       - id: target_intervals
         source: target_intervals
       - id: collapsed_bam
-        source: collapsed_bam
+        source:
+          - collapsed_bam
       - id: group_reads_by_umi_bam
-        source: group_reads_by_umi_bam
+        source:
+          - group_reads_by_umi_bam
       - id: bait_intervals
         source: bait_intervals
       - id: json
@@ -320,8 +329,6 @@ steps:
         source: sample_group
       - id: maf
         source: hotspots_maf
-      - id: generic_counting
-        source: generic_counting
       - id: omaf
         source: omaf
       - id: filter_duplicate
@@ -330,6 +337,8 @@ steps:
       - id: fragment_count
         default: 1
         source: fragment_count
+      - id: generic_counting
+        source: generic_counting
     out:
       - id: fgbio_collect_duplex_seq_metrics_duplex_family_size
       - id: fgbio_collect_duplex_seq_metrics_duplex_qc
@@ -352,7 +361,7 @@ steps:
       - id: biometrics_major_plot
       - id: biometrics_major_json
       - id: biometrics_major_csv
-      - id: biometrics_extract_pickle
+      - id: collapsed_biometrics_extract_pickle
       - id: fillout_maf
     run: ../cwl_subworkflows/qc_collapsed_bam/qc_collapsed_bam_v2.0.cwl
     label: qc_collapsed_bam
@@ -393,7 +402,8 @@ steps:
       - id: reference
         source: reference
       - id: duplex_bam
-        source: duplex_bam
+        source:
+          - duplex_bam
       - id: target_intervals
         source: target_intervals
       - id: bait_intervals
@@ -401,7 +411,8 @@ steps:
       - id: noise_sites_bed
         source: noise_sites_bed
       - id: sample_name
-        source: sample_name
+        source:
+          - sample_name
       - id: plot
         source: biometrics_plot
       - id: json
@@ -434,16 +445,16 @@ steps:
         source: mosdepth_flag
       - id: mosdepth_minimum_mapping_quality
         source: mosdepth_minimum_mapping_quality
-      - id: generic_counting
-        source: generic_counting
       - id: omaf
         source: omaf
-      - id: filter_duplicate
-        default: 0
-        source: filter_duplicate
+      - id: generic_counting
+        source: generic_counting
       - id: fragment_count
         default: 1
         source: fragment_count
+      - id: filter_duplicate
+        default: 0
+        source: filter_duplicate
     out:
       - id: sequence_qc_noise_positions
       - id: sequence_qc_noise_n
@@ -458,7 +469,7 @@ steps:
       - id: gatk_collect_insert_size_metrics_txt
       - id: sequence_qc_pileup
       - id: sequence_qc_noise_by_substitution
-      - id: biometrics_extract_pickle
+      - id: duplex_biometrics_extract_pickle
       - id: biometrics_minor_sites_plot
       - id: biometrics_minor_plot
       - id: biometrics_minor_json
@@ -595,7 +606,8 @@ steps:
         source:
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_umi_counts
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_family_size
-          - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
+          - >-
+            qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_qc
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex
           - qc_collapsed_bam/fgbio_collect_duplex_seq_metrics_duplex_family_size
@@ -622,7 +634,6 @@ steps:
           - qc_collapsed_bam/biometrics_major_plot
           - qc_collapsed_bam/biometrics_major_json
           - qc_collapsed_bam/biometrics_major_csv
-          - qc_collapsed_bam/biometrics_extract_pickle
           - qc_collapsed_bam/biometrics_minor_sites_plot
           - qc_collapsed_bam/biometrics_sexmismatch_csv
           - qc_collapsed_bam/biometrics_sexmismatch_json
@@ -635,6 +646,22 @@ steps:
     label: collapsed_bam_biometrics
     'sbg:x': 1283.092529296875
     'sbg:y': 2254.8046875
+  - id: biometrics_extract_files
+    in:
+      - id: files
+        linkMerge: merge_flattened
+        source:
+          - qc_collapsed_bam/collapsed_biometrics_extract_pickle
+          - qc_duplex_bam/duplex_biometrics_extract_pickle
+      - id: output_directory_name
+        default: biometrics_extract_files
+        source: sample_name
+    out:
+      - id: directory
+    run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    label: biometrics_extract_files
+    'sbg:x': 1290.449951171875
+    'sbg:y': 2410.44970703125
   - id: duplex_bam_sequence_qc
     in:
       - id: files
@@ -703,7 +730,6 @@ steps:
           - qc_duplex_bam/biometrics_minor_json
           - qc_duplex_bam/biometrics_minor_plot
           - qc_duplex_bam/biometrics_minor_sites_plot
-          - qc_duplex_bam/biometrics_extract_pickle
       - id: output_directory_name
         default: duplex_bam_biometrics
         source: sample_name
@@ -742,8 +768,10 @@ steps:
     'sbg:y': 1215.59375
 requirements:
   - class: SubworkflowFeatureRequirement
-  - class: MultipleInputFeatureRequirement
+  - class: ScatterFeatureRequirement
   - class: StepInputExpressionRequirement
+  - class: InlineJavascriptRequirement
+  - class: MultipleInputFeatureRequirement
 $schemas:
   - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
 's:author':

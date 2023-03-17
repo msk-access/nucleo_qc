@@ -246,6 +246,7 @@ steps:
       - id: duplex_biometrics_extract_pickle
       - id: collapsed_biometrics_extract_pickle
       - id: athena_coverage_report_dir
+      - id: biometrics_extract_files_dir
     run: qc_generator/nucleo_qc_generator.cwl
     label: qc_generator
     scatter:
@@ -286,6 +287,9 @@ steps:
       - id: collapsed_bam_duplex_metrics_dir
         source:
           - qc_generator/collapsed_bam_duplex_metrics_dir
+      - id: biometrics_extract_files_dir
+        source: 
+          - qc_generator/biometrics_extract_files_dir
       - id: samples-json
         source: samples-json
       - id: config
