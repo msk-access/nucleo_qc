@@ -54,3 +54,9 @@ uncollapsed_bam_stats_dir:
   path: test_data/all_qc_files/uncollapsed_bam_stats_dir/Myeloid200-1-05500HJ_P20/
 - class: Directory
   path: test_data/all_qc_files/uncollapsed_bam_stats_dir/Myeloid200-2-05500HJ_P20/
+biometrics_extract_files_dir:
+- class: Directory
+  path: test_data/all_qc_files/biometrics_extract_files_dir/Myeloid200-1-05500HJ_P20/
+- class: Directory
+  path: test_data/all_qc_files/biometrics_extract_files_dir/Myeloid200-2-05500HJ_P20/
+
