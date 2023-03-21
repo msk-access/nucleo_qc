@@ -76,6 +76,16 @@ inputs:
     label: collapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 1495.8125
+  - id: biometrics_extract_files_dir
+    type:
+      type: array
+      items:
+        - File
+        - Directory
+        - 'null'
+    label: biometrics_extract_files_dir
+    'sbg:x': 0
+    'sbg:y': 1495.8125
   - id: collapsed_bam_duplex_metrics_dir
     type:
       type: array
@@ -213,6 +223,7 @@ steps:
           - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
           - athena_coverage_report_dir
+          - biometrics_extract_files_dir
       - id: output_directory_name
         default:
           - simplex_bam_stats_dir
@@ -223,6 +234,7 @@ steps:
           - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
           - athena_coverage_report_dir
+          - biometrics_extract_files_dir
     out:
       - id: directory
     run: ../cwl-commandlinetools/expression_tools/put_in_dir.cwl
