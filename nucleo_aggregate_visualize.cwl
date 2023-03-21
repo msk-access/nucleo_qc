@@ -2,7 +2,8 @@ class: Workflow
 cwlVersion: v1.0
 id: aggregate_visualize
 doc: >-
-  This workflow takes output of per sample nucleo_qc.cwl and merges to generate a single report across one or multiple samples
+  This workflow takes output of per sample nucleo_qc.cwl and merges to generate
+  a single report across one or multiple samples
 label: aggregate_visualize
 $namespaces:
   s: 'https://schema.org/'
@@ -61,6 +62,16 @@ inputs:
         - 'null'
     'sbg:x': 0
     'sbg:y': 854.5
+  - id: biometrics_extract_files_dir
+    type:
+      type: array
+      items:
+        - File
+        - Directory
+        - 'null'
+    label: biometrics_extract_files_dir
+    'sbg:x': -23.278732299804688
+    'sbg:y': 1215.6552734375
   - id: collapsed_bam_duplex_metrics_dir
     type:
       type: array
@@ -85,8 +96,8 @@ inputs:
     'sbg:y': 213.625
   - id: config
     type: File?
-    'sbg:x': 360.765625
-    'sbg:y': 587.46875
+    'sbg:x': 390.9977111816406
+    'sbg:y': 758.3030395507812
   - id: duplex_bam_sequence_qc_dir
     type:
       type: array
@@ -133,6 +144,9 @@ steps:
       - id: collapsed_bam_stats_dir
         source:
           - collapsed_bam_stats_dir
+      - id: biometrics_extract_files_dir
+        source:
+          - biometrics_extract_files_dir
       - id: collapsed_bam_duplex_metrics_dir
         source:
           - collapsed_bam_duplex_metrics_dir
@@ -152,8 +166,8 @@ steps:
       - id: aggregate_qc_stats
     run: qc_aggregator/nucleo_qc_aggregator.cwl
     label: qc_aggregator
-    'sbg:x': 360.765625
-    'sbg:y': 417.65625
+    'sbg:x': 475.1567077636719
+    'sbg:y': 495.0506591796875
   - id: general_stats_parse
     in:
       - id: directory
