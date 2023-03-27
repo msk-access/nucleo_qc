@@ -129,8 +129,8 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 1076.5557861328125
-    'sbg:y': 1440.4453125
+    'sbg:x': 803.9111938476562
+    'sbg:y': 1306.364990234375
   - id: collapsed_bam_biometrics_dir
     outputSource:
       - qc_generator/collapsed_bam_biometrics_dir
@@ -138,14 +138,21 @@ outputs:
       - Directory
       - type: array
         items: Directory
-    'sbg:x': 1076.5557861328125
-    'sbg:y': 1547.1328125
+    'sbg:x': 1076
+    'sbg:y': 1603.4080810546875
   - id: aggregate_qc_stats
     outputSource:
       - qc_aggregator/aggregate_qc_stats
     type: Directory
     'sbg:x': 1585.9033203125
     'sbg:y': 1440.421875
+  - id: pickle_files_dir
+    outputSource:
+      - pickle_files/directory
+    type: Directory
+    label: pickle_files_dir
+    'sbg:x': 1582
+    'sbg:y': 993
 steps:
   - id: qc_generator
     in:
@@ -220,9 +227,10 @@ steps:
       - id: duplex_bam_sequence_qc_dir
       - id: duplex_bam_stats_dir
       - id: duplex_bam_biometrics_dir
+      - id: athena_coverage_report_dir
       - id: duplex_biometrics_extract_pickle
       - id: collapsed_biometrics_extract_pickle
-      - id: athena_coverage_report_dir
+      - id: biometrics_extract_files_dir
     run: qc_generator/nucleo_qc_generator.cwl
     label: qc_generator
     scatter:
@@ -254,6 +262,9 @@ steps:
       - id: collapsed_bam_stats_dir
         source:
           - qc_generator/collapsed_bam_stats_dir
+      - id: biometrics_extract_files_dir
+        source: 
+          - qc_generator/biometrics_extract_files_dir
       - id: collapsed_bam_duplex_metrics_dir
         source:
           - qc_generator/collapsed_bam_duplex_metrics_dir
@@ -275,11 +286,27 @@ steps:
     label: qc_aggregator
     'sbg:x': 1076.5557861328125
     'sbg:y': 1270.734375
+  - id: pickle_files
+    in:
+      - id: files
+        linkMerge: merge_flattened
+        source:
+          - qc_generator/collapsed_biometrics_extract_pickle
+          - qc_generator/duplex_biometrics_extract_pickle
+      - id: output_directory_name
+        default: pickle_files
+    out:
+      - id: directory
+    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
+    label: pickle_files
+    'sbg:x': 1283.092529296875
+    'sbg:y': 981.6953125
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
   - class: StepInputExpressionRequirement
   - class: InlineJavascriptRequirement
+  - class: MultipleInputFeatureRequirement
 $schemas:
   - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
 's:author':
