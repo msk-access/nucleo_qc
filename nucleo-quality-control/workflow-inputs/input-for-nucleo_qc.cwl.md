@@ -87,10 +87,6 @@ uncollapsed_bam_base_recal:
     secondaryFiles:
       - path: /juno/work/access/production/runs/voyager/staging/cmo_ch_nucelo/07cc97f0-c83b-41a2-a308-debdd6404968/C-T496P0-N001-d01_uncollapsed_BR.bai
         class: File
-
-
-
-
 ```
 {% endcode %}
 
@@ -99,7 +95,7 @@ uncollapsed_bam_base_recal:
 ### Option 2: Input.yml example to run workflow without mosdepth/athena&#x20;
 
 {% code title="inputs.yaml" %}
-```
+```yaml
 omaf: true
 output: null
 reference:
@@ -167,8 +163,5 @@ uncollapsed_bam_base_recal:
     secondaryFiles:
       - path: /juno/work/access/production/runs/voyager/staging/cmo_ch_nucelo/07cc97f0-c83b-41a2-a308-debdd6404968/C-T496P0-N001-d01_uncollapsed_BR.bai
         class: File
-
-
-
 ```
 {% endcode %}
