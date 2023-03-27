@@ -3,7 +3,7 @@
 ### Option 1: Input.yml example to run workflow enable mosdepth/athena to create coverage reports
 
 {% code title="inputs.yaml" %}
-```
+```yaml
 omaf: true
 output: null
 reference:
