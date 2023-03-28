@@ -7,3 +7,4 @@ twine
 pytest
 pytest-runner
 coloredlogs
+cwltool==3.1.20220628170238
