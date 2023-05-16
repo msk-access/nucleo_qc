@@ -44,6 +44,8 @@ jobs:
             - name: Install Test data 
               run: |
                   bash install_data.sh
+                  cd cwl-commandlinetools
+                  git checkout hotfix/athena_inputs
             - name: Pytest
               run: |
                   tox -vv
