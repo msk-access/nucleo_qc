@@ -339,8 +339,6 @@ steps:
         source: sample_group
       - id: maf
         source: hotspots_maf
-      - id: bed_file
-        source: biometrics_bed_file
       - id: omaf
         source: omaf
       - id: filter_duplicate
@@ -529,7 +527,7 @@ steps:
       - id: cores
         source: athena_cores
     out:
-      - id: coverage_report
+      - id: coverage_report_single
     run: ../cwl_subworkflows/athena_report/athena_report.cwl
     label: athena_report
     'sbg:x': 1382.922119140625
@@ -781,6 +779,9 @@ steps:
     'sbg:y': 1215.59375
 requirements:
   - class: SubworkflowFeatureRequirement
+  - class: ScatterFeatureRequirement
+  - class: StepInputExpressionRequirement
+  - class: InlineJavascriptRequirement
   - class: MultipleInputFeatureRequirement
 $schemas:
   - 'http://schema.org/version/latest/schemaorg-current-http.rdf'
