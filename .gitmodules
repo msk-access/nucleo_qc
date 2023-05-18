@@ -1,8 +1,8 @@
 [submodule "cwl-commandlinetools"]
 	path = cwl-commandlinetools
 	url = https://github.com/msk-access/cwl-commandlinetools.git
-	branch = hotfix/athena_inputs
+
 [submodule "cwl_subworkflows"]
 	path = cwl_subworkflows
 	url = https://github.com/msk-access/cwl_subworkflows.git
-	branch = hotfix/athena
+	
