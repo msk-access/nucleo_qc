@@ -2,6 +2,6 @@ coloredlogs==15.0.1
 pytest==7.2.0
 setuptools==65.4.1
 cwltool==3.1.20230425144158
-toil[cwl] @ git+https://github.com/DataBiosphere/toil.git
+git+https://github.com/mskcc/toil.git@5.4.2#egg=toil[cwl]
 pytest-runner==6.0.0
 tox==3.27.1

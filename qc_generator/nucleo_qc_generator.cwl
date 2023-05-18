@@ -192,7 +192,7 @@ inputs:
     'sbg:x': 386.90625
     'sbg:y': 2449.734375
   - id: output
-    type: string?
+    type: 'string[]?'
     'sbg:exposed': true
   - id: omaf
     type: boolean?
