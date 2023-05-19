@@ -511,8 +511,7 @@ steps:
       - id: sample_name
         source: sample_name
       - id: output
-        source:
-          - output
+        source: output
       - id: limit
         source: athena_limit
       - id: summary
