@@ -95,6 +95,10 @@ inputs:
     doc: Also output data in JSON format.
     'sbg:x': 0
     'sbg:y': 2777.53125
+  - id: biometrics_bed_file
+    type: File?
+    'sbg:x': -423.2972106933594
+    'sbg:y': 2095.491455078125
   - id: collapsed_biometrics_minor_threshold
     type: float?
     label: collapsed_biometrics_minor_threshold
@@ -145,8 +149,8 @@ inputs:
     'sbg:y': 1922.90625
   - id: mosdepth_bed
     type: File?
-    'sbg:x': 0
-    'sbg:y': 1495.59375
+    'sbg:x': -359.3104248046875
+    'sbg:y': 1495
   - id: mosdepth_flag
     type: int?
     'sbg:x': 0
@@ -200,8 +204,12 @@ inputs:
     type: boolean?
   - id: fragment_count
     type: int
+    'sbg:x': 300.2456970214844
+    'sbg:y': 0
   - id: filter_duplicate
     type: int
+    'sbg:x': 170.50595092773438
+    'sbg:y': -103.53236389160156
 outputs:
   - id: uncollapsed_bam_stats_dir
     outputSource:
@@ -309,6 +317,8 @@ steps:
         source: biometrics_json
       - id: plot
         source: biometrics_plot
+      - id: bed_file
+        source: biometrics_bed_file
       - id: minor_threshold
         source: collapsed_biometrics_minor_threshold
       - id: coverage_threshold
@@ -519,8 +529,8 @@ steps:
       - id: coverage_report_single
     run: ../cwl_subworkflows/athena_report/athena_report.cwl
     label: athena_report
-    'sbg:x': 1378
-    'sbg:y': 2784
+    'sbg:x': 1382.922119140625
+    'sbg:y': 2798.76611328125
   - id: simplex_bam_stats
     in:
       - id: files
