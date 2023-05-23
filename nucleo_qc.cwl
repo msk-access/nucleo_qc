@@ -28,6 +28,10 @@ inputs:
     type: File
     'sbg:x': 0
     'sbg:y': 2030.03125
+  - id: biometrics_bed_file
+    type: File
+    'sbg:x': 0
+    'sbg:y': 2030.03125
   - id: collapsed_bam
     type: 'File[]'
     'sbg:x': 0
@@ -197,6 +201,8 @@ steps:
         source: simplex_bam
       - id: vcf_file
         source: biometrics_vcf_file
+      - id: biometrics_bed_file
+        source: biometrics_bed_file
       - id: hotspots_maf
         source: hotspots_maf
       - id: mosdepth_bed

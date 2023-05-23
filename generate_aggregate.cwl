@@ -26,6 +26,10 @@ inputs:
     type: File
     'sbg:x': 0
     'sbg:y': 1813.921875
+  - id: biometrics_bed_file
+    type: File
+    'sbg:x': 0
+    'sbg:y': 1813.921875
   - id: collapsed_bam
     type: 'File[]'
     'sbg:x': 0
@@ -146,13 +150,6 @@ outputs:
     type: Directory
     'sbg:x': 1585.9033203125
     'sbg:y': 1440.421875
-  - id: pickle_files_dir
-    outputSource:
-      - pickle_files/directory
-    type: Directory
-    label: pickle_files_dir
-    'sbg:x': 1582
-    'sbg:y': 993
 steps:
   - id: qc_generator
     in:
@@ -182,6 +179,8 @@ steps:
         source: simplex_bam
       - id: vcf_file
         source: biometrics_vcf_file
+      - id: biometrics_bed_file
+        source: biometrics_bed_file
       - id: hotspots_maf
         source: hotspots_maf
       - id: mosdepth_bed
@@ -286,21 +285,6 @@ steps:
     label: qc_aggregator
     'sbg:x': 1076.5557861328125
     'sbg:y': 1270.734375
-  - id: pickle_files
-    in:
-      - id: files
-        linkMerge: merge_flattened
-        source:
-          - qc_generator/collapsed_biometrics_extract_pickle
-          - qc_generator/duplex_biometrics_extract_pickle
-      - id: output_directory_name
-        default: pickle_files
-    out:
-      - id: directory
-    run: cwl-commandlinetools/expression_tools/put_in_dir.cwl
-    label: pickle_files
-    'sbg:x': 1283.092529296875
-    'sbg:y': 981.6953125
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
