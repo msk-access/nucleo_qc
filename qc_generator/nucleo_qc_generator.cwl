@@ -340,6 +340,7 @@ steps:
       - id: maf
         source: hotspots_maf
       - id: omaf
+        default: true
         source: omaf
       - id: filter_duplicate
         default: 0
