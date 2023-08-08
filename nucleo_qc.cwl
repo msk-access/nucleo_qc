@@ -230,6 +230,7 @@ steps:
       - id: output
         source: output
       - id: omaf
+        default: true
         source: omaf
       - id: generic_counting
         source: generic_counting
@@ -294,7 +295,7 @@ steps:
         source:
           - qc_generator/collapsed_bam_duplex_metrics_dir
       - id: biometrics_extract_files_dir
-        source: 
+        source:
           - qc_generator/biometrics_extract_files_dir
       - id: samples-json
         source: samples-json
