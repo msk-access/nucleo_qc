@@ -635,16 +635,12 @@ steps:
       - id: files
         linkMerge: merge_flattened
         source:
-          - qc_collapsed_bam/biometrics_sexmismatch_json
-          - qc_collapsed_bam/biometrics_sexmismatch_csv
-          - qc_collapsed_bam/biometrics_minor_sites_plot
           - qc_collapsed_bam/biometrics_minor_plot
           - qc_collapsed_bam/biometrics_minor_json
           - qc_collapsed_bam/biometrics_minor_csv
           - qc_collapsed_bam/biometrics_major_plot
           - qc_collapsed_bam/biometrics_major_json
           - qc_collapsed_bam/biometrics_major_csv
-          - qc_collapsed_bam/biometrics_minor_sites_plot
           - qc_collapsed_bam/biometrics_sexmismatch_csv
           - qc_collapsed_bam/biometrics_sexmismatch_json
       - id: output_directory_name
