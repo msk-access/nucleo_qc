@@ -223,7 +223,6 @@ steps:
           - biometrics_extract_files_dir
         valueFrom: |
           ${
-            # Only rename the Athena directory (last item in the list)
             return self.map((d, i) => {
               if (i === 7 && d && d.basename) {
                 d.basename = d.basename + "_athena";
