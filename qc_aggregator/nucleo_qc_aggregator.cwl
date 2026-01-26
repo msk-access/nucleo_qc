@@ -221,6 +221,16 @@ steps:
           - duplex_bam_sequence_qc_dir
           - athena_coverage_report_dir
           - biometrics_extract_files_dir
+        valueFrom: |
+          ${
+            # Only rename the Athena directory (last item in the list)
+            return self.map((d, i) => {
+              if (i === 7 && d && d.basename) {
+                d.basename = d.basename + "_athena";
+              }
+              return d;
+            });
+          }
       - id: output_directory_name
         default:
           - simplex_bam_stats_dir
