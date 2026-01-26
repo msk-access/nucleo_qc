@@ -116,13 +116,6 @@ inputs:
     label: uncollapsed_bam_stats_dir
     'sbg:x': 0
     'sbg:y': 0
-  - id: athena_coverage_report_dir
-    type:
-      type: array
-      items: Directory
-    label: athena_coverage_report_dir
-    'sbg:x': 0
-    'sbg:y': 0
   - id: biometrics_threads
     type: int?
     label: biometrics_threads
@@ -219,17 +212,7 @@ steps:
           - gatk_mean_quality_by_cycle_recal_dir
           - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
-          - athena_coverage_report_dir
           - biometrics_extract_files_dir
-        valueFrom: |
-          ${
-            return self.map((d, i) => {
-              if (i === 7 && d && d.basename) {
-                d.basename = d.basename + "_athena";
-              }
-              return d;
-            });
-          }
       - id: output_directory_name
         default:
           - simplex_bam_stats_dir
@@ -239,7 +222,6 @@ steps:
           - gatk_mean_quality_by_cycle_recal_dir
           - uncollapsed_bam_stats_dir
           - duplex_bam_sequence_qc_dir
-          - athena_coverage_report_dir
           - biometrics_extract_files_dir
     out:
       - id: directory
