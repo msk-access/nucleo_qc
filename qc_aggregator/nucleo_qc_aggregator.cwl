@@ -119,7 +119,10 @@ inputs:
   - id: athena_coverage_report_dir
     type:
       type: array
-      items: Directory
+      items:
+        - File
+        - Directory
+        - 'null'
     label: athena_coverage_report_dir
     'sbg:x': 0
     'sbg:y': 0
