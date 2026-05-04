@@ -436,3 +436,6 @@ steps:
 requirements:
   - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
+  - class: ResourceRequirement
+    outdirMin: 51200
+    tmpdirMin: 51200
